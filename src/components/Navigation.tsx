@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface NavigationProps {
   activeSection: string
@@ -54,16 +55,24 @@ export default function Navigation({ activeSection }: NavigationProps) {
           <div className="flex justify-between items-center py-4">
             
             {/* Logo */}
-            <motion.div
-              className="flex items-center space-x-3"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">Y</span>
-              </div>
-              <span className="text-white font-bold text-xl tracking-tight">YUNICITY</span>
-            </motion.div>
+            <Link href="/">
+              <motion.div
+                className="flex items-center space-x-3 cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="w-10 h-10 rounded-lg overflow-hidden">
+                  <Image 
+                    src="/yunicity-logo.png" 
+                    alt="Yunicity Logo" 
+                    width={40} 
+                    height={40}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span className="text-white font-bold text-xl tracking-tight">YUNICITY</span>
+              </motion.div>
+            </Link>
 
             {/* Navigation Desktop */}
             <div className="hidden lg:flex items-center space-x-8">

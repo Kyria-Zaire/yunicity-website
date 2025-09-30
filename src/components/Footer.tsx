@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Instagram, Linkedin, Facebook, Heart, Rocket } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -61,8 +62,14 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">Y</span>
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-white/5">
+                <Image 
+                  src="/yunicity-logo.png" 
+                  alt="Yunicity Logo" 
+                  width={48} 
+                  height={48}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-white font-bold text-2xl tracking-tight">YUNICITY</span>
             </div>

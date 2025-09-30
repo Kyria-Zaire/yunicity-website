@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     siteName: 'YUNICITY',
     images: [
       {
-        url: '/og-image.png',
+        url: '/yunicity-logo.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'YUNICITY - Super-app locale',
       },
     ],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "YUNICITY - La Super-App Locale",
     description: "Reconnectez-vous à votre territoire. Lancement Mars 2026.",
-    images: ['/twitter-image.png'],
+    images: ['/yunicity-logo.png'],
   },
   robots: {
     index: true,
@@ -70,8 +70,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/yunicity-logo.png" />
+        <link rel="apple-touch-icon" href="/yunicity-logo.png" />
         <meta name="theme-color" content="#8B5CF6" />
       </head>
       <body
