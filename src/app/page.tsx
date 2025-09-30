@@ -6,7 +6,6 @@ import Navigation from '@/components/Navigation'
 import ProblemeSection from '@/components/ProblemeSection'
 import SolutionSection from '@/components/SolutionSection'
 import DecouverteReimsSection from '@/components/DecouverteReimsSection'
-import MarcheSection from '@/components/MarcheSection'
 import EquipeSection from '@/components/EquipeSection'
 import NewsletterSection from '@/components/NewsletterSection'
 import Footer from '@/components/Footer'
@@ -19,7 +18,6 @@ export default function Home() {
   const { ref: problemeRef, inView: problemeInView } = useInView({ threshold: 0.3 })
   const { ref: solutionRef, inView: solutionInView } = useInView({ threshold: 0.3 })
   const { ref: demoRef, inView: demoInView } = useInView({ threshold: 0.3 })
-  const { ref: marcheRef, inView: marcheInView } = useInView({ threshold: 0.3 })
   const { ref: equipeRef, inView: equipeInView } = useInView({ threshold: 0.3 })
   const { ref: newsletterRef, inView: newsletterInView } = useInView({ threshold: 0.3 })
 
@@ -28,10 +26,9 @@ export default function Home() {
     else if (problemeInView) setActiveSection('probleme')
     else if (solutionInView) setActiveSection('solution')
     else if (demoInView) setActiveSection('demo')
-    else if (marcheInView) setActiveSection('marche')
     else if (equipeInView) setActiveSection('equipe')
     else if (newsletterInView) setActiveSection('newsletter')
-  }, [heroInView, problemeInView, solutionInView, demoInView, marcheInView, equipeInView, newsletterInView])
+  }, [heroInView, problemeInView, solutionInView, demoInView, equipeInView, newsletterInView])
 
   return (
     <div className="min-h-screen">
@@ -51,10 +48,6 @@ export default function Home() {
 
       <div ref={demoRef} id="demo">
         <DecouverteReimsSection />
-      </div>
-
-      <div ref={marcheRef} id="marche">
-        <MarcheSection />
       </div>
 
       <div ref={equipeRef} id="equipe">

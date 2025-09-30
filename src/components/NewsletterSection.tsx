@@ -490,7 +490,7 @@ export default function NewsletterSection() {
           <h2 className="text-5xl lg:text-8xl font-black text-white mb-8 leading-tight">
             Devenez
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
-              FONDATEUR
+              Ambassadeur
             </span>
             Yunicity
           </h2>

@@ -448,47 +448,6 @@ export default function DecouverteReimsSection() {
             </motion.div>
           </div>
         </div>
-
-        {/* CTA style routard */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="text-center mt-20"
-        >
-          <div className="relative bg-gradient-to-br from-amber-500/10 via-orange-500/10 to-red-500/10 backdrop-blur-xl rounded-3xl border-2 border-amber-400/20 p-12 max-w-4xl mx-auto overflow-hidden">
-            
-            {/* Tampon routard géant */}
-            <div className="absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-full border-4 border-red-400/30 flex items-center justify-center transform rotate-12">
-              <div className="text-center">
-                <div className="text-red-300 font-black text-lg">REIMS</div>
-                <div className="text-red-400 font-bold text-xs">APPROUVÉ</div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <h3 className="text-4xl font-bold text-white mb-6 flex items-center justify-center">
-                <span className="mr-3">🗺️</span>
-                Votre Guide Personnel Arrive
-                <span className="ml-3">📍</span>
-              </h3>
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                Mars 2026 : <span className="text-amber-300 font-semibold">Yunicity</span> transforme Reims en livre ouvert.
-                <br />
-                Découvertes, secrets, communauté... tout dans votre poche !
-              </p>
-              
-              <motion.a
-                href="#newsletter"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(251, 146, 60, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-full text-white font-bold text-lg shadow-xl border-2 border-amber-400/50 inline-block"
-              >
-                🚀 Rejoindre la Liste VIP
-              </motion.a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

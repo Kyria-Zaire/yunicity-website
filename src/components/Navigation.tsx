@@ -18,7 +18,6 @@ export default function Navigation({ activeSection }: NavigationProps) {
     { id: 'probleme', label: 'Problème' },
     { id: 'solution', label: 'Solution' },
     { id: 'demo', label: 'Ville' },
-    { id: 'marche', label: 'Marché' },
     { id: 'equipe', label: 'Équipe' },
     { id: 'newsletter', label: 'Newsletter' },
   ]
