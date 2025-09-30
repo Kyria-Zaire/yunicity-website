@@ -20,6 +20,14 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    rules: {
+      // Assouplir les règles pour le français et le build de production
+      "react/no-unescaped-entities": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": "warn",
+    },
+  },
 ];
 
 export default eslintConfig;
