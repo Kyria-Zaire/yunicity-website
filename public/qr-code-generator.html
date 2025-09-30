@@ -5,73 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Générateur QR Code YUNICITY</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      margin: 0;
       padding: 20px;
     }
+    
     .container {
       background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      padding: 50px;
+      border-radius: 24px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.4);
       text-align: center;
-      max-width: 500px;
+      max-width: 600px;
+      width: 100%;
     }
+    
     h1 {
-      color: #8B5CF6;
-      margin-bottom: 10px;
-      font-size: 2.5rem;
+      background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 800;
     }
-    p {
+    
+    .subtitle {
       color: #666;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
+      margin-bottom: 40px;
+      font-size: 1.2rem;
     }
-    #qrcode {
-      margin: 30px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
+    
+    #qrcode-container {
+      margin: 40px auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+      border-radius: 20px;
       display: inline-block;
+      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
     }
+    
+    #qrcode {
+      display: inline-block;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+    }
+    
+    .info {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 30px 0;
+      font-size: 15px;
+      color: #1e40af;
+      font-weight: 500;
+      word-break: break-all;
+    }
+    
     .buttons {
       display: flex;
       gap: 15px;
       justify-content: center;
-      margin-top: 30px;
       flex-wrap: wrap;
+      margin-top: 30px;
     }
+    
     button {
       background: linear-gradient(135deg, #8B5CF6, #3B82F6);
       color: white;
       border: none;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: 600;
-      transition: transform 0.2s;
+      font-size: 15px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
     }
+    
     button:hover {
-      transform: scale(1.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
     }
+    
     .print-button {
       background: linear-gradient(135deg, #10b981, #059669);
     }
-    .info {
-      background: #f0f9ff;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #0369a1;
-      word-break: break-all;
+    
+    .footer-text {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #999;
+      font-style: italic;
+    }
+
+    .brand {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #e5e7eb;
+      color: #8B5CF6;
+      font-weight: 600;
     }
     
     /* Styles d'impression */
@@ -81,27 +127,46 @@
         padding: 0;
         margin: 0;
       }
+      
       .container {
         box-shadow: none;
         border-radius: 0;
         max-width: 100%;
-        padding: 20px;
+        padding: 40px;
       }
+      
       .buttons {
         display: none !important;
       }
+      
+      .footer-text {
+        display: none !important;
+      }
+      
       h1 {
-        font-size: 2rem;
-        page-break-after: avoid;
+        font-size: 2.5rem;
+        color: #8B5CF6;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
-      #qrcode {
-        page-break-inside: avoid;
-        margin: 20px auto;
+      
+      #qrcode-container {
+        margin: 30px auto;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
+      
       .info {
-        page-break-before: avoid;
+        font-size: 18px;
+        padding: 15px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      
+      .brand {
         font-size: 16px;
-        padding: 10px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
     }
   </style>
@@ -109,12 +174,14 @@
 <body>
   <div class="container">
     <h1>🚀 QR Code YUNICITY</h1>
-    <p>Scannez pour accéder au site !</p>
+    <p class="subtitle">Scannez pour accéder au site !</p>
     
-    <div id="qrcode"></div>
+    <div id="qrcode-container">
+      <div id="qrcode"></div>
+    </div>
     
     <div class="info">
-      <strong>URL :</strong> https://yunicity-website.vercel.app/
+      <strong>🌐 URL :</strong> https://yunicity-website.vercel.app/
     </div>
     
     <div class="buttons">
@@ -123,75 +190,78 @@
       <button onclick="downloadSVG()">📄 Télécharger SVG</button>
     </div>
     
-    <p style="margin-top: 30px; font-size: 12px; color: #999;">
+    <p class="footer-text">
       Parfait pour vos cartes de visite, flyers, présentations !
     </p>
+    
+    <div class="brand">
+      ❤️ Fait avec passion pour YUNICITY
+    </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    // Générer le QR Code avec logo au centre
-    async function generateQRCode() {
-      const canvas = document.createElement('canvas');
-      const qrContainer = document.getElementById("qrcode");
+    // Fonction pour générer le QR Code avec logo
+    function generateQRWithLogo() {
+      const qrcodeDiv = document.getElementById("qrcode");
       
-      // Générer le QR code
-      await QRCode.toCanvas(canvas, "https://yunicity-website.vercel.app/", {
-        width: 400,
-        margin: 2,
-        color: {
-          dark: '#8B5CF6',
-          light: '#ffffff'
-        },
-        errorCorrectionLevel: 'H' // Haute correction pour permettre le logo au centre
+      // Générer le QR code basique
+      const qr = new QRCode(qrcodeDiv, {
+        text: "https://yunicity-website.vercel.app/",
+        width: 350,
+        height: 350,
+        colorDark: "#8B5CF6",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H // Haute correction d'erreur
       });
 
-      // Créer un nouveau canvas pour ajouter le logo
-      const finalCanvas = document.createElement('canvas');
-      finalCanvas.width = 400;
-      finalCanvas.height = 400;
-      const ctx = finalCanvas.getContext('2d');
-
-      // Dessiner le QR code
-      ctx.drawImage(canvas, 0, 0);
-
-      // Ajouter le logo au centre
-      const logo = new Image();
-      logo.onload = function() {
-        const logoSize = 80; // Taille du logo
-        const logoX = (finalCanvas.width - logoSize) / 2;
-        const logoY = (finalCanvas.height - logoSize) / 2;
-        
-        // Fond blanc pour le logo
-        ctx.fillStyle = 'white';
-        ctx.fillRect(logoX - 10, logoY - 10, logoSize + 20, logoSize + 20);
-        
-        // Dessiner le logo
-        ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
-        
-        // Ajouter au DOM
-        qrContainer.innerHTML = '';
-        qrContainer.appendChild(finalCanvas);
-      };
-      logo.src = '/yunicity-logo.png';
+      // Attendre que le QR soit généré puis ajouter le logo
+      setTimeout(() => {
+        const canvas = qrcodeDiv.querySelector('canvas');
+        if (canvas) {
+          const ctx = canvas.getContext('2d');
+          
+          // Charger et dessiner le logo au centre
+          const logo = new Image();
+          logo.crossOrigin = "anonymous";
+          logo.onload = function() {
+            const logoSize = 70;
+            const x = (canvas.width - logoSize) / 2;
+            const y = (canvas.height - logoSize) / 2;
+            
+            // Fond blanc circulaire pour le logo
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(canvas.width/2, canvas.height/2, logoSize/2 + 8, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Dessiner le logo
+            ctx.drawImage(logo, x, y, logoSize, logoSize);
+          };
+          logo.src = '/yunicity-logo.png';
+        }
+      }, 100);
     }
 
-    // Appeler au chargement de la page
-    window.onload = generateQRCode;
+    // Générer au chargement
+    window.addEventListener('load', generateQRWithLogo);
 
     // Télécharger en PNG
     function downloadQR() {
       const canvas = document.querySelector('#qrcode canvas');
-      const url = canvas.toDataURL("image/png");
-      const link = document.createElement('a');
-      link.download = 'yunicity-qr-code-premium.png';
-      link.href = url;
-      link.click();
+      if (canvas) {
+        const url = canvas.toDataURL("image/png");
+        const link = document.createElement('a');
+        link.download = 'yunicity-qr-code-premium.png';
+        link.href = url;
+        link.click();
+      } else {
+        alert('Erreur: QR code non généré. Rechargez la page.');
+      }
     }
 
-    // Télécharger en SVG (via API avec logo)
+    // Télécharger en SVG
     function downloadSVG() {
-      alert('Pour un SVG avec logo, téléchargez le PNG et convertissez-le, ou utilisez qrcode-monkey.com avec upload du logo !');
       const url = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent('https://yunicity-website.vercel.app/')}&color=8B5CF6&bgcolor=ffffff&format=svg`;
       const link = document.createElement('a');
       link.download = 'yunicity-qr-code.svg';
