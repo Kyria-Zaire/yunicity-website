@@ -579,7 +579,7 @@ export default function MarcheSection() {
           >
             <h4 className="text-2xl font-bold text-white mb-4">Opportunité d'Investissement</h4>
             <p className="text-lg text-white/80 leading-relaxed">
-              Avec un marché addressable de <span className="text-purple-300 font-semibold">15M€</span> et 
+              Avec un marché adressable de <span className="text-purple-300 font-semibold">15M€</span> et 
               une stratégie d'expansion progressive, Yunicity représente une opportunité unique 
               de créer le <span className="text-blue-300 font-semibold">leader européen</span> des 
               applications de communauté locale.

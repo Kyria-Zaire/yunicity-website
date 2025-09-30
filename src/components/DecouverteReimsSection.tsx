@@ -479,13 +479,14 @@ export default function DecouverteReimsSection() {
                 Découvertes, secrets, communauté... tout dans votre poche !
               </p>
               
-              <motion.button
+              <motion.a
+                href="/#newsletter"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(251, 146, 60, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-full text-white font-bold text-lg shadow-xl border-2 border-amber-400/50"
+                className="px-10 py-4 bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-full text-white font-bold text-lg shadow-xl border-2 border-amber-400/50 inline-block"
               >
-                🚀 Découvrir en Avant-Première
-              </motion.button>
+                🚀 Rejoindre la Liste VIP
+              </motion.a>
             </div>
           </div>
         </motion.div>

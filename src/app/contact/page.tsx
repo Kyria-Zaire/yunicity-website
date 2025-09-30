@@ -294,7 +294,7 @@ export default function ContactPage() {
                         onFocus={() => setFocusedField('phone')}
                         onBlur={() => setFocusedField(null)}
                         className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                        placeholder="+33 6 12 34 56 78"
+                        placeholder="+33 7 82 66 35 98"
                       />
                     </div>
                   </motion.div>

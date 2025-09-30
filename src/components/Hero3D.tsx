@@ -159,15 +159,15 @@ export default function Hero3D() {
             transition={{ duration: 0.8, delay: 1 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <button className="group px-8 py-4 bg-purple-600 hover:bg-purple-500 rounded-lg text-white font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40">
+            <a href="/#solution" className="group px-8 py-4 bg-purple-600 hover:bg-purple-500 rounded-lg text-white font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40">
               <Play className="w-5 h-5" />
-              Voir la démo
+              Découvrir la solution
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             
-            <button className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-lg text-white font-semibold text-lg transition-all duration-300">
-              En savoir plus
-            </button>
+            <a href="/#newsletter" className="px-8 py-4 bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 hover:border-white/20 rounded-lg text-white font-semibold text-lg transition-all duration-300 flex items-center justify-center">
+              Rejoindre la communauté
+            </a>
           </motion.div>
 
           {/* Countdown */}

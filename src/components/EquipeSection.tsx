@@ -460,7 +460,8 @@ export default function EquipeSection() {
               transition={{ duration: 0.8, delay: 1.6 }}
               className="flex flex-col sm:flex-row gap-6 justify-center"
             >
-              <motion.button
+              <motion.a
+                href="/investir"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative px-10 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 rounded-full text-white font-bold text-lg overflow-hidden shadow-2xl"
@@ -475,25 +476,17 @@ export default function EquipeSection() {
                   whileHover={{ scale: 1, opacity: 0.1 }}
                   transition={{ duration: 0.3 }}
                 />
-              </motion.button>
+              </motion.a>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 border-2 border-white/30 rounded-full text-white font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 flex items-center justify-center"
-              >
-                <Download className="w-5 h-5 mr-3" />
-                Executive Summary
-              </motion.button>
-
-              <motion.button
+              <motion.a
+                href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full text-white font-bold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
               >
                 <Mail className="w-5 h-5 mr-3" />
                 Nous Contacter
-              </motion.button>
+              </motion.a>
             </motion.div>
 
             {/* Contact info */}
@@ -510,7 +503,7 @@ export default function EquipeSection() {
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  +33 (0)1 23 45 67 89
+                  +33 7 82 66 35 98
                 </div>
                 <div className="flex items-center">
                   <Heart className="w-4 h-4 mr-2 text-red-400" />
