@@ -320,18 +320,18 @@ function ReimsMiniMap({ activeDiscovery }: { activeDiscovery: string | null }) {
       </div>
 
       {/* Stats ville */}
-      <div className="mt-4 grid grid-cols-3 gap-4 text-center">
-        <div className="bg-white/5 rounded-lg p-2">
-          <div className="text-lg font-bold text-white">183K</div>
-          <div className="text-xs text-white/60">Habitants</div>
+      <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-4 text-center">
+        <div className="bg-white/5 rounded-lg p-1.5 sm:p-3">
+          <div className="text-base sm:text-lg font-bold text-white">183K</div>
+          <div className="text-[10px] sm:text-xs text-white/60">Habitants</div>
         </div>
-        <div className="bg-white/5 rounded-lg p-2">
-          <div className="text-lg font-bold text-white">2000</div>
-          <div className="text-xs text-white/60">Ans d'histoire</div>
+        <div className="bg-white/5 rounded-lg p-1.5 sm:p-3">
+          <div className="text-base sm:text-lg font-bold text-white">2000</div>
+          <div className="text-[10px] sm:text-xs text-white/60 leading-tight">Ans d'histoire</div>
         </div>
-        <div className="bg-white/5 rounded-lg p-2">
-          <div className="text-lg font-bold text-white">320</div>
-          <div className="text-xs text-white/60">Monuments</div>
+        <div className="bg-white/5 rounded-lg p-1.5 sm:p-3">
+          <div className="text-base sm:text-lg font-bold text-white">320</div>
+          <div className="text-[10px] sm:text-xs text-white/60">Monuments</div>
         </div>
       </div>
     </motion.div>
