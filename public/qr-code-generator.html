@@ -27,10 +27,12 @@
     h1 {
       color: #8B5CF6;
       margin-bottom: 10px;
+      font-size: 2.5rem;
     }
     p {
       color: #666;
       margin-bottom: 30px;
+      font-size: 1.1rem;
     }
     #qrcode {
       margin: 30px auto;
@@ -44,6 +46,7 @@
       gap: 15px;
       justify-content: center;
       margin-top: 30px;
+      flex-wrap: wrap;
     }
     button {
       background: linear-gradient(135deg, #8B5CF6, #3B82F6);
@@ -58,6 +61,9 @@
     button:hover {
       transform: scale(1.05);
     }
+    .print-button {
+      background: linear-gradient(135deg, #10b981, #059669);
+    }
     .info {
       background: #f0f9ff;
       padding: 15px;
@@ -65,6 +71,38 @@
       margin-top: 20px;
       font-size: 14px;
       color: #0369a1;
+      word-break: break-all;
+    }
+    
+    /* Styles d'impression */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        box-shadow: none;
+        border-radius: 0;
+        max-width: 100%;
+        padding: 20px;
+      }
+      .buttons {
+        display: none !important;
+      }
+      h1 {
+        font-size: 2rem;
+        page-break-after: avoid;
+      }
+      #qrcode {
+        page-break-inside: avoid;
+        margin: 20px auto;
+      }
+      .info {
+        page-break-before: avoid;
+        font-size: 16px;
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -80,6 +118,7 @@
     </div>
     
     <div class="buttons">
+      <button class="print-button" onclick="window.print()">🖨️ Imprimer</button>
       <button onclick="downloadQR()">📥 Télécharger PNG</button>
       <button onclick="downloadSVG()">📄 Télécharger SVG</button>
     </div>
