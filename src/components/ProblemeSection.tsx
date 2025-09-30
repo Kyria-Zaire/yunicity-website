@@ -74,7 +74,7 @@ function StatCard({
   delay?: number
 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <motion.div
@@ -193,7 +193,7 @@ function InteractiveChart() {
 
 export default function ProblemeSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.2 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <section 

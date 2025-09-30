@@ -436,7 +436,7 @@ function SocialCard({ network, delay }: { network: typeof socialNetworks[0], del
 
 export default function NewsletterSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <section 

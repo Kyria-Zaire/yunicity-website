@@ -131,7 +131,7 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
   onClick: () => void 
 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <motion.div
@@ -341,7 +341,7 @@ function ReimsMiniMap({ activeDiscovery }: { activeDiscovery: string | null }) {
 export default function DecouverteReimsSection() {
   const [activeDiscovery, setActiveDiscovery] = useState<string | null>(null)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <section 

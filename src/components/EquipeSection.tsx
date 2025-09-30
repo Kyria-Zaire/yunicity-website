@@ -137,7 +137,7 @@ const roadmapSteps = [
 function TeamMemberCard({ member, delay = 0 }: { member: typeof teamMembers[0], delay?: number }) {
   const [isHovered, setIsHovered] = useState(false)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <motion.div
@@ -250,7 +250,7 @@ function TeamMemberCard({ member, delay = 0 }: { member: typeof teamMembers[0], 
 // Composant roadmap
 function RoadmapStep({ step, index }: { step: typeof roadmapSteps[0], index: number }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
   const isEven = index % 2 === 0
 
   return (
@@ -323,7 +323,7 @@ function RoadmapStep({ step, index }: { step: typeof roadmapSteps[0], index: num
 
 export default function EquipeSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.1 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <section 

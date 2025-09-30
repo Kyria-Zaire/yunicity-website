@@ -34,7 +34,7 @@ function FeatureCard({
   onClick?: () => void
 }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.3 })
+  const isInView = useInView(ref, { once: true })
 
   return (
     <motion.div
@@ -380,7 +380,7 @@ function AppDemo() {
 export default function SolutionSection() {
   const [activeFeature, setActiveFeature] = useState(0)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, threshold: 0.2 })
+  const isInView = useInView(ref, { once: true })
 
   const features = [
     {
