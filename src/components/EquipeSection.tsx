@@ -367,7 +367,7 @@ export default function EquipeSection() {
             ÉQUIPE FONDATRICE
           </motion.span>
           
-          <h2 className="text-5xl lg:text-7xl font-black text-white mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 px-4">
             L'Équipe de
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400">
               5 EXPERTS
@@ -375,7 +375,7 @@ export default function EquipeSection() {
             Complémentaires
           </h2>
           
-          <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto">
+          <p className="text-lg sm:text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto px-4">
             Une équipe complète et expérimentée qui couvre tous les aspects : 
             <br className="hidden lg:block" />
             <span className="text-purple-300 font-semibold">tech, finance, créatif, growth et leadership</span>.
