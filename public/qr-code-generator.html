@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur QR Code YUNICITY</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 500px;
+    }
+    h1 {
+      color: #8B5CF6;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #666;
+      margin-bottom: 30px;
+    }
+    #qrcode {
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    button {
+      background: linear-gradient(135deg, #8B5CF6, #3B82F6);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    .info {
+      background: #f0f9ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #0369a1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 QR Code YUNICITY</h1>
+    <p>Scannez pour accéder au site !</p>
+    
+    <div id="qrcode"></div>
+    
+    <div class="info">
+      <strong>URL :</strong> https://yunicity-website.vercel.app/
+    </div>
+    
+    <div class="buttons">
+      <button onclick="downloadQR()">📥 Télécharger PNG</button>
+      <button onclick="downloadSVG()">📄 Télécharger SVG</button>
+    </div>
+    
+    <p style="margin-top: 30px; font-size: 12px; color: #999;">
+      Parfait pour vos cartes de visite, flyers, présentations !
+    </p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Générer le QR Code
+    const qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: "https://yunicity-website.vercel.app/",
+      width: 256,
+      height: 256,
+      colorDark: "#8B5CF6",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    // Télécharger en PNG
+    function downloadQR() {
+      const canvas = document.querySelector('#qrcode canvas');
+      const url = canvas.toDataURL("image/png");
+      const link = document.createElement('a');
+      link.download = 'yunicity-qr-code.png';
+      link.href = url;
+      link.click();
+    }
+
+    // Télécharger en SVG (via API)
+    function downloadSVG() {
+      const url = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent('https://yunicity-website.vercel.app/')}&color=8B5CF6&bgcolor=ffffff&format=svg`;
+      const link = document.createElement('a');
+      link.download = 'yunicity-qr-code.svg';
+      link.href = url;
+      link.target = '_blank';
+      link.click();
+    }
+  </script>
+</body>
+</html>
