@@ -169,7 +169,7 @@ function InteractiveChart() {
               dataKey="usage" 
               fill="url(#gradient)"
               radius={[4, 4, 0, 0]}
-              onMouseEnter={(data) => setSelectedData(data)}
+              onMouseEnter={(data: any) => setSelectedData(data)}
             />
             <defs>
               <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
