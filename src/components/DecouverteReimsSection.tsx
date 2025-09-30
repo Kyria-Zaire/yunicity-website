@@ -388,9 +388,8 @@ export default function DecouverteReimsSection() {
             Autrement
           </h2>
           
-          <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto mb-8">
-            <span className="text-amber-300 font-semibold">Yunicity</span> vous guide comme un routard local 
-            <br className="hidden lg:block" />
+          <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto mb-8 px-4">
+            <span className="text-amber-300 font-semibold">Yunicity</span> vous guide comme un routard local{' '}
             vers les <span className="text-orange-300 font-semibold">pépites cachées</span> et les <span className="text-red-300 font-semibold">secrets authentiques</span> de la ville des Sacres.
           </p>
 

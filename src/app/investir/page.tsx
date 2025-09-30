@@ -323,18 +323,16 @@ export default function InvestirPage() {
                 </div>
 
                 <div>
-                  <label className="block text-white/80 font-medium mb-2">Ticket d'investissement *</label>
-                  <select
+                  <label className="block text-white/80 font-medium mb-2">Montant souhaité *</label>
+                  <input
+                    type="text"
                     required
                     value={formData.investmentRange}
                     onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:border-purple-400"
-                  >
-                    <option value="" disabled>Sélectionnez un montant</option>
-                    {investmentRanges.map((range) => (
-                      <option key={range.id} value={range.label}>{range.label}</option>
-                    ))}
-                  </select>
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400"
+                    placeholder="Ex: 100 000€ ou 50K-100K€"
+                  />
+                  <p className="text-white/50 text-sm mt-2">Indiquez le montant ou la fourchette d'investissement souhaitée</p>
                 </div>
 
                 <div>
@@ -379,14 +377,9 @@ export default function InvestirPage() {
               </form>
 
               <div className="mt-8 pt-6 border-t border-white/10">
-                <a 
-                  href="/pitch-deck-yunicity.pdf" 
-                  download
-                  className="flex items-center justify-center space-x-2 text-white/70 hover:text-white transition-colors"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Télécharger le Pitch Deck</span>
-                </a>
+                <p className="text-center text-white/60 text-sm">
+                  📄 Le Pitch Deck complet vous sera envoyé par email après votre demande de rendez-vous
+                </p>
               </div>
             </div>
           </motion.div>

@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 
 interface NavigationProps {
   activeSection: string
@@ -92,23 +93,24 @@ export default function Navigation({ activeSection }: NavigationProps) {
               ))}
               
               {/* CTA Button */}
-              <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                onClick={() => scrollToSection('investir')}
-                className="relative group px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-semibold text-sm overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">Investir</span>
-                <motion.div
-                  className="absolute inset-0 bg-white"
-                  initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ scale: 1, opacity: 0.1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
+              <Link href="/investir">
+                <motion.button
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  className="relative group px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-semibold text-sm overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="relative z-10">Investir</span>
+                  <motion.div
+                    className="absolute inset-0 bg-white"
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileHover={{ scale: 1, opacity: 0.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+              </Link>
             </div>
 
             {/* Menu Mobile Button */}
@@ -175,15 +177,16 @@ export default function Navigation({ activeSection }: NavigationProps) {
                     </motion.button>
                   ))}
                   
-                  <motion.button
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.8 }}
-                    onClick={() => scrollToSection('investir')}
-                    className="w-full mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white font-semibold text-center"
-                  >
-                    Investir Maintenant
-                  </motion.button>
+                  <Link href="/investir" className="block w-full mt-6">
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.8 }}
+                      className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white font-semibold text-center"
+                    >
+                      Investir Maintenant
+                    </motion.button>
+                  </Link>
                 </div>
               </div>
             </div>
