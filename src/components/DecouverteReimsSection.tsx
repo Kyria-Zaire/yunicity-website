@@ -123,7 +123,7 @@ const reimsDiscoveries = [
   }
 ]
 
-// Composant carte découverte style routard
+// Composant carte découverte style hub
 function RouteCard({ discovery, delay, isActive, onClick }: { 
   discovery: typeof reimsDiscoveries[0], 
   delay: number,
@@ -144,10 +144,10 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
       }`}
       onClick={onClick}
     >
-      {/* Background effet routard */}
+      {/* Background effet hub */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-100/10 to-orange-100/5 rounded-2xl backdrop-blur-sm border border-amber-200/20 group-hover:border-amber-200/40 transition-all duration-300" />
       
-      {/* Tampon style routard */}
+      {/* Tampon style hub */}
       <div className="absolute -top-2 -right-2 z-20">
         <motion.div
           className={`w-12 h-12 rounded-full bg-gradient-to-br ${discovery.color} flex items-center justify-center shadow-lg border-2 border-white/50`}
@@ -184,7 +184,7 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
           {discovery.description}
         </p>
 
-        {/* Infos pratiques style routard */}
+        {/* Infos pratiques style hub */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="flex items-center text-xs text-white/70">
             <Clock className="w-3 h-3 mr-1 text-blue-400" />
@@ -204,7 +204,7 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
           </div>
         </div>
 
-        {/* Secret du routard */}
+        {/* Secret du Hub */}
         <motion.div
           initial={{ height: 0, opacity: 0 }}
           animate={isActive ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
@@ -214,7 +214,7 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
             <div className="flex items-start">
               <Eye className="w-4 h-4 text-yellow-400 mr-2 mt-0.5 flex-shrink-0" />
               <div>
-                <div className="text-yellow-300 font-semibold text-xs mb-1">Secret du Routard :</div>
+                <div className="text-yellow-300 font-semibold text-xs mb-1">Secret du Hub :</div>
                 <div className="text-white/90 text-xs leading-relaxed">{discovery.secret}</div>
               </div>
             </div>
@@ -230,7 +230,7 @@ function RouteCard({ discovery, delay, isActive, onClick }: {
           ))}
         </div>
 
-        {/* Hover effect routard */}
+        {/* Hover effect hub */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-orange-400/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           animate={isActive ? { opacity: 1 } : {}}
@@ -362,7 +362,7 @@ export default function DecouverteReimsSection() {
 
       <div className="relative container mx-auto px-6">
         
-        {/* Header style guide routard */}
+        {/* Header style guide hub */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -376,7 +376,7 @@ export default function DecouverteReimsSection() {
             className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-red-500/20 border-2 border-amber-400/30 rounded-xl text-amber-200 font-bold text-sm tracking-wider uppercase mb-8"
           >
             <Navigation className="w-5 h-5" />
-            <span>LE ROUTARD DES APPLICATIONS</span>
+            <span>LE HUB DES APPLICATIONS</span>
             <Camera className="w-5 h-5" />
           </motion.div>
           
@@ -389,7 +389,7 @@ export default function DecouverteReimsSection() {
           </h2>
           
           <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto mb-8 px-4">
-            <span className="text-amber-300 font-semibold">Yunicity</span> vous guide comme un routard local{' '}
+            <span className="text-amber-300 font-semibold">Yunicity</span> vous guide comme un hub local{' '}
             vers les <span className="text-orange-300 font-semibold">pépites cachées</span> et les <span className="text-red-300 font-semibold">secrets authentiques</span> de la ville des Sacres.
           </p>
 

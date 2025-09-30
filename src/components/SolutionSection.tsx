@@ -448,7 +448,7 @@ export default function SolutionSection() {
           </h2>
           
           <p className="text-xl lg:text-2xl text-white/80 leading-relaxed max-w-4xl mx-auto mb-8">
-            "Le <span className="text-green-300 font-semibold">Routard des applications locales</span>" - 
+            "Le <span className="text-green-300 font-semibold">Hub des applications locales</span>" - 
             Une révolution dans la façon dont les habitants découvrent et vivent leur ville.
           </p>
 
