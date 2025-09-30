@@ -42,7 +42,7 @@ const teamMembers = [
     description: "Comptable et co-fondateur. Gestion financière, stratégie d'investissement et structuration juridique pour une croissance maîtrisée.",
     avatar: "💼",
     skills: ["Finance", "Comptabilité", "Stratégie", "Juridique"],
-    achievements: ["Expert-comptable certifié", "Structuration financière", "Modèle économique", "Conformité réglementaire"],
+    achievements: ["Comptable certifié", "Structuration financière", "Modèle économique", "Conformité réglementaire"],
     social: {
       linkedin: "#",
       github: "#", 
@@ -259,42 +259,54 @@ function RoadmapStep({ step, index }: { step: typeof roadmapSteps[0], index: num
       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
       animate={isInView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
-      className={`flex items-center gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'}`}
+      className="flex flex-col lg:flex-row items-center gap-4 lg:gap-8"
     >
+      {/* Phase indicator - Mobile en haut */}
+      <div className="lg:hidden w-full text-center mb-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, delay: index * 0.2 }}
+          className={`inline-block px-4 py-2 rounded-full bg-gradient-to-r ${step.color} text-white font-semibold text-sm shadow-lg`}
+        >
+          {step.phase}
+        </motion.div>
+      </div>
+
       {/* Content */}
-      <div className="flex-1">
-        <div className={`bg-gradient-to-br ${step.color} bg-opacity-10 backdrop-blur-xl rounded-2xl border border-white/20 p-6`}>
-          <div className="flex items-center gap-4 mb-4">
-            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
-              <step.icon className="w-6 h-6 text-white" />
+      <div className="flex-1 w-full">
+        <div className={`bg-gradient-to-br ${step.color} bg-opacity-10 backdrop-blur-xl rounded-2xl border border-white/20 p-4 sm:p-6`}>
+          <div className="flex items-center gap-3 sm:gap-4 mb-4">
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
+              <step.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h4 className="text-xl font-bold text-white">{step.title}</h4>
-              <p className="text-white/60 text-sm">{step.period}</p>
+              <h4 className="text-lg sm:text-xl font-bold text-white">{step.title}</h4>
+              <p className="text-white/60 text-xs sm:text-sm">{step.period}</p>
             </div>
           </div>
           
-          <p className="text-white/80 mb-4 leading-relaxed">{step.description}</p>
+          <p className="text-white/80 mb-4 leading-relaxed text-sm sm:text-base">{step.description}</p>
           
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {step.tasks.map((task, taskIndex) => (
               <motion.div
                 key={task}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: index * 0.2 + taskIndex * 0.1 }}
-                className="flex items-center text-white/70 text-sm"
+                className="flex items-start text-white/70 text-xs sm:text-sm"
               >
-                <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2" />
-                {task}
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-2 mt-1 flex-shrink-0" />
+                <span>{task}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Timeline dot */}
-      <div className="relative">
+      {/* Timeline dot - Caché sur mobile */}
+      <div className="relative hidden lg:block">
         <motion.div
           className={`w-6 h-6 rounded-full bg-gradient-to-br ${step.color} shadow-lg border-4 border-white/20`}
           initial={{ scale: 0 }}
@@ -306,8 +318,8 @@ function RoadmapStep({ step, index }: { step: typeof roadmapSteps[0], index: num
         )}
       </div>
 
-      {/* Phase indicator */}
-      <div className="flex-1 text-center">
+      {/* Phase indicator - Desktop uniquement */}
+      <div className="hidden lg:block flex-1 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -397,7 +409,7 @@ export default function EquipeSection() {
             </p>
           </div>
 
-          <div className="space-y-16 max-w-6xl mx-auto">
+          <div className="space-y-16 max-w-6xl mx-auto px-4">
             {roadmapSteps.map((step, index) => (
               <RoadmapStep key={step.phase} step={step} index={index} />
             ))}

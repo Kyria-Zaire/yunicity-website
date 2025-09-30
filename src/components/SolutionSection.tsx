@@ -337,12 +337,12 @@ function AppDemo() {
           </div>
 
           {/* Tab navigation */}
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3">
             {tabs.map((tab) => (
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-3 p-4 rounded-xl transition-all duration-300 ${
+                className={`flex items-center justify-center space-x-1 sm:space-x-3 p-2 sm:p-4 rounded-xl transition-all duration-300 ${
                   activeTab === tab.id
                     ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
                     : 'bg-white/10 text-white/70 hover:bg-white/20'
@@ -350,8 +350,8 @@ function AppDemo() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <tab.icon className="w-5 h-5" />
-                <span className="font-medium">{tab.label}</span>
+                <tab.icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="font-medium text-xs sm:text-base">{tab.label}</span>
               </motion.button>
             ))}
           </div>

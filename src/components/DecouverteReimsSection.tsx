@@ -414,14 +414,14 @@ export default function DecouverteReimsSection() {
           </motion.div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-4">
           
           {/* Carte interactive Reims */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.3 }}
-            className="lg:col-span-1"
+            className="lg:col-span-1 mb-8 lg:mb-0"
           >
             <ReimsMiniMap activeDiscovery={activeDiscovery} />
           </motion.div>
@@ -432,7 +432,7 @@ export default function DecouverteReimsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
             >
               {reimsDiscoveries.map((discovery, index) => (
                 <RouteCard

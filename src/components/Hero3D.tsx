@@ -30,7 +30,7 @@ function CountdownTimer() {
   }, [])
 
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex justify-center gap-2 sm:gap-4 px-4">
       {[
         { label: 'Jours', value: timeLeft.days },
         { label: 'Heures', value: timeLeft.hours },
@@ -44,11 +44,11 @@ function CountdownTimer() {
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="text-center"
         >
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3 min-w-[80px]">
-            <div className="text-3xl font-bold text-white mb-1">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-2 sm:px-4 py-2 sm:py-3 min-w-[60px] sm:min-w-[80px]">
+            <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
               {String(item.value).padStart(2, '0')}
             </div>
-            <div className="text-xs text-white/60 uppercase tracking-wider">
+            <div className="text-[10px] sm:text-xs text-white/60 uppercase tracking-wider">
               {item.label}
             </div>
           </div>
