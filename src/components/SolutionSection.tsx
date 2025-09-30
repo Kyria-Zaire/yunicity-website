@@ -523,7 +523,7 @@ export default function SolutionSection() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="/#newsletter"
+                href="#newsletter"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300"
