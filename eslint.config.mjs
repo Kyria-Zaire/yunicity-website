@@ -26,6 +26,7 @@ const eslintConfig = [
       "react/no-unescaped-entities": "off",
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": "warn",
+      "@next/next/no-html-link-for-pages": "off", // Permettre les ancres internes
     },
   },
 ];
