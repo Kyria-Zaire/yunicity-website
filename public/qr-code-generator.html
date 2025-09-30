@@ -128,30 +128,70 @@
     </p>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script>
-    // Générer le QR Code
-    const qrcode = new QRCode(document.getElementById("qrcode"), {
-      text: "https://yunicity-website.vercel.app/",
-      width: 256,
-      height: 256,
-      colorDark: "#8B5CF6",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    });
+    // Générer le QR Code avec logo au centre
+    async function generateQRCode() {
+      const canvas = document.createElement('canvas');
+      const qrContainer = document.getElementById("qrcode");
+      
+      // Générer le QR code
+      await QRCode.toCanvas(canvas, "https://yunicity-website.vercel.app/", {
+        width: 400,
+        margin: 2,
+        color: {
+          dark: '#8B5CF6',
+          light: '#ffffff'
+        },
+        errorCorrectionLevel: 'H' // Haute correction pour permettre le logo au centre
+      });
+
+      // Créer un nouveau canvas pour ajouter le logo
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = 400;
+      finalCanvas.height = 400;
+      const ctx = finalCanvas.getContext('2d');
+
+      // Dessiner le QR code
+      ctx.drawImage(canvas, 0, 0);
+
+      // Ajouter le logo au centre
+      const logo = new Image();
+      logo.onload = function() {
+        const logoSize = 80; // Taille du logo
+        const logoX = (finalCanvas.width - logoSize) / 2;
+        const logoY = (finalCanvas.height - logoSize) / 2;
+        
+        // Fond blanc pour le logo
+        ctx.fillStyle = 'white';
+        ctx.fillRect(logoX - 10, logoY - 10, logoSize + 20, logoSize + 20);
+        
+        // Dessiner le logo
+        ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+        
+        // Ajouter au DOM
+        qrContainer.innerHTML = '';
+        qrContainer.appendChild(finalCanvas);
+      };
+      logo.src = '/yunicity-logo.png';
+    }
+
+    // Appeler au chargement de la page
+    window.onload = generateQRCode;
 
     // Télécharger en PNG
     function downloadQR() {
       const canvas = document.querySelector('#qrcode canvas');
       const url = canvas.toDataURL("image/png");
       const link = document.createElement('a');
-      link.download = 'yunicity-qr-code.png';
+      link.download = 'yunicity-qr-code-premium.png';
       link.href = url;
       link.click();
     }
 
-    // Télécharger en SVG (via API)
+    // Télécharger en SVG (via API avec logo)
     function downloadSVG() {
+      alert('Pour un SVG avec logo, téléchargez le PNG et convertissez-le, ou utilisez qrcode-monkey.com avec upload du logo !');
       const url = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent('https://yunicity-website.vercel.app/')}&color=8B5CF6&bgcolor=ffffff&format=svg`;
       const link = document.createElement('a');
       link.download = 'yunicity-qr-code.svg';
