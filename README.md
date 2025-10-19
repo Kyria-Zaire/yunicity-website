@@ -1,6 +1,6 @@
-# 🚀 YUNICITY - Website Officiel
+# 🚀 YUNICITY - Site Officiel
 
-![YUNICITY](https://img.shields.io/badge/Status-Pre--Launch-purple?style=for-the-badge)
+![YUNICITY](https://img.shields.io/badge/Status-Production-green?style=for-the-badge)
 ![Next.js](https://img.shields.io/badge/Next.js-15.5-black?style=for-the-badge&logo=next.js)
 ![React](https://img.shields.io/badge/React-19.1-blue?style=for-the-badge&logo=react)
 ![Supabase](https://img.shields.io/badge/Supabase-Enabled-green?style=for-the-badge&logo=supabase)
@@ -11,22 +11,9 @@
 
 ---
 
-## 📋 Table des Matières
-
-- [À Propos](#-à-propos)
-- [Fonctionnalités](#-fonctionnalités)
-- [Stack Technique](#-stack-technique)
-- [Installation](#-installation)
-- [Configuration](#-configuration)
-- [Déploiement](#-déploiement)
-- [Structure du Projet](#-structure-du-projet)
-- [Contribution](#-contribution)
-
----
-
 ## 🎯 À Propos
 
-YUNICITY est une application mobile innovante qui résout le problème d'**isolement urbain** touchant 34M de Français. 
+YUNICITY est une application mobile innovante qui résout le problème d'**isolement urbain** touchant 34M de Français.
 
 ### Le Problème
 - 80% des Français ne connaissent pas leurs voisins
@@ -44,24 +31,27 @@ Une **super-app locale** qui centralise :
 
 ---
 
-## ✨ Fonctionnalités
+## ✨ Fonctionnalités du Site
 
-### Site Web Actuel
-- ✅ Landing page moderne avec animations (Framer Motion)
-- ✅ 7 sections principales (Hero, Problème, Solution, Ville, Marché, Équipe, Newsletter)
+### Pages
+- ✅ **Home** - Landing page avec Hero 3D et sections d'introduction
+- ✅ **Problème** - Présentation du problème d'isolement urbain
+- ✅ **Solution** - Notre solution Hub unique
+- ✅ **Reims** - Découverte de Reims avec carousel et lieux authentiques
+- ✅ **Équipe** - Présentation des 5 fondateurs et roadmap
+- ✅ **Newsletter** - Conversation pitch et Instagram Stories carousel
+- ✅ **Investir** - Page investisseurs avec formulaire de contact
+- ✅ **Contact** - Formulaire de contact multi-usage
+- ✅ **Pages légales** - CGU, Politique de confidentialité, Mentions légales
+
+### Fonctionnalités Techniques
+- ✅ Animations fluides (Framer Motion)
+- ✅ Design minimaliste Apple/Tesla
+- ✅ Responsive mobile-first
 - ✅ Inscription newsletter avec Supabase
-- ✅ Formulaire de contact intelligent
-- ✅ Page investisseurs dédiée
-- ✅ Pages légales complètes (RGPD, CGU, Mentions Légales)
-- ✅ SEO optimisé avec métadonnées complètes
-- ✅ Responsive design mobile-first
-
-### Backend & API
-- ✅ Supabase (base de données PostgreSQL)
-- ✅ API Routes Next.js pour formulaires
-- ✅ Système d'emails avec Resend
-- ✅ Validation des données
-- ✅ Row Level Security (RLS)
+- ✅ Formulaires de contact intelligents
+- ✅ SEO optimisé
+- ✅ RGPD compliant
 
 ---
 
@@ -73,25 +63,19 @@ Une **super-app locale** qui centralise :
 - **Styling** : Tailwind CSS 4.0
 - **Animations** : Framer Motion 12
 - **3D** : Three.js + React Three Fiber
-- **Charts** : Recharts
 - **Icons** : Lucide React
 
 ### Backend
 - **Database** : Supabase (PostgreSQL)
-- **Auth** : Supabase Auth (futur)
 - **Email** : Resend
 - **Hosting** : Vercel
-
-### Analytics & Monitoring
-- **Analytics** : Google Analytics (à configurer)
-- **Monitoring** : À configurer (Sentry recommandé)
 
 ---
 
 ## 🚀 Installation
 
 ### Prérequis
-- Node.js 18+ 
+- Node.js 18+
 - npm ou yarn
 - Compte Supabase (gratuit)
 - Compte Resend (gratuit jusqu'à 3000 emails/mois)
@@ -110,9 +94,19 @@ npm install
 ```
 
 3. **Configurer les variables d'environnement**
+
+Créez un fichier `.env.local` à la racine :
+
 ```bash
-# Créer le fichier .env.local à la racine
-# Voir SETUP.md pour les instructions détaillées
+# Supabase
+NEXT_PUBLIC_SUPABASE_URL=https://votre-projet.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=votre_anon_key
+
+# Resend (Emails)
+RESEND_API_KEY=re_votre_api_key
+
+# Google Analytics (optionnel)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 4. **Lancer le serveur de développement**
@@ -127,57 +121,22 @@ http://localhost:3000
 
 ---
 
-## ⚙️ Configuration
-
-### Configuration Complète (30 minutes)
-
-Suivez le guide détaillé dans **[SETUP.md](./SETUP.md)** pour :
-
-1. ☑️ Configurer Supabase (15 min)
-2. ☑️ Configurer Resend pour les emails (10 min)  
-3. ☑️ Configurer Google Analytics (5 min - optionnel)
-4. ☑️ Tester en local
-5. ☑️ Déployer sur Vercel
-
-### Variables d'Environnement
-
-Créez un fichier `.env.local` :
-
-```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://votre-projet.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=votre_anon_key
-
-# Resend (Emails)
-RESEND_API_KEY=re_votre_api_key
-
-# Google Analytics (optionnel)
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
-
----
-
-## 🌐 Déploiement
-
-### Vercel (Recommandé)
+## 🌐 Déploiement sur Vercel
 
 1. **Push sur GitHub**
 ```bash
 git add .
-git commit -m "feat: configuration complète"
+git commit -m "feat: ready for production"
 git push origin main
 ```
 
-2. **Déployer sur Vercel**
-- Connectez votre repo GitHub à Vercel
+2. **Connecter à Vercel**
+- Allez sur [vercel.com](https://vercel.com)
+- Importez votre repository GitHub
 - Ajoutez les variables d'environnement
 - Déployez !
 
-3. **Configurer le domaine**
-- Ajoutez `yunicity.fr` dans Vercel > Domains
-- Configurez les DNS chez votre registrar
-
-### Build de Production
+3. **Build de production local**
 ```bash
 npm run build
 npm run start
@@ -190,38 +149,61 @@ npm run start
 ```
 yunicity-website/
 ├── src/
-│   ├── app/                    # Pages Next.js (App Router)
-│   │   ├── api/               # API Routes
-│   │   │   ├── newsletter/    # Inscription newsletter
-│   │   │   └── contact/       # Formulaire contact
-│   │   ├── contact/           # Page contact
-│   │   ├── investir/          # Page investisseurs
-│   │   ├── mentions-legales/  # Mentions légales
-│   │   ├── politique-confidentialite/
-│   │   ├── cgu/               # CGU
-│   │   ├── layout.tsx         # Layout global
-│   │   ├── page.tsx           # Page d'accueil
-│   │   └── globals.css        # Styles globaux
+│   ├── app/                          # Pages Next.js (App Router)
+│   │   ├── api/                      # API Routes
+│   │   │   ├── contact/route.ts      # Formulaire contact
+│   │   │   └── newsletter/route.ts   # Inscription newsletter
+│   │   ├── page.tsx                  # Page d'accueil
+│   │   ├── probleme/page.tsx         # Page problème
+│   │   ├── solution/page.tsx         # Page solution
+│   │   ├── reims/page.tsx            # Page Reims
+│   │   ├── equipe/page.tsx           # Page équipe
+│   │   ├── newsletter/page.tsx       # Page newsletter
+│   │   ├── investir/page.tsx         # Page investisseurs
+│   │   ├── contact/page.tsx          # Page contact
+│   │   ├── cgu/page.tsx              # CGU
+│   │   ├── politique-confidentialite/page.tsx
+│   │   ├── mentions-legales/page.tsx
+│   │   ├── layout.tsx                # Layout global
+│   │   └── globals.css               # Styles globaux
 │   │
-│   ├── components/            # Composants React
-│   │   ├── Hero3D.tsx
-│   │   ├── Navigation.tsx
-│   │   ├── Footer.tsx
-│   │   ├── ProblemeSection.tsx
-│   │   ├── SolutionSection.tsx
-│   │   ├── DecouverteReimsSection.tsx
-│   │   ├── MarcheSection.tsx
-│   │   ├── EquipeSection.tsx
-│   │   └── NewsletterSection.tsx
+│   ├── components/                   # Composants React
+│   │   ├── Navigation.tsx            # Menu navigation
+│   │   ├── Footer.tsx                # Pied de page
+│   │   ├── BackButton.tsx            # Bouton retour
+│   │   ├── Hero3D.tsx                # Hero 3D accueil
+│   │   │
+│   │   ├── ProblemeSection.tsx       # Section problème
+│   │   ├── SolutionSection.tsx       # Section solution
+│   │   │
+│   │   ├── ReimsHeroCarousel.tsx     # Hero Reims avec carousel
+│   │   ├── ReimsExperienceSection.tsx
+│   │   ├── ReimsCallToActionSection.tsx
+│   │   │
+│   │   ├── EquipeHeroSection.tsx     # Hero équipe
+│   │   ├── EquipeTeamSection.tsx     # Cartes membres
+│   │   ├── EquipeJoinSection.tsx     # Roadmap
+│   │   │
+│   │   ├── NewsletterHeroSection.tsx # Conversation iPhone
+│   │   ├── NewsletterContentSection.tsx # Stories Instagram
+│   │   ├── NewsletterSubscribeSection.tsx # Formulaire inscription
+│   │   │
+│   │   ├── InvestirHeroSection.tsx   # Hero investir
+│   │   ├── InvestirOpportunitySection.tsx
+│   │   └── InvestirContactSection.tsx # Formulaire investissement
 │   │
-│   └── lib/                   # Utilitaires
-│       └── supabase.ts        # Client Supabase
+│   └── lib/                          # Utilitaires
+│       ├── supabase.ts               # Client Supabase
+│       └── email.ts                  # Helpers email
 │
-├── public/                    # Assets statiques
-├── supabase-schema.sql        # Schema base de données
-├── SETUP.md                   # Guide de configuration
-├── CHANGELOG.md               # Historique des changements
+├── public/                           # Assets statiques
+│   └── yunicity-logo.png
+│
+├── .env.local                        # Variables d'environnement (non versionné)
+├── .gitignore
 ├── package.json
+├── tsconfig.json
+├── next.config.ts
 └── README.md
 ```
 
@@ -229,13 +211,13 @@ yunicity-website/
 
 ## 📊 Métriques & Objectifs
 
-### Pré-lancement (Now - Mars 2026)
-- 🎯 1,000 inscrits newsletter (actuellement : 2,847)
-- 🎯 15 partenaires locaux signés
-- 🎯 10 demandes d'investissement qualifiées
+### Actuellement
+- ✅ 2,847 inscrits newsletter
+- ✅ 15 partenaires locaux signés à Reims
+- ✅ Site en production
 
-### Post-lancement 2026
-- 🎯 12K utilisateurs actifs (Reims)
+### Objectif Lancement (Mars 2026)
+- 🎯 5,000 utilisateurs actifs (Reims)
 - 🎯 120K€ ARR
 
 ### Objectif 2030
@@ -245,37 +227,18 @@ yunicity-website/
 
 ---
 
-## 🤝 Contribution
+## 🤝 Contact & Contribution
 
-Nous ne sommes pas encore en open-source, mais si vous souhaitez contribuer ou rejoindre l'aventure :
-
-📧 **Contact** : yu.entreprise@gmail.com  
-🔗 **LinkedIn** : [Yunicity App](https://www.linkedin.com/in/yunicity-app-381bb7230)  
+📧 **Email** : yu.entreprise@gmail.com
+🔗 **LinkedIn** : [Yunicity App](https://www.linkedin.com/in/yunicity-app-381bb7230)
 📸 **Instagram** : [@yunicity.app](https://www.instagram.com/yunicity.app)
+📘 **Facebook** : [Yunicity](https://www.facebook.com/share/17FsREHfzM/)
 
 ---
 
 ## 📄 Licence
 
 © 2025 YUNICITY. Tous droits réservés.
-
----
-
-## 🙏 Remerciements
-
-- L'équipe fondatrice de 5 experts
-- Nos early adopters et beta testeurs
-- La communauté de Reims qui nous soutient
-
----
-
-## 📞 Support
-
-Des questions ? Des bugs ? Contactez-nous :
-
-- 📧 Email : yu.entreprise@gmail.com
-- 📝 Formulaire : [yunicity.fr/contact](https://yunicity.fr/contact)
-- 💬 Support technique : Voir [SETUP.md](./SETUP.md)
 
 ---
 

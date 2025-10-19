@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /c/Users/kyria/yunicity-website/package.json)",
+      "Bash(cat /c/Users/kyria/yunicity-website/tsconfig.json)",
+      "Bash(cat /c/Users/kyria/yunicity-website/next.config.ts)",
+      "Bash(tree /c/Users/kyria/yunicity-website/src -L 3)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/layout.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/page.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/postcss.config.mjs)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/Navigation.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/Hero3D.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/ProblemeSection.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/SolutionSection.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/api/contact/route.ts)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/api/newsletter/route.ts)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/lib/supabase.ts)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/lib/email.ts)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/contact/page.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/Footer.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/EquipeSection.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/investir/page.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/README.md)",
+      "Bash(cat /c/Users/kyria/yunicity-website/.gitignore)",
+      "Bash(cat /c/Users/kyria/yunicity-website/eslint.config.mjs)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/NewsletterSection.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/components/DecouverteReimsSection.tsx)",
+      "Bash(cat /c/Users/kyria/yunicity-website/src/app/politique-confidentialite/page.tsx)",
+      "Bash(xargs cat)",
+      "Bash(git -C /c/Users/kyria/yunicity-website log --oneline -20)",
+      "Bash(cat /c/Users/kyria/yunicity-website/CHANGELOG.md)",
+      "Bash(npm run dev)",
+      "Bash(ls c:/Users/kyria/yunicity-website/public/*.{jpg,jpeg,png,webp})",
+      "Bash(for page in c:/Users/kyria/yunicity-website/src/app/{page.tsx,equipe/page.tsx,reims/page.tsx,solution/page.tsx,probleme/page.tsx,newsletter/page.tsx,investir/page.tsx,contact/page.tsx,politique-confidentialite/page.tsx,cgu/page.tsx,mentions-legales/page.tsx})",
+      "Bash(do echo \"=== $page ===\")",
+      "Bash(done)",
+      "Bash(npm run build)",
+      "Bash(git add .)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

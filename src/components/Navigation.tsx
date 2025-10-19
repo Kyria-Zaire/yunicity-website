@@ -14,12 +14,12 @@ export default function Navigation({ activeSection }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { id: 'hero', label: 'Accueil' },
-    { id: 'probleme', label: 'Problème' },
-    { id: 'solution', label: 'Solution' },
-    { id: 'demo', label: 'Ville' },
-    { id: 'equipe', label: 'Équipe' },
-    { id: 'newsletter', label: 'Newsletter' },
+    { id: 'hero', label: 'Accueil', href: '/' },
+    { id: 'probleme', label: 'Problème', href: '/probleme' },
+    { id: 'solution', label: 'Solution', href: '/solution' },
+    { id: 'demo', label: 'Ville', href: '/reims' },
+    { id: 'equipe', label: 'Équipe', href: '/equipe' },
+    { id: 'newsletter', label: 'Newsletter', href: '/newsletter' },
   ]
 
   useEffect(() => {
@@ -30,12 +30,20 @@ export default function Navigation({ activeSection }: NavigationProps) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
+  const handleNavigation = (href: string) => {
     setIsMobileMenuOpen(false)
+    if (href.startsWith('/#')) {
+      // Navigation vers section sur page d'accueil
+      const sectionId = href.substring(2)
+      if (window.location.pathname === '/') {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      } else {
+        window.location.href = href
+      }
+    }
   }
 
   return (
@@ -76,28 +84,29 @@ export default function Navigation({ activeSection }: NavigationProps) {
             {/* Navigation Desktop */}
             <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item, index) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    activeSection === item.id
-                      ? 'text-purple-300'
-                      : 'text-white/80 hover:text-white'
-                  }`}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </motion.button>
+                <Link key={item.id} href={item.href}>
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    onClick={() => handleNavigation(item.href)}
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 cursor-pointer ${
+                      activeSection === item.id
+                        ? 'text-purple-300'
+                        : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    {item.label}
+                    {activeSection === item.id && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500"
+                        initial={false}
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
+                  </motion.div>
+                </Link>
               ))}
               
               {/* CTA Button */}
@@ -169,20 +178,21 @@ export default function Navigation({ activeSection }: NavigationProps) {
               <div className="container mx-auto px-6 py-6">
                 <div className="space-y-4">
                   {navItems.map((item, index) => (
-                    <motion.button
-                      key={item.id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      onClick={() => scrollToSection(item.id)}
-                      className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
-                        activeSection === item.id
-                          ? 'bg-purple-600/20 text-purple-300 border-l-4 border-purple-500'
-                          : 'text-white/80 hover:bg-white/5 hover:text-white'
-                      }`}
-                    >
-                      {item.label}
-                    </motion.button>
+                    <Link key={item.id} href={item.href}>
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        onClick={() => handleNavigation(item.href)}
+                        className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 cursor-pointer ${
+                          activeSection === item.id
+                            ? 'bg-purple-600/20 text-purple-300 border-l-4 border-purple-500'
+                            : 'text-white/80 hover:bg-white/5 hover:text-white'
+                        }`}
+                      >
+                        {item.label}
+                      </motion.div>
+                    </Link>
                   ))}
                   
                   <Link href="/investir" className="block w-full mt-6">
