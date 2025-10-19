@@ -2,6 +2,7 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Sparkles, Users, Calendar, TrendingUp } from 'lucide-react'
+import Image from 'next/image'
 
 // Stats impressionnantes sur Reims
 const reimsStats = [
@@ -147,10 +148,12 @@ export default function ReimsExperienceSection() {
               >
                 {/* Image */}
                 <div className="relative h-80 overflow-hidden">
-                  <img
+                  <Image
                     src={exp.image}
                     alt={exp.titre}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                 </div>

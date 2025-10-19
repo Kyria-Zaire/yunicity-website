@@ -43,11 +43,12 @@ export async function POST(request: Request) {
       { status: 201 }
     )
 
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Erreur inscription newsletter:', error)
-    
+
     // Gestion erreur email déjà existant
-    if (error.code === '23505') {
+    const dbError = error as { code?: string }
+    if (dbError.code === '23505') {
       return NextResponse.json(
         { error: 'Cet email est déjà inscrit' },
         { status: 409 }

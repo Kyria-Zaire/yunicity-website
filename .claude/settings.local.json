@@ -35,7 +35,10 @@
       "Bash(do echo \"=== $page ===\")",
       "Bash(done)",
       "Bash(npm run build)",
-      "Bash(git add .)"
+      "Bash(git add .)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: production-ready website with complete redesign\n\nMajor Changes:\n- ✅ Redesigned all pages with consistent Apple/Tesla minimalist aesthetic\n- ✅ Created dedicated pages: Problème, Solution, Reims, Équipe, Newsletter, Investir\n- ✅ Each page follows 3-section pattern (Noir-Blanc-Noir)\n- ✅ Added Navigation + Footer + BackButton to all pages\n- ✅ Cleaned up unused files and dependencies\n\nNew Pages & Components:\n- Created Problème page with ProblemeSection\n- Created Solution page with SolutionSection  \n- Created Reims page (ReimsHeroCarousel, ReimsExperienceSection, ReimsCallToActionSection)\n- Created Équipe page (EquipeHeroSection, EquipeTeamSection, EquipeJoinSection)\n- Created Newsletter page (NewsletterHeroSection with iPhone conversation, NewsletterContentSection with Instagram Stories, NewsletterSubscribeSection)\n- Redesigned Investir page (InvestirHeroSection, InvestirOpportunitySection, InvestirContactSection)\n\nCleanup:\n- Removed deprecated components (EquipeSection, DecouverteReimsSection, MarcheSection, NewsletterSection)\n- Removed documentation files (CHANGELOG, SETUP, TEST_GUIDE, QR_CODE_GUIDE, etc.)\n- Removed unused public assets (SVG files, qr-code-generator.html)\n- Removed SQL schema files\n- Updated README with current structure\n\nBuild:\n- ✅ Production build successful\n- ✅ All pages render correctly\n- ✅ No blocking errors\n\nReady for Production! 🚀\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push origin master)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfix: clean code - remove ESLint warnings\n\nCorrections:\n- ✅ Supprimé imports inutilisés (AnimatePresence, useRef, MapPin)\n- ✅ Remplacé types ''any'' par types spécifiques\n- ✅ Optimisé images avec next/image (LCP + bandwidth)\n- ✅ Ajouté i.ibb.co aux remotePatterns\n\nBuild:\n- ✅ 0 warnings ESLint\n- ✅ Compilation réussie\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
     ],
     "deny": [],
     "ask": []

@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 // 6 Lieux touristiques emblématiques de Reims
 const reimsLieux = [
@@ -132,10 +133,13 @@ export default function ReimsHeroCarousel() {
         >
           {/* Image background */}
           <div className="absolute inset-0">
-            <img
+            <Image
               src={currentLieu.image}
               alt={currentLieu.nom}
-              className="w-full h-full object-cover"
+              fill
+              className="object-cover"
+              priority={currentIndex === 0}
+              sizes="100vw"
             />
             {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />

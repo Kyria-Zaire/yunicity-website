@@ -107,7 +107,15 @@ export async function sendWelcomeEmail(to: string, name: string) {
 /**
  * Envoie une notification à l'équipe quand un message de contact est reçu
  */
-export async function sendContactNotification(contactData: any) {
+export async function sendContactNotification(contactData: {
+  name: string
+  email: string
+  company?: string
+  phone?: string
+  subject: string
+  message: string
+  type: string
+}) {
   try {
     const typeLabels = {
       general: '💬 Question Générale',

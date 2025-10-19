@@ -28,7 +28,7 @@ export default function NewsletterSubscribeSection() {
         setStatus('error')
         setMessage(data.error || 'Une erreur est survenue')
       }
-    } catch (error) {
+    } catch {
       setStatus('error')
       setMessage('Erreur de connexion')
     }

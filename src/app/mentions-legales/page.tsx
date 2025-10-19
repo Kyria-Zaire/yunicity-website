@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, MapPin, Building } from 'lucide-react'
+import { ArrowLeft, Mail, Building } from 'lucide-react'
 import Link from 'next/link'
 
 export default function MentionsLegalesPage() {

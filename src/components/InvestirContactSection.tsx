@@ -46,7 +46,7 @@ export default function InvestirContactSection() {
       }
 
       setStatus('success')
-    } catch (error) {
+    } catch {
       setStatus('error')
     }
   }
