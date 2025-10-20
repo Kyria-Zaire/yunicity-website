@@ -115,6 +115,7 @@ export async function sendContactNotification(contactData: {
   subject: string
   message: string
   type: string
+  investmentRange?: string
 }) {
   try {
     const typeLabels = {
