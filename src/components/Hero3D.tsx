@@ -157,7 +157,7 @@ export default function Hero3D() {
   const currentStory = heroStories[currentIndex]
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gray-900">
+    <section className="relative min-h-screen overflow-hidden bg-black">
 
       {/* Background carousel with images */}
       <AnimatePresence mode="wait">

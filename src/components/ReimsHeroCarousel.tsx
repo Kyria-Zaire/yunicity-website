@@ -227,26 +227,26 @@ export default function ReimsHeroCarousel() {
       </AnimatePresence>
 
       {/* Navigation buttons */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-6 z-20">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
         {/* Previous */}
         <button
           onClick={prevSlide}
-          className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
+          className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
           aria-label="Lieu précédent"
         >
-          <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
+          <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
         </button>
 
         {/* Dots */}
-        <div className="flex gap-3">
+        <div className="flex gap-2">
           {reimsLieux.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? 'w-12 h-3 bg-white'
-                  : 'w-3 h-3 bg-white/30 hover:bg-white/50'
+                  ? 'w-10 h-2.5 bg-white'
+                  : 'w-2.5 h-2.5 bg-white/30 hover:bg-white/50'
               }`}
               aria-label={`Aller au lieu ${index + 1}`}
             />
@@ -256,10 +256,10 @@ export default function ReimsHeroCarousel() {
         {/* Next */}
         <button
           onClick={nextSlide}
-          className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
+          className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
           aria-label="Lieu suivant"
         >
-          <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+          <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
         </button>
       </div>
 

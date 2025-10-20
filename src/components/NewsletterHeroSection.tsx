@@ -114,7 +114,7 @@ export default function NewsletterHeroSection() {
       <div className="relative container mx-auto px-6 flex items-center justify-center min-h-[calc(100vh-16rem)]">
         {/* iPhone 15 Mockup - Plus grand */}
         <div className="flex justify-center w-full">
-          <div className="relative w-full max-w-lg">
+          <div className="relative w-full max-w-xl">
             {/* iPhone Frame */}
             <div className="relative bg-black rounded-[70px] p-5 shadow-2xl border-[12px] border-gray-900">
               {/* Dynamic Island */}

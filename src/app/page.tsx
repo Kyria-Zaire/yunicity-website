@@ -27,7 +27,7 @@ export default function Home() {
           </div>
 
           {/* CTA Cards Grid - Apple Glass Gray */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
             <Link href="/probleme" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-3xl p-8 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-white/60 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
