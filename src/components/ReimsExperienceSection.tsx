@@ -1,38 +1,34 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Sparkles, Users, Calendar, TrendingUp } from 'lucide-react'
 import Image from 'next/image'
+import FlowingStatsMenu from './FlowingStatsMenu'
 
-// Stats impressionnantes sur Reims
+// Stats impressionnantes sur Reims avec images Unsplash
 const reimsStats = [
   {
-    icon: Users,
     chiffre: '180K',
     label: 'Habitants',
     description: 'Une communauté dynamique et accueillante',
-    color: 'from-blue-500 to-cyan-500'
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop'
   },
   {
-    icon: Sparkles,
     chiffre: '4',
     label: 'Sites UNESCO',
     description: 'Patrimoine mondial exceptionnel',
-    color: 'from-purple-500 to-pink-500'
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=600&auto=format&fit=crop'
   },
   {
-    icon: Calendar,
     chiffre: '800+',
     label: 'Événements/an',
     description: 'Une ville qui vit toute l\'année',
-    color: 'from-green-500 to-emerald-500'
+    image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=600&auto=format&fit=crop'
   },
   {
-    icon: TrendingUp,
     chiffre: '320',
-    label: 'Millions € ',
+    label: 'Millions €',
     description: 'Caves de champagne visitées',
-    color: 'from-orange-500 to-red-500'
+    image: 'https://images.unsplash.com/photo-1510812431401-41d2cab2707d?q=80&w=600&auto=format&fit=crop'
   }
 ]
 
@@ -95,31 +91,17 @@ export default function ReimsExperienceSection() {
           </p>
         </motion.div>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32 max-w-7xl mx-auto">
-          {reimsStats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="relative group"
-            >
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border-2 border-gray-200 hover:border-gray-900 transition-all duration-300 h-full text-center shadow-lg hover:shadow-2xl">
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-
-                <div className={`text-5xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>
-                  {stat.chiffre}
-                </div>
-
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{stat.label}</h3>
-                <p className="text-gray-600 font-light leading-relaxed">{stat.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Flowing Stats Menu */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8 }}
+          className="mb-32"
+        >
+          <div style={{ height: '600px' }}>
+            <FlowingStatsMenu items={reimsStats} />
+          </div>
+        </motion.div>
 
         {/* Expériences uniques */}
         <motion.div
