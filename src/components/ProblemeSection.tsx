@@ -179,13 +179,10 @@ function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
           transition={{ duration: 0.8 }}
           className="text-center mb-24"
         >
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 tracking-tight">
-            Les chiffres
-            <span className="block bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mt-2">
-              du problème
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 tracking-tight">
+            Les chiffres <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">du problème</span>
           </h2>
-          <p className="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
             Chiffres clés illustrant l'ampleur du défi
           </p>
         </motion.div>
