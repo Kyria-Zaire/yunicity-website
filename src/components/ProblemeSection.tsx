@@ -128,8 +128,36 @@ function ProblemeHeroSection({ ref, isInView }: { ref: React.RefObject<HTMLEleme
   )
 }
 
-// Section 2 - BLANC: KPIs/Stats (À REMPLIR AVEC TES DONNÉES)
+// Section 2 - BLANC: KPIs/Stats
 function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
+  const mainStat = {
+    chiffre: '50%',
+    subChiffre: '34M',
+    label: 'Français désengagés localement',
+    description: 'Une déconnexion croissante du tissu social'
+  }
+
+  const pillars = [
+    {
+      chiffre: '12%',
+      label: 'Isolement relationnel',
+      description: 'Pas de réseau de sociabilité local',
+      source: 'Fondation de France 2024'
+    },
+    {
+      chiffre: '20%',
+      label: 'Sentiment de solitude',
+      description: 'Se sentent éloignés de leur communauté',
+      source: 'Sondage démographique 2024'
+    },
+    {
+      chiffre: '25%',
+      label: 'Jeunes 25-39 ans affectés',
+      description: 'Perte de liens intergénérationnels',
+      source: 'Étude INSEE 2024'
+    }
+  ]
+
   return (
     <section className="relative py-32 bg-white overflow-hidden">
       {/* Grille subtile */}
@@ -162,13 +190,35 @@ function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
           </p>
         </motion.div>
 
-        {/* Placeholder pour les KPIs */}
-        <div className="max-w-6xl mx-auto mb-12 p-12 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-300 text-center">
-          <p className="text-xl text-gray-600 font-light">
-            Les KPIs vont être affichés ici. Donne-moi tes chiffres et je vais les implémenter !
-            <br />
-            <span className="text-gray-500">Tu veux utiliser quel design ? (Cartes, FlowingMenu, autre ?)</span>
-          </p>
+        {/* STAT PRINCIPALE */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-4xl mx-auto mb-24 p-12 bg-gradient-to-br from-gray-900 to-black rounded-3xl text-white text-center border border-gray-800"
+        >
+          <div className="text-7xl sm:text-8xl font-black mb-3 tracking-tight">{mainStat.chiffre}</div>
+          <div className="text-2xl font-light text-gray-300 mb-4">{mainStat.label}</div>
+          <div className="text-lg text-gray-400 mb-6">{mainStat.description}</div>
+          <div className="inline-block text-4xl font-bold text-red-500">{mainStat.subChiffre} personnes</div>
+        </motion.div>
+
+        {/* TROIS PILIERS */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {pillars.map((pillar, index) => (
+            <motion.div
+              key={pillar.label}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+              className="p-8 bg-white border-2 border-gray-900 rounded-2xl hover:shadow-lg transition-all duration-300"
+            >
+              <div className="text-5xl font-black text-gray-900 mb-3">{pillar.chiffre}</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{pillar.label}</h3>
+              <p className="text-gray-600 font-light leading-relaxed mb-4">{pillar.description}</p>
+              <p className="text-xs text-gray-500 italic">{pillar.source}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
