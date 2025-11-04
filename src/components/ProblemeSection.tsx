@@ -140,20 +140,20 @@ function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
   const pillars = [
     {
       chiffre: '12%',
-      label: 'Isolement relationnel',
-      description: 'Pas de réseau de sociabilité local',
+      label: 'Sentiment de solitude',
+      description: 'Absence de réseau de sociabilité local',
       source: 'Fondation de France 2024'
     },
     {
       chiffre: '20%',
-      label: 'Sentiment de solitude',
-      description: 'Se sentent éloignés de leur communauté',
+      label: 'Manque de repères',
+      description: 'Ne savent plus ce qui se passe autour d\'eux',
       source: 'Sondage démographique 2024'
     },
     {
       chiffre: '25%',
-      label: 'Jeunes 25-39 ans affectés',
-      description: 'Perte de liens intergénérationnels',
+      label: 'Perte du lien social',
+      description: 'Déconnexion progressive avec leur territoire',
       source: 'Étude INSEE 2024'
     }
   ]
