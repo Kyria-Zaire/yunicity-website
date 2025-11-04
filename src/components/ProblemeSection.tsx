@@ -194,7 +194,7 @@ function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-4xl mx-auto mb-24 p-12 bg-gradient-to-br from-gray-900 to-black rounded-3xl text-white text-center border border-gray-800"
         >
-          <div className="text-7xl sm:text-8xl font-black mb-3 tracking-tight">{mainStat.chiffre}</div>
+          <div className="text-5xl sm:text-6xl font-black mb-3 tracking-tight">{mainStat.chiffre}</div>
           <div className="text-2xl font-light text-gray-300 mb-4">{mainStat.label}</div>
           <div className="text-lg text-gray-400 mb-6">{mainStat.description}</div>
           <div className="inline-block text-4xl font-bold text-red-500">{mainStat.subChiffre} personnes</div>
