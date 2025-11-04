@@ -210,7 +210,7 @@ function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
               transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               className="p-8 bg-white border-2 border-gray-900 rounded-2xl hover:shadow-lg transition-all duration-300"
             >
-              <div className="text-5xl font-black text-gray-900 mb-3">{pillar.chiffre}</div>
+              <div className="text-3xl sm:text-4xl font-black text-gray-900 mb-3">{pillar.chiffre}</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">{pillar.label}</h3>
               <p className="text-gray-600 font-light leading-relaxed mb-4">{pillar.description}</p>
               <p className="text-xs text-gray-500 italic">{pillar.source}</p>
