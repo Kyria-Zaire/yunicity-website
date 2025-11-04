@@ -1,40 +1,21 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
-import { AlertCircle, X, Users, Smartphone, MapPin, Calendar } from 'lucide-react'
-
-// Composant pour les statistiques animées
-function AnimatedCounter({ end, duration = 2, suffix = "" }: { end: number, duration?: number, suffix?: string }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    if (isInView) {
-      let startTime: number
-      let animationFrame: number
-
-      const animate = (currentTime: number) => {
-        if (!startTime) startTime = currentTime
-        const progress = Math.min((currentTime - startTime) / (duration * 1000), 1)
-
-        setCount(Math.floor(progress * end))
-
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(animate)
-        }
-      }
-
-      animationFrame = requestAnimationFrame(animate)
-      return () => cancelAnimationFrame(animationFrame)
-    }
-  }, [isInView, end, duration])
-
-  return <span ref={ref}>{count}{suffix}</span>
-}
+import { AlertCircle, Users, Smartphone, MapPin, Calendar } from 'lucide-react'
 
 // Floating app icons pour montrer la fragmentation
 function FloatingAppIcon({ icon: Icon, name, delay }: { icon: React.ElementType, name: string, delay: number }) {
+  const [position, setPosition] = useState({ left: 0, top: 0 })
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setPosition({
+      left: Math.random() * 80 + 10,
+      top: Math.random() * 80 + 10
+    })
+    setMounted(true)
+  }, [])
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0, rotate: -180 }}
@@ -48,8 +29,8 @@ function FloatingAppIcon({ icon: Icon, name, delay }: { icon: React.ElementType,
       }}
       className="absolute"
       style={{
-        left: `${Math.random() * 80 + 10}%`,
-        top: `${Math.random() * 80 + 10}%`,
+        left: mounted ? `${position.left}%` : '50%',
+        top: mounted ? `${position.top}%` : '50%',
       }}
     >
       <div className="relative group">
@@ -64,11 +45,8 @@ function FloatingAppIcon({ icon: Icon, name, delay }: { icon: React.ElementType,
   )
 }
 
-export default function ProblemeSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  // Simuler des apps fragmentées
+// Section 1 - NOIR: Header Émotionnel
+function ProblemeHeroSection({ ref, isInView }: { ref: React.RefObject<HTMLElement | null>, isInView: boolean }) {
   const fragmentedApps = [
     { icon: MapPin, name: 'Google Maps' },
     { icon: Calendar, name: 'Eventbrite' },
@@ -112,7 +90,6 @@ export default function ProblemeSection() {
       />
 
       <div className="relative container mx-auto px-6">
-
         {/* Header - Emotional Impact */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -146,46 +123,76 @@ export default function ProblemeSection() {
             Imaginez ne pas connaître vos voisins. Rater tous les événements. Chercher l'info sur 15 apps différentes.
           </motion.p>
         </motion.div>
+      </div>
+    </section>
+  )
+}
 
-        {/* Immersive Stats Grid - Large Impact Numbers */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32 max-w-6xl mx-auto">
-          {[
-            { value: 34, suffix: 'M', label: 'Français isolés', sublabel: '50% de la population', icon: Users, color: 'red' },
-            { value: 68, suffix: '%', label: "Sentiment d'exclusion", sublabel: 'Ne connaissent pas leurs voisins', icon: X, color: 'orange' },
-            { value: 15, suffix: '+', label: 'Apps à jongler', sublabel: 'Pour accéder à l\'info locale', icon: Smartphone, color: 'yellow' },
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              whileHover={{ scale: 1.05, y: -10 }}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.2 }}
-              className="relative group"
-            >
-              {/* Glow effect on hover */}
-              <div className={`absolute inset-0 bg-${stat.color}-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+// Section 2 - BLANC: KPIs/Stats (À REMPLIR AVEC TES DONNÉES)
+function ProblemeStatsSection({ isInView }: { isInView: boolean }) {
+  return (
+    <section className="relative py-32 bg-white overflow-hidden">
+      {/* Grille subtile */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }}
+      />
 
-              <div className="relative bg-gray-900/60 backdrop-blur-xl border border-gray-800 rounded-3xl p-10 text-center hover:border-gray-700 transition-all duration-300">
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-${stat.color}-500/10 flex items-center justify-center border border-${stat.color}-500/30`}>
-                  <stat.icon className={`w-8 h-8 text-${stat.color}-400`} />
-                </div>
+      <div className="relative container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-24"
+        >
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-gray-900 tracking-tight">
+            Les chiffres
+            <span className="block bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mt-2">
+              du problème
+            </span>
+          </h2>
+          <p className="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
+            Chiffres clés illustrant l'ampleur du défi
+          </p>
+        </motion.div>
 
-                <div className={`text-7xl font-light text-${stat.color}-400 mb-3 tabular-nums`}>
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </div>
-
-                <h3 className="text-2xl font-medium text-white mb-2">{stat.label}</h3>
-                <p className="text-gray-500 font-light text-sm">{stat.sublabel}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Placeholder pour les KPIs */}
+        <div className="max-w-6xl mx-auto mb-12 p-12 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-300 text-center">
+          <p className="text-xl text-gray-600 font-light">
+            Les KPIs vont être affichés ici. Donne-moi tes chiffres et je vais les implémenter !
+            <br />
+            <span className="text-gray-500">Tu veux utiliser quel design ? (Cartes, FlowingMenu, autre ?)</span>
+          </p>
         </div>
+      </div>
+    </section>
+  )
+}
 
+// Section 3 - NOIR: Conséquences et Pain Points
+function ProblemeConsequencesSection({ isInView }: { isInView: boolean }) {
+  return (
+    <section className="relative py-32 bg-black overflow-hidden">
+      {/* Noise texture overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <div className="relative container mx-auto px-6">
         {/* Emotional Pain Points - Story Cards */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto mb-32"
         >
           <div className="text-center mb-16">
@@ -224,7 +231,7 @@ export default function ProblemeSection() {
                 key={item.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.2 + index * 0.15 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
                 className="group relative bg-gray-900/40 backdrop-blur-md border border-gray-800 rounded-2xl p-8 hover:bg-gray-900/60 hover:border-gray-700 transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-4">
@@ -248,7 +255,7 @@ export default function ProblemeSection() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 1, delay: 1.8 }}
+          transition={{ duration: 1 }}
           className="max-w-4xl mx-auto text-center"
         >
           <div className="relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-2xl border border-gray-800 rounded-3xl p-12 sm:p-16">
@@ -270,5 +277,18 @@ export default function ProblemeSection() {
         </motion.div>
       </div>
     </section>
+  )
+}
+
+export default function ProblemeSection() {
+  const ref = useRef<HTMLElement>(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <>
+      <ProblemeHeroSection ref={ref} isInView={isInView} />
+      <ProblemeStatsSection isInView={isInView} />
+      <ProblemeConsequencesSection isInView={isInView} />
+    </>
   )
 }
