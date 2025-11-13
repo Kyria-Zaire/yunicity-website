@@ -84,7 +84,7 @@ Une **super-app locale** qui centralise :
 
 1. **Cloner le repository**
 ```bash
-git clone https://github.com/votre-org/yunicity-website.git
+git clone https://github.com/Kyria-Zaire/yunicity-website.git
 cd yunicity-website
 ```
 
@@ -232,7 +232,7 @@ yunicity-website/
 📧 **Email** : yu.entreprise@gmail.com
 🔗 **LinkedIn** : [Yunicity App](https://www.linkedin.com/in/yunicity-app-381bb7230)
 📸 **Instagram** : [@yunicity.app](https://www.instagram.com/yunicity.app)
-📘 **Facebook** : [Yunicity](https://www.facebook.com/share/17FsREHfzM/)
+📘 **Facebook** : [Yunicity](https://www.facebook.com/share/1Eu3J5rE9P/)
 
 ---
 

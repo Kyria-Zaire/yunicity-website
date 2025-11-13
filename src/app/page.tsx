@@ -3,12 +3,88 @@ import Hero3D from '@/components/Hero3D'
 import Navigation from '@/components/Navigation'
 import NewsletterSubscribeSection from '@/components/NewsletterSubscribeSection'
 import Footer from '@/components/Footer'
+import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
 import { ArrowRight, Users, Lightbulb, MapPin, Target } from 'lucide-react'
 
 export default function Home() {
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'YUNICITY',
+    url: 'https://yunicity-website.vercel.app',
+    logo: 'https://yunicity-website.vercel.app/yunicity-logo.png',
+    description: 'La première super-app locale qui reconnecte les habitants à leur territoire',
+    foundingDate: '2024',
+    foundingLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Reims',
+        addressRegion: 'Grand Est',
+        addressCountry: 'FR'
+      }
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'yu.entreprise@gmail.com',
+      contactType: 'Customer Service',
+      areaServed: 'FR',
+      availableLanguage: 'French'
+    },
+    sameAs: [
+      'https://www.instagram.com/yunicity.app',
+      'https://www.linkedin.com/in/yunicity-app-381bb7230',
+      'https://www.facebook.com/share/1Eu3J5rE9P/'
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Reims',
+      addressRegion: 'Grand Est',
+      addressCountry: 'FR'
+    }
+  }
+
+  const softwareApplicationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'YUNICITY',
+    applicationCategory: 'SocialNetworkingApplication',
+    operatingSystem: 'iOS, Android',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'EUR'
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      ratingCount: '1'
+    },
+    description: 'Application mobile qui reconnecte les habitants à leur territoire local',
+    releaseNotes: 'Lancement MVP prévu en Mars 2026 à Reims'
+  }
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'YUNICITY',
+    url: 'https://yunicity-website.vercel.app',
+    description: 'La première super-app locale qui reconnecte les habitants à leur territoire',
+    publisher: {
+      '@type': 'Organization',
+      name: 'YUNICITY'
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://yunicity-website.vercel.app/search?q={search_term_string}',
+      'query-input': 'required name=search_term_string'
+    }
+  }
+
   return (
     <div className="min-h-screen">
+      <StructuredData data={[organizationSchema, softwareApplicationSchema, websiteSchema]} />
       <Navigation activeSection="" />
 
       <Hero3D />

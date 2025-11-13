@@ -11,17 +11,17 @@ export default function Footer() {
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://www.instagram.com/yunicity.app?igsh=MWhzam53cm9kMGxtNQ=='
+      url: 'https://www.instagram.com/yunicity.app?igsh=MWlsNGl6a2g0ajFueQ=='
     },
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://www.linkedin.com/in/yunicity-app-381bb7230'
+      url: 'https://www.linkedin.com/in/yunicity-app-381bb7230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'
     },
     {
       name: 'Facebook',
       icon: Facebook,
-      url: 'https://www.facebook.com/share/17FsREHfzM/'
+      url: 'https://www.facebook.com/share/1Eu3J5rE9P/'
     }
   ]
 
@@ -32,8 +32,8 @@ export default function Footer() {
   ]
 
   const quickLinks = [
-    { name: 'Accueil', href: '/#hero' },
-    { name: 'À propos', href: '/#equipe' },
+    { name: 'Accueil', href: '/' },
+    { name: 'À propos', href: '/equipe' },
     { name: 'Investir', href: '/investir' },
     { name: 'Contact', href: '/contact' }
   ]
@@ -117,7 +117,7 @@ export default function Footer() {
 
             <div className="flex items-center space-x-2 text-white/60 text-sm font-light">
               <Rocket className="w-4 h-4" />
-              <span>Mars 2026</span>
+              <span>Juin 2026</span>
             </div>
           </motion.div>
 

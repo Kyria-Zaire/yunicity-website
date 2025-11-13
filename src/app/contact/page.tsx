@@ -5,42 +5,125 @@ import {
   Mail, 
   Send, 
   User, 
-  Building, 
   MessageSquare, 
   Phone,
   MapPin,
-  Clock,
   CheckCircle,
-  ArrowLeft,
-  Linkedin,
-  Instagram,
-  Facebook,
-  Rocket,
-  Heart,
-  Zap
+  Calendar,
+  Video,
+  PhoneCall,
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react'
-import Link from 'next/link'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    phone: '',
-    subject: '',
     message: '',
-    type: 'general'
+    type: 'general' as 'general' | 'investor' | 'partnership' | 'press'
   })
   
+  // Calendrier
+  const [currentDate, setCurrentDate] = useState(new Date())
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  const [selectedTime, setSelectedTime] = useState<string | null>(null)
+  const [meetingFormat, setMeetingFormat] = useState<'visio' | 'phone'>('visio')
+  
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [focusedField, setFocusedField] = useState<string | null>(null)
+  const [step, setStep] = useState<'form' | 'confirmation'>('form')
+
+  const timeSlots = [
+    '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+    '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00'
+  ]
 
   const contactTypes = [
-    { id: 'general', label: '💬 Question Générale', color: 'from-blue-500 to-cyan-500' },
-    { id: 'investor', label: '💰 Investissement', color: 'from-purple-500 to-pink-500' },
-    { id: 'partnership', label: '🤝 Partenariat', color: 'from-green-500 to-emerald-500' },
-    { id: 'press', label: '📰 Presse & Media', color: 'from-orange-500 to-red-500' }
+    { id: 'general', label: 'Question générale', icon: MessageSquare },
+    { id: 'investor', label: 'Investissement', icon: Phone },
+    { id: 'partnership', label: 'Partenariat', icon: Mail },
+    { id: 'press', label: 'Presse & Media', icon: Send }
   ]
+
+  const getDaysInMonth = (date: Date) => {
+    const year = date.getFullYear()
+    const month = date.getMonth()
+    const firstDay = new Date(year, month, 1)
+    const lastDay = new Date(year, month + 1, 0)
+    const daysInMonth = lastDay.getDate()
+    const startingDayOfWeek = firstDay.getDay()
+    
+    const days: (Date | null)[] = []
+    
+    for (let i = 0; i < startingDayOfWeek; i++) {
+      days.push(null)
+    }
+    
+    for (let day = 1; day <= daysInMonth; day++) {
+      days.push(new Date(year, month, day))
+    }
+    
+    return days
+  }
+
+  const isPastDate = (date: Date) => {
+    const today = new Date()
+    today.setHours(0, 0, 0, 0)
+    return date < today
+  }
+
+  const isToday = (date: Date) => {
+    const today = new Date()
+    return date.getDate() === today.getDate() &&
+           date.getMonth() === today.getMonth() &&
+           date.getFullYear() === today.getFullYear()
+  }
+
+  const handleDateSelect = (date: Date | null) => {
+    if (date && !isPastDate(date)) {
+      setSelectedDate(date)
+      setSelectedTime(null)
+    }
+  }
+
+  const handleTimeSelect = (time: string) => {
+    setSelectedTime(time)
+  }
+
+  const nextMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))
+  }
+
+  const prevMonth = () => {
+    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))
+  }
+
+  const generateCalendarLink = (provider: 'google' | 'outlook') => {
+    if (!selectedDate || !selectedTime) return '#'
+    
+    const [hours, minutes] = selectedTime.split(':').map(Number)
+    const startDate = new Date(selectedDate)
+    startDate.setHours(hours, minutes, 0, 0)
+    const endDate = new Date(startDate)
+    endDate.setHours(hours + 1, minutes, 0, 0)
+
+    const formatDate = (date: Date) => {
+      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    }
+
+    const title = encodeURIComponent('Rendez-vous - Yunicity')
+    const details = encodeURIComponent(`Rendez-vous avec ${formData.name || 'Contact'}\n\nEmail: ${formData.email}\nFormat: ${meetingFormat === 'visio' ? 'Visio-conférence' : 'Téléphone'}`)
+    const location = encodeURIComponent(meetingFormat === 'visio' ? 'Visio-conférence (lien à envoyer)' : 'Appel téléphonique')
+
+    if (provider === 'google') {
+      return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${details}&location=${location}`
+    } else {
+      return `https://outlook.live.com/calendar/0/deeplink/compose?subject=${title}&startdt=${startDate.toISOString()}&enddt=${endDate.toISOString()}&body=${details}&location=${location}`
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,7 +135,16 @@ export default function ContactPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: `Contact ${contactTypes.find(t => t.id === formData.type)?.label || 'général'}`,
+          message: formData.message,
+          type: formData.type,
+          meetingDate: selectedDate ? selectedDate.toISOString() : undefined,
+          meetingTime: selectedTime ? selectedTime : undefined,
+          meetingFormat: selectedDate && selectedTime ? meetingFormat : undefined
+        })
       })
 
       const data = await response.json()
@@ -61,396 +153,490 @@ export default function ContactPage() {
         throw new Error(data.error || 'Erreur lors de l\'envoi')
       }
       
-      setStatus('success')
+      if (selectedDate && selectedTime) {
+        setStep('confirmation')
+      } else {
+        setStatus('success')
+      }
     } catch (error: unknown) {
       console.error('Erreur:', error)
       setStatus('error')
     }
   }
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }))
-  }
-
-  if (status === 'success') {
+  if (status === 'success' && step !== 'confirmation') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-black flex items-center justify-center p-6">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 p-12 text-center max-w-lg"
+          className="text-center max-w-md"
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.3, type: "spring", stiffness: 300 }}
-            className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8"
+            transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
+            className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8"
           >
-            <CheckCircle className="w-12 h-12 text-white" />
+            <CheckCircle className="w-10 h-10 text-white" />
           </motion.div>
           
-          <h1 className="text-4xl font-bold text-white mb-6">Message Envoyé ! 🚀</h1>
-          <p className="text-white/80 text-lg mb-8 leading-relaxed">
-            Merci <span className="text-green-300 font-semibold">{formData.name}</span> ! 
+          <h1 className="text-4xl font-light text-white mb-4">Message envoyé</h1>
+          <p className="text-white/60 text-lg mb-8">
+            Merci <span className="text-white font-medium">{formData.name}</span> ! 
             <br />Nous vous répondrons sous 24h.
           </p>
-          
-          <div className="space-y-4">
-            <Link href="/">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl text-white font-semibold text-lg shadow-lg"
-              >
-                Retour à l'accueil
-              </motion.button>
-            </Link>
-            
-            <div className="flex justify-center space-x-4">
-              <a href="https://www.linkedin.com/in/yunicity-app-381bb7230" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="https://www.instagram.com/yunicity.app" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="https://www.facebook.com/share/17FsREHfzM/" className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all">
-                <Facebook className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
         </motion.div>
       </div>
     )
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      
-      {/* Background effects */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
-      </div>
+  const days = getDaysInMonth(currentDate)
 
-      <div className="relative container mx-auto px-6 py-20">
+  return (
+    <div className="min-h-screen bg-black">
+      <Navigation activeSection="" />
+      
+      <div className="container mx-auto px-6 py-20 max-w-7xl">
         
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <Link href="/" className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Retour à l'accueil</span>
-          </Link>
-          
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-indigo-500/20 border border-purple-500/30 rounded-full text-purple-300 font-semibold text-sm tracking-wider uppercase mb-8"
-          >
-            <Mail className="w-4 h-4" />
-            <span>CONTACT YUNICITY</span>
-            <Rocket className="w-4 h-4" />
-          </motion.div>
-
-          <h1 className="text-5xl lg:text-7xl font-black text-white mb-6">
-            Parlons de votre
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400">
-              PROJET
-            </span>
+          <h1 className="text-5xl lg:text-6xl font-light text-white mb-4 tracking-tight">
+            Contactez-nous
           </h1>
-          
-          <p className="text-xl text-white/80 leading-relaxed max-w-3xl mx-auto">
-            Une question ? Un projet d'investissement ? Une idée de partenariat ?
-            <br className="hidden lg:block" />
-            L'équipe Yunicity vous répond sous <span className="text-purple-300 font-semibold">24h</span>.
+          <p className="text-xl text-white/50 font-light max-w-2xl mx-auto">
+            Une question ? Un projet ? Une idée de partenariat ?
+            <br />L'équipe Yunicity vous répond sous <span className="text-white">24h</span>.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        {/* Split-screen: Formulaire + Calendrier */}
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
           
-          {/* Formulaire principal */}
+          {/* GAUCHE: Formulaire minimaliste */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-            className="lg:col-span-2"
+            transition={{ delay: 0.2 }}
+            className="space-y-8"
           >
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 p-8 lg:p-12">
+            <form onSubmit={handleSubmit} className="space-y-8">
               
-              <form onSubmit={handleSubmit} className="space-y-8">
-                
-                {/* Type de contact */}
-                <div>
-                  <label className="block text-white font-semibold text-lg mb-6">
-                    Quel est l'objet de votre message ?
-                  </label>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {contactTypes.map((type) => (
+              {/* Type de contact */}
+              <div>
+                <label className="block text-white/60 font-light mb-4 text-sm uppercase tracking-wider">
+                  Type de contact
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {contactTypes.map((type) => {
+                    const Icon = type.icon
+                    return (
                       <motion.button
                         key={type.id}
                         type="button"
-                        onClick={() => handleInputChange('type', type.id)}
-                        className={`p-4 rounded-xl border transition-all duration-300 text-left ${
+                        onClick={() => setFormData({ ...formData, type: type.id as 'general' | 'investor' | 'partnership' | 'press' })}
+                        className={`p-4 rounded-2xl border transition-all text-left ${
                           formData.type === type.id
-                            ? `bg-gradient-to-br ${type.color} border-white/30 shadow-lg`
-                            : 'bg-white/5 border-white/20 hover:bg-white/10'
+                            ? 'bg-white/10 border-white/30 text-white'
+                            : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:border-white/20'
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                       >
-                        <div className="text-white font-medium">{type.label}</div>
+                        <Icon className="w-5 h-5 mb-2" />
+                        <div className="text-sm font-light">{type.label}</div>
                       </motion.button>
-                    ))}
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Nom */}
+              <div>
+                <label className="block text-white/60 font-light mb-3 text-sm">
+                  Nom complet *
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-0 border-b border-white/10" />
+                  <div className="relative flex items-center gap-4 pb-3">
+                    <User className="w-5 h-5 text-white/40" />
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="flex-1 bg-transparent text-white text-lg placeholder:text-white/30 focus:outline-none font-light"
+                      placeholder="Jean Dupont"
+                    />
                   </div>
                 </div>
+              </div>
 
-                {/* Informations personnelles */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div
-                    animate={{ scale: focusedField === 'name' ? 1.02 : 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <label className="block text-white/80 font-medium mb-2">
-                      Nom complet *
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        onFocus={() => setFocusedField('name')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                        placeholder="Ex: Marie Dupont"
-                      />
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ scale: focusedField === 'email' ? 1.02 : 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <label className="block text-white/80 font-medium mb-2">
-                      Email *
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        onFocus={() => setFocusedField('email')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                        placeholder="marie@entreprise.com"
-                      />
-                    </div>
-                  </motion.div>
+              {/* Email */}
+              <div>
+                <label className="block text-white/60 font-light mb-3 text-sm">
+                  Email *
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-0 border-b border-white/10" />
+                  <div className="relative flex items-center gap-4 pb-3">
+                    <Mail className="w-5 h-5 text-white/40" />
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="flex-1 bg-transparent text-white text-lg placeholder:text-white/30 focus:outline-none font-light"
+                      placeholder="jean@exemple.com"
+                    />
+                  </div>
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <motion.div
-                    animate={{ scale: focusedField === 'company' ? 1.02 : 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <label className="block text-white/80 font-medium mb-2">
-                      Entreprise
-                    </label>
-                    <div className="relative">
-                      <Building className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => handleInputChange('company', e.target.value)}
-                        onFocus={() => setFocusedField('company')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                        placeholder="Nom de votre entreprise"
-                      />
-                    </div>
-                  </motion.div>
-
-                  <motion.div
-                    animate={{ scale: focusedField === 'phone' ? 1.02 : 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <label className="block text-white/80 font-medium mb-2">
-                      Téléphone
-                    </label>
-                    <div className="relative">
-                      <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        onFocus={() => setFocusedField('phone')}
-                        onBlur={() => setFocusedField(null)}
-                        className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                        placeholder="+33 7 82 66 35 98"
-                      />
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Sujet */}
-                <motion.div
-                  animate={{ scale: focusedField === 'subject' ? 1.02 : 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <label className="block text-white/80 font-medium mb-2">
-                    Sujet *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.subject}
-                    onChange={(e) => handleInputChange('subject', e.target.value)}
-                    onFocus={() => setFocusedField('subject')}
-                    onBlur={() => setFocusedField(null)}
-                    className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300"
-                    placeholder="Ex: Proposition d'investissement"
-                  />
-                </motion.div>
-
-                {/* Message */}
-                <motion.div
-                  animate={{ scale: focusedField === 'message' ? 1.02 : 1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <label className="block text-white/80 font-medium mb-2">
-                    Votre message *
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-white/50" />
+              {/* Message */}
+              <div>
+                <label className="block text-white/60 font-light mb-3 text-sm">
+                  Message *
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-0 border border-white/10 rounded-2xl" />
+                  <div className="relative p-4">
                     <textarea
                       required
                       value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       rows={6}
-                      className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-purple-400 focus:bg-white/15 transition-all duration-300 resize-none"
+                      className="w-full bg-transparent text-white placeholder:text-white/30 focus:outline-none font-light resize-none"
                       placeholder="Décrivez votre projet, vos questions ou vos idées..."
                     />
                   </div>
-                </motion.div>
+                </div>
+              </div>
 
-                {/* Bouton submit */}
-                <motion.button
-                  type="submit"
-                  disabled={status === 'loading' || !formData.name || !formData.email || !formData.subject || !formData.message}
-                  className="w-full py-4 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl text-white font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed hover:from-purple-500 hover:to-blue-500 transition-all duration-300 shadow-lg flex items-center justify-center space-x-3"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {status === 'loading' ? (
-                    <>
-                      <motion.div
-                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      />
-                      <span>Envoi en cours...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span>Envoyer le message</span>
-                    </>
-                  )}
-                </motion.button>
-              </form>
-            </div>
+              {/* Bouton submit */}
+              <motion.button
+                type="submit"
+                disabled={status === 'loading' || !formData.name || !formData.email || !formData.message}
+                className="w-full py-4 bg-white text-black rounded-2xl font-light text-lg disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/90 transition-all flex items-center justify-center gap-3"
+                whileHover={{ scale: status === 'loading' ? 1 : 1.02 }}
+                whileTap={{ scale: status === 'loading' ? 1 : 0.98 }}
+              >
+                {status === 'loading' ? (
+                  <>
+                    <motion.div
+                      className="w-5 h-5 border-2 border-black border-t-transparent rounded-full"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                    <span>Envoi...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    <span>Envoyer le message</span>
+                  </>
+                )}
+              </motion.button>
+            </form>
           </motion.div>
 
-          {/* Sidebar infos */}
+          {/* DROITE: Calendrier avec créneaux visuels */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="space-y-8"
+            transition={{ delay: 0.3 }}
+            className="space-y-6"
           >
-            
-            {/* Contact direct */}
-            <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <Zap className="w-5 h-5 mr-2 text-yellow-400" />
-                Contact Rapide
-              </h3>
-              
-              <div className="space-y-4">
-                <a href="mailto:yu.entreprise@gmail.com" className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors">
-                  <Mail className="w-5 h-5 text-purple-400" />
-                  <span>yu.entreprise@gmail.com</span>
-                </a>
-                <div className="flex items-center space-x-3 text-white/80">
-                  <MapPin className="w-5 h-5 text-green-400" />
-                  <span>Reims, Grand Est</span>
-                </div>
-                <div className="flex items-center space-x-3 text-white/80">
-                  <Clock className="w-5 h-5 text-blue-400" />
-                  <span>Réponse sous 24h</span>
-                </div>
+            <div>
+              <h2 className="text-2xl font-light text-white mb-2">Prendre rendez-vous</h2>
+              <p className="text-white/50 font-light text-sm mb-8">
+                Choisissez un créneau pour un échange personnalisé
+              </p>
+            </div>
+
+            {/* Format de rendez-vous */}
+            <div>
+              <label className="block text-white/60 font-light mb-3 text-sm">
+                Format
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <motion.button
+                  type="button"
+                  onClick={() => setMeetingFormat('visio')}
+                  className={`p-4 rounded-2xl border transition-all ${
+                    meetingFormat === 'visio'
+                      ? 'bg-white/10 border-white/30 text-white'
+                      : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Video className="w-5 h-5 mb-2 mx-auto" />
+                  <div className="text-sm font-light">Visio-conférence</div>
+                </motion.button>
+                
+                <motion.button
+                  type="button"
+                  onClick={() => setMeetingFormat('phone')}
+                  className={`p-4 rounded-2xl border transition-all ${
+                    meetingFormat === 'phone'
+                      ? 'bg-white/10 border-white/30 text-white'
+                      : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <PhoneCall className="w-5 h-5 mb-2 mx-auto" />
+                  <div className="text-sm font-light">Téléphone</div>
+                </motion.button>
               </div>
             </div>
 
-            {/* Réseaux sociaux */}
-            <div className="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 p-6">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                <Heart className="w-5 h-5 mr-2 text-pink-400" />
-                Nos Réseaux
-              </h3>
+            {/* Calendrier */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-6">
+                <motion.button
+                  type="button"
+                  onClick={prevMonth}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronLeft className="w-5 h-5 text-white/60" />
+                </motion.button>
+                <h3 className="text-white font-light text-lg">
+                  {currentDate.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+                </h3>
+                <motion.button
+                  type="button"
+                  onClick={nextMonth}
+                  className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <ChevronRight className="w-5 h-5 text-white/60" />
+                </motion.button>
+              </div>
               
-              <div className="space-y-3">
-                <a href="https://www.linkedin.com/in/yunicity-app-381bb7230" className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
-                  <Linkedin className="w-5 h-5 text-blue-400" />
-                  <span className="text-white/80 group-hover:text-white">LinkedIn</span>
-                </a>
-                <a href="https://www.instagram.com/yunicity.app" className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
-                  <Instagram className="w-5 h-5 text-pink-400" />
-                  <span className="text-white/80 group-hover:text-white">Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/share/17FsREHfzM/" className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-all group">
-                  <Facebook className="w-5 h-5 text-blue-500" />
-                  <span className="text-white/80 group-hover:text-white">Facebook</span>
-                </a>
+              <div className="grid grid-cols-7 gap-2 mb-3">
+                {['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((day, index) => (
+                  <div key={`day-${index}`} className="text-center text-white/40 text-xs font-light py-2">
+                    {day}
+                  </div>
+                ))}
+              </div>
+              
+              <div className="grid grid-cols-7 gap-2">
+                {days.map((date, idx) => {
+                  if (!date) return <div key={idx} className="aspect-square" />
+                  
+                  const isSelected = selectedDate && 
+                    date.getDate() === selectedDate.getDate() &&
+                    date.getMonth() === selectedDate.getMonth() &&
+                    date.getFullYear() === selectedDate.getFullYear()
+                  const isPast = isPastDate(date)
+                  const isTodayDate = isToday(date)
+                  
+                  return (
+                    <motion.button
+                      key={idx}
+                      type="button"
+                      onClick={() => handleDateSelect(date)}
+                      disabled={isPast}
+                      className={`aspect-square rounded-xl text-sm font-light transition-all ${
+                        isSelected
+                          ? 'bg-white text-black'
+                          : isPast
+                          ? 'text-white/20 cursor-not-allowed'
+                          : isTodayDate
+                          ? 'bg-white/10 text-white border border-white/20'
+                          : 'text-white/60 hover:bg-white/5 hover:text-white'
+                      }`}
+                      whileHover={!isPast ? { scale: 1.1 } : {}}
+                      whileTap={!isPast ? { scale: 0.9 } : {}}
+                    >
+                      {date.getDate()}
+                    </motion.button>
+                  )
+                })}
               </div>
             </div>
 
-            {/* Stats équipe */}
-            <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 backdrop-blur-xl rounded-2xl border border-purple-500/20 p-6">
-              <h3 className="text-xl font-bold text-white mb-6">L'équipe Yunicity</h3>
-              
-              <div className="space-y-4 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-white/70">Membres :</span>
-                  <span className="text-white font-semibold">5 experts</span>
+            {/* Créneaux horaires */}
+            {selectedDate && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                className="space-y-3"
+              >
+                <label className="block text-white/60 font-light text-sm">
+                  Créneaux disponibles
+                </label>
+                <div className="grid grid-cols-4 gap-2">
+                  {timeSlots.map((time) => (
+                    <motion.button
+                      key={time}
+                      type="button"
+                      onClick={() => handleTimeSelect(time)}
+                      className={`py-3 px-2 rounded-xl text-sm font-light transition-all ${
+                        selectedTime === time
+                          ? 'bg-white text-black'
+                          : 'bg-white/5 text-white/60 hover:bg-white/10 border border-white/10'
+                      }`}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {time}
+                    </motion.button>
+                  ))}
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-white/70">Expérience :</span>
-                  <span className="text-white font-semibold">10+ ans</span>
+              </motion.div>
+            )}
+
+            {/* Confirmation rendez-vous */}
+            {selectedDate && selectedTime && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-white/5 border border-white/10 rounded-2xl"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <Calendar className="w-5 h-5 text-white/60" />
+                  <div className="text-white font-light">
+                    {selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })} à {selectedTime}
+                  </div>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-white/70">Lancement MVP :</span>
-                  <span className="text-white font-semibold">Mars 2026</span>
+                <div className="text-white/50 text-sm font-light">
+                  Format: {meetingFormat === 'visio' ? 'Visio-conférence' : 'Téléphone'}
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-white/70">Objectif :</span>
-                  <span className="text-white font-semibold">5M€ ARR 2030</span>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            )}
           </motion.div>
         </div>
+
+        {/* Confirmation avec calendriers */}
+        {step === 'confirmation' && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-6"
+            onClick={() => setStep('form')}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-black border border-white/10 rounded-3xl p-8 max-w-md w-full"
+            >
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
+                className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              >
+                <CheckCircle className="w-8 h-8 text-white" />
+              </motion.div>
+              
+              <h3 className="text-2xl font-light text-white mb-4 text-center">Rendez-vous confirmé</h3>
+              <p className="text-white/60 text-center mb-6 font-light">
+                {selectedDate && selectedTime && (
+                  <>
+                    Le {selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })} à {selectedTime}
+                  </>
+                )}
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                <motion.a
+                  href={generateCalendarLink('google')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-white/5 border border-white/10 rounded-xl text-white hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-sm font-light"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Google</span>
+                </motion.a>
+                
+                <motion.a
+                  href={generateCalendarLink('outlook')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-white/5 border border-white/10 rounded-xl text-white hover:bg-white/10 transition-all flex items-center justify-center gap-2 text-sm font-light"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  <span>Outlook</span>
+                </motion.a>
+              </div>
+
+              <motion.button
+                onClick={() => {
+                  setStep('form')
+                  setStatus('idle')
+                  setSelectedDate(null)
+                  setSelectedTime(null)
+                }}
+                className="w-full py-3 bg-white text-black rounded-xl font-light hover:bg-white/90 transition-all"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Fermer
+              </motion.button>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Coordonnées en bas */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="grid md:grid-cols-3 gap-8 pt-12 border-t border-white/10"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+              <Mail className="w-6 h-6 text-white/60" />
+            </div>
+            <div>
+              <h3 className="text-white font-light mb-1">Email</h3>
+              <a href="mailto:yu.entreprise@gmail.com" className="text-white/50 hover:text-white transition-colors font-light">
+                yu.entreprise@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+              <Phone className="w-6 h-6 text-white/60" />
+            </div>
+            <div>
+              <h3 className="text-white font-light mb-1">Téléphone</h3>
+              <a href="tel:+33782663598" className="text-white/50 hover:text-white transition-colors font-light">
+                +33 7 82 66 35 98
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center">
+              <MapPin className="w-6 h-6 text-white/60" />
+            </div>
+            <div>
+              <h3 className="text-white font-light mb-1">Adresse</h3>
+              <p className="text-white/50 font-light">Reims, Grand Est</p>
+            </div>
+          </div>
+        </motion.div>
       </div>
+      
+      <Footer />
     </div>
   )
 }

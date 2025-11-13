@@ -1,7 +1,7 @@
 'use client'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react'
+import { MapPin, Clock } from 'lucide-react'
 import Image from 'next/image'
 
 // 6 Lieux touristiques emblématiques de Reims
@@ -10,7 +10,7 @@ const reimsLieux = [
     id: 1,
     nom: 'Cathédrale Notre-Dame',
     categorie: 'Patrimoine UNESCO',
-    image: 'https://images.unsplash.com/photo-1582139329536-9a1c1fad4be0?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://images.unsplash.com/photo-1632854270303-f5fdb97b697f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935',
     description: "Joyau gothique où étaient sacrés les rois de France. 2000 ans d'histoire gravés dans la pierre.",
     horaires: '7h30 - 19h30',
     conseil: 'Venez à 18h pour voir les vitraux s\'illuminer',
@@ -20,7 +20,7 @@ const reimsLieux = [
     id: 2,
     nom: 'Caves Veuve Clicquot',
     categorie: 'Champagne & Prestige',
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://images.unsplash.com/photo-1562663729-4971d6802f4a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935',
     description: "Plongée dans l'univers du champagne de prestige. 24 km de galeries souterraines.",
     horaires: '10h - 18h',
     conseil: 'Réservez la visite "Madame Clicquot" pour l\'expérience VIP',
@@ -30,7 +30,7 @@ const reimsLieux = [
     id: 3,
     nom: 'Place Drouet d\'Erlon',
     categorie: 'Vie Locale',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://i0.wp.com/leblogduherisson.com/wp-content/uploads/2022/05/flaner-a-reims-1.jpg?fit=800%2C445&ssl=1',
     description: "Cœur battant de Reims. Terrasses animées, commerces et ambiance authentique.",
     horaires: 'Toute la journée',
     conseil: 'Parfait pour l\'apéro le soir ou le brunch le dimanche',
@@ -40,7 +40,7 @@ const reimsLieux = [
     id: 4,
     nom: 'Palais du Tau',
     categorie: 'Musée Royal',
-    image: 'https://images.unsplash.com/photo-1566127444979-b3d2b64d6e4d?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://lp-cms-production.imgix.net/2019-06/GettyImages-176197761_full.jpg?auto=format&q=40&ar=16:9&fit=crop&crop=center&fm=auto&w=1946',
     description: "Ancien palais archiépiscopal, trésor des sacres royaux. Tapisseries médiévales exceptionnelles.",
     horaires: '9h30 - 18h',
     conseil: 'Ne manquez pas la tapisserie de saint Remi',
@@ -50,7 +50,7 @@ const reimsLieux = [
     id: 5,
     nom: 'Halles du Boulingrin',
     categorie: 'Marché Art Déco',
-    image: 'https://images.unsplash.com/photo-1567696153798-96c5d15d9c87?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://live.staticflickr.com/65535/32719178617_9fa260eece_b.jpg',
     description: "Temple de la gastronomie rémoise. Architecture Art Déco remarquable.",
     horaires: 'Mer, Ven, Sam matin',
     conseil: 'Goûtez les roses de Reims chez le boulanger du fond',
@@ -60,7 +60,7 @@ const reimsLieux = [
     id: 6,
     nom: 'Parc de la Patte d\'Oie',
     categorie: 'Nature & Détente',
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://img-4.linternaute.com/SOOZnjqOe0krRzWkt6jbRJHn8H4=/1240x/smart/3458804f0432447292a8efb84974d65d/ccmcms-linternaute/24012238.jpg',
     description: "Poumon vert de Reims. 22 hectares de nature pour une pause ressourçante.",
     horaires: '24h/24',
     conseil: 'Idéal pour un pique-nique en famille ou un jogging matinal',
@@ -72,29 +72,21 @@ export default function ReimsHeroCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [direction, setDirection] = useState(0)
 
-  // Auto-slide toutes les 5 secondes
+  // Auto-slide toutes les 15 secondes
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide()
-    }, 5000)
-
-    return () => clearInterval(timer)
-  }, [currentIndex])
-
   const nextSlide = () => {
     setDirection(1)
     setCurrentIndex((prev) => (prev + 1) % reimsLieux.length)
   }
 
-  const prevSlide = () => {
-    setDirection(-1)
-    setCurrentIndex((prev) => (prev - 1 + reimsLieux.length) % reimsLieux.length)
-  }
+    const timer = setInterval(() => {
+      nextSlide()
+    }, 15000)
 
-  const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1)
-    setCurrentIndex(index)
-  }
+    return () => clearInterval(timer)
+  }, [])
+
+  // Navigation manuelle supprimée pour une expérience fluide
 
   const currentLieu = reimsLieux[currentIndex]
 
@@ -154,7 +146,7 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium mb-6"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs sm:text-sm font-medium mb-4 sm:mb-6"
                 >
                   <MapPin className="w-4 h-4" />
                   {currentLieu.categorie}
@@ -165,7 +157,7 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
+                  className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight"
                 >
                   {currentLieu.nom}
                 </motion.h1>
@@ -175,7 +167,7 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="text-xl sm:text-2xl text-gray-200 mb-8 font-light leading-relaxed"
+                  className="text-base sm:text-xl text-gray-200 mb-6 sm:mb-8 font-light leading-relaxed"
                 >
                   {currentLieu.description}
                 </motion.p>
@@ -185,7 +177,7 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-6 mb-8"
+                  className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6 sm:mb-8"
                 >
                   <div className="flex items-center gap-3 text-white">
                     <Clock className="w-5 h-5 text-blue-400" />
@@ -198,10 +190,10 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 mb-8"
+                  className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 sm:p-6 mb-6 sm:mb-8"
                 >
-                  <p className="text-sm font-semibold text-blue-400 mb-2">Conseil local</p>
-                  <p className="text-white font-light">{currentLieu.conseil}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-blue-400 mb-1.5 sm:mb-2">Conseil local</p>
+                  <p className="text-white font-light text-sm sm:text-base">{currentLieu.conseil}</p>
                 </motion.div>
 
                 {/* Tags */}
@@ -209,12 +201,12 @@ export default function ReimsHeroCarousel() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7 }}
-                  className="flex flex-wrap gap-3"
+                  className="flex flex-wrap gap-2 sm:gap-3"
                 >
                   {currentLieu.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-light"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-xs sm:text-sm font-light"
                     >
                       {tag}
                     </span>
@@ -226,48 +218,7 @@ export default function ReimsHeroCarousel() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation buttons */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 z-20">
-        {/* Previous */}
-        <button
-          onClick={prevSlide}
-          className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
-          aria-label="Lieu précédent"
-        >
-          <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-        </button>
-
-        {/* Dots */}
-        <div className="flex gap-2">
-          {reimsLieux.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentIndex
-                  ? 'w-10 h-2.5 bg-white'
-                  : 'w-2.5 h-2.5 bg-white/30 hover:bg-white/50'
-              }`}
-              aria-label={`Aller au lieu ${index + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Next */}
-        <button
-          onClick={nextSlide}
-          className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 flex items-center justify-center text-white group"
-          aria-label="Lieu suivant"
-        >
-          <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-        </button>
-      </div>
-
-      {/* Counter */}
-      <div className="absolute top-24 right-12 z-20 text-white font-light text-lg">
-        <span className="text-3xl font-bold">{(currentIndex + 1).toString().padStart(2, '0')}</span>
-        <span className="text-white/50"> / {reimsLieux.length.toString().padStart(2, '0')}</span>
-      </div>
+      {/* Navigation supprimée pour une expérience fluide */}
     </section>
   )
 }

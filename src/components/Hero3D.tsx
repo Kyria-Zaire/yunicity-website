@@ -8,7 +8,7 @@ const heroStories = [
   {
     id: 1,
     // Cathédrale Notre-Dame de Reims
-    image: 'https://images.unsplash.com/photo-1582139329536-9a1c1fad4be0?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://plus.unsplash.com/premium_photo-1684979564941-dbf8664a68fc?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=748',
     title: 'Le territoire souffre',
     subtitle: "d'un manque de lien",
     description: "Information éparpillée, sentiment d'exclusion : 50% des Français (34M) non engagés localement.",
@@ -34,7 +34,7 @@ const heroStories = [
   {
     id: 3,
     // Marché local et commerces de Reims
-    image: 'https://images.unsplash.com/photo-1567696153798-96c5d15d9c87?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1471',
     title: 'Soutenons',
     subtitle: "l'économie locale",
     description: "Chaque euro dépensé localement génère 3€ de retombées. Consommons local, vivons mieux.",
@@ -47,7 +47,7 @@ const heroStories = [
   {
     id: 4,
     // Cave de Champagne à Reims
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.0.3',
+    image: 'https://images.unsplash.com/photo-1724082111671-eb2a4c01d40d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470',
     title: 'Redécouvrez',
     subtitle: 'votre patrimoine',
     description: "Des caves de champagne à la cathédrale : 2000 ans d'histoire. Retrouvez la fierté locale.",

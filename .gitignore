@@ -38,3 +38,10 @@ next-env.d.ts
 
 # Test files
 test-*.js
+.vercel
+
+# Claude settings (local)
+.claude/settings.local.json
+
+# Documentation temporaire (à garder mais optionnel)
+# *.md (décommenter si vous ne voulez pas commit les docs)

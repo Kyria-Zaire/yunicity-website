@@ -79,9 +79,9 @@ export default function NewsletterHeroSection() {
         if (prev < conversation.length) {
           // Montrer "typing..." avant chaque message Yunicity
           if (prev > 0 && conversation[prev]?.sender === 'yunicity') {
-            setIsTyping(true)
-            setTimeout(() => {
-              setIsTyping(false)
+      setIsTyping(true)
+      setTimeout(() => {
+        setIsTyping(false)
             }, 1000)
           }
           return prev + 1
@@ -92,6 +92,8 @@ export default function NewsletterHeroSection() {
     }, 2500)
     return () => clearInterval(timer)
   }, [])
+
+  const batteryLevel = 100
 
   return (
     <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-black overflow-hidden">
@@ -126,8 +128,17 @@ export default function NewsletterHeroSection() {
                 <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-black/50 to-transparent z-10 flex items-center justify-between px-8 pt-2">
                   <span className="text-white text-xs font-semibold">9:41</span>
                   <div className="flex items-center gap-1">
-                    <div className="w-4 h-3 border border-white rounded-sm"></div>
-                    <div className="text-white text-xs">100%</div>
+                    {/* Battery icon with fill */}
+                    <div className="relative flex items-center gap-0.5">
+                      <div className="relative w-5 h-3 border border-white/90 rounded-sm overflow-hidden">
+                        <div
+                          className="h-full bg-white"
+                          style={{ width: `${batteryLevel}%` }}
+                        />
+                      </div>
+                      <div className="w-0.5 h-2 bg-white/90 rounded-sm" />
+                    </div>
+                    <div className="text-white text-xs">{batteryLevel}%</div>
                   </div>
                 </div>
 
@@ -161,15 +172,15 @@ export default function NewsletterHeroSection() {
                             ? 'opacity-100 translate-y-0'
                             : 'opacity-0 translate-y-4'
                         }`}
-                      >
-                        {msg.sender === 'user' ? (
+                          >
+                            {msg.sender === 'user' ? (
                           // Message utilisateur (droite)
                           <div className="flex justify-end">
                             <div className="bg-blue-600 rounded-2xl rounded-tr-sm px-4 py-2 max-w-[75%]">
                               <p className="text-white text-sm">{msg.message}</p>
                             </div>
                           </div>
-                        ) : (
+                            ) : (
                           // Message Yunicity (gauche)
                           <div className="flex justify-start">
                             <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-2 max-w-[75%]">
@@ -181,7 +192,7 @@ export default function NewsletterHeroSection() {
                     ))}
 
                     {/* Yunicity est en train d'écrire */}
-                    {isTyping && (
+                      {isTyping && (
                       <div className="flex justify-start">
                         <div className="bg-gray-800 rounded-2xl rounded-tl-sm px-4 py-3">
                           <div className="flex gap-1">
@@ -190,7 +201,7 @@ export default function NewsletterHeroSection() {
                             <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                           </div>
                         </div>
-                      </div>
+                            </div>
                     )}
 
                     {/* L'utilisateur est en train d'écrire (à la fin) */}
@@ -204,7 +215,7 @@ export default function NewsletterHeroSection() {
                           </div>
                         </div>
                       </div>
-                    )}
+                      )}
                   </div>
                 </div>
 

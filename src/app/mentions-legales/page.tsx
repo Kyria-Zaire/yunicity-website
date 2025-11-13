@@ -1,150 +1,214 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowLeft, Mail, Building } from 'lucide-react'
+import { Building, Mail, Globe, Shield, FileText, Scale } from 'lucide-react'
 import Link from 'next/link'
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
 
 export default function MentionsLegalesPage() {
+  const sections = [
+    {
+      id: 'editeur',
+      title: 'Éditeur du Site',
+      icon: Building,
+      color: 'text-purple-400',
+      content: [
+        { label: 'Raison sociale', value: 'YUNICITY (en cours de création)' },
+        { label: 'Forme juridique', value: 'SAS (Société par Actions Simplifiée)' },
+        { label: 'Capital social', value: 'En cours de constitution' },
+        { label: 'Siège social', value: 'Reims, Grand Est, France' },
+        { label: 'SIRET', value: 'En cours d\'immatriculation' },
+        { label: 'Directeur de la publication', value: 'Équipe Fondatrice YUNICITY' }
+      ]
+    },
+    {
+      id: 'contact',
+      title: 'Contact',
+      icon: Mail,
+      color: 'text-blue-400',
+      content: [
+        { label: 'Email', value: 'yu.entreprise@gmail.com', link: 'mailto:yu.entreprise@gmail.com' },
+        { label: 'Site web', value: 'https://yunicity-website.vercel.app', link: 'https://yunicity-website.vercel.app' },
+        { label: 'Formulaire de contact', value: 'Accéder au formulaire', link: '/contact', internal: true }
+      ]
+    },
+    {
+      id: 'hebergement',
+      title: 'Hébergement',
+      icon: Globe,
+      color: 'text-green-400',
+      content: [
+        { label: 'Hébergeur', value: 'Vercel Inc.' },
+        { label: 'Adresse', value: '340 S Lemon Ave #4133, Walnut, CA 91789, USA' },
+        { label: 'Site web', value: 'vercel.com', link: 'https://vercel.com' }
+      ]
+    },
+    {
+      id: 'propriete',
+      title: 'Propriété Intellectuelle',
+      icon: FileText,
+      color: 'text-orange-400',
+      paragraphs: [
+        'L\'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, design) est la propriété exclusive de YUNICITY ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.',
+        'Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de YUNICITY.',
+        'Les marques, logos et noms commerciaux mentionnés sur ce site appartiennent à leurs propriétaires respectifs.'
+      ]
+    },
+    {
+      id: 'responsabilite',
+      title: 'Responsabilité',
+      icon: Shield,
+      color: 'text-red-400',
+      paragraphs: [
+        'YUNICITY s\'efforce d\'assurer l\'exactitude et la mise à jour des informations diffusées sur ce site, mais ne peut garantir l\'exactitude, la précision ou l\'exhaustivité des informations mises à disposition.',
+        'YUNICITY ne saurait être tenue responsable des erreurs, d\'une absence de disponibilité des informations ou de la présence de virus sur son site.',
+        'Les liens hypertextes présents sur le site peuvent renvoyer vers des sites externes. YUNICITY n\'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.'
+      ]
+    },
+    {
+      id: 'donnees',
+      title: 'Données Personnelles',
+      icon: Scale,
+      color: 'text-cyan-400',
+      paragraphs: [
+        'Les informations recueillies via les formulaires du site sont traitées conformément à notre Politique de Confidentialité.',
+        'Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d\'un droit d\'accès, de rectification, de suppression et d\'opposition au traitement de vos données personnelles.',
+        'Pour exercer ces droits, contactez-nous à : yu.entreprise@gmail.com'
+      ],
+      links: [
+        { text: 'Politique de Confidentialité', href: '/politique-confidentialite' }
+      ]
+    },
+    {
+      id: 'cookies',
+      title: 'Cookies',
+      icon: FileText,
+      color: 'text-yellow-400',
+      paragraphs: [
+        'Ce site utilise des cookies pour améliorer l\'expérience utilisateur et analyser le trafic via Google Analytics.',
+        'Vous pouvez configurer votre navigateur pour refuser les cookies. Cependant, certaines fonctionnalités du site pourraient ne pas fonctionner correctement.'
+      ]
+    },
+    {
+      id: 'droit',
+      title: 'Droit Applicable',
+      icon: Scale,
+      color: 'text-indigo-400',
+      paragraphs: [
+        'Les présentes mentions légales sont soumises au droit français. Tout litige relatif à l\'utilisation du site sera de la compétence exclusive des tribunaux français.'
+      ]
+    }
+  ]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900">
-      <div className="container mx-auto px-6 py-20">
+    <div className="min-h-screen bg-black">
+      <Navigation activeSection="" />
+      
+      <div className="container mx-auto px-6 py-20 max-w-5xl">
         
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto"
+          className="text-center mb-20"
         >
-          <Link href="/" className="inline-flex items-center space-x-2 text-white/70 hover:text-white transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            <span>Retour à l'accueil</span>
-          </Link>
+          <h1 className="text-5xl lg:text-6xl font-light text-white mb-4 tracking-tight">
+            Mentions Légales
+          </h1>
+          <p className="text-xl text-white/50 font-light max-w-2xl mx-auto">
+            Informations légales et réglementaires concernant le site Yunicity
+          </p>
+        </motion.div>
 
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl border border-white/20 p-8 lg:p-12">
-            
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-8">Mentions Légales</h1>
-            
-            <div className="space-y-8 text-white/80 leading-relaxed">
-              
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <Building className="w-6 h-6 mr-3 text-purple-400" />
-                  Éditeur du Site
-                </h2>
-                <div className="space-y-2 pl-9">
-                  <p><strong className="text-white">Raison sociale :</strong> YUNICITY (en cours de création)</p>
-                  <p><strong className="text-white">Forme juridique :</strong> SAS (Société par Actions Simplifiée)</p>
-                  <p><strong className="text-white">Capital social :</strong> En cours de constitution</p>
-                  <p><strong className="text-white">Siège social :</strong> Reims, Grand Est, France</p>
-                  <p><strong className="text-white">SIRET :</strong> En cours d'immatriculation</p>
-                  <p><strong className="text-white">Directeur de la publication :</strong> Équipe Fondatrice YUNICITY</p>
+        {/* Content */}
+        <div className="space-y-12">
+          {sections.map((section, index) => {
+            const Icon = section.icon
+            return (
+              <motion.section
+                key={section.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="border-b border-white/10 pb-12 last:border-0"
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center ${section.color}`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-2xl font-light text-white">{section.title}</h2>
                 </div>
-              </section>
 
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center">
-                  <Mail className="w-6 h-6 mr-3 text-blue-400" />
-                  Contact
-                </h2>
-                <div className="space-y-2 pl-9">
-                  <p><strong className="text-white">Email :</strong> yu.entreprise@gmail.com</p>
-                  <p><strong className="text-white">Site web :</strong> https://yunicity.fr</p>
-                  <p><strong className="text-white">Formulaire de contact :</strong> <Link href="/contact" className="text-purple-400 hover:text-purple-300">Accéder au formulaire</Link></p>
+                <div className="space-y-4 text-white/70 font-light leading-relaxed pl-16">
+                  {section.content && (
+                    <div className="space-y-3">
+                      {section.content.map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-2">
+                          <span className="text-white font-medium min-w-[140px]">{item.label} :</span>
+                          {item.link ? (
+                            'internal' in item && item.internal ? (
+                              <Link href={item.link} className="text-white/80 hover:text-white transition-colors underline">
+                                {item.value}
+                              </Link>
+                            ) : (
+                              <a 
+                                href={item.link} 
+                                target={item.link.startsWith('http') ? '_blank' : undefined}
+                                rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                className="text-white/80 hover:text-white transition-colors underline"
+                              >
+                                {item.value}
+                              </a>
+                            )
+                          ) : (
+                            <span>{item.value}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {section.paragraphs && (
+                    <div className="space-y-4">
+                      {section.paragraphs.map((paragraph, idx) => (
+                        <p key={idx}>{paragraph}</p>
+                      ))}
+                    </div>
+                  )}
+
+                  {section.links && (
+                    <div className="mt-4 space-y-2">
+                      {section.links.map((link, idx) => (
+                        <Link 
+                          key={idx}
+                          href={link.href} 
+                          className="text-white/80 hover:text-white transition-colors underline inline-block"
+                        >
+                          {link.text}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </section>
+              </motion.section>
+            )
+          })}
+        </div>
 
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Hébergement</h2>
-                <div className="space-y-2 pl-9">
-                  <p><strong className="text-white">Hébergeur :</strong> Vercel Inc.</p>
-                  <p><strong className="text-white">Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA</p>
-                  <p><strong className="text-white">Site web :</strong> <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">vercel.com</a></p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Propriété Intellectuelle</h2>
-                <div className="space-y-3 pl-9">
-                  <p>
-                    L'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, design) est la propriété exclusive de YUNICITY 
-                    ou de ses partenaires et est protégé par les lois françaises et internationales relatives à la propriété intellectuelle.
-                  </p>
-                  <p>
-                    Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, 
-                    quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de YUNICITY.
-                  </p>
-                  <p>
-                    Les marques, logos et noms commerciaux mentionnés sur ce site appartiennent à leurs propriétaires respectifs.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Responsabilité</h2>
-                <div className="space-y-3 pl-9">
-                  <p>
-                    YUNICITY s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, 
-                    mais ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.
-                  </p>
-                  <p>
-                    YUNICITY ne saurait être tenue responsable des erreurs, d'une absence de disponibilité des informations 
-                    ou de la présence de virus sur son site.
-                  </p>
-                  <p>
-                    Les liens hypertextes présents sur le site peuvent renvoyer vers des sites externes. YUNICITY n'exerce 
-                    aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Données Personnelles</h2>
-                <div className="space-y-3 pl-9">
-                  <p>
-                    Les informations recueillies via les formulaires du site sont traitées conformément à notre 
-                    <Link href="/politique-confidentialite" className="text-purple-400 hover:text-purple-300 underline"> Politique de Confidentialité</Link>.
-                  </p>
-                  <p>
-                    Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, 
-                    de rectification, de suppression et d'opposition au traitement de vos données personnelles.
-                  </p>
-                  <p>
-                    Pour exercer ces droits, contactez-nous à : <a href="mailto:yu.entreprise@gmail.com" className="text-purple-400 hover:text-purple-300">yu.entreprise@gmail.com</a>
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Cookies</h2>
-                <div className="space-y-3 pl-9">
-                  <p>
-                    Ce site utilise des cookies pour améliorer l'expérience utilisateur et analyser le trafic via Google Analytics.
-                  </p>
-                  <p>
-                    Vous pouvez configurer votre navigateur pour refuser les cookies. Cependant, certaines fonctionnalités 
-                    du site pourraient ne pas fonctionner correctement.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold text-white mb-4">Droit Applicable</h2>
-                <div className="space-y-3 pl-9">
-                  <p>
-                    Les présentes mentions légales sont soumises au droit français. Tout litige relatif à l'utilisation 
-                    du site sera de la compétence exclusive des tribunaux français.
-                  </p>
-                </div>
-              </section>
-
-              <section className="pt-6 border-t border-white/20">
-                <p className="text-sm text-white/60">
-                  <strong>Dernière mise à jour :</strong> {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </p>
-              </section>
-
-            </div>
-          </div>
+        {/* Footer info */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="mt-16 pt-8 border-t border-white/10 text-center"
+        >
+          <p className="text-sm text-white/50 font-light">
+            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </p>
         </motion.div>
       </div>
+      
+      <Footer />
     </div>
   )
 }

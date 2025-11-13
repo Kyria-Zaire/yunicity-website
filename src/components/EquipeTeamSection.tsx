@@ -1,53 +1,124 @@
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Linkedin, Mail } from 'lucide-react'
+import { 
+  Code, 
+  Database, 
+  Cloud, 
+  Smartphone, 
+  Palette, 
+  BarChart3, 
+  Users, 
+  Zap,
+  Shield,
+  Layers,
+  Rocket
+} from 'lucide-react'
 
-const teamMembers = [
+const techStack = [
   {
-    name: "Rody",
-    role: "CEO & Founder",
-    description: "Dirige la vision stratégique et l'innovation produit. Transforme les idées en expériences utilisateur exceptionnelles qui redéfinissent le tourisme local.",
-    skills: ["Vision Stratégique", "Leadership", "Product Design", "UX"],
-    linkedin: "#",
-    email: "rody@yunicity.com",
-    color: "from-purple-600 to-blue-600"
+    category: 'Frontend',
+    technologies: [
+      { name: 'React', level: 'Expert', color: 'from-blue-500 to-cyan-500' },
+      { name: 'Next.js', level: 'Expert', color: 'from-gray-700 to-black' },
+      { name: 'TypeScript', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
+      { name: 'Tailwind CSS', level: 'Expert', color: 'from-cyan-500 to-blue-500' },
+      { name: 'Framer Motion', level: 'Avancé', color: 'from-purple-500 to-pink-500' }
+    ],
+    icon: Smartphone,
+    description: 'Interfaces utilisateur modernes et performantes'
   },
   {
-    name: "Djiby",
-    role: "Co-Founder & CFO",
-    description: "Architecte la solidité financière et juridique de Yunicity. Garantit une croissance durable et maîtrisée avec une rigueur comptable exemplaire.",
-    skills: ["Finance", "Comptabilité", "Stratégie", "Conformité"],
-    linkedin: "#",
-    email: "db@yunicity.com",
-    color: "from-emerald-600 to-teal-600"
+    category: 'Backend',
+    technologies: [
+      { name: 'Node.js', level: 'Expert', color: 'from-green-500 to-emerald-500' },
+      { name: 'PostgreSQL', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
+      { name: 'REST API', level: 'Expert', color: 'from-orange-500 to-red-500' },
+      { name: 'GraphQL', level: 'Intermédiaire', color: 'from-pink-500 to-purple-500' },
+      { name: 'WebSocket', level: 'Avancé', color: 'from-cyan-500 to-blue-500' }
+    ],
+    icon: Database,
+    description: 'Infrastructure robuste et scalable'
   },
   {
-    name: "Freeway.jr",
-    role: "CTO & Lead Developer",
-    description: "Construit l'infrastructure technique de demain. Crée des solutions scalables et performantes qui propulsent Yunicity vers l'excellence.",
-    skills: ["React/Next.js", "Node.js", "Architecture", "DevOps"],
-    linkedin: "#",
-    email: "free@yunicity.com",
-    color: "from-blue-600 to-indigo-600"
+    category: 'Cloud & DevOps',
+    technologies: [
+      { name: 'AWS', level: 'Avancé', color: 'from-orange-500 to-yellow-500' },
+      { name: 'Docker', level: 'Avancé', color: 'from-blue-500 to-cyan-500' },
+      { name: 'CI/CD', level: 'Expert', color: 'from-green-500 to-emerald-500' },
+      { name: 'Kubernetes', level: 'Intermédiaire', color: 'from-blue-600 to-indigo-600' }
+    ],
+    icon: Cloud,
+    description: 'Déploiement et scalabilité optimisés'
   },
   {
-    name: "Eloi",
-    role: "Creative Director",
-    description: "Capture l'âme des villes à travers l'objectif. Crée le storytelling visuel qui inspire et connecte les voyageurs à leur destination.",
-    skills: ["Photographie", "Réalisation", "Storytelling", "Branding"],
-    linkedin: "#",
-    email: "eloi@yunicity.com",
-    color: "from-pink-600 to-purple-600"
+    category: 'Design & UX',
+    technologies: [
+      { name: 'Figma', level: 'Expert', color: 'from-purple-500 to-pink-500' },
+      { name: 'Design System', level: 'Expert', color: 'from-blue-500 to-cyan-500' },
+      { name: 'Prototypage', level: 'Avancé', color: 'from-orange-500 to-red-500' },
+      { name: 'User Research', level: 'Avancé', color: 'from-green-500 to-emerald-500' }
+    ],
+    icon: Palette,
+    description: 'Expériences utilisateur exceptionnelles'
+  }
+]
+
+const expertiseAreas = [
+  {
+    title: 'Product Design & UX',
+    description: 'Création d\'expériences utilisateur intuitives et engageantes',
+    skills: ['Design Thinking', 'User Research', 'Prototypage', 'Design System'],
+    icon: Palette,
+    color: 'from-purple-500 to-pink-500'
   },
   {
-    name: "Jores",
-    role: "Growth & Community Manager",
-    description: "Cultive et engage notre communauté grandissante. Transforme chaque utilisateur en ambassadeur passionné de l'exploration locale.",
-    skills: ["Community", "Growth Hacking", "Social Media", "Engagement"],
-    linkedin: "#",
-    email: "jores@yunicity.com",
-    color: "from-orange-600 to-red-600"
+    title: 'Development Full-Stack',
+    description: 'Développement d\'applications web performantes et scalables',
+    skills: ['React/Next.js', 'Node.js', 'Architecture', 'Performance'],
+    icon: Code,
+    color: 'from-blue-500 to-cyan-500'
+  },
+  {
+    title: 'Finance & Stratégie',
+    description: 'Gestion financière rigoureuse et stratégie de croissance',
+    skills: ['Comptabilité', 'Finance', 'Stratégie', 'Conformité'],
+    icon: BarChart3,
+    color: 'from-green-500 to-emerald-500'
+  },
+  {
+    title: 'Growth & Community',
+    description: 'Développement de communauté et stratégies de croissance',
+    skills: ['Growth Hacking', 'Community Management', 'Social Media', 'Engagement'],
+    icon: Users,
+    color: 'from-orange-500 to-red-500'
+  }
+]
+
+const coreCompetencies = [
+  {
+    title: 'Scalabilité',
+    description: 'Architecture conçue pour croître avec votre communauté',
+    icon: Rocket,
+    color: 'from-purple-500 to-blue-500'
+  },
+  {
+    title: 'Performance',
+    description: 'Applications rapides et optimisées pour une expérience fluide',
+    icon: Zap,
+    color: 'from-yellow-500 to-orange-500'
+  },
+  {
+    title: 'Sécurité',
+    description: 'Protection des données et respect de la vie privée',
+    icon: Shield,
+    color: 'from-green-500 to-emerald-500'
+  },
+  {
+    title: 'Innovation',
+    description: 'Adoption des dernières technologies et meilleures pratiques',
+    icon: Layers,
+    color: 'from-blue-500 to-cyan-500'
   }
 ]
 
@@ -55,17 +126,33 @@ export default function EquipeTeamSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
+  const getLevelColor = (level: string) => {
+    switch (level) {
+      case 'Expert':
+        return 'bg-green-500/20 text-green-400 border-green-500/30'
+      case 'Avancé':
+        return 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+      case 'Intermédiaire':
+        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+      default:
+        return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+    }
+  }
+
   return (
-    <section ref={ref} className="relative py-32 bg-white overflow-hidden">
+    <section ref={ref} className="relative py-32 bg-black overflow-hidden">
+      {/* Glow effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+
       {/* Grille subtile */}
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
           `,
-          backgroundSize: '80px 80px'
+          backgroundSize: '120px 120px'
         }}
       />
 
@@ -73,130 +160,169 @@ export default function EquipeTeamSection() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-            Rencontrez l'équipe
-          </h2>
-          <p className="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
-            Chaque membre apporte une expertise unique au service de notre mission
-          </p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
+          >
+            Expertise &{' '}
+            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+              Compétences
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light max-w-3xl mx-auto"
+          >
+            Notre stack technique et nos domaines d'expertise
+          </motion.p>
         </motion.div>
 
-        {/* Team grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16 max-w-7xl mx-auto">
-          {teamMembers.slice(0, 3).map((member, index) => (
+        {/* Tech Stack Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-24">
+          {techStack.map((stack, index) => {
+            const Icon = stack.icon
+            return (
             <motion.div
-              key={member.name}
+                key={stack.category}
               initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="relative group"
-            >
-              <div className="relative bg-gray-900/10 backdrop-blur-md rounded-3xl p-10 border border-gray-300/40 hover:border-gray-400/60 transition-all duration-300 h-full shadow-sm">
-                {/* Avatar */}
-                <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-4xl font-bold shadow-xl`}>
-                  {member.name.substring(0, 1)}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.6, delay: 0.6 + index * 0.15 }}
+                className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stack.technologies[0].color} flex items-center justify-center shadow-lg`}>
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-light text-white mb-1">{stack.category}</h3>
+                    <p className="text-sm text-gray-400 font-light">{stack.description}</p>
+                  </div>
                 </div>
 
-                {/* Name & Role */}
-                <h3 className="text-3xl font-bold text-gray-900 mb-2 text-center">{member.name}</h3>
-                <p className={`text-sm font-semibold mb-6 text-center bg-gradient-to-r ${member.color} bg-clip-text text-transparent`}>
-                  {member.role}
-                </p>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed text-center">{member.description}</p>
-
-                {/* Skills */}
-                <div className="flex flex-wrap gap-2 mb-8 justify-center">
-                  {member.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 bg-gray-100/80 text-gray-700 rounded-full text-xs font-medium border border-gray-200/50"
+                {/* Technologies */}
+                <div className="space-y-3">
+                  {stack.technologies.map((tech, techIndex) => (
+                    <motion.div
+                      key={tech.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{ duration: 0.5, delay: 0.8 + index * 0.15 + techIndex * 0.1 }}
+                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 group/item"
                     >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Social links */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-gray-200/50">
-                  <a
-                    href={member.linkedin}
-                    className="w-12 h-12 bg-gray-100/50 hover:bg-blue-100/80 rounded-xl flex items-center justify-center transition-colors group/link border border-gray-200/30"
-                  >
-                    <Linkedin className="w-6 h-6 text-gray-600 group-hover/link:text-blue-600 transition-colors" />
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="w-12 h-12 bg-gray-100/50 hover:bg-purple-100/80 rounded-xl flex items-center justify-center transition-colors group/link border border-gray-200/30"
-                  >
-                    <Mail className="w-6 h-6 text-gray-600 group-hover/link:text-purple-600 transition-colors" />
-                  </a>
-                </div>
-              </div>
+                      <div className="flex items-center gap-4">
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.color}`} />
+                        <span className="text-white font-medium">{tech.name}</span>
+                      </div>
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(tech.level)}`}>
+                        {tech.level}
+                      </span>
             </motion.div>
           ))}
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {teamMembers.slice(3).map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              className="relative group"
-            >
-              <div className="relative bg-gray-900/10 backdrop-blur-md rounded-3xl p-10 border border-gray-300/40 hover:border-gray-400/60 transition-all duration-300 h-full shadow-sm">
-                {/* Avatar */}
-                <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-4xl font-bold shadow-xl`}>
-                  {member.name.substring(0, 1)}
-                </div>
+        {/* Expertise Areas */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mb-24"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="text-3xl sm:text-4xl font-light text-white mb-12 text-center"
+          >
+            Domaines d'expertise
+          </motion.h3>
 
-                {/* Name & Role */}
-                <h3 className="text-3xl font-bold text-gray-900 mb-2 text-center">{member.name}</h3>
-                <p className={`text-sm font-semibold mb-6 text-center bg-gradient-to-r ${member.color} bg-clip-text text-transparent`}>
-                  {member.role}
-                </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {expertiseAreas.map((area, index) => {
+              const Icon = area.icon
+              return (
+                <motion.div
+                  key={area.title}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                  transition={{ duration: 0.6, delay: 1.4 + index * 0.15 }}
+                  className="group relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-500"
+                >
+                  {/* Icon */}
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${area.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
 
-                {/* Description */}
-                <p className="text-gray-600 mb-8 leading-relaxed text-center">{member.description}</p>
+                  {/* Title */}
+                  <h4 className="text-2xl font-light text-white mb-3">{area.title}</h4>
+                  <p className="text-gray-400 mb-6 font-light leading-relaxed">{area.description}</p>
 
-                {/* Skills */}
-                <div className="flex flex-wrap gap-2 mb-8 justify-center">
-                  {member.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 bg-gray-100/80 text-gray-700 rounded-full text-xs font-medium border border-gray-200/50"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                  {/* Skills */}
+                  <div className="flex flex-wrap gap-2">
+                    {area.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-3 py-1.5 bg-white/5 text-gray-300 rounded-full text-xs font-light border border-white/10"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
 
-                {/* Social links */}
-                <div className="flex items-center justify-center gap-3 pt-6 border-t border-gray-200/50">
-                  <a
-                    href={member.linkedin}
-                    className="w-12 h-12 bg-gray-100/50 hover:bg-blue-100/80 rounded-xl flex items-center justify-center transition-colors group/link border border-gray-200/30"
-                  >
-                    <Linkedin className="w-6 h-6 text-gray-600 group-hover/link:text-blue-600 transition-colors" />
-                  </a>
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="w-12 h-12 bg-gray-100/50 hover:bg-purple-100/80 rounded-xl flex items-center justify-center transition-colors group/link border border-gray-200/30"
-                  >
-                    <Mail className="w-6 h-6 text-gray-600 group-hover/link:text-purple-600 transition-colors" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Core Competencies */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
+          className="max-w-5xl mx-auto"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 2 }}
+            className="text-3xl sm:text-4xl font-light text-white mb-12 text-center"
+          >
+            Compétences clés
+          </motion.h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {coreCompetencies.map((competency, index) => {
+              const Icon = competency.icon
+              return (
+                <motion.div
+                  key={competency.title}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.5, delay: 2.2 + index * 0.1 }}
+                  className="group text-center"
+                >
+                  <div className={`w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br ${competency.color} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h4 className="text-xl font-light text-white mb-3">{competency.title}</h4>
+                  <p className="text-gray-400 text-sm font-light leading-relaxed">{competency.description}</p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

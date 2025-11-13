@@ -1,0 +1,28 @@
+{
+  "name": "YUNICITY - La Super-App Locale",
+  "short_name": "YUNICITY",
+  "description": "La première super-app locale qui reconnecte les habitants à leur territoire",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/yunicity-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/yunicity-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "lifestyle", "travel"],
+  "lang": "fr-FR",
+  "dir": "ltr"
+}
+
