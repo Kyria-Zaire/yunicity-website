@@ -340,13 +340,13 @@ export default function NewsletterSubscribeSection() {
                     transition={{ delay: 0.1 }}
                     className="text-center mb-8"
                     >
-                    <h3 className="text-3xl sm:text-4xl font-light text-white mb-4">
+                    <h3 className="text-xl sm:text-2xl font-light text-white mb-3">
                       Rejoignez la révolution Smart City
                     </h3>
-                    <p className="text-gray-400 font-light text-lg">
+                    <p className="text-gray-400 font-light text-sm">
                       Soyez parmi les premiers à découvrir comment Yunicity transforme Reims en ville intelligente
                     </p>
-                    <p className="text-gray-500 font-light text-sm mt-2">
+                    <p className="text-gray-500 font-light text-xs mt-2">
                       540+ pionniers nous ont déjà rejoints
                     </p>
                   </motion.div>
@@ -382,7 +382,7 @@ export default function NewsletterSubscribeSection() {
                           placeholder="votre@email.com"
                           required
                           disabled={status === 'loading' || status === 'success'}
-                          className="flex-1 bg-transparent text-white text-xl placeholder:text-gray-600 focus:outline-none font-light tracking-tight disabled:opacity-50"
+                          className="flex-1 bg-transparent text-white text-base placeholder:text-gray-600 focus:outline-none font-light tracking-tight disabled:opacity-50"
                         />
                         <motion.button
                           type="submit"
@@ -488,21 +488,21 @@ export default function NewsletterSubscribeSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="mt-12 flex items-center justify-center gap-8 text-gray-500 text-sm font-light"
+                    className="mt-8 flex items-center justify-center gap-6 text-gray-500 text-xs font-light"
                   >
                     <div className="text-center">
-                      <div className="text-2xl font-light text-white mb-1">540</div>
-                      <div className="text-xs">abonnés</div>
+                      <div className="text-lg font-light text-white mb-1">540</div>
+                      <div className="text-[10px]">abonnés</div>
                         </div>
-                    <div className="w-px h-8 bg-gray-800" />
+                    <div className="w-px h-6 bg-gray-800" />
                     <div className="text-center">
-                      <div className="text-2xl font-light text-white mb-1">95%</div>
-                      <div className="text-xs">taux d'ouverture</div>
+                      <div className="text-lg font-light text-white mb-1">95%</div>
+                      <div className="text-[10px]">taux d'ouverture</div>
                         </div>
-                    <div className="w-px h-8 bg-gray-800" />
+                    <div className="w-px h-6 bg-gray-800" />
                     <div className="text-center">
-                      <div className="text-2xl font-light text-white mb-1">1x</div>
-                      <div className="text-xs">par semaine</div>
+                      <div className="text-lg font-light text-white mb-1">1x</div>
+                      <div className="text-[10px]">par semaine</div>
                     </div>
                   </motion.div>
                 </div>
