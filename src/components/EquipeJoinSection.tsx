@@ -104,7 +104,7 @@ export default function EquipeJoinSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-8 tracking-tight leading-tight"
           >
             Rejoignez notre{' '}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
@@ -147,15 +147,15 @@ export default function EquipeJoinSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                className="group text-center p-8 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-3xl hover:border-white/20 transition-all duration-500"
+                className="group text-center p-6 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/20 transition-all duration-500"
               >
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon className="w-8 h-8 text-white" />
+                <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-4xl sm:text-5xl font-light text-white mb-2 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                <div className="text-2xl sm:text-3xl font-light text-white mb-2 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-400 font-light">{stat.label}</div>
+                <div className="text-xs text-gray-400 font-light">{stat.label}</div>
               </motion.div>
             )
           })}
@@ -177,7 +177,7 @@ export default function EquipeJoinSection() {
             Suivez-nous
           </motion.h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {socialLinks.map((social, index) => {
               const Icon = social.icon
               return (

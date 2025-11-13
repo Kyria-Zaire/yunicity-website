@@ -92,7 +92,7 @@ export default function EquipeHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight leading-[1.1]"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]"
           >
             Rencontrez{' '}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">

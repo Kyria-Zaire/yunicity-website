@@ -1,43 +1,76 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, ChevronDown, Check, ArrowRight, Sparkles, Clock, Bell, X } from 'lucide-react'
+import { Mail, Check, ArrowRight, MapPin, Newspaper, Brain, Users, Rocket, Map } from 'lucide-react'
 
-const faqItems = [
+// Piliers du concept Smart City
+const smartCityPillars = [
   {
-    question: 'À quelle fréquence recevrai-je la newsletter ?',
-    answer: 'Vous recevrez une newsletter par semaine, chaque mardi matin, directement dans votre boîte de réception. Nous respectons votre temps et ne vous enverrons jamais plus d\'un email par semaine.',
-    icon: Clock,
+    id: 1,
+    title: 'Géolocalisation',
+    subtitle: 'Carte 3D interactive (30%)',
+    description: 'Exploration de la ville en 3D. Cartographie interactive pour découvrir les lieux, événements et acteurs locaux géolocalisés.',
+    icon: MapPin,
     color: 'from-blue-500 to-cyan-500'
   },
   {
-    question: 'Quel type de contenu vais-je recevoir ?',
-    answer: 'Chaque newsletter vous apporte : les actualités locales de Reims, des découvertes de lieux secrets et historiques, les événements à ne pas manquer, et des portraits de la communauté rémoise. Mais surtout, vous découvrirez comment Yunicity transforme Reims en Smart City : innovations, engagement citoyen, et impact sur la vie locale. Tout est soigneusement sélectionné pour vous montrer l\'avenir des villes intelligentes.',
-    icon: Sparkles,
+    id: 2,
+    title: 'Information locale',
+    subtitle: 'Hub centralisé (30%)',
+    description: 'Toute l\'information locale au même endroit. Actualités, événements, initiatives filtrées et vérifiées pour votre territoire.',
+    icon: Newspaper,
     color: 'from-purple-500 to-pink-500'
   },
   {
-    question: 'Puis-je me désabonner facilement ?',
-    answer: 'Absolument. Chaque newsletter contient un lien de désabonnement en bas de page. Un simple clic et vous ne recevrez plus d\'emails. Vous pouvez également modifier vos préférences à tout moment.',
-    icon: X,
-    color: 'from-gray-500 to-gray-600'
+    id: 3,
+    title: 'Intelligence artificielle',
+    subtitle: 'Personnalisation',
+    description: 'L\'IA filtre et personnalise le contenu selon vos intérêts et votre localisation. Vous découvrez ce qui compte vraiment pour vous.',
+    icon: Brain,
+    color: 'from-orange-500 to-red-500'
   },
   {
-    question: 'La newsletter est-elle gratuite ?',
-    answer: 'Oui, la newsletter est 100% gratuite et le restera. Notre mission est de reconnecter les habitants à leur ville, sans aucun coût. Aucune publicité intrusive, uniquement du contenu de qualité sur Reims.',
-    icon: Bell,
+    id: 4,
+    title: 'Engagement citoyen',
+    subtitle: 'Mur communautaire (40%)',
+    description: 'Création de lien social local. Tribus, événements, challenges et mobilisations pour reconnecter les habitants entre eux.',
+    icon: Users,
     color: 'from-green-500 to-emerald-500'
+  }
+]
+
+// Timeline vers Smart City
+const timelineSteps = [
+  {
+    id: 1,
+    title: 'Beta Reims',
+    period: 'Juillet 2026',
+    description: 'Lancement MVP à Reims avec les pionniers. Test de l\'outil Smart City en conditions réelles.',
+    status: 'upcoming',
+    icon: Rocket,
+    color: 'from-purple-500 to-blue-500'
   },
   {
-    question: 'Vos données sont-elles partagées ?',
-    answer: 'Non, jamais. Votre adresse email est strictement confidentielle et ne sera jamais partagée avec des tiers. Nous respectons votre vie privée et nous conformons au RGPD. Vous pouvez consulter notre politique de confidentialité pour plus de détails.',
+    id: 2,
+    title: 'Expansion France',
+    period: '2026-2027',
+    description: 'Déploiement dans 10+ villes françaises. Réplication du modèle Smart City à l\'échelle nationale.',
+    status: 'upcoming',
+    icon: Map,
+    color: 'from-blue-500 to-cyan-500'
+  },
+  {
+    id: 3,
+    title: 'Smart City complète',
+    period: '2027-2030',
+    description: 'Yunicity devient l\'infrastructure digitale qui manquait aux villes françaises pour devenir vraiment "smart".',
+    status: 'upcoming',
     icon: Check,
-    color: 'from-blue-500 to-indigo-500'
+    color: 'from-green-500 to-emerald-500'
   }
 ]
 
 export default function NewsletterSubscribeSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
@@ -94,10 +127,6 @@ export default function NewsletterSubscribeSection() {
     }
   }
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
-
   const handleSubscribeClick = () => {
     setShowForm(true)
     setTimeout(() => inputRef.current?.focus(), 100)
@@ -151,135 +180,152 @@ export default function NewsletterSubscribeSection() {
       />
 
       <div className="relative container mx-auto px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
-        <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="text-center mb-20"
           >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-purple-500/10 border border-purple-500/30 rounded-full mb-6"
+            >
+              <span className="text-purple-400 text-xs font-light">BIENTÔT</span>
+            </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight leading-[1.1]"
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-6 tracking-tight leading-[1.1]"
             >
-              Questions{' '}
+              Yunicity = un futur{' '}
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
-                fréquentes
-                </span>
+                outil Smart City
+              </span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xl text-gray-400 font-light leading-relaxed"
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="text-lg sm:text-xl text-gray-400 font-light leading-relaxed max-w-3xl mx-auto"
             >
-              Tout ce que vous devez savoir sur notre newsletter
+              Yunicity, la couche sociale et citoyenne de la Smart City.
             </motion.p>
           </motion.div>
 
-          {/* FAQ Accordéon */}
-          <div className="space-y-4 mb-16">
-            {faqItems.map((item, index) => {
-              const Icon = item.icon
-              const isOpen = openIndex === index
-
+          {/* Piliers du concept */}
+          <div className="grid md:grid-cols-2 gap-6 mb-20">
+            {smartCityPillars.map((pillar, index) => {
+              const Icon = pillar.icon
               return (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={pillar.id}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group"
+                  className="group relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300"
                 >
-                  <div
-                    className={`relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 ${
-                      isOpen
-                        ? 'border-white/20 shadow-2xl shadow-purple-500/10'
-                        : 'border-white/10 hover:border-white/15'
-                    }`}
-                  >
-                    {/* Question */}
-                    <button
-                      onClick={() => toggleAccordion(index)}
-                      className="w-full px-8 py-6 flex items-center justify-between gap-4 text-left group-hover:bg-white/5 transition-colors duration-300"
-                    >
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                          <Icon className="w-6 h-6 text-white" />
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${pillar.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                        <h3 className="text-lg sm:text-xl font-light text-white flex-1">
-                          {item.question}
-                        </h3>
-                    </div>
-                      <motion.div
-                        animate={{ rotate: isOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                        className="flex-shrink-0"
-                      >
-                        <ChevronDown className="w-5 h-5 text-gray-400" />
-                </motion.div>
-                    </button>
-
-                    {/* Answer */}
-                    <AnimatePresence>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-8 pb-6">
-                            <motion.p
-                              initial={{ y: -10, opacity: 0 }}
-                              animate={{ y: 0, opacity: 1 }}
-                              exit={{ y: -10, opacity: 0 }}
-                              transition={{ duration: 0.3, delay: 0.1 }}
-                              className="text-gray-400 font-light leading-relaxed mb-6 pl-16"
-                            >
-                              {item.answer}
-                            </motion.p>
-
-                            {/* CTA après chaque réponse */}
-                <motion.div
-                              initial={{ y: -10, opacity: 0 }}
-                              animate={{ y: 0, opacity: 1 }}
-                              exit={{ y: -10, opacity: 0 }}
-                              transition={{ duration: 0.3, delay: 0.2 }}
-                              className="pl-16"
-                            >
-                              <motion.button
-                                onClick={handleSubscribeClick}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full text-sm font-light hover:from-purple-400 hover:to-blue-400 transition-all duration-300 shadow-lg shadow-purple-500/20"
-                              >
-                                <Mail className="w-4 h-4" />
-                                Rejoindre la communauté
-                                <ArrowRight className="w-4 h-4" />
-                              </motion.button>
-                            </motion.div>
-                  </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <h3 className="text-xl font-light text-white mb-1">{pillar.title}</h3>
+                  <p className="text-sm text-purple-400 font-light mb-3">{pillar.subtitle}</p>
+                  <p className="text-gray-400 font-light leading-relaxed text-sm">{pillar.description}</p>
                 </motion.div>
               )
             })}
           </div>
 
-          {/* Formulaire d'inscription (affiché après clic sur CTA ou toujours visible en bas) */}
+          {/* Timeline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mb-16"
+          >
+            <h3 className="text-2xl sm:text-3xl font-light text-white mb-12 text-center">
+              Vers la{' '}
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+                Smart City
+              </span>
+            </h3>
+            
+            <div className="relative">
+              {/* Ligne de timeline */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-green-500 opacity-30 hidden md:block" />
+              
+              <div className="space-y-12">
+                {timelineSteps.map((step, index) => {
+                  const Icon = step.icon
+                  return (
+                    <motion.div
+                      key={step.id}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      className="relative flex items-start gap-6 pl-4 md:pl-0"
+                    >
+                      {/* Point sur la ligne */}
+                      <div className={`absolute left-6 md:left-7 w-4 h-4 rounded-full bg-gradient-to-br ${step.color} border-4 border-black z-10 hidden md:block`} />
+                      
+                      {/* Carte */}
+                      <div className="flex-1 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                            <Icon className="w-6 h-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-1">
+                              <h4 className="text-xl font-light text-white">{step.title}</h4>
+                              <span className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-xs font-light">
+                                {step.period}
+                              </span>
+                            </div>
+                            <p className="text-gray-400 font-light text-sm leading-relaxed">{step.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA pour afficher le formulaire */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.button
+              onClick={handleSubscribeClick}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-full text-lg font-light transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40"
+            >
+              <Mail className="w-5 h-5" />
+              Rejoindre la révolution Smart City
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </motion.div>
+
+          {/* Formulaire d'inscription */}
           <AnimatePresence>
-            {(showForm || openIndex !== null) && (
+            {showForm && (
           <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -301,7 +347,7 @@ export default function NewsletterSubscribeSection() {
                       Soyez parmi les premiers à découvrir comment Yunicity transforme Reims en ville intelligente
                     </p>
                     <p className="text-gray-500 font-light text-sm mt-2">
-                      {openIndex !== null ? 'Plus de' : ''} 540 pionniers nous ont déjà rejoints
+                      540+ pionniers nous ont déjà rejoints
                     </p>
                   </motion.div>
 

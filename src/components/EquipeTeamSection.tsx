@@ -168,7 +168,7 @@ export default function EquipeTeamSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight"
           >
             Expertise &{' '}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
@@ -258,16 +258,16 @@ export default function EquipeTeamSection() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                   transition={{ duration: 0.6, delay: 1.4 + index * 0.15 }}
-                  className="group relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-500"
+                  className="group relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500"
                 >
                   {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${area.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 text-white" />
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${area.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-6 h-6 text-white" />
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-2xl font-light text-white mb-3">{area.title}</h4>
-                  <p className="text-gray-400 mb-6 font-light leading-relaxed">{area.description}</p>
+                  <h4 className="text-lg sm:text-xl font-light text-white mb-2">{area.title}</h4>
+                  <p className="text-sm text-gray-400 mb-4 font-light leading-relaxed">{area.description}</p>
 
                   {/* Skills */}
                   <div className="flex flex-wrap gap-2">
@@ -313,11 +313,11 @@ export default function EquipeTeamSection() {
                   transition={{ duration: 0.5, delay: 2.2 + index * 0.1 }}
                   className="group text-center"
                 >
-                  <div className={`w-20 h-20 mx-auto mb-6 rounded-3xl bg-gradient-to-br ${competency.color} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-10 h-10 text-white" />
+                  <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${competency.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <h4 className="text-xl font-light text-white mb-3">{competency.title}</h4>
-                  <p className="text-gray-400 text-sm font-light leading-relaxed">{competency.description}</p>
+                  <h4 className="text-base sm:text-lg font-light text-white mb-2">{competency.title}</h4>
+                  <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed">{competency.description}</p>
                 </motion.div>
               )
             })}

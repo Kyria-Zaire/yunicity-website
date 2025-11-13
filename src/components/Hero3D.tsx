@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 // Carousel stories - 6 histoires avec messages impactants et vraies images de Reims
 const heroStories = [
@@ -95,7 +96,7 @@ function CountdownTimer() {
   })
 
   useEffect(() => {
-    const targetDate = new Date('2026-03-01T00:00:00').getTime()
+    const targetDate = new Date('2026-07-01T00:00:00').getTime()
     const timer = setInterval(() => {
       const now = new Date().getTime()
       const difference = targetDate - now
@@ -199,7 +200,7 @@ export default function Hero3D() {
                 className="inline-flex items-center gap-2 mb-8"
               >
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-white/80 text-sm font-light">Lancement Mars 2026 • Reims</span>
+                <span className="text-white/80 text-sm font-light">Lancement Juillet 2026 • Reims</span>
               </motion.div>
 
               {/* Animated story title */}
@@ -264,38 +265,38 @@ export default function Hero3D() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4 items-center lg:items-start"
               >
-                <a
-                  href="#solution"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-light text-lg transition-colors duration-200 rounded-full"
+                <Link
+                  href="/solution"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-100 text-gray-900 font-light text-lg transition-colors duration-200 rounded-full w-full sm:w-auto"
                 >
                   Découvrir Yunicity
                   <ArrowRight className="w-5 h-5" />
-                </a>
+                </Link>
 
-                <a
-                  href="#newsletter"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-light text-lg transition-all duration-200 rounded-full"
+                <Link
+                  href="/newsletter"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-light text-lg transition-all duration-200 rounded-full w-full sm:w-auto"
                 >
                   Rejoindre le mouvement
-                </a>
+                </Link>
               </motion.div>
             </div>
 
             {/* Right column - Countdown & Indicators */}
-            <div className="space-y-6">
+            <div className="space-y-6 flex flex-col items-center lg:items-start">
 
               {/* Countdown card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20"
+                className="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/20 w-full max-w-sm mx-auto lg:mx-0"
               >
                 <div className="text-center mb-6">
                   <h3 className="text-white font-light text-lg mb-1">Lancement dans</h3>
-                  <p className="text-white/70 text-sm font-light">Mars 2026 • Reims</p>
+                  <p className="text-white/70 text-sm font-light">Juillet 2026 • Reims</p>
                 </div>
                 <CountdownTimer />
               </motion.div>

@@ -110,12 +110,12 @@ export default function Home() {
                   <Target className="w-6 h-6 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center gap-2">
                     Le Problème
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </h3>
                   <p className="text-gray-700 font-light">
-                    34M de Français isolés, fragmentés entre 15+ applications
+                    34M de Français non engagé, fragmentés entre 15+ applications
                   </p>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
                   <Lightbulb className="w-6 h-6 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center gap-2">
                     Notre Solution
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </h3>
@@ -144,7 +144,7 @@ export default function Home() {
                   <MapPin className="w-6 h-6 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center gap-2">
                     Découverte Reims
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </h3>
@@ -161,7 +161,7 @@ export default function Home() {
                   <Users className="w-6 h-6 text-gray-900" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-medium text-gray-900 mb-2 flex items-center gap-2">
                     L'Équipe
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </h3>
