@@ -9,18 +9,18 @@ const teamMembers = [
     role: "CEO & Founder",
     description: "Dirige la vision stratégique et l'innovation produit. Transforme les idées en expériences utilisateur exceptionnelles.",
     skills: ["Vision Stratégique", "Leadership", "Product Design", "UX"],
-    linkedin: "#",
-    email: "rody@yunicity.com",
+    linkedin: "https://www.linkedin.com/in/rody-kimuanga-2832191a6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    email: "rodyyunicity@gmail.com",
     color: "from-purple-600 to-blue-600",
     initial: "R"
   },
   {
     name: "Djiby",
     role: "Co-Founder & CFO",
-    description: "Architecte la solidité financière et juridique de Yunicity. Garantit une croissance durable et maîtrisée.",
+    description: "Architecte de la solidité financière et juridique de Yunicity. Garantit une croissance durable et maîtrisée.",
     skills: ["Finance", "Comptabilité", "Stratégie", "Conformité"],
-    linkedin: "#",
-    email: "db@yunicity.com",
+    linkedin: "https://www.linkedin.com/in/djiby-ndione-103553196?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    email: "djiby.yunicity@gmail.com",
     color: "from-emerald-600 to-teal-600",
     initial: "D"
   },
@@ -30,7 +30,7 @@ const teamMembers = [
     description: "Construit l'infrastructure technique de demain. Crée des solutions scalables et performantes.",
     skills: ["React/Next.js", "Node.js", "Architecture", "DevOps"],
     linkedin: "#",
-    email: "free@yunicity.com",
+    email: "kyriamambu1@gmail.com",
     color: "from-blue-600 to-indigo-600",
     initial: "F"
   },
@@ -106,7 +106,7 @@ export default function EquipeHeroSection() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light max-w-3xl mx-auto"
           >
-            5 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
+            4 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
           </motion.p>
         </motion.div>
 
@@ -182,22 +182,30 @@ export default function EquipeHeroSection() {
 
                 {/* Social links - Show on hover */}
                 <div className="flex items-center justify-center gap-3 pt-0 group-hover:pt-6 border-t-0 group-hover:border-t border-white/10 max-h-0 group-hover:max-h-20 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 delay-200">
-                  <motion.a
-                    href={member.linkedin}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 bg-white/5 hover:bg-blue-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-blue-500/30"
-                  >
-                    <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400 transition-colors" />
-                  </motion.a>
-                  <motion.a
-                    href={`mailto:${member.email}`}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-10 h-10 bg-white/5 hover:bg-purple-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-purple-500/30"
-                  >
-                    <Mail className="w-5 h-5 text-gray-400 hover:text-purple-400 transition-colors" />
-                  </motion.a>
+                  {member.linkedin && member.linkedin !== '#' && (
+                    <motion.a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-10 h-10 bg-white/5 hover:bg-blue-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-blue-500/30"
+                      aria-label={`LinkedIn de ${member.name}`}
+                    >
+                      <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400 transition-colors" />
+                    </motion.a>
+                  )}
+                  {member.email && (
+                    <motion.a
+                      href={`mailto:${member.email}`}
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-10 h-10 bg-white/5 hover:bg-purple-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-purple-500/30"
+                      aria-label={`Email de ${member.name}`}
+                    >
+                      <Mail className="w-5 h-5 text-gray-400 hover:text-purple-400 transition-colors" />
+                    </motion.a>
+                  )}
                 </div>
 
                 {/* Decorative element */}
