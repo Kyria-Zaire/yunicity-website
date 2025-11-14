@@ -253,7 +253,7 @@ export default function NewsletterSubscribeSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-16"
           >
-            <h3 className="text-2xl sm:text-3xl font-light text-white mb-12 text-center">
+            <h3 className="text-xl sm:text-2xl font-light text-white mb-8 text-center">
               Vers la{' '}
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
                 Smart City
@@ -264,7 +264,7 @@ export default function NewsletterSubscribeSection() {
               {/* Ligne de timeline */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-blue-500 to-green-500 opacity-30 hidden md:block" />
               
-              <div className="space-y-12">
+              <div className="space-y-8">
                 {timelineSteps.map((step, index) => {
                   const Icon = step.icon
                   return (
@@ -277,22 +277,22 @@ export default function NewsletterSubscribeSection() {
                       className="relative flex items-start gap-6 pl-4 md:pl-0"
                     >
                       {/* Point sur la ligne */}
-                      <div className={`absolute left-6 md:left-7 w-4 h-4 rounded-full bg-gradient-to-br ${step.color} border-4 border-black z-10 hidden md:block`} />
+                      <div className={`absolute left-6 md:left-7 w-3 h-3 rounded-full bg-gradient-to-br ${step.color} border-2 border-black z-10 hidden md:block`} />
                       
                       {/* Carte */}
-                      <div className="flex-1 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                            <Icon className="w-6 h-6 text-white" />
+                      <div className="flex-1 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-4 hover:border-white/20 transition-all duration-300">
+                        <div className="flex items-start gap-3 mb-3">
+                          <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                            <Icon className="w-5 h-5 text-white" />
                           </div>
                           <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-1">
-                              <h4 className="text-xl font-light text-white">{step.title}</h4>
-                              <span className="px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-xs font-light">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h4 className="text-lg font-light text-white">{step.title}</h4>
+                              <span className="px-2 py-0.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-[10px] font-light">
                                 {step.period}
                               </span>
                             </div>
-                            <p className="text-gray-400 font-light text-sm leading-relaxed">{step.description}</p>
+                            <p className="text-gray-400 font-light text-xs leading-relaxed">{step.description}</p>
                           </div>
                         </div>
                       </div>
