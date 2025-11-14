@@ -124,10 +124,10 @@ export default function EquipeHeroSection() {
               <motion.div
                 whileHover={{ y: -12, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full cursor-pointer overflow-hidden hover:border-white/20 transition-all duration-500"
+                className="relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 h-full overflow-hidden hover:border-white/20 transition-all duration-500"
               >
                 {/* Hover glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl pointer-events-none`} />
 
                 {/* Avatar - Large and prominent */}
                 <div className="relative mb-8">
@@ -140,7 +140,7 @@ export default function EquipeHeroSection() {
                   </motion.div>
                   
                   {/* Glow effect around avatar on hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-3xl -z-10`} />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-30 blur-2xl transition-opacity duration-500 rounded-3xl -z-10 pointer-events-none`} />
                 </div>
 
                 {/* Name & Role */}
@@ -181,7 +181,7 @@ export default function EquipeHeroSection() {
                 </div>
 
                 {/* Social links - Show on hover */}
-                <div className="flex items-center justify-center gap-3 pt-0 group-hover:pt-6 border-t-0 group-hover:border-t border-white/10 max-h-0 group-hover:max-h-20 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 delay-200">
+                <div className="relative z-10 flex items-center justify-center gap-3 pt-0 group-hover:pt-6 border-t-0 group-hover:border-t border-white/10 max-h-0 group-hover:max-h-20 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100 delay-200">
                   {member.linkedin && member.linkedin !== '#' && (
                     <motion.a
                       href={member.linkedin}
@@ -189,10 +189,11 @@ export default function EquipeHeroSection() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-white/5 hover:bg-blue-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-blue-500/30"
+                      onClick={(e) => e.stopPropagation()}
+                      className="relative z-20 w-10 h-10 bg-white/5 hover:bg-blue-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-blue-500/30 cursor-pointer"
                       aria-label={`LinkedIn de ${member.name}`}
                     >
-                      <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400 transition-colors" />
+                      <Linkedin className="w-5 h-5 text-gray-400 hover:text-blue-400 transition-colors pointer-events-none" />
                     </motion.a>
                   )}
                   {member.email && (
@@ -200,16 +201,17 @@ export default function EquipeHeroSection() {
                       href={`mailto:${member.email}`}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 bg-white/5 hover:bg-purple-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-purple-500/30"
+                      onClick={(e) => e.stopPropagation()}
+                      className="relative z-20 w-10 h-10 bg-white/5 hover:bg-purple-500/20 rounded-xl flex items-center justify-center transition-colors border border-white/10 hover:border-purple-500/30 cursor-pointer"
                       aria-label={`Email de ${member.name}`}
                     >
-                      <Mail className="w-5 h-5 text-gray-400 hover:text-purple-400 transition-colors" />
+                      <Mail className="w-5 h-5 text-gray-400 hover:text-purple-400 transition-colors pointer-events-none" />
                     </motion.a>
                   )}
                 </div>
 
                 {/* Decorative element */}
-                <div className={`absolute top-4 right-4 w-2 h-2 rounded-full bg-gradient-to-r ${member.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className={`absolute top-4 right-4 w-2 h-2 rounded-full bg-gradient-to-r ${member.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
               </motion.div>
             </motion.div>
           ))}
