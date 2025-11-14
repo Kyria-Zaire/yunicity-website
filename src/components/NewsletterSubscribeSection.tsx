@@ -288,7 +288,7 @@ export default function NewsletterSubscribeSection() {
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
                               <h4 className="text-lg font-light text-white">{step.title}</h4>
-                              <span className="px-1.5 py-0.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-[8px] font-light">
+                              <span className="px-1.5 py-0.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-[7px] font-light">
                                 {step.period}
                               </span>
                             </div>
