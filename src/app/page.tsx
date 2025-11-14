@@ -166,7 +166,7 @@ export default function Home() {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </h3>
                   <p className="text-gray-700 font-light">
-                    5 experts passionnés unis par une mission commune
+                    4 experts passionnés unis par une mission commune
                   </p>
                 </div>
               </div>

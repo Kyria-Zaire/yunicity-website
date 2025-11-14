@@ -117,7 +117,7 @@ export default function Footer() {
 
             <div className="flex items-center space-x-2 text-white/60 text-sm font-light">
               <Rocket className="w-4 h-4" />
-              <span>Juin 2026</span>
+              <span>Juillet 2026</span>
             </div>
           </motion.div>
 
