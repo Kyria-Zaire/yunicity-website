@@ -288,7 +288,7 @@ export default function NewsletterSubscribeSection() {
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
                               <h4 className="text-lg font-light text-white">{step.title}</h4>
-                              <span className="px-2 py-0.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-[10px] font-light">
+                              <span className="px-1.5 py-0.5 bg-purple-500/10 border border-purple-500/30 rounded-full text-purple-400 text-[9px] font-light">
                                 {step.period}
                               </span>
                             </div>
@@ -315,11 +315,11 @@ export default function NewsletterSubscribeSection() {
               onClick={handleSubscribeClick}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-full text-lg font-light transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white rounded-full text-base font-light transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40"
             >
-              <Mail className="w-5 h-5" />
+              <Mail className="w-4 h-4" />
               Rejoindre la révolution Smart City
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </motion.button>
           </motion.div>
 
