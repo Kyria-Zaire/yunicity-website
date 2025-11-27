@@ -110,7 +110,7 @@ export default function InvestirHeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight leading-[1.1]"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]"
               >
                 Investissez dans{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
@@ -122,7 +122,7 @@ export default function InvestirHeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-xl sm:text-2xl text-gray-300 font-light leading-relaxed max-w-3xl mx-auto"
+                className="text-base sm:text-lg text-gray-300 font-light leading-relaxed max-w-3xl mx-auto"
               >
                 Rejoignez notre levée de fonds Seed et participez à la création du leader européen des communautés locales
               </motion.p>
@@ -133,7 +133,7 @@ export default function InvestirHeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
+              className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto"
             >
               {heroStats.map((stat, index) => {
                 const Icon = stat.icon
@@ -143,15 +143,15 @@ export default function InvestirHeroSection() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
                   >
-                    <div className={`w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className={`w-10 h-10 mx-auto mb-2 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
+                      <Icon className="w-5 h-5 text-white" />
                     </div>
-                    <div className={`text-3xl font-light mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
+                    <div className={`text-2xl font-light mb-1 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                       {stat.value}
                     </div>
-                    <div className="text-xs text-gray-400 font-light">{stat.label}</div>
+                    <div className="text-[10px] text-gray-400 font-light">{stat.label}</div>
                   </motion.div>
                 )
               })}
@@ -190,7 +190,7 @@ export default function InvestirHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight leading-[1.1]"
+                className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]"
           >
                 Visualisez votre{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
@@ -209,22 +209,22 @@ export default function InvestirHeroSection() {
         </motion.div>
 
           {/* ROI Calculator */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {/* Calculateur */}
                 <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12"
+              className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8"
             >
               {/* Montant investi */}
-              <div className="mb-10">
-                <div className="flex items-center justify-between mb-4">
-                  <label className="text-white font-light text-lg flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-purple-400" />
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-white font-light text-base flex items-center gap-2">
+                    <DollarSign className="w-4 h-4 text-purple-400" />
                     Montant investi
                   </label>
-                  <span className="text-2xl font-light text-white">
+                  <span className="text-xl font-light text-white">
                     {formatCurrency(investmentAmount)}
                   </span>
                       </div>
@@ -247,13 +247,13 @@ export default function InvestirHeroSection() {
                     </div>
 
               {/* Horizon temporel */}
-              <div className="mb-10">
-                <div className="flex items-center justify-between mb-4">
-                  <label className="text-white font-light text-lg flex items-center gap-2">
-                    <Calendar className="w-5 h-5 text-blue-400" />
+              <div className="mb-6">
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-white font-light text-base flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-blue-400" />
                     Horizon temporel
                   </label>
-                  <span className="text-2xl font-light text-white">
+                  <span className="text-xl font-light text-white">
                     {timeHorizon} {timeHorizon > 1 ? 'années' : 'année'}
                   </span>
                 </div>
@@ -276,23 +276,23 @@ export default function InvestirHeroSection() {
                     </div>
 
               {/* Projection visuelle */}
-              <div className="mt-12 pt-8 border-t border-white/10">
-                <div className="space-y-4">
+              <div className="mt-8 pt-6 border-t border-white/10">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 font-light">Investissement initial</span>
-                    <span className="text-white font-light">{formatCurrency(investmentAmount)}</span>
+                    <span className="text-gray-400 font-light text-sm">Investissement initial</span>
+                    <span className="text-white font-light text-sm">{formatCurrency(investmentAmount)}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 font-light">Croissance annuelle</span>
-                    <span className="text-green-400 font-light">18%</span>
+                    <span className="text-gray-400 font-light text-sm">Croissance annuelle</span>
+                    <span className="text-green-400 font-light text-sm">18%</span>
                   </div>
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                    <span className="text-white font-light text-lg">Valeur projetée</span>
+                  <div className="flex items-center justify-between pt-3 border-t border-white/10">
+                    <span className="text-white font-light text-base">Valeur projetée</span>
                     <motion.span
                       key={projectedValue}
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
-                      className="text-3xl font-light bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                      className="text-2xl font-light bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
                     >
                       {formatCurrency(projectedValue)}
                     </motion.span>
@@ -306,30 +306,30 @@ export default function InvestirHeroSection() {
               initial={{ opacity: 0, x: 30 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="space-y-8"
+              className="space-y-4"
             >
               {/* ROI Card */}
-              <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full text-sm text-gray-400 mb-4">
-                    <Target className="w-4 h-4" />
+              <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full text-xs text-gray-400 mb-3">
+                    <Target className="w-3.5 h-3.5" />
                     Retour sur investissement
                   </div>
                   <motion.div
                     key={roi}
                     initial={{ scale: 1.1, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    className={`text-7xl sm:text-8xl font-light mb-4 bg-gradient-to-r ${getRoiColor()} bg-clip-text text-transparent`}
+                    className={`text-5xl sm:text-6xl font-light mb-3 bg-gradient-to-r ${getRoiColor()} bg-clip-text text-transparent`}
                   >
                     {roi.toFixed(0)}%
                   </motion.div>
-                  <p className="text-gray-400 font-light">
+                  <p className="text-gray-400 font-light text-sm">
                     Gain estimé : {formatCurrency(projectedValue - investmentAmount)}
                   </p>
                       </div>
 
                 {/* Barre de progression */}
-                <div className="relative h-3 bg-gray-800 rounded-full overflow-hidden">
+                <div className="relative h-2 bg-gray-800 rounded-full overflow-hidden">
                   <motion.div
                     key={roi}
                     initial={{ width: 0 }}
@@ -341,24 +341,24 @@ export default function InvestirHeroSection() {
                     </div>
 
               {/* Timeline de croissance */}
-              <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12">
-                <div className="flex items-center gap-2 mb-6">
-                  <BarChart3 className="w-5 h-5 text-blue-400" />
-                  <h3 className="text-white font-light text-xl">Projection de croissance</h3>
+              <div className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
+                <div className="flex items-center gap-2 mb-4">
+                  <BarChart3 className="w-4 h-4 text-blue-400" />
+                  <h3 className="text-white font-light text-lg">Projection de croissance</h3>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {milestones.map((milestone, index) => {
                     const progress = (milestone.value / projectedValue) * 100
                     const isLast = index === milestones.length - 1
                     return (
                       <div key={milestone.year} className="relative">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-gray-400 font-light text-sm">{milestone.label}</span>
-                          <span className="text-white font-light">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-gray-400 font-light text-xs">{milestone.label}</span>
+                          <span className="text-white font-light text-sm">
                             {formatCurrency(milestone.value)}
                           </span>
                       </div>
-                        <div className="relative h-2 bg-gray-800 rounded-full overflow-hidden">
+                        <div className="relative h-1.5 bg-gray-800 rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${progress}%` }}
@@ -379,12 +379,12 @@ export default function InvestirHeroSection() {
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6"
+                className="bg-white/5 border border-white/10 rounded-xl p-4"
               >
-                <div className="flex items-start gap-3">
-                  <Zap className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                <div className="flex items-start gap-2">
+                  <Zap className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-gray-300 font-light text-sm leading-relaxed">
+                    <p className="text-gray-300 font-light text-xs leading-relaxed">
                       <strong className="text-white">Note importante :</strong> Cette projection est basée sur un modèle de croissance estimé (18% CAGR). Les résultats réels peuvent varier en fonction de nombreux facteurs. Consultez notre documentation complète pour plus de détails.
                     </p>
                   </div>

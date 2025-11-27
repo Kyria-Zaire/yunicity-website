@@ -19,10 +19,10 @@ const techStack = [
   {
     category: 'Frontend',
     technologies: [
-      { name: 'React', level: 'Expert', color: 'from-blue-500 to-cyan-500' },
-      { name: 'Next.js', level: 'Expert', color: 'from-gray-700 to-black' },
+      { name: 'React', level: 'Confirmé', color: 'from-blue-500 to-cyan-500' },
+      { name: 'Next.js', level: 'Confirmé', color: 'from-gray-700 to-black' },
       { name: 'TypeScript', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
-      { name: 'Tailwind CSS', level: 'Expert', color: 'from-cyan-500 to-blue-500' },
+      { name: 'Tailwind CSS', level: 'Confirmé', color: 'from-cyan-500 to-blue-500' },
       { name: 'Framer Motion', level: 'Avancé', color: 'from-purple-500 to-pink-500' }
     ],
     icon: Smartphone,
@@ -31,9 +31,9 @@ const techStack = [
   {
     category: 'Backend',
     technologies: [
-      { name: 'Node.js', level: 'Expert', color: 'from-green-500 to-emerald-500' },
+      { name: 'Node.js', level: 'Confirmé', color: 'from-green-500 to-emerald-500' },
       { name: 'PostgreSQL', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
-      { name: 'REST API', level: 'Expert', color: 'from-orange-500 to-red-500' },
+      { name: 'REST API', level: 'Confirmé', color: 'from-orange-500 to-red-500' },
       { name: 'GraphQL', level: 'Intermédiaire', color: 'from-pink-500 to-purple-500' },
       { name: 'WebSocket', level: 'Avancé', color: 'from-cyan-500 to-blue-500' }
     ],
@@ -45,7 +45,7 @@ const techStack = [
     technologies: [
       { name: 'AWS', level: 'Avancé', color: 'from-orange-500 to-yellow-500' },
       { name: 'Docker', level: 'Avancé', color: 'from-blue-500 to-cyan-500' },
-      { name: 'CI/CD', level: 'Expert', color: 'from-green-500 to-emerald-500' },
+      { name: 'CI/CD', level: 'Confirmé', color: 'from-green-500 to-emerald-500' },
       { name: 'Kubernetes', level: 'Intermédiaire', color: 'from-blue-600 to-indigo-600' }
     ],
     icon: Cloud,
@@ -54,8 +54,8 @@ const techStack = [
   {
     category: 'Design & UX',
     technologies: [
-      { name: 'Figma', level: 'Expert', color: 'from-purple-500 to-pink-500' },
-      { name: 'Design System', level: 'Expert', color: 'from-blue-500 to-cyan-500' },
+      { name: 'Figma', level: 'Confirmé', color: 'from-purple-500 to-pink-500' },
+      { name: 'Design System', level: 'Confirmé', color: 'from-blue-500 to-cyan-500' },
       { name: 'Prototypage', level: 'Avancé', color: 'from-orange-500 to-red-500' },
       { name: 'User Research', level: 'Avancé', color: 'from-green-500 to-emerald-500' }
     ],
@@ -128,50 +128,50 @@ export default function EquipeTeamSection() {
 
   const getLevelColor = (level: string) => {
     switch (level) {
-      case 'Expert':
-        return 'bg-green-500/20 text-green-400 border-green-500/30'
+      case 'Confirmé':
+        return 'bg-green-100 text-green-700 border-green-300/50'
       case 'Avancé':
-        return 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+        return 'bg-blue-100 text-blue-700 border-blue-300/50'
       case 'Intermédiaire':
-        return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+        return 'bg-yellow-100 text-yellow-700 border-yellow-300/50'
       default:
-        return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
+        return 'bg-gray-100 text-gray-700 border-gray-300/50'
     }
   }
 
   return (
-    <section ref={ref} className="relative py-32 bg-black overflow-hidden">
+    <section ref={ref} data-section="equipe-team" className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-200/20 to-blue-200/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
+            linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
           `,
           backgroundSize: '120px 120px'
         }}
       />
 
-      <div className="relative container mx-auto px-6">
+      <div className="relative container mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight"
+            className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight"
           >
             Expertise &{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
               Compétences
             </span>
           </motion.h2>
@@ -179,14 +179,14 @@ export default function EquipeTeamSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl text-gray-400 leading-relaxed font-light max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
           >
             Notre stack technique et nos domaines d'expertise
           </motion.p>
         </motion.div>
 
         {/* Tech Stack Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20 px-2 sm:px-0">
           {techStack.map((stack, index) => {
             const Icon = stack.icon
             return (
@@ -195,34 +195,34 @@ export default function EquipeTeamSection() {
               initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.15 }}
-                className="group relative bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500"
+                className="group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 hover:border-gray-300/50 shadow-lg hover:shadow-xl transition-all duration-500"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stack.technologies[0].color} flex items-center justify-center shadow-lg`}>
-                    <Icon className="w-7 h-7 text-white" />
+                <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 mb-3 sm:mb-4 md:mb-5">
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${stack.technologies[0].color} flex items-center justify-center shadow-md sm:shadow-lg flex-shrink-0 border-2 border-white/50`}>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-light text-white mb-1">{stack.category}</h3>
-                    <p className="text-sm text-gray-400 font-light">{stack.description}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base sm:text-lg md:text-xl font-light text-gray-900 mb-0.5 sm:mb-1 truncate">{stack.category}</h3>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-light line-clamp-2">{stack.description}</p>
                   </div>
                 </div>
 
                 {/* Technologies */}
-                <div className="space-y-3">
+                <div className="space-y-1.5 sm:space-y-2 md:space-y-2.5">
                   {stack.technologies.map((tech, techIndex) => (
                     <motion.div
                       key={tech.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                       transition={{ duration: 0.5, delay: 0.8 + index * 0.15 + techIndex * 0.1 }}
-                      className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300 group/item"
+                      className="flex items-center justify-between p-2.5 sm:p-3 md:p-3.5 bg-gray-100/50 rounded-md sm:rounded-lg md:rounded-xl border border-gray-200/50 hover:bg-gray-100 hover:border-gray-300/50 transition-all duration-300 group/item"
                     >
-                      <div className="flex items-center gap-4">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.color}`} />
-                        <span className="text-white font-medium">{tech.name}</span>
+                      <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 min-w-0 flex-1">
+                        <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r ${tech.color} flex-shrink-0`} />
+                        <span className="text-gray-900 font-medium text-xs sm:text-sm md:text-base truncate">{tech.name}</span>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(tech.level)}`}>
+                      <span className={`px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] md:text-xs font-medium border ${getLevelColor(tech.level)} flex-shrink-0 ml-2`}>
                         {tech.level}
                       </span>
             </motion.div>
@@ -238,18 +238,18 @@ export default function EquipeTeamSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mb-24"
+          className="mb-16 sm:mb-20"
         >
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-3xl sm:text-4xl font-light text-white mb-12 text-center"
+            className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 sm:mb-10 text-center"
           >
             Domaines d'expertise
           </motion.h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5 max-w-5xl mx-auto px-2 sm:px-0">
             {expertiseAreas.map((area, index) => {
               const Icon = area.icon
               return (
@@ -258,23 +258,23 @@ export default function EquipeTeamSection() {
                   initial={{ opacity: 0, y: 40 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                   transition={{ duration: 0.6, delay: 1.4 + index * 0.15 }}
-                  className="group relative bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-500"
+                  className="group relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-lg sm:rounded-xl md:rounded-2xl p-3.5 sm:p-4 md:p-5 hover:border-gray-300/50 shadow-lg hover:shadow-xl transition-all duration-500"
                 >
                   {/* Icon */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${area.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${area.color} flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 shadow-md sm:shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-white/50`}>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-lg sm:text-xl font-light text-white mb-2">{area.title}</h4>
-                  <p className="text-sm text-gray-400 mb-4 font-light leading-relaxed">{area.description}</p>
+                  <h4 className="text-sm sm:text-base md:text-lg font-light text-gray-900 mb-1 sm:mb-1.5 md:mb-2 line-clamp-2">{area.title}</h4>
+                  <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 mb-2.5 sm:mb-3 md:mb-4 font-light leading-relaxed line-clamp-3">{area.description}</p>
 
                   {/* Skills */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
                     {area.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1.5 bg-white/5 text-gray-300 rounded-full text-xs font-light border border-white/10"
+                        className="px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 bg-gray-100 text-gray-700 rounded-full text-[9px] sm:text-[10px] md:text-xs font-light border border-gray-200/50"
                       >
                         {skill}
                       </span>
@@ -297,12 +297,12 @@ export default function EquipeTeamSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 2 }}
-            className="text-3xl sm:text-4xl font-light text-white mb-12 text-center"
+            className="text-2xl sm:text-3xl font-light text-gray-900 mb-8 sm:mb-10 text-center"
           >
             Compétences clés
           </motion.h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 px-2 sm:px-0">
             {coreCompetencies.map((competency, index) => {
               const Icon = competency.icon
               return (
@@ -311,13 +311,13 @@ export default function EquipeTeamSection() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.5, delay: 2.2 + index * 0.1 }}
-                  className="group text-center"
+                  className="group text-center px-1 sm:px-0"
                 >
-                  <div className={`w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${competency.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-lg sm:rounded-xl md:rounded-2xl bg-gradient-to-br ${competency.color} flex items-center justify-center shadow-md sm:shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-white/50`}>
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                   </div>
-                  <h4 className="text-base sm:text-lg font-light text-white mb-2">{competency.title}</h4>
-                  <p className="text-xs sm:text-sm text-gray-400 font-light leading-relaxed">{competency.description}</p>
+                  <h4 className="text-xs sm:text-sm md:text-base font-light text-gray-900 mb-1 sm:mb-1.5 md:mb-2 line-clamp-2">{competency.title}</h4>
+                  <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-600 font-light leading-relaxed line-clamp-3">{competency.description}</p>
                 </motion.div>
               )
             })}

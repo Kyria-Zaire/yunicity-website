@@ -12,6 +12,7 @@ interface NavigationProps {
 export default function Navigation({ activeSection }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLightBackground, setIsLightBackground] = useState(false)
 
   const navItems = [
     { id: 'hero', label: 'Accueil', href: '/' },
@@ -25,9 +26,72 @@ export default function Navigation({ activeSection }: NavigationProps) {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      
+      // Vérifier si on est sur une page avec fond blanc
+      const currentPath = window.location.pathname
+      const isWhiteBackgroundPage = currentPath === '/solution' || 
+                                    currentPath === '/equipe' || 
+                                    currentPath === '/newsletter' ||
+                                    currentPath === '/probleme'
+      
+      // Détecter si on est sur une section avec fond blanc
+      const newsletterSection = document.querySelector('[data-section="newsletter-hero"]')
+      const equipeHeroSection = document.querySelector('[data-section="equipe-hero"]')
+      const equipeTeamSection = document.querySelector('[data-section="equipe-team"]')
+      const solutionHeroSection = document.querySelector('[data-section="solution-hero"]')
+      const solutionCardSection = document.querySelector('[data-section="solution-card"]')
+      const solutionDemoSection = document.querySelector('[data-section="solution-demo"]')
+      const problemeHeroSection = document.querySelector('[data-section="probleme-hero"]')
+      
+      let isVisible = false
+      
+      // Si on est sur une page avec fond blanc, activer le fond blanc par défaut
+      if (isWhiteBackgroundPage) {
+        isVisible = true
+      } else {
+        // Fonction helper pour vérifier si une section est visible
+        const checkSection = (section: Element | null) => {
+          if (!section) return false
+          const rect = section.getBoundingClientRect()
+          // Vérifier si la section est dans la zone visible (avec marge pour le header)
+          return rect.top <= 150 && rect.bottom >= -100
+        }
+        
+        // Vérifier toutes les sections avec fond blanc
+        isVisible = checkSection(newsletterSection) ||
+                    checkSection(equipeHeroSection) ||
+                    checkSection(equipeTeamSection) ||
+                    checkSection(solutionHeroSection) ||
+                    checkSection(solutionCardSection) ||
+                    checkSection(solutionDemoSection) ||
+                    checkSection(problemeHeroSection)
+      }
+      
+      setIsLightBackground(isVisible)
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    // Vérifier au chargement initial avec un petit délai pour laisser le DOM se charger
+    setTimeout(handleScroll, 100)
+    
+    // Écouter les changements de route
+    const handleRouteChange = () => {
+      setTimeout(handleScroll, 300) // Délai pour laisser le DOM se mettre à jour après changement de route
+    }
+    
+    window.addEventListener('popstate', handleRouteChange)
+    
+    // Vérifier aussi après un court délai pour les changements de route Next.js
+    const checkInterval = setInterval(() => {
+      handleScroll()
+    }, 1000) // Vérifier toutes les secondes (peu coûteux)
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('popstate', handleRouteChange)
+      clearInterval(checkInterval)
+    }
   }, [])
 
   const handleNavigation = (href: string) => {
@@ -54,7 +118,11 @@ export default function Navigation({ activeSection }: NavigationProps) {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-2xl' 
+            ? isLightBackground
+              ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-2xl'
+              : 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-2xl'
+            : isLightBackground
+              ? 'bg-white/50 backdrop-blur-xl'
             : 'bg-transparent'
         }`}
       >
@@ -77,7 +145,9 @@ export default function Navigation({ activeSection }: NavigationProps) {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <span className="text-white font-bold text-xl tracking-tight">YUNICITY</span>
+                <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
+                  isLightBackground ? 'text-gray-900' : 'text-white'
+                }`}>YUNICITY</span>
               </motion.div>
             </Link>
 
@@ -92,8 +162,8 @@ export default function Navigation({ activeSection }: NavigationProps) {
                     onClick={() => handleNavigation(item.href)}
                     className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 cursor-pointer ${
                       activeSection === item.id
-                        ? 'text-purple-300'
-                        : 'text-white/80 hover:text-white'
+                        ? isLightBackground ? 'text-purple-600' : 'text-purple-300'
+                        : isLightBackground ? 'text-gray-700 hover:text-gray-900' : 'text-white/80 hover:text-white'
                     }`}
                   >
                     {item.label}
@@ -132,7 +202,9 @@ export default function Navigation({ activeSection }: NavigationProps) {
 
             {/* Menu Mobile Button */}
             <motion.button
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-white"
+              className={`lg:hidden w-10 h-10 flex items-center justify-center transition-colors duration-300 ${
+                isLightBackground ? 'text-gray-900' : 'text-white'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.9 }}
             >

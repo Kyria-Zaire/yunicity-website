@@ -186,13 +186,13 @@ export default function InvestirContactSection() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 300 }}
-              className="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8"
+              className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6"
             >
-              <CheckCircle className="w-12 h-12 text-white" />
+              <CheckCircle className="w-8 h-8 text-white" />
             </motion.div>
 
-            <h2 className="text-5xl sm:text-6xl font-light text-white mb-6">Rendez-vous confirmé !</h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-light text-white mb-6">Rendez-vous confirmé !</h2>
+            <p className="text-base text-gray-300 mb-6 leading-relaxed">
               Merci <span className="text-purple-400 font-normal">{formData.name}</span> !
               <br />
               Votre rendez-vous est prévu le{' '}
@@ -202,18 +202,18 @@ export default function InvestirContactSection() {
             </p>
 
             {/* Liens calendrier */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
               <motion.a
                 href={generateCalendarLink('google')}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full text-white font-light border border-white/20 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-white font-light text-sm border border-white/20 transition-colors"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-3.5 h-3.5" />
                 Ajouter à Google Calendar
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
               <motion.a
                 href={generateCalendarLink('outlook')}
@@ -221,11 +221,11 @@ export default function InvestirContactSection() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full text-white font-light border border-white/20 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 rounded-full text-white font-light text-sm border border-white/20 transition-colors"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-3.5 h-3.5" />
                 Ajouter à Outlook
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </motion.a>
             </div>
 
@@ -233,7 +233,7 @@ export default function InvestirContactSection() {
               href="/investir"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-light text-lg transition-colors"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-light text-base transition-colors"
             >
               Retour
             </motion.a>
@@ -270,15 +270,15 @@ export default function InvestirContactSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white font-light text-sm mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full text-white font-light text-xs mb-6"
           >
-            <Calendar className="w-4 h-4" />
+            <Calendar className="w-3.5 h-3.5" />
             PRENEZ RENDEZ-VOUS
           </motion.div>
 
@@ -286,7 +286,7 @@ export default function InvestirContactSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight"
           >
             Prêt à investir dans{' '}
             <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
@@ -298,7 +298,7 @@ export default function InvestirContactSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl mx-auto"
+            className="text-base text-gray-400 font-light leading-relaxed max-w-3xl mx-auto"
           >
             Réservez un créneau pour discuter de votre investissement
           </motion.p>
@@ -313,45 +313,55 @@ export default function InvestirContactSection() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.4 }}
-                className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12"
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
+                className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8"
         >
                 {/* Navigation du mois */}
-                <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <motion.button
                     onClick={prevMonth}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all duration-300"
+                    style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                   >
-                    <ChevronLeft className="w-5 h-5 text-white" />
+                    <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                   </motion.button>
                   
-                  <h3 className="text-2xl font-light text-white">
+                  <motion.h3 
+                    key={`${currentDate.getMonth()}-${currentDate.getFullYear()}`}
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="text-lg sm:text-xl font-light text-white text-center px-2"
+                  >
                     {months[currentDate.getMonth()]} {currentDate.getFullYear()}
-                  </h3>
+                  </motion.h3>
                   
                   <motion.button
                     onClick={nextMonth}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all duration-300"
+                    style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                   >
-                    <ChevronRight className="w-5 h-5 text-white" />
+                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                   </motion.button>
                   </div>
 
                 {/* Jours de la semaine */}
-                <div className="grid grid-cols-7 gap-2 mb-4">
+                <div className="grid grid-cols-7 gap-1 sm:gap-1.5 mb-2 sm:mb-3">
                   {weekDays.map((day) => (
-                    <div key={day} className="text-center text-sm text-gray-400 font-light py-2">
+                    <div key={day} className="text-center text-[10px] sm:text-xs text-gray-400 font-extralight py-1">
                       {day}
                     </div>
                   ))}
                 </div>
 
                 {/* Calendrier */}
-                <div className="grid grid-cols-7 gap-2 mb-8">
+                <div className="grid grid-cols-7 gap-1 sm:gap-1.5 mb-4 sm:mb-6">
                   {days.map((date, index) => {
                     if (!date) {
                       return <div key={`empty-${index}`} className="aspect-square" />
@@ -366,19 +376,55 @@ export default function InvestirContactSection() {
                         key={date.getTime()}
                         onClick={() => handleDateSelect(date)}
                         disabled={isDisabled}
-                        whileHover={!isDisabled ? { scale: 1.1 } : {}}
-                        whileTap={!isDisabled ? { scale: 0.9 } : {}}
-                        className={`aspect-square rounded-xl text-sm font-light transition-all ${
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ 
+                          opacity: 1, 
+                          scale: 1,
+                          transition: { 
+                            duration: 0.3, 
+                            delay: index * 0.01,
+                            ease: [0.16, 1, 0.3, 1] as const
+                          }
+                        }}
+                        whileHover={!isDisabled ? { 
+                          scale: 1.05,
+                          transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }
+                        } : {}}
+                        whileTap={!isDisabled ? { 
+                          scale: 0.95,
+                          transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }
+                        } : {}}
+                        className={`relative aspect-square rounded-md text-[10px] sm:text-xs font-extralight transition-all duration-300 ${
                           isSelected
-                            ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white shadow-lg'
+                            ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/30'
                             : isTodayDate
-                            ? 'bg-white/10 text-white border-2 border-purple-500/50'
+                            ? 'bg-white/10 text-white border border-purple-400/40'
                             : isDisabled
-                            ? 'bg-white/5 text-gray-600 cursor-not-allowed'
-                            : 'bg-white/5 text-white hover:bg-white/10'
+                            ? 'bg-transparent text-gray-600/50 cursor-not-allowed'
+                            : 'bg-transparent text-white/80 hover:bg-white/5 hover:text-white'
                         }`}
                       >
-                        {date.getDate()}
+                        {isSelected && (
+                          <motion.div
+                            layoutId="selectedDate"
+                            className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg"
+                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                          />
+                        )}
+                        {isTodayDate && !isSelected && (
+                          <motion.div
+                            className="absolute inset-0 border border-purple-400/40 rounded-lg"
+                            animate={{
+                              opacity: [0.5, 1, 0.5],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: 'easeInOut',
+                            }}
+                          />
+                        )}
+                        <span className="relative z-10">{date.getDate()}</span>
                       </motion.button>
               )
             })}
@@ -388,18 +434,33 @@ export default function InvestirContactSection() {
                 {selectedDate && (
             <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mt-8 pt-8 border-t border-white/10"
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: { 
+                        duration: 0.5, 
+                        ease: [0.16, 1, 0.3, 1] as const
+                      }
+                    }}
+                    className="mt-6 pt-6 border-t border-white/10"
                   >
-                    <div className="flex items-center gap-2 mb-6">
-                      <Clock className="w-5 h-5 text-purple-400" />
-                      <h4 className="text-lg font-light text-white">
-                        Créneaux disponibles le {selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
+                    <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                      <motion.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+                      >
+                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400" />
+                      </motion.div>
+                      <h4 className="text-sm sm:text-base font-light text-white">
+                        <span className="hidden sm:inline">Créneaux disponibles le </span>
+                        <span className="sm:hidden">Le </span>
+                        {selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
                       </h4>
                     </div>
                     
-                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-3">
-                      {timeSlots.map((time) => {
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-1.5 sm:gap-2">
+                      {timeSlots.map((time, index) => {
                         const isSelected = selectedTime === time
                         const [hours] = time.split(':').map(Number)
                         const slotDate = new Date(selectedDate)
@@ -411,17 +472,40 @@ export default function InvestirContactSection() {
                             key={time}
                             onClick={() => !isPast && handleTimeSelect(time)}
                             disabled={isPast}
-                            whileHover={!isPast ? { scale: 1.05 } : {}}
-                            whileTap={!isPast ? { scale: 0.95 } : {}}
-                            className={`px-4 py-2 rounded-xl text-sm font-light transition-all ${
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ 
+                              opacity: 1, 
+                              scale: 1,
+                              transition: { 
+                                duration: 0.3, 
+                                delay: index * 0.02,
+                                ease: [0.16, 1, 0.3, 1] as const
+                              }
+                            }}
+                            whileHover={!isPast ? { 
+                              scale: 1.05,
+                              transition: { duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }
+                            } : {}}
+                            whileTap={!isPast ? { 
+                              scale: 0.95,
+                              transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }
+                            } : {}}
+                            className={`relative px-3 py-1.5 rounded-lg text-xs font-extralight transition-all duration-300 ${
                               isSelected
-                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/30'
                                 : isPast
-                                ? 'bg-white/5 text-gray-600 cursor-not-allowed'
-                                : 'bg-white/5 text-white hover:bg-white/10'
+                                ? 'bg-transparent text-gray-600/50 cursor-not-allowed border border-white/5'
+                                : 'bg-transparent text-white/80 hover:bg-white/5 hover:text-white border border-white/10'
                             }`}
                           >
-                            {time}
+                            {isSelected && (
+                              <motion.div
+                                layoutId="selectedTime"
+                                className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg"
+                                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                              />
+                            )}
+                            <span className="relative z-10">{time}</span>
                           </motion.button>
                         )
                       })}
@@ -434,16 +518,19 @@ export default function InvestirContactSection() {
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-8 flex justify-end"
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="mt-6 sm:mt-8 flex justify-end"
                   >
                     <motion.button
                       onClick={handleNext}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-light text-lg transition-colors flex items-center gap-2"
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-extralight text-xs sm:text-sm transition-all duration-500 flex items-center gap-1.5 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30"
+                      style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                     >
                       Continuer
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     </motion.button>
                   </motion.div>
                 )}
@@ -454,24 +541,29 @@ export default function InvestirContactSection() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-                className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12"
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
+                className="bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 md:p-8"
               >
                 {/* Récapitulatif du rendez-vous */}
-                <div className="mb-8 p-6 bg-white/5 rounded-2xl border border-white/10">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-lg font-light text-white mb-2">Récapitulatif du rendez-vous</h3>
-                      <div className="flex items-center gap-4 text-gray-400">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+                  className="mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 rounded-xl border border-white/10"
+                >
+                  <div className="flex items-start justify-between mb-2 sm:mb-3">
+                    <div className="flex-1">
+                      <h3 className="text-sm sm:text-base font-light text-white mb-1.5 sm:mb-2">Récapitulatif du rendez-vous</h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-gray-400">
                         <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4" />
-                          <span className="text-sm font-light">
+                          <Calendar className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                          <span className="text-[10px] sm:text-xs font-light">
                             {selectedDate?.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
                           </span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4" />
-                          <span className="text-sm font-light">{selectedTime}</span>
+                          <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                          <span className="text-[10px] sm:text-xs font-light">{selectedTime}</span>
                         </div>
                       </div>
                     </div>
@@ -479,132 +571,235 @@ export default function InvestirContactSection() {
                       onClick={handlePrevious}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors"
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                      className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-all duration-300"
+                      style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                     >
-                      <ChevronLeft className="w-4 h-4 text-white" />
+                      <ChevronLeft className="w-3.5 h-3.5 text-white" />
                     </motion.button>
                   </div>
-                    </div>
+                </motion.div>
 
                 {/* Formulaire */}
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-white/80 font-light mb-3 text-sm">Nom complet *</label>
-                      <div className="relative">
-                        <User className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
+                    >
+                      <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Nom complet *</label>
+                      <div className="relative group">
+                        <motion.div
+                          animate={{ 
+                            scale: formData.name ? 1 : 0.95,
+                            opacity: formData.name ? 1 : 0.7
+                          }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                        >
+                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                        </motion.div>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors font-light"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="Jean Dupont"
                         />
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div>
-                      <label className="block text-white/80 font-light mb-3 text-sm">Email *</label>
-                      <div className="relative">
-                        <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] as const }}
+                    >
+                      <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Email *</label>
+                      <div className="relative group">
+                        <motion.div
+                          animate={{ 
+                            scale: formData.email ? 1 : 0.95,
+                            opacity: formData.email ? 1 : 0.7
+                          }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                        >
+                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                        </motion.div>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors font-light"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="jean@fonds-investissement.com"
                         />
                       </div>
-                      </div>
+                      </motion.div>
                     </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-white/80 font-light mb-3 text-sm">Société / Fonds</label>
-                      <div className="relative">
-                        <Building className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                    >
+                      <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Société / Fonds</label>
+                      <div className="relative group">
+                        <motion.div
+                          animate={{ 
+                            scale: formData.company ? 1 : 0.95,
+                            opacity: formData.company ? 1 : 0.7
+                          }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                        >
+                          <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                        </motion.div>
                         <input
                           type="text"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors font-light"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="Nom de votre société"
                         />
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div>
-                      <label className="block text-white/80 font-light mb-3 text-sm">Téléphone</label>
-                      <div className="relative">
-                        <Phone className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
+                    >
+                      <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Téléphone</label>
+                      <div className="relative group">
+                        <motion.div
+                          animate={{ 
+                            scale: formData.phone ? 1 : 0.95,
+                            opacity: formData.phone ? 1 : 0.7
+                          }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                        >
+                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                        </motion.div>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors font-light"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="+33 6 12 34 56 78"
                         />
                       </div>
-                    </div>
+                    </motion.div>
                     </div>
 
-                  <div>
-                    <label className="block text-white/80 font-light mb-3 text-sm">Montant souhaité *</label>
-                        <div className="relative">
-                      <Building className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/50" />
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+                  >
+                    <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Montant souhaité *</label>
+                        <div className="relative group">
+                      <motion.div
+                        animate={{ 
+                          scale: formData.investmentRange ? 1 : 0.95,
+                          opacity: formData.investmentRange ? 1 : 0.7
+                        }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                      >
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                      </motion.div>
                           <input
                             type="text"
                             required
                         value={formData.investmentRange}
                         onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
-                        className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors font-light"
+                        className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                        style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                         placeholder="Ex: 100 000€ ou 50K-100K€"
                       />
                     </div>
-                    <p className="text-white/40 text-sm mt-2 font-light">Indiquez le montant ou la fourchette d'investissement souhaitée</p>
-                    </div>
+                    <p className="text-white/30 text-[10px] sm:text-xs mt-1 font-extralight">Indiquez le montant ou la fourchette d'investissement souhaitée</p>
+                    </motion.div>
 
-                    <div>
-                    <label className="block text-white/80 font-light mb-3 text-sm">Message</label>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: 0.35, ease: [0.16, 1, 0.3, 1] as const }}
+                    >
+                    <label className="block text-white/60 font-extralight mb-1.5 text-[10px] sm:text-xs tracking-wide">Message</label>
                       <textarea
                         value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      rows={4}
-                      className="w-full px-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:border-purple-500 transition-colors resize-none font-light"
+                      rows={3}
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 resize-none font-extralight text-sm"
+                      style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                       placeholder="Parlez-nous de votre intérêt..."
                       />
-                    </div>
+                    </motion.div>
 
                   <motion.button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full py-5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-light text-lg disabled:opacity-50 transition-all flex items-center justify-center gap-3"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="w-full py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-extralight text-sm sm:text-base disabled:opacity-50 transition-all duration-500 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 hover:shadow-xl hover:shadow-purple-500/30"
+                    style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                    whileHover={{ 
+                      scale: status !== 'loading' ? 1.02 : 1,
+                      transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }
+                    }}
+                    whileTap={{ 
+                      scale: status !== 'loading' ? 0.98 : 1,
+                      transition: { duration: 0.15, ease: [0.16, 1, 0.3, 1] as const }
+                    }}
                   >
+                    <AnimatePresence mode="wait">
                     {status === 'loading' ? (
-                      <>
                         <motion.div
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                          key="loading"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                          className="flex items-center gap-2"
+                        >
+                          <motion.div
+                            className="w-4 h-4 border-2 border-white/80 border-t-transparent rounded-full"
                           animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                         />
                         <span>Envoi...</span>
-                      </>
+                        </motion.div>
                     ) : (
-                      <>
-                        <CheckCircle className="w-5 h-5" />
+                        <motion.div
+                          key="confirm"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+                          className="flex items-center gap-2"
+                        >
+                          <CheckCircle className="w-4 h-4" />
                         <span>Confirmer le rendez-vous</span>
-                      </>
+                        </motion.div>
                     )}
+                    </AnimatePresence>
                   </motion.button>
 
-                  <div className="flex items-center justify-center gap-2 text-sm text-white/50 font-light">
-                    <CheckCircle className="w-4 h-4 text-purple-400" />
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+                    className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-white/40 font-extralight"
+                  >
+                    <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-400" />
                     <span>Réponse sous 48h • Confidentialité garantie</span>
-              </div>
+              </motion.div>
                 </form>
                 </motion.div>
               )}

@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Users, ArrowRight, Filter } from 'lucide-react'
+import { Calendar, Users, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 const categories = ['Toutes', 'Actualités', 'Découvertes', 'Communauté', 'Événements']
@@ -129,11 +129,11 @@ const newsletterItems = [
   }
 ]
 
-const categoryColors: Record<string, string> = {
-  'Actualités': 'from-blue-500 to-cyan-500',
-  'Découvertes': 'from-purple-500 to-pink-500',
-  'Communauté': 'from-emerald-500 to-teal-500',
-  'Événements': 'from-orange-500 to-red-500'
+const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
+  'Actualités': { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
+  'Découvertes': { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
+  'Communauté': { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20' },
+  'Événements': { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/20' }
 }
 
 export default function NewsletterContentSection() {
@@ -148,31 +148,58 @@ export default function NewsletterContentSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.08,
+        delayChildren: 0.1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: { 
       opacity: 1, 
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.6
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1] as const
       }
     }
   }
 
   return (
-    <section className="relative py-32 bg-black overflow-hidden">
-      {/* Glow effects */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl" />
+    <section className="relative py-24 md:py-32 bg-gradient-to-br from-indigo-900 via-violet-800 to-indigo-900 overflow-hidden">
+      {/* Glow effects subtils */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
+
+      {/* Particules flottantes */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/20 rounded-full blur-sm"
+            style={{
+              left: `${20 + i * 15}%`,
+              top: `${10 + (i % 3) * 30}%`,
+            }}
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.2, 0.5, 0.2],
+            }}
+            transition={{
+              duration: 4 + i,
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: 'easeInOut',
+            }}
+          />
+        ))}
+      </div>
 
       {/* Grille subtile */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
@@ -182,66 +209,69 @@ export default function NewsletterContentSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-6">
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-semibold mb-8"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-12 md:mb-16"
           >
-            <Filter className="w-4 h-4" />
-            Newsletter Yunicity
-          </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl sm:text-6xl font-bold text-white mb-6 tracking-tight"
-          >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white mb-4 tracking-tight leading-[1.1]">
             Actualités &{' '}
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-violet-300 via-indigo-300 to-violet-300 bg-clip-text text-transparent font-extralight">
               Découvertes
             </span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto font-light"
-          >
+          </h2>
+          <p className="text-base md:text-lg text-violet-200/80 leading-relaxed max-w-2xl mx-auto font-extralight">
             Restez informé des dernières actualités et découvrez les secrets de votre ville
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
         {/* Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap justify-center gap-3 mb-12 md:mb-16"
         >
-          {categories.map((category) => (
-            <button
+          {categories.map((category, index) => {
+            const isActive = activeCategory === category
+            return (
+              <motion.button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-500/50'
-                  : 'bg-white/5 backdrop-blur-sm border border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className={`relative px-6 py-2.5 rounded-full font-extralight text-sm transition-all duration-500 tracking-wide ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-violet-200/70 hover:text-white'
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activeFilter"
+                    className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 shadow-lg"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-full border border-white/10" />
+                )}
+                <span className="relative z-10">{category}</span>
+              </motion.button>
+            )
+          })}
         </motion.div>
 
-        {/* Mosaic Grid */}
+        {/* Cards Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
@@ -249,76 +279,74 @@ export default function NewsletterContentSection() {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-fr"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
           >
             {filteredItems.map((item) => {
-              const heightClass = item.size === 'large' 
-                ? 'md:row-span-2 lg:col-span-2' 
-                : item.size === 'medium'
-                ? 'md:row-span-1 lg:col-span-1'
-                : 'md:row-span-1 lg:col-span-1'
+              const categoryColor = categoryColors[item.category] || { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/20' }
+              const isLarge = item.size === 'large'
 
               return (
                 <motion.article
                   key={item.id}
                   variants={itemVariants}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className={`group relative ${heightClass} rounded-3xl overflow-hidden cursor-pointer border border-white/10 hover:border-white/30 transition-all duration-300`}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  className={`group relative ${isLarge ? 'md:col-span-2' : ''} rounded-2xl overflow-hidden cursor-pointer bg-black/40 backdrop-blur-xl border border-gray-800/50 hover:border-gray-700/70 shadow-xl hover:shadow-2xl transition-all duration-700`}
                 >
-                  {/* Image Background */}
-                  <div className="absolute inset-0">
+                  {/* Image */}
+                  <div className="relative h-48 md:h-56 overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                      sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                     />
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${categoryColors[item.category] || 'from-gray-500 to-gray-700'} opacity-20 mix-blend-overlay`} />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-between p-8">
-                    {/* Top - Category Badge */}
-                    <div>
-                      <span className={`inline-flex px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r ${categoryColors[item.category] || 'from-gray-500 to-gray-700'} text-white shadow-lg`}>
+                    {/* Gradient overlay - Plus clair */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                    
+                    {/* Category badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className={`inline-flex px-3 py-1 rounded-full text-xs font-extralight tracking-wide backdrop-blur-xl border ${categoryColor.bg} ${categoryColor.text} ${categoryColor.border} shadow-lg`}>
                         {item.category}
                       </span>
                     </div>
+                    </div>
 
-                    {/* Bottom - Content */}
-                    <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all duration-300">
+                  {/* Content */}
+                  <div className="p-6 md:p-8">
+                    <h3 className="text-xl md:text-2xl font-light text-white mb-3 leading-tight tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:to-indigo-300 transition-all duration-700">
                         {item.title}
                       </h3>
-                      <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3">
+                    <p className="text-violet-200/70 mb-6 leading-relaxed line-clamp-2 text-sm md:text-base font-extralight group-hover:text-violet-100 transition-colors duration-500">
                         {item.excerpt}
                       </p>
 
                       {/* Meta Info */}
-                      <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
+                    <div className="flex items-center justify-between mb-6 text-xs text-violet-300/60 font-extralight">
                         <div className="flex items-center gap-4">
-                          <span className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4" />
+                          <span className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4" />
                             {item.date}
                           </span>
-                          <span className="flex items-center gap-2">
-                            <Users className="w-4 h-4" />
+                          <span className="flex items-center gap-1.5">
+                          <Users className="w-4 h-4" />
                             {item.reads} lecteurs
                           </span>
                         </div>
                       </div>
 
                       {/* CTA */}
-                      <div className="flex items-center gap-2 text-white font-semibold group-hover:gap-4 transition-all duration-300">
-                        <span>Lire l'article</span>
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                    <div className="flex items-center gap-2 text-white/80 font-extralight text-sm group-hover:gap-3 group-hover:text-white transition-all duration-500">
+                      <span>Lire l'article</span>
+                      <ArrowRight 
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500"
+                      />
                     </div>
                   </div>
+
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 via-indigo-500/0 to-violet-500/0 group-hover:from-violet-500/5 group-hover:via-indigo-500/5 group-hover:to-violet-500/5 transition-all duration-700 pointer-events-none rounded-2xl" />
                 </motion.article>
               )
             })}
