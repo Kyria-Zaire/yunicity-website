@@ -16,7 +16,7 @@
 
 ### 1. Variables d'Environnement Requises
 
-Vous devez avoir ces 5 variables d'environnement :
+Vous devez avoir ces 4 variables d'environnement :
 
 ```bash
 # Supabase
@@ -29,8 +29,7 @@ RESEND_API_KEY=re_votre_api_key
 # Site URL
 NEXT_PUBLIC_SITE_URL=https://yunicity-website.vercel.app
 
-# Google Maps (pour la carte de France)
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=votre_google_maps_api_key
+# Note : La carte utilise maintenant Leaflet + OpenStreetMap (gratuit, pas de clé API nécessaire)
 ```
 
 ### 2. Test du Build Local
@@ -82,7 +81,7 @@ git commit -m "feat: Production ready - Site complet avec Google Maps
 - React 19.2.0
 - TypeScript strict
 - Framer Motion animations
-- Google Maps API intégrée
+- Leaflet + OpenStreetMap intégré (gratuit)
 - Responsive design complet"
 
 # 4. Push
@@ -120,7 +119,7 @@ git push origin main
 **⚠️ CRITIQUE : Ajouter ces variables AVANT de cliquer sur "Deploy" !**
 
 1. Cliquer sur **"Environment Variables"**
-2. Ajouter ces **5 variables** :
+2. Ajouter ces **4 variables** :
 
 ##### Variable 1 : Supabase URL
 ```
@@ -150,14 +149,9 @@ Value: https://yunicity-website.vercel.app
 Environment: ✅ Production ✅ Preview ✅ Development
 ```
 
-##### Variable 5 : Google Maps API Key
-```
-Name: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
-Value: votre_google_maps_api_key
-Environment: ✅ Production ✅ Preview ✅ Development
-```
-
 **⚠️ IMPORTANT :** Cochez les 3 environnements (Production, Preview, Development) pour chaque variable !
+
+**Note :** La carte utilise maintenant **Leaflet + OpenStreetMap** (gratuit, pas besoin de clé API Google Maps)
 
 #### 5. Déployer
 
@@ -217,34 +211,24 @@ Environment: ✅ Production ✅ Preview ✅ Development
 
 ---
 
-## 🔧 Configuration Google Maps API
+## 🗺️ Carte Interactive (Leaflet + OpenStreetMap)
 
-### Obtenir une Clé API
+**✅ Aucune configuration nécessaire !**
 
-1. Aller sur [Google Cloud Console](https://console.cloud.google.com/)
-2. Créer un projet ou sélectionner un projet existant
-3. Activer l'API **Maps JavaScript API**
-4. Créer des identifiants → **Clé API**
-5. Copier la clé API
+La carte utilise **Leaflet** avec **OpenStreetMap**, qui est :
+- ✅ **100% gratuit**
+- ✅ **Sans clé API nécessaire**
+- ✅ **Open source**
+- ✅ **Performant et fiable**
 
-### Restrictions Recommandées (Sécurité)
+Les 3 épingles personnalisées (Reims, Troyes, Châlons-en-Champagne) sont créées avec des SVG personnalisés.
 
-1. **Restrictions d'application** :
-   - Restreindre par référent HTTP
-   - Ajouter : `https://yunicity-website.vercel.app/*`
-   - Ajouter : `https://*.vercel.app/*` (pour les previews)
+### En cas de Problème avec la Carte
 
-2. **Restrictions d'API** :
-   - Limiter à **Maps JavaScript API** uniquement
-
-### En cas d'Erreur Google Maps
-
-Si vous voyez une erreur `ApiProjectMapError` :
-
-1. Vérifier que la clé API est correcte
-2. Vérifier que l'API **Maps JavaScript API** est activée
-3. Vérifier les restrictions d'application
-4. Le site affichera automatiquement un fallback (iframe) si l'API ne fonctionne pas
+1. Vérifier la console du navigateur pour les erreurs
+2. Vérifier que Leaflet est bien installé (`npm install leaflet`)
+3. Vérifier que le CSS de Leaflet est chargé
+4. La carte devrait se charger automatiquement
 
 ---
 
@@ -295,12 +279,12 @@ Si vous voyez une erreur `ApiProjectMapError` :
 2. Vérifier que toutes les variables d'environnement sont configurées
 3. Tester le build localement : `npm run build`
 
-### Google Maps ne Charge Pas
+### La Carte ne Charge Pas
 
-1. Vérifier `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` dans Vercel
-2. Vérifier que l'API est activée dans Google Cloud Console
-3. Vérifier les restrictions d'application
-4. Le site affichera un fallback automatiquement
+1. Vérifier la console du navigateur pour les erreurs
+2. Vérifier que Leaflet est bien installé
+3. Vérifier que le CSS de Leaflet est chargé
+4. La carte devrait se charger automatiquement (pas de clé API nécessaire)
 
 ### Emails ne Fonctionnent Pas
 
