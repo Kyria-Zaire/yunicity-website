@@ -123,7 +123,7 @@ const partnerLogos = [
     node: (
       <div className="flex items-center justify-center h-[110px] w-auto">
         <Image
-          src="/images/1000069480-removebg-preview.png"
+          src="/images/4918b801-373b-4373-a10e-6210752bbaab-removebg-preview.png"
           alt="Partenaire 8"
           width={240}
           height={110}

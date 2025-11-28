@@ -528,7 +528,7 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                         delay: idx * 0.1,
                         duration: 0.3,
                         ease: "easeOut"
-                      }}
+        }}
                       className={`p-4 ${result.bgColor} border ${result.borderColor} rounded-lg`}
                     >
                       <div className="flex items-start gap-3">
@@ -699,7 +699,7 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                           ease: "easeOut"
                         }}
                         className="p-2 bg-gray-50 rounded border border-gray-200"
-                      >
+        >
                         <p className="text-[10px] sm:text-xs text-gray-400 font-light">
                           Résultat générique #{i} - Pas d'information locale
                         </p>
@@ -882,7 +882,7 @@ function ProblemSection({ problem, index }: { problem: typeof problemes[0], inde
                 </div>
             <p className="text-[10px] sm:text-xs text-gray-600 font-light leading-relaxed">
               {problem.statLabel}
-            </p>
+                </p>
             </div>
               </motion.div>
 
@@ -1653,12 +1653,12 @@ function StorytellingTimelineSection() {
                     <div className="p-3 sm:p-4 bg-red-50/50 border border-red-200/50 rounded-lg">
                       <p className="text-xs sm:text-sm text-red-700 font-light">
                         <span className="font-medium">Impact :</span> {step.impact}
-                      </p>
+                </p>
                     </div>
                   </div>
                 </div>
-              )
-            })}
+            )
+          })}
           </div>
         </div>
 
