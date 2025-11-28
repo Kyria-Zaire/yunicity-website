@@ -8,6 +8,7 @@ const problemes = [
   {
     id: 1,
     title: 'L\'information locale est éparpillée',
+    shortPhrase: '85% des Français cherchent des infos locales sur leur téléphone. On change ça.',
     description: 'Les actualités, événements ou initiatives de quartier sont disséminés sur des dizaines de sites et pages. Les habitants ne savent pas toujours où trouver les bons plans, événements ou actualités de leur quartier.',
     solution: 'Yunicity centralise toute l\'information locale sur une seule plateforme, pour que chaque habitant reste connecté à ce qui compte vraiment autour de lui.',
     stat: '85%',
@@ -20,6 +21,7 @@ const problemes = [
   {
     id: 2,
     title: 'Les habitants sont déconnectés de leur territoire',
+    shortPhrase: '50% des habitants se sentent déconnectés de leur ville. On change ça.',
     description: 'Beaucoup ignorent ce qui se passe autour d\'eux et manquent d\'occasions de participer à la vie locale. 50% des Français se disent non engagés localement.',
     solution: 'Yunicity reconnecte les citoyens à leur ville, leurs voisins et leurs acteurs locaux, en valorisant les initiatives de chaque quartier.',
     stat: '50%',
@@ -32,6 +34,7 @@ const problemes = [
   {
     id: 3,
     title: 'Manque de visibilité pour les acteurs locaux',
+    shortPhrase: '70% des acteurs locaux manquent de visibilité numérique. On change ça.',
     description: 'Commerçants, associations, jeunes créateurs ou structures locales ont du mal à se faire connaître. Les commerces, associations et porteurs de projets peinent à toucher les habitants de leur propre ville.',
     solution: 'Yunicity leur offre une vitrine digitale pour valoriser leurs initiatives, adaptée à leurs besoins et à leurs valeurs.',
     stat: '70%',
@@ -44,6 +47,7 @@ const problemes = [
   {
     id: 4,
     title: 'Faible engagement et sentiment d\'isolement urbain',
+    shortPhrase: '68% veulent participer davantage mais ne savent pas comment. On change ça.',
     description: '50% des Français se disent "non engagés localement". 68% disent vouloir participer davantage à la vie de leur quartier mais ne savent pas comment. Les réseaux classiques divisent ou éloignent.',
     solution: 'Yunicity crée du lien social à travers l\'information, les rencontres et les événements physiques, en mélangeant digital et réel : interviews, cartes interactives, événements et challenges locaux.',
     stat: '68%',
@@ -811,39 +815,47 @@ function ProblemSection({ problem, index }: { problem: typeof problemes[0], inde
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
-        {/* Header */}
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
+        {/* Header - Style startup punchy */}
           <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-8 sm:mb-12"
         >
+              {/* Icône + Numéro */}
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
                 transition={{ duration: 0.5, delay: 0.3, type: 'spring' }}
-            className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${problem.color} text-white text-xs sm:text-sm font-medium shadow-lg mb-3`}
+                className="flex items-center justify-center gap-3 mb-4"
               >
+                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${problem.color} text-white shadow-lg`}>
+                  <problem.icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                </div>
+                <div className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br ${problem.color} text-white text-xs sm:text-sm font-medium shadow-lg`}>
                 {String(index + 1).padStart(2, '0')}
+                </div>
               </motion.div>
 
+              {/* Titre */}
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-900 tracking-tight leading-tight mb-3"
+            className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-900 tracking-tight leading-tight mb-3"
               >
             {sectionTitles[index]}
               </motion.h2>
 
+              {/* Phrase punchy style startup */}
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
+            className={`text-base sm:text-lg font-medium bg-gradient-to-r ${problem.color} bg-clip-text text-transparent mb-4 max-w-3xl mx-auto`}
               >
-                {problem.description}
+                {problem.shortPhrase}
               </motion.p>
               </motion.div>
 
@@ -872,10 +884,92 @@ function ProblemSection({ problem, index }: { problem: typeof problemes[0], inde
               {problem.statLabel}
             </p>
             </div>
-          </motion.div>
+              </motion.div>
 
         {/* Scénario interactif immersif */}
         <InteractiveScenario index={index} isInView={isInView} />
+      </div>
+    </motion.section>
+  )
+}
+
+// Section introductive - Style startup punchy
+function ProblemeIntroSection() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative py-16 sm:py-20 md:py-24 bg-white overflow-hidden"
+    >
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
+        {/* Header */}
+              <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight leading-[1.1]"
+          >
+            Les défis{' '}
+            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-normal">
+              urbains
+            </span>
+            {' '}d'aujourd'hui
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-base sm:text-lg text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
+          >
+            Découvrez les enjeux auxquels font face les villes et leurs habitants
+          </motion.p>
+                  </motion.div>
+
+        {/* 4 Problématiques - Style startup punchy */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-7xl mx-auto">
+          {problemes.map((problem, index) => {
+            const Icon = problem.icon
+            return (
+              <motion.div
+                key={problem.id}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className={`group relative bg-white rounded-xl sm:rounded-2xl border-2 ${problem.borderColor} p-5 sm:p-6 sm:hover:shadow-xl transition-all duration-300 cursor-pointer`}
+              >
+                {/* Icône avec gradient */}
+                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${problem.color} text-white shadow-lg mb-4 sm:group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                </div>
+
+                {/* Titre court */}
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-2 tracking-tight">
+                  {problem.title}
+                </h3>
+
+                {/* Phrase punchy style startup */}
+                <p className={`text-sm sm:text-base font-medium bg-gradient-to-r ${problem.color} bg-clip-text text-transparent leading-relaxed`}>
+                  {problem.shortPhrase}
+                </p>
+
+                {/* Effet hover */}
+                <div className={`absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-br ${problem.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </motion.section>
   )
@@ -943,7 +1037,7 @@ function ProblemeHeroSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -987,7 +1081,7 @@ function ProblemeHeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 max-w-6xl mx-auto mb-8 sm:mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-8 sm:mb-12"
         >
           {problemStats.map((stat, index) => (
             <motion.div
@@ -1185,7 +1279,7 @@ function ChiffresClesSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1468,7 +1562,7 @@ function StorytellingTimelineSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1657,7 +1751,7 @@ function CTASolutionSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
         <motion.div
             initial={{ opacity: 0, y: 30 }}

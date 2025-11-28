@@ -185,12 +185,12 @@ export default function Hero3D() {
       </AnimatePresence>
 
       {/* Content overlay */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 min-h-screen flex items-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-8 min-h-screen flex items-center overflow-hidden">
         <div className="max-w-7xl mx-auto w-full py-12 sm:py-16 md:py-20">
 
           <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
 
-            {/* Left column - Story content */}
+            {/* Left column - Main Hero Content */}
             <div className="text-center lg:text-left">
               {/* Status badge */}
               <motion.div
@@ -203,85 +203,111 @@ export default function Hero3D() {
                 <span className="text-white/80 text-xs sm:text-sm font-light">Lancement Juillet 2026 • Reims</span>
               </motion.div>
 
-              {/* Animated story title */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentStory.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="mb-4 sm:mb-6"
-                >
-                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-1.5 sm:mb-2 tracking-tight leading-[1.1]">
-                    {currentStory.title}
-                    <span className="block font-normal text-white/90 mt-1 sm:mt-1.5">
-                      {currentStory.subtitle}
-                    </span>
-                  </h1>
-                </motion.div>
-              </AnimatePresence>
+              {/* HEADLINE PRINCIPAL - Fort et percutant */}
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-3xl sm:text-5xl lg:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-[1.1]"
+              >
+                Le réseau social{' '}
+                <span className="block font-normal bg-gradient-to-r from-purple-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                  qui reconnecte ta ville
+                </span>
+              </motion.h1>
 
-              {/* Animated story description */}
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={`desc-${currentStory.id}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
-                >
-                  {currentStory.description}
-                </motion.p>
-              </AnimatePresence>
+              {/* SOUS-PHRASE ÉMOTIONNELLE */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-4 sm:mb-5 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light"
+              >
+                Redonnons vie à nos quartiers
+              </motion.p>
 
-              {/* Stats - Dynamic KPIs per slide */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`stats-${currentStory.id}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-white/20"
-                >
-                  {currentStory.stats.map((stat, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                      className="text-center lg:text-left"
-                    >
-                      <div className="text-lg sm:text-xl md:text-2xl font-light text-white mb-0.5 tabular-nums">{stat.value}</div>
-                      <div className="text-[10px] sm:text-xs md:text-sm text-white/70 font-light leading-tight">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </AnimatePresence>
+              {/* PHRASE BÉNÉFICE */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-sm sm:text-base md:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
+              >
+                Découvre les événements, les lieux et les gens autour de toi.
+              </motion.p>
 
-              {/* CTA Buttons */}
+
+              {/* CTA PRINCIPAL - Visible et percutant */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center justify-center lg:justify-start mb-6 sm:mb-8 text-center"
               >
+                {/* CTA Principal - Rejoindre la bêta */}
+                <Link
+                  href="/newsletter"
+                  className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 hover:from-purple-500 hover:via-blue-500 hover:to-purple-500 text-white font-medium text-sm sm:text-base md:text-lg transition-all duration-300 rounded-full w-full sm:w-auto shadow-lg sm:hover:shadow-xl sm:hover:scale-105"
+                >
+                  <span>Rejoindre la bêta</span>
+                  <span className="text-white/80 text-xs sm:text-sm">– Reims 2026</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+
+                {/* CTA Secondaire */}
                 <Link
                   href="/solution"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-white hover:bg-gray-100 text-gray-900 font-light text-xs sm:text-sm md:text-base transition-colors duration-200 rounded-full w-full sm:w-auto"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-white/10 sm:hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-light text-xs sm:text-sm md:text-base transition-all duration-200 rounded-full w-full sm:w-auto"
                 >
                   Découvrir Yunicity
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </Link>
+              </motion.div>
 
-                <Link
-                  href="/newsletter"
-                  className="inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-light text-xs sm:text-sm md:text-base transition-all duration-200 rounded-full w-full sm:w-auto"
-                >
-                  Rejoindre le mouvement
-                </Link>
+              {/* Stats rapides - Contexte immédiat */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-6 sm:mb-8"
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span className="text-white/80 text-xs sm:text-sm font-light">2,847 membres</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                  <span className="text-white/80 text-xs sm:text-sm font-light">Reims • Juillet 2026</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                  <span className="text-white/80 text-xs sm:text-sm font-light">100% gratuit</span>
+                </div>
+              </motion.div>
+
+              {/* Carousel Story - Élément secondaire mais toujours visible */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="border-t border-white/20 pt-6 sm:pt-8"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentStory.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <p className="text-xs sm:text-sm text-white/70 mb-3 font-light uppercase tracking-wider">
+                      {currentStory.title} {currentStory.subtitle}
+                    </p>
+                    <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
+                      {currentStory.description}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
               </motion.div>
             </div>
 

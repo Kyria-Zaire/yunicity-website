@@ -16,7 +16,9 @@ import {
   Megaphone,
   Calendar,
   ArrowRight,
-  PieChart
+  PieChart,
+  Network,
+  Shield
 } from 'lucide-react'
 
 const marketData = [
@@ -211,18 +213,77 @@ export default function InvestirOpportunitySection() {
       />
 
       <div className="relative container mx-auto px-6">
-        {/* Header */}
+        {/* Section Vision */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
+          className="mb-16 max-w-5xl mx-auto"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">
+              Notre{' '}
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+                vision
+              </span>
+            </h2>
+            <p className="text-sm text-gray-600 font-light leading-relaxed max-w-3xl mx-auto">
+              Transformer la façon dont les habitants vivent et interagissent avec leur ville
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-2 border-purple-500/30 rounded-xl p-5 sm:p-6 shadow-xl"
+          >
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Reconnecter les villes</h3>
+                <p className="text-sm text-gray-700 font-light leading-relaxed">
+                  Yunicity naît d'un constat simple : 50% des habitants se sentent déconnectés de leur ville. 
+                  Nous construisons la première plateforme qui centralise toute la vie locale (événements, commerces, actualités, communauté) 
+                  pour créer du lien authentique entre les habitants et leur territoire.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Cibler les villes moyennes</h3>
+                <p className="text-sm text-gray-700 font-light leading-relaxed">
+                  Alors que les grandes métropoles sont saturées par les géants du numérique, les villes moyennes (50K-200K habitants) 
+                  restent largement sous-servies. C'est là que se trouve notre opportunité : un marché de 15M€ en France, 
+                  avec une croissance annuelle de 25%, et une demande forte mais une offre inexistante.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Devenir le leader européen</h3>
+                <p className="text-sm text-gray-700 font-light leading-relaxed">
+                  Notre ambition est de devenir la référence des communautés locales en Europe. 
+                  En partant de 3 villes pilotes (Reims, Troyes, Châlons-en-Champagne), nous visons 50+ villes françaises d'ici 2030, 
+                  puis l'expansion européenne. Objectif : 5M€ d'ARR et 400K utilisateurs actifs.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mb-20"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight"
           >
             Le marché{' '}
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
@@ -232,8 +293,8 @@ export default function InvestirOpportunitySection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-base text-gray-600 font-light leading-relaxed max-w-3xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="text-sm text-gray-600 font-light leading-relaxed max-w-3xl mx-auto"
           >
             Une opportunité unique dans un marché en pleine croissance
           </motion.p>
@@ -482,11 +543,185 @@ export default function InvestirOpportunitySection() {
           </motion.div>
         </motion.div>
 
+        {/* Section Traction attendue */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mb-16 max-w-6xl mx-auto"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            className="text-center mb-8"
+          >
+            <h3             className="text-xl sm:text-2xl font-light text-gray-900 mb-3">
+              Traction{' '}
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+                attendue
+              </span>
+            </h3>
+            <p className="text-xs text-gray-600 font-light">
+              Nos projections de croissance sur les 5 prochaines années
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {[
+              {
+                year: '2026',
+                label: 'Lancement MVP',
+                metrics: [
+                  { label: 'Villes', value: '3', color: 'from-blue-500 to-cyan-500' },
+                  { label: 'Utilisateurs', value: '10K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'ARR', value: '50K€', color: 'from-green-500 to-emerald-500' }
+                ]
+              },
+              {
+                year: '2027',
+                label: 'Expansion régionale',
+                metrics: [
+                  { label: 'Villes', value: '10', color: 'from-blue-500 to-cyan-500' },
+                  { label: 'Utilisateurs', value: '50K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'ARR', value: '500K€', color: 'from-green-500 to-emerald-500' }
+                ]
+              },
+              {
+                year: '2028',
+                label: 'Croissance nationale',
+                metrics: [
+                  { label: 'Villes', value: '25', color: 'from-blue-500 to-cyan-500' },
+                  { label: 'Utilisateurs', value: '150K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'ARR', value: '1.5M€', color: 'from-green-500 to-emerald-500' }
+                ]
+              },
+              {
+                year: '2030',
+                label: 'Leader français',
+                metrics: [
+                  { label: 'Villes', value: '50+', color: 'from-blue-500 to-cyan-500' },
+                  { label: 'Utilisateurs', value: '400K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'ARR', value: '5M€', color: 'from-green-500 to-emerald-500' }
+                ]
+              }
+            ].map((milestone, index) => (
+              <motion.div
+                key={milestone.year}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
+                className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-lg p-4 hover:border-gray-300/50 transition-all duration-300 shadow-lg"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <div className="text-xl font-light text-gray-900 mb-0.5">{milestone.year}</div>
+                    <div className="text-xs text-gray-600 font-light">{milestone.label}</div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  {milestone.metrics.map((metric, mIndex) => (
+                    <div key={mIndex} className="flex items-center justify-between p-2 bg-gray-50 rounded-lg">
+                      <span className="text-xs text-gray-700 font-light">{metric.label}</span>
+                      <span className={`text-base font-semibold bg-gradient-to-r ${metric.color} bg-clip-text text-transparent`}>
+                        {metric.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Section Pourquoi Yunicity peut scaler */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.6 }}
+          className="mb-16 max-w-6xl mx-auto"
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.7 }}
+            className="text-center mb-8"
+          >
+            <h3             className="text-xl sm:text-2xl font-light text-gray-900 mb-3">
+              Pourquoi Yunicity{' '}
+              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+                peut scaler
+              </span>
+            </h3>
+            <p className="text-xs text-gray-600 font-light">
+              Les facteurs clés qui garantissent notre capacité de croissance
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                title: 'Modèle économique diversifié',
+                description: '4 sources de revenus (Freemium, B2B, Publicité, Événements) réduisent les risques et maximisent les opportunités de croissance.',
+                icon: DollarSign,
+                color: 'from-green-500 to-emerald-500'
+              },
+              {
+                title: 'Effet réseau local',
+                description: 'Chaque nouvelle ville renforce l\'écosystème. Plus d\'utilisateurs = plus de contenu = plus de valeur pour tous.',
+                icon: Network,
+                color: 'from-purple-500 to-pink-500'
+              },
+              {
+                title: 'Coûts d\'acquisition faibles',
+                description: 'Le bouche-à-oreille local et les partenariats avec les mairies permettent une croissance organique à faible coût.',
+                icon: TrendingUp,
+                color: 'from-blue-500 to-cyan-500'
+              },
+              {
+                title: 'Barrière à l\'entrée élevée',
+                description: 'La profondeur locale et le réseau multi-villes créent une barrière naturelle pour les concurrents.',
+                icon: Shield,
+                color: 'from-orange-500 to-red-500'
+              },
+              {
+                title: 'Scalabilité technique',
+                description: 'Architecture cloud-native (AWS) conçue pour gérer des millions d\'utilisateurs sans refonte majeure.',
+                icon: Zap,
+                color: 'from-yellow-500 to-orange-500'
+              },
+              {
+                title: 'Marché en croissance',
+                description: 'Le marché des applications locales croît de 25% par an. La demande dépasse largement l\'offre actuelle.',
+                icon: BarChart3,
+                color: 'from-indigo-500 to-purple-500'
+              }
+            ].map((factor, index) => {
+              const Icon = factor.icon
+              return (
+                <motion.div
+                  key={factor.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 1.8 + index * 0.1 }}
+                  className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-lg p-4 hover:border-gray-300/50 transition-all duration-300 shadow-lg"
+                >
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${factor.color} flex items-center justify-center mb-3`}>
+                    <Icon className="w-5 h-5 text-white" />
+                  </div>
+                  <h4 className="text-base font-semibold text-gray-900 mb-1.5">{factor.title}</h4>
+                  <p className="text-xs text-gray-600 font-light leading-relaxed">{factor.description}</p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+
         {/* Business Model Canvas interactif */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 2 }}
           className="mb-24 max-w-7xl mx-auto"
         >
           <div className="text-center mb-8">

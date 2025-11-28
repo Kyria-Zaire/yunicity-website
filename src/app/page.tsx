@@ -5,7 +5,7 @@ import NewsletterSubscribeSection from '@/components/NewsletterSubscribeSection'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
-import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown } from 'lucide-react'
+import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown, Building2 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import FranceMap from '@/components/FranceMap'
@@ -14,10 +14,11 @@ export default function Home() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'YUNICITY',
+    name: 'Yunicity',
+    alternateName: 'YUNICITY',
     url: 'https://yunicity-website.vercel.app',
     logo: 'https://yunicity-website.vercel.app/yunicity-logo.png',
-    description: 'La première super-app locale qui reconnecte les habitants à leur territoire',
+    description: 'La première super-app locale qui reconnecte les habitants à leur territoire. Événements, quartiers, commerces, communautés et actualités locales à Reims.',
     foundingDate: '2024',
     foundingLocation: {
       '@type': 'Place',
@@ -25,16 +26,26 @@ export default function Home() {
         '@type': 'PostalAddress',
         addressLocality: 'Reims',
         addressRegion: 'Grand Est',
-        addressCountry: 'FR'
+        addressCountry: 'FR',
+        postalCode: '51100'
       }
     },
-    contactPoint: {
+    contactPoint: [
+      {
       '@type': 'ContactPoint',
       email: 'yu.entreprise@gmail.com',
       contactType: 'Customer Service',
       areaServed: 'FR',
       availableLanguage: 'French'
     },
+      {
+        '@type': 'ContactPoint',
+        email: 'yu.entreprise@gmail.com',
+        contactType: 'Business Inquiries',
+        areaServed: 'FR',
+        availableLanguage: 'French'
+      }
+    ],
     sameAs: [
       'https://www.instagram.com/yunicity.app',
       'https://www.linkedin.com/in/yunicity-app-381bb7230',
@@ -44,64 +55,162 @@ export default function Home() {
       '@type': 'PostalAddress',
       addressLocality: 'Reims',
       addressRegion: 'Grand Est',
-      addressCountry: 'FR'
+      addressCountry: 'FR',
+      postalCode: '51100'
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Reims',
+      '@id': 'https://www.wikidata.org/wiki/Q408'
     }
+  }
+
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Yunicity',
+    description: 'Super-app locale pour événements, quartiers, commerces et vie locale à Reims',
+    url: 'https://yunicity-website.vercel.app',
+    image: 'https://yunicity-website.vercel.app/yunicity-logo.png',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Reims',
+      addressRegion: 'Grand Est',
+      addressCountry: 'FR',
+      postalCode: '51100'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 49.2583,
+      longitude: 4.0317
+    },
+    telephone: '+33',
+    email: 'yu.entreprise@gmail.com',
+    priceRange: 'Gratuit',
+    areaServed: {
+      '@type': 'City',
+      name: 'Reims'
+    },
+    serviceType: 'Application mobile locale, Réseau social local, Événements locaux'
   }
 
   const softwareApplicationSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'YUNICITY',
+    name: 'Yunicity',
     applicationCategory: 'SocialNetworkingApplication',
     operatingSystem: 'iOS, Android',
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'EUR'
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/PreOrder',
+      availabilityStarts: '2026-07-01'
     },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
       ratingCount: '1'
     },
-    description: 'Application mobile qui reconnecte les habitants à leur territoire local',
-    releaseNotes: 'Lancement MVP prévu en Mars 2026 à Reims'
+    description: 'Application mobile qui reconnecte les habitants à leur territoire local. Événements, quartiers, commerces, communautés et actualités locales à Reims.',
+    releaseNotes: 'Lancement MVP prévu en Juillet 2026 à Reims',
+    featureList: [
+      'Événements locaux',
+      'Carte des quartiers',
+      'Commerces de proximité',
+      'Actualités locales',
+      'Communauté locale',
+      'Bons plans Reims'
+    ],
+    screenshot: 'https://yunicity-website.vercel.app/yunicity-logo.png'
   }
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'YUNICITY',
+    name: 'Yunicity',
+    alternateName: 'YUNICITY',
     url: 'https://yunicity-website.vercel.app',
-    description: 'La première super-app locale qui reconnecte les habitants à leur territoire',
+    description: 'La première super-app locale qui reconnecte les habitants à leur territoire. Événements, quartiers, commerces, communautés et actualités locales à Reims.',
     publisher: {
       '@type': 'Organization',
-      name: 'YUNICITY'
+      name: 'Yunicity'
     },
+    inLanguage: 'fr-FR',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://yunicity-website.vercel.app/search?q={search_term_string}',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://yunicity-website.vercel.app/search?q={search_term_string}'
+      },
       'query-input': 'required name=search_term_string'
     }
   }
 
+  // FAQ avec mentions Reims pour SEO local
+  const faqs = [
+    {
+      question: 'Qu\'est-ce que Yunicity ?',
+      answer: 'Yunicity est la première super-app locale qui reconnecte les habitants à leur territoire. Elle centralise toute l\'information locale (actualités, événements, commerces) et permet aux habitants de créer du lien social authentique dans leur ville, notamment à Reims.'
+    },
+    {
+      question: 'Comment rejoindre la bêta ?',
+      answer: 'Vous pouvez vous inscrire à notre newsletter pour être notifié dès l\'ouverture de la bêta. Nous sélectionnerons les premiers utilisateurs parmi les inscrits pour tester l\'application avant le lancement officiel à Reims en juillet 2026.'
+    },
+    {
+      question: 'Reims sera-t-elle la première ville ?',
+      answer: 'Oui, Reims sera la première ville pilote de Yunicity. Nous lançons en juillet 2026 à Reims, puis nous étendrons progressivement à Troyes et Châlons-en-Champagne. Reims a été choisie pour son dynamisme local et sa communauté engagée.'
+    },
+    {
+      question: 'Yunicity est-elle gratuite ?',
+      answer: 'Oui, Yunicity est entièrement gratuite pour les habitants de Reims et des autres villes. Les acteurs locaux (commerces, associations, mairies) peuvent choisir des options premium pour améliorer leur visibilité.'
+    },
+    {
+      question: 'Quand Yunicity sera-t-elle disponible ?',
+      answer: 'Yunicity sera lancée en juillet 2026 à Reims, puis progressivement dans d\'autres villes françaises. Reims est notre ville pilote et bénéficiera en premier de toutes les fonctionnalités.'
+    },
+    {
+      question: 'Yunicity fonctionne-t-elle hors ligne ?',
+      answer: 'Certaines fonctionnalités comme la consultation des informations sauvegardées et la carte des quartiers de Reims sont accessibles hors ligne. Cependant, une connexion internet est nécessaire pour la plupart des fonctionnalités interactives.'
+    },
+    {
+      question: 'Comment les données sont-elles protégées ?',
+      answer: 'La protection de vos données est notre priorité. Nous utilisons des technologies de chiffrement avancées et respectons strictement le RGPD. Vos données personnelles ne sont jamais partagées avec des tiers sans votre consentement explicite.'
+    }
+  ]
+
+  // Schema FAQ pour Google (Featured Snippets)
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  }
+
   return (
     <div className="min-h-screen">
-      <StructuredData data={[organizationSchema, softwareApplicationSchema, websiteSchema]} />
+      <StructuredData data={[organizationSchema, localBusinessSchema, softwareApplicationSchema, websiteSchema, faqSchema]} />
       <Navigation activeSection="" />
 
       <Hero3D />
 
       {/* Introduction Section */}
       <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-6 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Redécouvrez votre ville
             </h2>
             <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Yunicity est la plateforme qui reconnecte les habitants à leur territoire.
-              Découvrez les lieux, événements et la communauté autour de vous.
+              Découvrez les lieux, événements et la communauté autour de vous à Reims, 
+              première ville pilote de Yunicity en juillet 2026.
             </p>
           </div>
 
@@ -109,7 +218,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-4 mb-12 max-w-4xl mx-auto">
             <Link href="/probleme" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
                   <Target className="w-5 h-5 text-gray-900" />
                 </div>
                 <div className="flex-1">
@@ -126,7 +235,7 @@ export default function Home() {
 
             <Link href="/solution" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
                   <Lightbulb className="w-5 h-5 text-gray-900" />
                 </div>
                 <div className="flex-1">
@@ -143,7 +252,7 @@ export default function Home() {
 
             <Link href="/reims" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
                   <MapPin className="w-5 h-5 text-gray-900" />
                 </div>
                 <div className="flex-1">
@@ -160,7 +269,7 @@ export default function Home() {
 
             <Link href="/equipe" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
                   <Users className="w-5 h-5 text-gray-900" />
                 </div>
                 <div className="flex-1">
@@ -180,7 +289,7 @@ export default function Home() {
 
       {/* Section Villes en expansion */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -194,94 +303,191 @@ export default function Home() {
                 expansion
               </span>
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-              Yunicity s'étend progressivement à travers la France
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+              Trois villes pilotes où Yunicity transforme déjà la vie locale
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
-            {/* Carte de France stylisée */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl p-6 sm:p-8"
-            >
-              <h3 className="text-base sm:text-lg font-light text-gray-900 mb-4 tracking-tight">
+          {/* Carte de France */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-10 sm:mb-12"
+          >
+            <div className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
+              <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-4 tracking-tight">
                 Carte de France
               </h3>
               <div className="relative h-[300px] sm:h-[400px] bg-gradient-to-br from-gray-50 to-white rounded-lg overflow-hidden">
                 <FranceMap />
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
 
-            {/* Liste des villes avec statistiques */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-3 sm:space-y-4"
-            >
-              {[
-                { name: 'Reims', status: 'active', population: '183 000', acteurs: 180, evenements: 45, bgColor: 'from-blue-500/10 to-cyan-500/10', borderColor: 'border-blue-200/50' },
-                { name: 'Troyes', status: 'active', population: '62 000', acteurs: 150, evenements: 32, bgColor: 'from-purple-500/10 to-pink-500/10', borderColor: 'border-purple-200/50' },
-                { name: 'Châlons-en-Champagne', status: 'active', population: '45 000', acteurs: 120, evenements: 28, bgColor: 'from-green-500/10 to-emerald-500/10', borderColor: 'border-green-200/50' },
-                { name: 'Paris', status: 'coming', population: '2,1M', acteurs: 0, evenements: 0, bgColor: 'from-gray-400/10 to-gray-500/10', borderColor: 'border-gray-300/50' },
-                { name: 'Lyon', status: 'coming', population: '520 000', acteurs: 0, evenements: 0, bgColor: 'from-gray-400/10 to-gray-500/10', borderColor: 'border-gray-300/50' },
-                { name: 'Bordeaux', status: 'coming', population: '260 000', acteurs: 0, evenements: 0, bgColor: 'from-gray-400/10 to-gray-500/10', borderColor: 'border-gray-300/50' }
-              ].map((city, index) => (
-                <motion.div
-                  key={city.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -2, scale: 1.01 }}
-                  className={`bg-white/80 backdrop-blur-xl border ${city.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 hover:shadow-lg transition-all duration-300`}
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${city.bgColor} border ${city.borderColor} flex items-center justify-center`}>
-                        <MapPin className={`w-5 h-5 ${city.status === 'active' ? 'text-blue-600' : 'text-gray-500'}`} />
-                      </div>
-                      <div>
-                        <h3 className="text-sm sm:text-base font-light text-gray-900 tracking-tight">
-                          {city.name}
-                        </h3>
-                        <span className={`text-[10px] sm:text-xs font-light ${city.status === 'active' ? 'text-green-600' : 'text-gray-500'}`}>
-                          {city.status === 'active' ? 'Actif' : 'Bientôt disponible'}
-                        </span>
-                      </div>
+          {/* Cartes des villes avec photos et stats */}
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              { 
+                name: 'Reims', 
+                status: 'active', 
+                population: '183 000', 
+                acteurs: 180, 
+                evenements: 45,
+                quartiers: 12,
+                image: 'https://images.unsplash.com/photo-1632854270303-f5fdb97b697f?q=80&w=800&auto=format&fit=crop',
+                color: 'from-blue-500 to-cyan-500',
+                bgColor: 'bg-blue-50',
+                borderColor: 'border-blue-200',
+                description: 'Capitale du Champagne, ville pilote Yunicity'
+              },
+              { 
+                name: 'Troyes', 
+                status: 'active', 
+                population: '62 000', 
+                acteurs: 150, 
+                evenements: 32,
+                quartiers: 8,
+                image: 'https://francetoday.com/wp-content/uploads/2022/05/CLICHE-CATHEDRALE-%C2%A9-BC-IMAGE-02-min.jpg',
+                color: 'from-purple-500 to-pink-500',
+                bgColor: 'bg-purple-50',
+                borderColor: 'border-purple-200',
+                description: 'Ville médiévale au cœur de la Champagne'
+              },
+              { 
+                name: 'Châlons-en-Champagne', 
+                status: 'active', 
+                population: '45 000', 
+                acteurs: 120, 
+                evenements: 28,
+                quartiers: 6,
+                image: 'https://api.cloudly.space/resize/crop/1200/627/60/aHR0cHM6Ly9jZHQ1MS5tZWRpYS50b3VyaW5zb2Z0LmV1L3VwbG9hZC9ob3RlbC1kZS12aWxsZS1jaGFsb25zLWVuLWNoYW1wYWduZS1mYWNhZGUuSlBH/image.jpg',
+                color: 'from-green-500 to-emerald-500',
+                bgColor: 'bg-green-50',
+                borderColor: 'border-green-200',
+                description: 'Préfecture dynamique et accueillante'
+              }
+            ].map((city, index) => (
+              <motion.div
+                key={city.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="group relative bg-white rounded-xl sm:rounded-2xl overflow-hidden border-2 border-gray-200/50 sm:hover:border-gray-300 shadow-lg sm:hover:shadow-xl transition-all duration-300"
+              >
+                {/* Photo de la ville */}
+                <div className="relative h-48 sm:h-56 overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center sm:group-hover:scale-110 transition-transform duration-500"
+                    style={{ backgroundImage: `url(${city.image})` }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  
+                  {/* Badge actif */}
+                  <div className="absolute top-3 right-3">
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-500/90 backdrop-blur-sm rounded-full">
+                      <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                      <span className="text-[10px] sm:text-xs font-medium text-white">Actif</span>
                     </div>
                   </div>
-                  {city.status === 'active' && (
-                    <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                      <div>
-                        <div className="text-xs sm:text-sm font-light text-gray-900 tabular-nums">{city.population}</div>
-                        <div className="text-[10px] text-gray-600 font-light">Habitants</div>
+
+                  {/* Nom de la ville */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                    <h3 className="text-xl sm:text-2xl font-semibold text-white mb-1">
+                      {city.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-white/90 font-light">
+                      {city.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Statistiques locales */}
+                <div className="p-4 sm:p-5">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4">
+                    {/* Habitants */}
+                    <div className={`rounded-lg p-3 border ${city.borderColor} ${city.bgColor}`}>
+                      <div 
+                        className="text-lg sm:text-xl font-semibold mb-1"
+                        style={{
+                          color: city.name === 'Reims' ? '#2563eb' :
+                                 city.name === 'Troyes' ? '#9333ea' :
+                                 '#16a34a'
+                        }}
+                      >
+                        {city.population}
                       </div>
-                      <div>
-                        <div className="text-xs sm:text-sm font-light text-gray-900 tabular-nums">{city.acteurs}</div>
-                        <div className="text-[10px] text-gray-600 font-light">Acteurs</div>
-                      </div>
-                      <div>
-                        <div className="text-xs sm:text-sm font-light text-gray-900 tabular-nums">{city.evenements}</div>
-                        <div className="text-[10px] text-gray-600 font-light">Événements</div>
-                      </div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 font-light">Habitants</div>
                     </div>
-                  )}
+                    {/* Quartiers */}
+                    <div className={`rounded-lg p-3 border ${city.borderColor} ${city.bgColor}`}>
+                      <div 
+                        className="text-lg sm:text-xl font-semibold mb-1"
+                        style={{
+                          color: city.name === 'Reims' ? '#2563eb' :
+                                 city.name === 'Troyes' ? '#9333ea' :
+                                 '#16a34a'
+                        }}
+                      >
+                        {city.quartiers}
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 font-light">Quartiers</div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3 pt-3 border-t border-gray-200">
+                    <div>
+                      <div className="text-base sm:text-lg font-medium text-gray-900 mb-0.5">{city.acteurs}</div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 font-light">Acteurs locaux</div>
+                    </div>
+                    <div>
+                      <div className="text-base sm:text-lg font-medium text-gray-900 mb-0.5">{city.evenements}</div>
+                      <div className="text-[10px] sm:text-xs text-gray-600 font-light">Événements/mois</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Effet glow au hover */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${city.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Villes à venir */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 sm:mt-10"
+          >
+            <p className="text-center text-xs sm:text-sm text-gray-500 font-light mb-4">
+              Bientôt disponibles
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+              {['Paris', 'Lyon', 'Bordeaux'].map((city, index) => (
+                <motion.div
+                  key={city}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
+                  className="px-4 py-2 bg-gray-100 rounded-full border border-gray-200"
+                >
+                  <span className="text-xs sm:text-sm text-gray-600 font-light">{city}</span>
                 </motion.div>
               ))}
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Section Fonctionnalités clés */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -300,7 +506,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Star,
@@ -344,9 +550,9 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -4, scale: 1.02 }}
-                  className={`group bg-white/80 backdrop-blur-xl border ${feature.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 hover:shadow-xl transition-all duration-300`}
+                  className={`group bg-white/80 backdrop-blur-xl border ${feature.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 sm:hover:shadow-xl transition-all duration-300`}
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${feature.color} border ${feature.borderColor} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${feature.color} border ${feature.borderColor} flex items-center justify-center mb-3 sm:group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${feature.iconColor}`} />
                   </div>
                   <h3 className="text-sm sm:text-base font-light text-gray-900 mb-1.5 tracking-tight">
@@ -362,11 +568,9 @@ export default function Home() {
         </div>
       </section>
 
-      <NewsletterSubscribeSection />
-
       {/* Section Statistiques & Impact */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -385,7 +589,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Users,
@@ -441,9 +645,9 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -4, scale: 1.02 }}
-                  className={`group bg-white/80 backdrop-blur-xl border ${stat.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 hover:shadow-xl transition-all duration-300`}
+                  className={`group bg-white/80 backdrop-blur-xl border ${stat.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 sm:hover:shadow-xl transition-all duration-300`}
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${stat.bgColor} border ${stat.borderColor} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${stat.bgColor} border ${stat.borderColor} flex items-center justify-center mb-3 sm:group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${stat.iconColor}`} />
                   </div>
                   <div className="text-xl sm:text-2xl font-light text-gray-900 mb-0.5 tabular-nums">
@@ -471,6 +675,174 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Blog Local */}
+      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Découvrez{' '}
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+                Reims
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+              Guides locaux, événements et bons plans à Reims
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+            {[
+              {
+                title: 'Les 10 événements à Reims en 2026',
+                excerpt: 'Découvrez les événements incontournables de Reims cette année : festivals, concerts, expositions et animations locales.',
+                category: 'Événements',
+                date: 'Janvier 2026',
+                href: '/blog/evenements-reims-2026'
+              },
+              {
+                title: 'Découvrir les quartiers de Reims : guide local',
+                excerpt: 'Explorez les quartiers emblématiques de Reims : Centre-ville, Wilson, Orgeval, Croix-Rouge et leurs spécificités.',
+                category: 'Quartiers',
+                date: 'Décembre 2025',
+                href: '/blog/quartiers-reims-guide'
+              },
+              {
+                title: 'Top 10 commerces de proximité à Reims',
+                excerpt: 'Les meilleurs commerces locaux de Reims : épiceries, boulangeries, cafés et boutiques à découvrir dans votre quartier.',
+                category: 'Commerces',
+                date: 'Novembre 2025',
+                href: '/blog/commerces-proximite-reims'
+              }
+            ].map((article, index) => (
+              <motion.article
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-200/50 sm:hover:border-gray-300 shadow-lg sm:hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="px-2.5 py-1 bg-purple-500/10 text-purple-600 rounded-full text-xs font-medium">
+                    {article.category}
+                  </span>
+                  <span className="text-xs text-gray-500 font-light">{article.date}</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-gray-600 font-light leading-relaxed mb-4">
+                  {article.excerpt}
+                </p>
+                <div
+                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-400 cursor-not-allowed"
+                  title="Article à venir"
+                >
+                  Lire l'article
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Pourquoi Reims ? */}
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Pourquoi{' '}
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+                Reims
+              </span>
+              {' '}?
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+              Reims, ville pilote de Yunicity : une ville dynamique et engagée
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-xl sm:rounded-2xl p-6 sm:p-8"
+            >
+              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">
+                Reims en chiffres
+              </h3>
+              <div className="space-y-4">
+                {[
+                  { label: 'Habitants', value: '183 000', icon: Users },
+                  { label: 'Quartiers', value: '12', icon: MapPin },
+                  { label: 'Événements/mois', value: '45+', icon: Calendar },
+                  { label: 'Commerces locaux', value: '2 500+', icon: Building2 }
+                ].map((stat, index) => {
+                  const Icon = stat.icon
+                  return (
+                    <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                          <Icon className="w-4 h-4 text-white" />
+                        </div>
+                        <span className="text-xs text-gray-700 font-light">{stat.label}</span>
+                      </div>
+                      <span className="text-base font-semibold text-gray-900">{stat.value}</span>
+                    </div>
+                  )
+                })}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-4"
+            >
+              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
+                <h3 className="text-base font-semibold text-gray-900 mb-3">Une ville dynamique</h3>
+                <p className="text-xs text-gray-600 font-light leading-relaxed">
+                  Reims, capitale du Champagne, est une ville en pleine transformation. Avec 183 000 habitants, 
+                  Reims combine patrimoine historique et innovation, faisant d'elle le terrain idéal pour Yunicity.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
+                <h3 className="text-base font-semibold text-gray-900 mb-3">Une communauté engagée</h3>
+                <p className="text-xs text-gray-600 font-light leading-relaxed">
+                  Les Rémois sont très attachés à leur ville et participent activement à la vie locale. 
+                  Plus de 45 événements par mois et une vie associative riche font de Reims une ville parfaite pour tester Yunicity.
+                </p>
+              </div>
+              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
+                <h3 className="text-base font-semibold text-gray-900 mb-3">Un écosystème local fort</h3>
+                <p className="text-xs text-gray-600 font-light leading-relaxed">
+                  Reims compte plus de 2 500 commerces locaux et de nombreux acteurs engagés. 
+                  Cette densité d'acteurs locaux est idéale pour créer une communauté Yunicity active dès le lancement.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Section FAQ */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
@@ -488,13 +860,15 @@ export default function Home() {
               </span>
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-              Tout ce que vous devez savoir sur Yunicity
+              Tout ce que vous devez savoir sur Yunicity et Reims
             </p>
           </motion.div>
 
-          <FAQAccordion />
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
+
+      <NewsletterSubscribeSection />
 
       <Footer />
     </div>
@@ -502,35 +876,8 @@ export default function Home() {
 }
 
 // Composant FAQ Accordion
-function FAQAccordion() {
+function FAQAccordion({ faqs }: { faqs: Array<{ question: string; answer: string }> }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const faqs = [
-    {
-      question: 'Qu\'est-ce que Yunicity ?',
-      answer: 'Yunicity est la première super-app locale qui reconnecte les habitants à leur territoire. Elle centralise toute l\'information locale (actualités, événements, commerces) et permet aux habitants de créer du lien social authentique dans leur ville.'
-    },
-    {
-      question: 'Quand Yunicity sera-t-elle disponible ?',
-      answer: 'Yunicity sera lancée en juillet 2026 dans 3 villes pilotes : Reims, Troyes et Châlons-en-Champagne. L\'expansion vers d\'autres villes françaises suivra progressivement.'
-    },
-    {
-      question: 'Yunicity est-elle gratuite ?',
-      answer: 'Oui, Yunicity est entièrement gratuite pour les habitants. Les acteurs locaux (commerces, associations, mairies) peuvent choisir des options premium pour améliorer leur visibilité.'
-    },
-    {
-      question: 'Comment puis-je rejoindre la bêta ?',
-      answer: 'Vous pouvez vous inscrire à notre newsletter pour être notifié dès l\'ouverture de la bêta. Nous sélectionnerons les premiers utilisateurs parmi les inscrits pour tester l\'application avant le lancement officiel.'
-    },
-    {
-      question: 'Yunicity fonctionne-t-elle hors ligne ?',
-      answer: 'Certaines fonctionnalités comme la consultation des informations sauvegardées et la carte sont accessibles hors ligne. Cependant, une connexion internet est nécessaire pour la plupart des fonctionnalités interactives.'
-    },
-    {
-      question: 'Comment les données sont-elles protégées ?',
-      answer: 'La protection de vos données est notre priorité. Nous utilisons des technologies de chiffrement avancées et respectons strictement le RGPD. Vos données personnelles ne sont jamais partagées avec des tiers sans votre consentement explicite.'
-    }
-  ]
 
   return (
     <div className="space-y-3 sm:space-y-4">

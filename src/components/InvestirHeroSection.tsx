@@ -1,5 +1,5 @@
 'use client'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { DollarSign, Calendar, BarChart3, Target, Zap, TrendingUp, Users, Building2, Award } from 'lucide-react'
 import Image from 'next/image'
@@ -50,14 +50,6 @@ export default function InvestirHeroSection() {
     { year: 5, label: 'Année 5', value: investmentAmount * Math.pow(1.18, 5) },
   ].filter(m => m.year <= timeHorizon)
 
-  const heroRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start']
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   const heroStats = [
     { icon: TrendingUp, label: 'ARR Objectif 2030', value: '5M€', color: 'from-blue-500 to-cyan-500' },
@@ -70,14 +62,10 @@ export default function InvestirHeroSection() {
     <>
       {/* Hero avec image de fond */}
       <section 
-        ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Image de fond avec parallax */}
-        <motion.div
-          style={{ y }}
-          className="absolute inset-0 z-0"
-        >
+        {/* Image de fond */}
+        <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
               src="https://images.unsplash.com/photo-1639117474926-9e22670f6bf8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
@@ -91,58 +79,32 @@ export default function InvestirHeroSection() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90" />
             <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-blue-900/20" />
           </div>
-        </motion.div>
+        </div>
 
         {/* Contenu principal */}
-        <motion.div
-          style={{ opacity }}
-          className="relative z-10 container mx-auto px-6 py-32"
-        >
+        <div className="relative z-10 container mx-auto px-6 py-32">
           <div className="max-w-5xl mx-auto text-center">
             {/* Titre */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="mb-12"
-            >
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]"
-              >
+            <div className="mb-12">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]">
                 Investissez dans{' '}
                 <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
                   l'avenir local
                 </span>
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-base sm:text-lg text-gray-300 font-light leading-relaxed max-w-3xl mx-auto"
-              >
+              <p className="text-base sm:text-lg text-gray-300 font-light leading-relaxed max-w-3xl mx-auto">
                 Rejoignez notre levée de fonds Seed et participez à la création du leader européen des communautés locales
-              </motion.p>
-            </motion.div>
+              </p>
+            </div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto"
-            >
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-2xl mx-auto">
               {heroStats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
-                  <motion.div
+                  <div
                     key={stat.label}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
                     className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-all duration-300"
                   >
                     <div className={`w-10 h-10 mx-auto mb-2 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}>
@@ -151,13 +113,13 @@ export default function InvestirHeroSection() {
                     <div className={`text-2xl font-light mb-1 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                       {stat.value}
                     </div>
-                    <div className="text-[10px] text-gray-400 font-light">{stat.label}</div>
-                  </motion.div>
+                    <div className="text-[10px] text-gray-400 font-light">{stat.label}                    </div>
+                  </div>
                 )
               })}
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Calculateur de ROI */}

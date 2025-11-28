@@ -70,7 +70,59 @@ const mvpKPIs = [
   }
 ]
 
-// Solutions MVP
+// 3 Features principales - Style produit avec maquettes
+const mainFeatures = [
+  {
+    id: 1,
+    title: 'Découverte des événements',
+    description: 'Trouvez tous les événements de votre ville en un seul endroit. Concerts, marchés, festivals, conférences... Ne manquez plus rien de ce qui se passe près de chez vous.',
+    icon: Calendar,
+    color: 'from-purple-500 to-pink-500',
+    bgColor: 'bg-purple-50',
+    mockupImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop',
+    benefits: [
+      'Événements géolocalisés en temps réel',
+      'Filtres par date, type et quartier',
+      'Notifications pour ne rien manquer',
+      'Partage avec votre communauté'
+    ],
+    unique: 'La seule app qui centralise TOUS les événements locaux'
+  },
+  {
+    id: 2,
+    title: 'Carte des quartiers',
+    description: 'Explorez votre ville comme jamais. Découvrez les commerces, services et points d\'intérêt de chaque quartier avec une carte interactive et intuitive.',
+    icon: MapPin,
+    color: 'from-blue-500 to-cyan-500',
+    bgColor: 'bg-blue-50',
+    mockupImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop',
+    benefits: [
+      'Carte interactive 3D de votre ville',
+      'Commerces et services géolocalisés',
+      'Filtres par catégorie et horaires',
+      'Navigation intuitive'
+    ],
+    unique: 'La première carte 3D dédiée à la vie locale'
+  },
+  {
+    id: 3,
+    title: 'Actualité locale',
+    description: 'Restez informé de tout ce qui se passe dans votre ville. Actualités, initiatives, projets municipaux... Toute l\'info locale vérifiée et centralisée.',
+    icon: Globe,
+    color: 'from-green-500 to-emerald-500',
+    bgColor: 'bg-green-50',
+    mockupImage: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop',
+    benefits: [
+      'Actualités locales en temps réel',
+      'Contenu vérifié et fiable',
+      'Personnalisation selon vos intérêts',
+      'Notifications push intelligentes'
+    ],
+    unique: 'L\'info locale centralisée, vérifiée et personnalisée'
+  }
+]
+
+// Solutions MVP (conservé pour compatibilité)
 const mvpSolutions = [
   {
     id: 1,
@@ -465,7 +517,7 @@ function SolutionHeroSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -849,7 +901,7 @@ function MVPSection() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
                               <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1241,32 +1293,32 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
       <div className="relative max-w-6xl mx-auto">
         {/* Container split-screen */}
         <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-gray-200/50 p-4 sm:p-6 overflow-hidden shadow-lg">
-          <div className="relative h-[400px] sm:h-[500px] md:h-[600px]">
+          <div className="relative h-[500px] sm:h-[550px] md:h-[600px]">
             {/* MVP Side (Left) */}
             <div 
               className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium mb-3">
                     <Calendar className="w-3 h-3" />
                     <span>MVP - Juillet 2026</span>
                 </div>
-                  <h4 className="text-lg sm:text-xl font-light text-gray-900 mb-2">Version initiale</h4>
+                  <h4 className="text-base sm:text-lg md:text-xl font-light text-gray-900 mb-2">Version initiale</h4>
               </div>
                 
                 {/* MVP Interface Mockup */}
-                <div className="flex-1 bg-white rounded-xl p-4 sm:p-5 border border-gray-200/50">
-          <div className="space-y-3">
+                <div className="flex-1 bg-white rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200/50 overflow-y-auto">
+          <div className="space-y-2 sm:space-y-3">
                     {mvpFeatures.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                        <feature.icon className={`w-5 h-5 ${feature.color}`} />
-                        <span className="text-sm text-gray-700 font-light">{feature.label}</span>
+                      <div key={idx} className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
+                        <feature.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${feature.color}`} />
+                        <span className="text-xs sm:text-sm text-gray-700 font-light">{feature.label}</span>
             </div>
                     ))}
                     <div className="pt-2 border-t border-gray-200">
-                      <div className="text-xs text-gray-500 font-light">Fonctionnalités de base</div>
+                      <div className="text-[10px] sm:text-xs text-gray-500 font-light">Fonctionnalités de base</div>
         </div>
                   </div>
                 </div>
@@ -1279,38 +1331,38 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
               style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col">
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium mb-3">
                     <Zap className="w-3 h-3" />
                     <span>V2 - 2027-2028</span>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-light text-gray-900 mb-2">Avec Intelligence Locale</h4>
+                  <h4 className="text-base sm:text-lg md:text-xl font-light text-gray-900 mb-2">Avec Intelligence Locale</h4>
           </div>
 
                 {/* V2 Interface Mockup */}
-                <div className="flex-1 bg-white rounded-xl p-4 sm:p-5 border border-gray-200/50">
-          <div className="space-y-3">
+                <div className="flex-1 bg-white rounded-xl p-3 sm:p-4 md:p-5 border border-gray-200/50 overflow-y-auto">
+          <div className="space-y-2 sm:space-y-3">
                     {mvpFeatures.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                        <feature.icon className={`w-5 h-5 ${feature.color}`} />
-                        <span className="text-sm text-gray-700 font-light">{feature.label}</span>
+                      <div key={idx} className="flex items-center gap-2 sm:gap-3 p-2.5 sm:p-3 bg-gray-50 rounded-lg">
+                        <feature.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${feature.color}`} />
+                        <span className="text-xs sm:text-sm text-gray-700 font-light">{feature.label}</span>
                       </div>
                     ))}
                     <div className="pt-2 border-t border-gray-200">
-                      <div className="text-xs text-gray-500 font-light mb-2">Nouvelles fonctionnalités</div>
-                      <div className="space-y-2">
+                      <div className="text-[10px] sm:text-xs text-gray-500 font-light mb-2">Nouvelles fonctionnalités</div>
+                      <div className="space-y-1.5 sm:space-y-2">
                         {v2NewFeatures.map((feature, idx) => (
               <motion.div
                             key={idx}
                             initial={{ opacity: 0, x: -10 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                             transition={{ duration: 0.3, delay: 1.2 + idx * 0.1 }}
-                            className={`flex items-center gap-3 p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-purple-50 to-pink-50 border border-purple-200' : 'bg-gray-50'} rounded-lg`}
+                            className={`flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-purple-50 to-pink-50 border border-purple-200' : 'bg-gray-50'} rounded-lg`}
               >
-                            <feature.icon className={`w-4 h-4 ${feature.color}`} />
-                            <span className="text-xs text-gray-700 font-light">{feature.label}</span>
+                            <feature.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${feature.color}`} />
+                            <span className="text-xs sm:text-sm text-gray-700 font-light flex-1">{feature.label}</span>
                             {feature.highlight && (
-                              <span className="ml-auto px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-[10px] font-medium">
+                              <span className="ml-auto px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-[9px] sm:text-[10px] font-medium whitespace-nowrap">
                                 Nouveau
                               </span>
                             )}
@@ -1390,7 +1442,7 @@ function V2Section() {
         }}
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -1504,122 +1556,6 @@ function V2Section() {
           <h3 className="text-xl sm:text-2xl font-light text-gray-900 mb-6 sm:mb-8 text-center">
             Écosystème & Partenariats
           </h3>
-          
-          {/* Visualisation du réseau */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.8, delay: 1.3 }}
-            className="relative bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-gray-200/50 p-6 sm:p-8 mb-6 sm:mb-8 overflow-hidden"
-          >
-            {/* Centre - Yunicity */}
-            <div className="relative flex items-center justify-center mb-8 sm:mb-12">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : { scale: 0 }}
-                transition={{ duration: 0.5, delay: 1.4, type: "spring" }}
-                className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-lg"
-              >
-                <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
-              </motion.div>
-              
-              {/* Lignes de connexion animées */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
-                <defs>
-                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.2" />
-                  </linearGradient>
-                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#ec4899" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.2" />
-                  </linearGradient>
-                  <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.2" />
-                  </linearGradient>
-                </defs>
-                {/* Ligne vers Commerces */}
-                <motion.line
-                  x1="200"
-                  y1="100"
-                  x2="80"
-                  y2="40"
-                  stroke="url(#gradient1)"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={isInView ? { pathLength: 1, opacity: 0.3 } : { pathLength: 0, opacity: 0 }}
-                  transition={{ duration: 1, delay: 1.5 }}
-                />
-                {/* Ligne vers Associations */}
-                <motion.line
-                  x1="200"
-                  y1="100"
-                  x2="320"
-                  y2="40"
-                  stroke="url(#gradient2)"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={isInView ? { pathLength: 1, opacity: 0.3 } : { pathLength: 0, opacity: 0 }}
-                  transition={{ duration: 1, delay: 1.6 }}
-                />
-                {/* Ligne vers Mairies */}
-                <motion.line
-                  x1="200"
-                  y1="100"
-                  x2="200"
-                  y2="180"
-                  stroke="url(#gradient3)"
-                  strokeWidth="2"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={isInView ? { pathLength: 1, opacity: 0.3 } : { pathLength: 0, opacity: 0 }}
-                  transition={{ duration: 1, delay: 1.7 }}
-                />
-              </svg>
-            </div>
-            
-            {/* Points de connexion pour chaque type d'acteur */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 1.8 }}
-                className="flex flex-col items-center text-center"
-          >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center mb-2 shadow-md">
-                  <ShoppingBag className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-            </div>
-                <div className="text-xs sm:text-sm font-light text-gray-600">Commerces</div>
-                <div className="text-[10px] sm:text-xs text-gray-400 mt-1">2 500+</div>
-          </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 1.9 }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center mb-2 shadow-md">
-                  <Heart className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-        </div>
-                <div className="text-xs sm:text-sm font-light text-gray-600">Associations</div>
-                <div className="text-[10px] sm:text-xs text-gray-400 mt-1">1 800+</div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 2.0 }}
-                className="flex flex-col items-center text-center"
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-green-500 to-cyan-500 flex items-center justify-center mb-2 shadow-md">
-                  <Building2 className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
-                </div>
-                <div className="text-xs sm:text-sm font-light text-gray-600">Mairies</div>
-                <div className="text-[10px] sm:text-xs text-gray-400 mt-1">15</div>
-              </motion.div>
-            </div>
-          </motion.div>
           
           {/* Cartes par catégorie d'acteurs */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
@@ -1930,19 +1866,20 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
 
             {/* Slider Divider */}
             <div
-              className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-cyan-500 z-10 cursor-ew-resize pointer-events-auto"
+              className="absolute top-0 bottom-0 w-1 sm:w-1.5 bg-gradient-to-b from-purple-500 to-cyan-500 z-10 cursor-ew-resize pointer-events-auto"
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-2 border-cyan-500 shadow-lg flex items-center justify-center">
-                <div className="w-2 h-2 bg-cyan-500 rounded-full" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full border-2 border-cyan-500 shadow-lg flex items-center justify-center">
+                <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-500 rounded-full" />
               </div>
             </div>
 
-            {/* Slider Input - seulement sur la ligne du slider */}
+            {/* Slider Input - support tactile et souris */}
             <div
-              className="absolute top-0 bottom-0 w-8 z-20 cursor-ew-resize"
-              style={{ left: `calc(${sliderPosition}% - 16px)` }}
+              className="absolute top-0 bottom-0 w-12 sm:w-8 z-20 cursor-ew-resize touch-none"
+              style={{ left: `calc(${sliderPosition}% - 24px)` }}
               onMouseDown={(e) => {
+                e.preventDefault()
                 const startX = e.clientX
                 const startPosition = sliderPosition
                 const container = (e.currentTarget as HTMLElement).closest('.relative') as HTMLElement
@@ -1964,6 +1901,33 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
                 
                 document.addEventListener('mousemove', handleMouseMove)
                 document.addEventListener('mouseup', handleMouseUp)
+              }}
+              onTouchStart={(e) => {
+                e.preventDefault()
+                const touch = e.touches[0]
+                const startX = touch.clientX
+                const startPosition = sliderPosition
+                const container = (e.currentTarget as HTMLElement).closest('.relative') as HTMLElement
+                
+                if (!container) return
+                
+                const handleTouchMove = (moveEvent: TouchEvent) => {
+                  moveEvent.preventDefault()
+                  const touch = moveEvent.touches[0]
+                  const containerWidth = container.offsetWidth
+                  const deltaX = touch.clientX - startX
+                  const deltaPercent = (deltaX / containerWidth) * 100
+                  const newPosition = Math.max(0, Math.min(100, startPosition + deltaPercent))
+                  setSliderPosition(newPosition)
+                }
+                
+                const handleTouchEnd = () => {
+                  document.removeEventListener('touchmove', handleTouchMove)
+                  document.removeEventListener('touchend', handleTouchEnd)
+                }
+                
+                document.addEventListener('touchmove', handleTouchMove, { passive: false })
+                document.addEventListener('touchend', handleTouchEnd)
               }}
             />
           </div>
@@ -2014,7 +1978,7 @@ function V3Section() {
           }}
         />
 
-      <div className="relative container mx-auto px-4 sm:px-6">
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -2400,6 +2364,172 @@ function V3Section() {
         </motion.div>
       </div>
     </motion.section>
+  )
+}
+
+// Section Features principales - Style produit avec maquettes
+function MainFeaturesSection() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+
+  return (
+    <section
+      ref={ref}
+      className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
+    >
+      <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 sm:mb-16"
+        >
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight leading-[1.1]"
+          >
+            Découvrez{' '}
+            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-normal">
+              Yunicity
+            </span>
+          </motion.h2>
+          <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-base sm:text-lg text-gray-600 leading-relaxed font-light max-w-3xl mx-auto"
+          >
+            Trois fonctionnalités principales qui reconnectent les habitants à leur ville
+          </motion.p>
+        </motion.div>
+
+        {/* Features avec maquettes */}
+        <div className="space-y-16 sm:space-y-20 md:space-y-24">
+          {mainFeatures.map((feature, index) => {
+            const Icon = feature.icon
+            const isEven = index % 2 === 0
+
+            return (
+              <motion.div
+                key={feature.id}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
+                className={`grid md:grid-cols-2 gap-8 sm:gap-12 items-center`}
+              >
+                {/* Contenu texte */}
+                <div className={`${!isEven ? 'md:order-2' : ''}`}>
+                  {/* Badge unique */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
+                    className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-200"
+                  >
+                    <Sparkles className="w-4 h-4 text-purple-600" />
+                    <span className="text-xs sm:text-sm font-medium text-purple-700">
+                      {feature.unique}
+                    </span>
+                  </motion.div>
+
+                  {/* Icône + Titre */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}>
+                      <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium text-gray-900 tracking-tight">
+                      {feature.title}
+                    </h3>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-base sm:text-lg text-gray-600 leading-relaxed font-light mb-6">
+                    {feature.description}
+                  </p>
+
+                  {/* Bénéfices */}
+                  <ul className="space-y-3 mb-6">
+                    {feature.benefits.map((benefit, i) => (
+                      <motion.li
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                        transition={{ duration: 0.5, delay: 0.4 + index * 0.2 + i * 0.1 }}
+                        className="flex items-start gap-3"
+                      >
+                        <CheckCircle2 className={`w-5 h-5 mt-0.5 flex-shrink-0 bg-gradient-to-br ${feature.color} bg-clip-text text-transparent`} />
+                        <span className="text-sm sm:text-base text-gray-700 font-light">{benefit}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Maquette visuelle */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+                  className={`${!isEven ? 'md:order-1' : ''} relative`}
+                >
+                  {/* Mockup phone frame */}
+                  <div className="relative mx-auto max-w-[280px] sm:max-w-[360px] lg:max-w-none overflow-hidden">
+                    {/* Phone frame */}
+                    <div className="relative bg-gray-900 rounded-[2.5rem] p-2 sm:p-3 shadow-2xl">
+                      {/* Screen */}
+                      <div className="relative bg-white rounded-[2rem] overflow-hidden aspect-[9/19.5]">
+                        {/* Mockup image */}
+                        <div
+                          className="absolute inset-0 bg-cover bg-center"
+                          style={{
+                            backgroundImage: `url(${feature.mockupImage})`,
+                          }}
+                        />
+                        {/* Overlay gradient pour effet app */}
+                        <div className={`absolute inset-0 bg-gradient-to-b ${feature.color} opacity-20`} />
+                        
+                        {/* Mockup content overlay */}
+                        <div className="absolute inset-0 p-6 flex flex-col">
+                          {/* Status bar mockup */}
+                          <div className="flex justify-between items-center mb-4">
+                            <div className="flex gap-1">
+                              <div className="w-1 h-1 bg-white/80 rounded-full" />
+                              <div className="w-1 h-1 bg-white/80 rounded-full" />
+                              <div className="w-1 h-1 bg-white/60 rounded-full" />
+                            </div>
+                            <div className="text-white/90 text-[10px] font-medium">9:41</div>
+                            <div className="flex gap-1">
+                              <div className="w-4 h-2 border border-white/80 rounded-sm" />
+                              <div className="w-1 h-1 bg-white/80 rounded-full" />
+                            </div>
+                          </div>
+
+                          {/* App content mockup */}
+                          <div className="flex-1 flex flex-col justify-center items-center text-white">
+                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} mb-4 flex items-center justify-center shadow-lg`}>
+                              <Icon className="w-8 h-8" />
+                            </div>
+                            <h4 className="text-lg font-semibold mb-2">{feature.title}</h4>
+                            <p className="text-xs text-center text-white/80 px-4">
+                              {feature.description.split('.')[0]}.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Glow effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-20 blur-3xl -z-10`} />
+                  </div>
+                </motion.div>
+              </motion.div>
+            )
+          })}
+        </div>
+      </div>
+    </section>
   )
 }
 
