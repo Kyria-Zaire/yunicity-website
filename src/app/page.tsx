@@ -5,7 +5,7 @@ import NewsletterSubscribeSection from '@/components/NewsletterSubscribeSection'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
-import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown, Building2 } from 'lucide-react'
+import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import FranceMap from '@/components/FranceMap'
@@ -750,95 +750,6 @@ export default function Home() {
                 </div>
               </motion.article>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section Pourquoi Reims ? */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-8 sm:mb-10"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
-              Pourquoi{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
-                Reims
-              </span>
-              {' '}?
-            </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-              Reims, ville pilote de Yunicity : une ville dynamique et engagée
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-xl sm:rounded-2xl p-6 sm:p-8"
-            >
-              <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-4">
-                Reims en chiffres
-              </h3>
-              <div className="space-y-4">
-                {[
-                  { label: 'Habitants', value: '183 000', icon: Users },
-                  { label: 'Quartiers', value: '12', icon: MapPin },
-                  { label: 'Événements/mois', value: '45+', icon: Calendar },
-                  { label: 'Commerces locaux', value: '2 500+', icon: Building2 }
-                ].map((stat, index) => {
-                  const Icon = stat.icon
-                  return (
-                    <div key={index} className="flex items-center justify-between p-3 bg-white/50 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-                          <Icon className="w-4 h-4 text-white" />
-                        </div>
-                        <span className="text-xs text-gray-700 font-light">{stat.label}</span>
-                      </div>
-                      <span className="text-base font-semibold text-gray-900">{stat.value}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-4"
-            >
-              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
-                <h3 className="text-base font-semibold text-gray-900 mb-3">Une ville dynamique</h3>
-                <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Reims, capitale du Champagne, est une ville en pleine transformation. Avec 183 000 habitants, 
-                  Reims combine patrimoine historique et innovation, faisant d'elle le terrain idéal pour Yunicity.
-                </p>
-              </div>
-              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
-                <h3 className="text-base font-semibold text-gray-900 mb-3">Une communauté engagée</h3>
-                <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Les Rémois sont très attachés à leur ville et participent activement à la vie locale. 
-                  Plus de 45 événements par mois et une vie associative riche font de Reims une ville parfaite pour tester Yunicity.
-                </p>
-              </div>
-              <div className="bg-white border border-gray-200/50 rounded-xl p-6">
-                <h3 className="text-base font-semibold text-gray-900 mb-3">Un écosystème local fort</h3>
-                <p className="text-xs text-gray-600 font-light leading-relaxed">
-                  Reims compte plus de 2 500 commerces locaux et de nombreux acteurs engagés. 
-                  Cette densité d'acteurs locaux est idéale pour créer une communauté Yunicity active dès le lancement.
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
