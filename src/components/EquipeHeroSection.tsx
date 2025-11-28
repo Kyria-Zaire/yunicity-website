@@ -290,26 +290,26 @@ export default function EquipeHeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] as const }}
-          className="mt-16 sm:mt-20 md:mt-24"
+          className="mt-10 sm:mt-12 md:mt-16"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] as const }}
-            className="text-center mb-8 sm:mb-12"
+            className="text-center mb-5 sm:mb-6"
           >
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-light text-gray-900 mb-3 sm:mb-4 tracking-tight">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-light text-gray-900 mb-2 sm:mb-3 tracking-tight">
               Nos{' '}
               <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
                 valeurs
               </span>
             </h2>
-            <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-light max-w-2xl mx-auto">
               Les principes qui guident notre mission et notre vision
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-7xl mx-auto">
             {teamValues.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -317,20 +317,20 @@ export default function EquipeHeroSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 1.6 + index * 0.1, ease: [0.16, 1, 0.3, 1] as const }}
                 whileHover={{ y: -4, scale: 1.02 }}
-                className="group relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-gray-300/50 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="group relative bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5 hover:border-gray-300/50 shadow-md hover:shadow-lg transition-all duration-300"
               >
                 {/* Icon */}
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${value.color} flex items-center justify-center text-3xl sm:text-4xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 mx-auto mb-2.5 rounded-full bg-gradient-to-br ${value.color} flex items-center justify-center text-xl sm:text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
                   {value.icon}
                 </div>
                 
                 {/* Title */}
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 text-center">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-900 mb-1.5 text-center">
                   {value.title}
                 </h3>
                 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-gray-600 text-center font-light leading-relaxed">
+                <p className="text-[10px] sm:text-xs text-gray-600 text-center font-light leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>
