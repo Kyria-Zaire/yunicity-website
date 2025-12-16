@@ -196,6 +196,12 @@ export async function sendContactNotification(contactData: {
   type: string
   investmentRange?: string
 }) {
+  // Si Resend n'est pas configuré, retourner un succès simulé
+  if (!resend || !process.env.RESEND_API_KEY) {
+    console.warn('⚠️ Resend non configuré - notification contact non envoyée')
+    return { success: false, error: 'Resend API key non configurée' }
+  }
+
   try {
     const typeLabels = {
       general: '💬 Question Générale',
