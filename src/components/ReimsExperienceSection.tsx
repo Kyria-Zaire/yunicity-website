@@ -31,7 +31,7 @@ const reimsStatsMenu = [
   {
     link: '#champagne',
     text: '320',
-    label: 'Millions EUR',
+    label: 'Millions EUROS',
     description: 'Caves de champagne visitees',
     image: 'https://images.unsplash.com/photo-1562663729-4971d6802f4a?q=80&w=1200&auto=format&fit=crop'
   }
@@ -92,9 +92,9 @@ export default function ReimsExperienceSection({ showExperiences = true }: Reims
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-full mx-auto"
+          className="w-full"
         >
-          <div style={{ height: '100vh', position: 'relative' }}>
+          <div style={{ height: '80vh', position: 'relative', width: '100%' }}>
             <FlowingMenu items={reimsStatsMenu} />
           </div>
         </motion.div>
