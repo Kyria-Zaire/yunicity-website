@@ -9,6 +9,7 @@ import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Ac
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import FranceMap from '@/components/FranceMap'
+import ReimsExperienceSection from '@/components/ReimsExperienceSection'
 
 export default function Home() {
   const organizationSchema = {
@@ -630,68 +631,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Reims Ville Pilote - Simple */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-8 sm:mb-10"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
-              Reims,{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
-                ville pilote
-              </span>
-            </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-6">
-              Reims, notre laboratoire pour réinventer la vie locale en France.
-            </p>
-            <div className="mb-8">
-              <Link href="/reims">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-light text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:border-gray-400 transition-all"
-                >
-                  Découvrir Reims
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                </motion.button>
-              </Link>
-            </div>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[
-              { value: '183K', label: 'Habitants', icon: Users },
-              { value: '4', label: 'Sites UNESCO', icon: Star },
-              { value: '800+', label: 'Événements/an', icon: Calendar }
-            ].map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center p-4 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-200/50 flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-5 h-5 text-purple-600" />
-                  </div>
-                  <div className="text-2xl sm:text-3xl font-light text-gray-900 mb-1">
-                    {stat.value}
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-600 font-light">{stat.label}</p>
-                </motion.div>
-              )
-            })}
-                </div>
-              </div>
-      </section>
+      {/* Section L'expérience Reims */}
+      <ReimsExperienceSection />
 
       {/* Section Statistiques & Impact */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
