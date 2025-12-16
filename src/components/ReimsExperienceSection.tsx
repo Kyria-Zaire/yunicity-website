@@ -60,9 +60,10 @@ const experiences = [
 
 interface ReimsExperienceSectionProps {
   showExperiences?: boolean
+  showCTA?: boolean
 }
 
-export default function ReimsExperienceSection({ showExperiences = true }: ReimsExperienceSectionProps) {
+export default function ReimsExperienceSection({ showExperiences = true, showCTA = true }: ReimsExperienceSectionProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -103,26 +104,28 @@ export default function ReimsExperienceSection({ showExperiences = true }: Reims
           </div>
         </motion.div>
 
-        {/* CTA Decouvrir Reims */}
-        <div className="w-full px-4 sm:px-6 pb-16 pt-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center"
-          >
-            <Link href="/reims">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-light text-white hover:text-gray-200 border border-white/30 rounded-lg hover:border-white/50 hover:bg-white/10 transition-all"
-              >
-                Decouvrir Reims
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
+        {/* CTA Decouvrir Reims - Uniquement sur la page d'accueil */}
+        {showCTA && (
+          <div className="w-full px-4 sm:px-6 pb-16 pt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-center"
+            >
+              <Link href="/reims">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-6 py-3 text-sm font-light text-white hover:text-gray-200 border border-white/30 rounded-lg hover:border-white/50 hover:bg-white/10 transition-all"
+                >
+                  Decouvrir Reims
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </Link>
+            </motion.div>
+          </div>
+        )}
       </div>
 
       {/* Section Experiences - Fond blanc */}

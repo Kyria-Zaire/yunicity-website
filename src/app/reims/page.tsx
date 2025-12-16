@@ -14,7 +14,7 @@ export default function ReimsPage() {
       <ReimsHeroCarousel />
 
       {/* Section 2 - Expérience Reims */}
-      <ReimsExperienceSection />
+      <ReimsExperienceSection showCTA={false} />
 
       {/* Section 3 - CTA */}
       <ReimsCallToActionSection />
