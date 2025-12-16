@@ -1,15 +1,19 @@
 .menu-wrap {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
 }
@@ -20,6 +24,7 @@
   overflow: hidden;
   text-align: center;
   box-shadow: 0 -1px rgba(255, 255, 255, 0.1);
+  width: 100%;
 }
 
 .menu__item-link {
@@ -74,8 +79,9 @@
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   pointer-events: none;
   background: #fff;
