@@ -392,7 +392,13 @@ export default function NewsletterHeroSection() {
               transition={{ delay: 1.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
               <motion.button
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-light rounded-full overflow-hidden text-base tracking-wide shadow-xl"
+                onClick={() => {
+                  const subscribeSection = document.querySelector('[data-section="newsletter-subscribe"]')
+                  if (subscribeSection) {
+                    subscribeSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                  }
+                }}
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-light rounded-full overflow-hidden text-base tracking-wide shadow-xl cursor-pointer"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
