@@ -39,6 +39,12 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu__item-link:hover .menu__item-content {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 .menu__item-number {
@@ -56,17 +62,7 @@
   opacity: 0.8;
 }
 
-.menu__item-link:hover {
-  color: #060010;
-}
-
-.menu__item-link:hover .menu__item-number {
-  color: #060010;
-}
-
-.menu__item-link:hover .menu__item-label {
-  color: #060010;
-}
+/* Le texte disparaît au hover, donc pas besoin de changer sa couleur */
 
 .menu__item-link:focus:not(:focus-visible) {
   color: #fff;

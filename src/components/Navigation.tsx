@@ -91,44 +91,44 @@ export default function Navigation({ activeSection }: NavigationProps) {
   return (
     <>
       {/* Navigation */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? isLightBackground
-              ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-2xl'
-              : 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-2xl'
-            : isLightBackground
-              ? 'bg-white/50 backdrop-blur-xl'
-              : 'bg-transparent'
-        }`}
-      >
-        <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center py-4">
-            
-            {/* Logo */}
-            <Link href="/">
-              <motion.div
-                className="flex items-center space-x-3 cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <div className="w-10 h-10 rounded-lg overflow-hidden">
-                  <Image 
-                    src="/yunicity-logo.png" 
-                    alt="Yunicity Logo" 
-                    width={40} 
-                    height={40}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
-                  isLightBackground ? 'text-gray-900' : 'text-white'
-                }`}>YUNICITY</span>
-              </motion.div>
-            </Link>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? isLightBackground
+            ? 'bg-white/80 backdrop-blur-xl border-b border-gray-200/50 shadow-2xl'
+            : 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-2xl'
+          : isLightBackground
+            ? 'bg-white/50 backdrop-blur-xl'
+            : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex justify-between items-center py-4">
+          
+          {/* Logo */}
+          <Link href="/">
+            <motion.div
+              className="flex items-center space-x-3 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <div className="w-10 h-10 rounded-lg overflow-hidden">
+                <Image 
+                  src="/yunicity-logo.png" 
+                  alt="Yunicity Logo" 
+                  width={40} 
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className={`font-bold text-xl tracking-tight transition-colors duration-300 ${
+                isLightBackground ? 'text-gray-900' : 'text-white'
+              }`}>YUNICITY</span>
+            </motion.div>
+          </Link>
           </div>
         </div>
       </motion.nav>
