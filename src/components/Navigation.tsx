@@ -1,7 +1,7 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Rocket } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -84,18 +84,8 @@ export default function Navigation({ activeSection }: NavigationProps) {
     }
   }, [])
 
-  const handleCTAClick = () => {
-    // Si on est sur la home, scroll vers la section newsletter
-    if (window.location.pathname === '/') {
-      const newsletterSection = document.querySelector('[data-section="newsletter"]') || 
-                                document.querySelector('section:has(form)')
-      if (newsletterSection) {
-        newsletterSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      }
-    } else {
-      // Sinon, rediriger vers la home avec scroll
-      window.location.href = '/#newsletter'
-    }
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -138,30 +128,30 @@ export default function Navigation({ activeSection }: NavigationProps) {
             </motion.div>
           </Link>
 
-          {/* CTA Button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            onClick={handleCTAClick}
-            className={`relative group px-4 sm:px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white font-semibold text-xs sm:text-sm overflow-hidden transition-all ${
-              isScrolled ? 'shadow-lg' : ''
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              <Rocket className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">Rejoindre la bêta</span>
-              <span className="sm:hidden">Bêta</span>
-            </span>
-            <motion.div
-              className="absolute inset-0 bg-white"
-              initial={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1, opacity: 0.1 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+          {/* Bouton Retour en haut - visible seulement après scroll */}
+          <AnimatePresence>
+            {isScrolled && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={handleScrollToTop}
+                className={`relative group p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white shadow-lg overflow-hidden transition-all`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Retour en haut"
+              >
+                <ArrowUp className="w-5 h-5" />
+                <motion.div
+                  className="absolute inset-0 bg-white"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileHover={{ scale: 1, opacity: 0.1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.button>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </motion.nav>
