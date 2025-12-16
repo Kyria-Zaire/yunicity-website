@@ -407,7 +407,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {[
               {
                 title: 'MVP 2026',
@@ -442,15 +442,15 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className={`bg-gradient-to-br ${step.bgColor} border ${step.borderColor} rounded-lg sm:rounded-xl p-5 sm:p-6`}
+                  className={`bg-gradient-to-br ${step.bgColor} border ${step.borderColor} rounded-lg p-3 sm:p-4`}
                 >
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center mb-4`}>
-                    <Icon className="w-6 h-6 text-white" />
+                  <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-gradient-to-br ${step.color} flex items-center justify-center mb-2 sm:mb-3`}>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
-                  <h3 className="text-base sm:text-lg font-light text-gray-900 mb-2 tracking-tight">
+                  <h3 className="text-sm sm:text-base font-light text-gray-900 mb-1 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                  <p className="text-xs text-gray-600 font-light leading-relaxed">
                     {step.description}
                   </p>
                 </motion.div>
