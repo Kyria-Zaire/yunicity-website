@@ -164,7 +164,7 @@ export interface ContactMessage {
 export async function testConnection(): Promise<boolean> {
   try {
     // Recréer le pool pour forcer une nouvelle connexion
-    const testPool = createPool()
+    const testPool = getPool()
     const result = await testPool.query('SELECT NOW()')
     console.log('✅ Connexion PostgreSQL réussie:', result.rows[0].now)
     return true
