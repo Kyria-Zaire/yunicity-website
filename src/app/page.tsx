@@ -915,7 +915,7 @@ export default function Home() {
   )
 }
 
-// Composant FAQ Accordion
+// Composant FAQ Accordion - Sans animations
 function FAQAccordion({ faqs }: { faqs: Array<{ question: string; answer: string }> }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
@@ -924,12 +924,8 @@ function FAQAccordion({ faqs }: { faqs: Array<{ question: string; answer: string
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index
         return (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
           >
             <button
@@ -939,31 +935,16 @@ function FAQAccordion({ faqs }: { faqs: Array<{ question: string; answer: string
               <h3 className="text-sm sm:text-base font-light text-gray-900 tracking-tight flex-1">
                 {faq.question}
               </h3>
-              <motion.div
-                animate={{ rotate: isOpen ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <ChevronDown className="w-5 h-5 text-gray-600 flex-shrink-0" />
-              </motion.div>
+              <ChevronDown className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-                    <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
+            {isOpen && (
+              <div className="px-4 sm:px-5 pb-4 sm:pb-5">
+                <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            )}
+          </div>
         )
       })}
     </div>

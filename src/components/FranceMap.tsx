@@ -102,32 +102,16 @@ export default function FranceMap() {
             </div>
           `)
 
-        // Animation de pulsation pour les villes actives
+        // Cercle statique pour les villes actives (sans animation)
         if (city.status === 'active') {
-          const pulseCircle = L.default.circle([city.lat, city.lng], {
+          L.default.circle([city.lat, city.lng], {
             color: city.color || '#3b82f6',
             fillColor: city.color || '#3b82f6',
-            fillOpacity: 0.1,
-            radius: 15000, // 15 km
+            fillOpacity: 0.15,
+            radius: 20000, // 20 km
             weight: 2,
-            opacity: 0.4
+            opacity: 0.5
           }).addTo(map)
-
-          // Animation de pulsation
-          let radius = 15000
-          const pulseInterval = setInterval(() => {
-            radius += 2000
-            if (radius > 30000) radius = 15000
-            pulseCircle.setRadius(radius)
-            pulseCircle.setStyle({
-              fillOpacity: Math.max(0.05, 0.2 - (radius - 15000) / 150000)
-            })
-          }, 100)
-
-          // Nettoyer l'intervalle au démontage
-          return () => {
-            clearInterval(pulseInterval)
-          }
         }
 
         markersRef.current.push(marker)
