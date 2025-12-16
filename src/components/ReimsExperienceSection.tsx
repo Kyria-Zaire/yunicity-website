@@ -113,69 +113,6 @@ export default function ReimsExperienceSection() {
           }}
         />
 
-        <div className="relative container mx-auto px-6">
-
-        {/* Expériences uniques */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-16">
-            <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
-              Ce qui rend Reims unique
-            </h3>
-            <p className="text-xl text-gray-600 font-light">
-              Trois piliers d'une expérience inoubliable
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.titre}
-                initial={{ opacity: 0, y: 40 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.15 }}
-                className="group relative overflow-hidden rounded-3xl"
-              >
-                {/* Image */}
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={exp.image}
-                    alt={exp.titre}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                </div>
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <h4 className="text-3xl font-bold mb-3">{exp.titre}</h4>
-                  <p className="text-gray-200 mb-4 font-light leading-relaxed">
-                    {exp.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full text-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-        </div>
       </div>
     </section>
   )
