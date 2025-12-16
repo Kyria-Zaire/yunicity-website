@@ -1,12 +1,9 @@
 .menu-wrap {
-  width: 100vw;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 .menu {
@@ -32,6 +29,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 100%;
   position: relative;
   cursor: pointer;
   text-decoration: none;
@@ -69,8 +67,6 @@
   opacity: 0.8;
 }
 
-/* Le texte disparaît au hover, donc pas besoin de changer sa couleur */
-
 .menu__item-link:focus:not(:focus-visible) {
   color: #fff;
 }
@@ -81,7 +77,7 @@
   left: 0;
   right: 0;
   overflow: hidden;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   pointer-events: none;
   background: #fff;
@@ -145,11 +141,11 @@
 }
 
 .marquee__img {
-  width: 250px;
-  height: 10vh;
-  margin: 0 3vw;
+  width: 200px;
+  height: 8vh;
+  margin: 0 2vw;
   padding: 0;
-  border-radius: 50px;
+  border-radius: 40px;
   background-size: cover;
   background-position: 50% 50%;
   flex-shrink: 0;
@@ -168,7 +164,7 @@
   }
 }
 
-/* Responsive */
+/* Responsive Mobile */
 @media (max-width: 768px) {
   .menu__item-number {
     font-size: 3vh;
@@ -179,22 +175,26 @@
   }
 
   .marquee__kpi-number {
-    font-size: 3.5vh;
+    font-size: 3vh;
   }
 
   .marquee__kpi-label {
-    font-size: 1.5vh;
+    font-size: 1.3vh;
   }
 
   .marquee__kpi-description {
-    font-size: 1.2vh;
-    max-width: 200px;
+    font-size: 1vh;
+    max-width: 150px;
   }
 
   .marquee__img {
-    width: 150px;
-    height: 6vh;
-    margin: 0 2vw;
+    width: 100px;
+    height: 5vh;
+    margin: 0 1.5vw;
+    border-radius: 20px;
+  }
+
+  .marquee__kpi {
+    padding: 0 2vw;
   }
 }
-
