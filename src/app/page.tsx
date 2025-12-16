@@ -627,33 +627,6 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-
-          {/* Villes à venir */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 sm:mt-10"
-          >
-            <p className="text-center text-xs sm:text-sm text-gray-500 font-light mb-4">
-              Bientôt disponibles
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-              {['Paris', 'Lyon', 'Bordeaux'].map((city, index) => (
-                <motion.div
-                  key={city}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                  className="px-4 py-2 bg-gray-100 rounded-full border border-gray-200"
-                >
-                  <span className="text-xs sm:text-sm text-gray-600 font-light">{city}</span>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
