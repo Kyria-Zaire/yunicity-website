@@ -631,8 +631,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section L'expérience Reims */}
-      <ReimsExperienceSection />
+      {/* Section L'expérience Reims - Sans la section "Ce qui rend Reims unique" */}
+      <ReimsExperienceSection showExperiences={false} />
 
       {/* Section Statistiques & Impact */}
       <section className="py-16 sm:py-20 md:py-24 bg-white">
