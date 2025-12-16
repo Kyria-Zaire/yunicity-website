@@ -45,3 +45,6 @@ test-*.js
 
 # Documentation temporaire (à garder mais optionnel)
 # *.md (décommenter si vous ne voulez pas commit les docs)
+
+# Docker
+docker-compose.override.yml

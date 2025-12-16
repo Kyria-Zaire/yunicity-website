@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { addContactMessage } from '@/lib/supabase'
+import { addContactMessage } from '@/lib/db'
 import { sendContactNotification } from '@/lib/email'
 
 export async function POST(request: Request) {
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       )
     }
 
-    // Ajouter à Supabase
+    // Ajouter à PostgreSQL
     const contactMessage = await addContactMessage({
       name,
       email,

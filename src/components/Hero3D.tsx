@@ -205,31 +205,31 @@ export default function Hero3D() {
 
               {/* HEADLINE PRINCIPAL - Fort et percutant */}
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-[1.1]"
               >
                 Le réseau social{' '}
                 <span className="block font-normal bg-gradient-to-r from-purple-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
                   qui reconnecte ta ville
-                </span>
+                    </span>
               </motion.h1>
 
               {/* SOUS-PHRASE ÉMOTIONNELLE */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 mb-4 sm:mb-5 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light"
-              >
+                >
                 Redonnons vie à nos quartiers
-              </motion.p>
+                </motion.p>
 
               {/* PHRASE BÉNÉFICE */}
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-sm sm:text-base md:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light"
               >

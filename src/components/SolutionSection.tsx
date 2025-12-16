@@ -1159,8 +1159,8 @@ function MVPSection() {
                       <p className="text-white/80 text-sm sm:text-base font-extralight leading-relaxed max-w-xl">
                         {selectedCity.description}
                       </p>
-                              </motion.div>
-                            </div>
+              </motion.div>
+              </div>
 
                   {/* Stats simplifiées */}
                   <div className="px-5 sm:px-6 pb-5 sm:pb-6">
@@ -1173,11 +1173,11 @@ function MVPSection() {
                       <div className="bg-white/10 backdrop-blur-xl rounded-xl p-3 sm:p-4 border border-white/20">
                         <div className="text-xl sm:text-2xl font-extralight text-white mb-0.5">
                           {selectedCity.acteursLocaux}
-                        </div>
+            </div>
                         <div className="text-[10px] sm:text-xs text-white/70 font-extralight">
                           Acteurs locaux
-                        </div>
-                      </div>
+          </div>
+        </div>
                       <div className="bg-white/10 backdrop-blur-xl rounded-xl p-3 sm:p-4 border border-white/20">
                         <div className="text-xl sm:text-2xl font-extralight text-white mb-0.5">
                           {selectedCity.evenementsMois}
@@ -1256,7 +1256,7 @@ function MVPSection() {
             </>
           )}
                     </AnimatePresence>
-                  </div>
+      </div>
     </motion.section>
   )
 }
@@ -1560,15 +1560,15 @@ function V2Section() {
           {/* Cartes par catégorie d'acteurs */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {/* Carte Commerces */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 2.1 }}
               className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300"
-            >
+          >
               <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 text-white mb-3">
                 <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
+            </div>
               
               <h4 className="text-base sm:text-lg font-light text-gray-900 mb-2">
                 Commerces locaux
@@ -1596,7 +1596,7 @@ function V2Section() {
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Promotions ciblées vers les habitants</span>
                 </li>
               </ul>
-            </motion.div>
+          </motion.div>
             
             {/* Carte Associations */}
             <motion.div
@@ -1607,7 +1607,7 @@ function V2Section() {
             >
               <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-pink-500 to-orange-500 text-white mb-3">
                 <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
+        </div>
               
               <h4 className="text-base sm:text-lg font-light text-gray-900 mb-2">
                 Associations

@@ -1,11 +1,32 @@
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+// Initialiser Resend seulement si la clé API est disponible et non vide
+// Utiliser une fonction pour éviter l'erreur au chargement du module
+function getResendClient(): Resend | null {
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey || apiKey.trim() === '' || apiKey === 'votre_clé_resend_ici') {
+    return null
+  }
+  try {
+    return new Resend(apiKey)
+  } catch (error) {
+    console.warn('⚠️ Erreur lors de l\'initialisation de Resend:', error)
+    return null
+  }
+}
+
+const resend = getResendClient()
 
 /**
  * Envoie un email de bienvenue aux nouveaux inscrits newsletter
  */
 export async function sendWelcomeEmail(to: string, name: string) {
+  // Si Resend n'est pas configuré, retourner un succès simulé (l'email est optionnel)
+  if (!resend || !process.env.RESEND_API_KEY) {
+    console.warn('⚠️ Resend non configuré - email de bienvenue non envoyé')
+    return { success: false, error: 'Resend API key non configurée' }
+  }
+
   try {
     const { data, error } = await resend.emails.send({
       from: 'YUNICITY <onboarding@resend.dev>', // Changez après vérification domaine

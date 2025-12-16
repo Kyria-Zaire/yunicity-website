@@ -80,7 +80,7 @@ export default function PolitiqueConfidentialitePage() {
       paragraphs: [
         'Vos données personnelles ne sont jamais vendues à des tiers.',
         'Elles peuvent être partagées uniquement avec :',
-        '• Prestataires techniques : Supabase (base de données), Vercel (hébergement)',
+        '• Prestataires techniques : PostgreSQL (base de données), Vercel (hébergement)',
         '• Outils d\'analyse : Google Analytics (données anonymisées)',
         '• Service d\'emailing : Resend (pour l\'envoi d\'emails)',
         'Tous nos prestataires sont conformes au RGPD et situés dans l\'Union Européenne ou bénéficiant d\'une décision d\'adéquation de la Commission Européenne.'

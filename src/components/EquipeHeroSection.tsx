@@ -175,7 +175,7 @@ export default function EquipeHeroSection() {
                       />
                     ) : (
                       <div className={`w-full h-full rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-3xl sm:text-4xl font-bold shadow-xl border-4 border-white`}>
-                        {member.initial}
+                    {member.initial}
                       </div>
                     )}
                     

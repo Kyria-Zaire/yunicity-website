@@ -5,7 +5,7 @@ import NewsletterSubscribeSection from '@/components/NewsletterSubscribeSection'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
-import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown } from 'lucide-react'
+import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown, Heart, Rocket, Zap } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 import FranceMap from '@/components/FranceMap'
@@ -200,91 +200,263 @@ export default function Home() {
 
       <Hero3D />
 
-      {/* Introduction Section */}
+      {/* Section Le Problème - Condensée */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Redécouvrez votre ville
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Le{' '}
+              <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-light">
+                problème
+              </span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Yunicity est la plateforme qui reconnecte les habitants à leur territoire.
-              Découvrez les lieux, événements et la communauté autour de vous à Reims, 
-              première ville pilote de Yunicity en juillet 2026.
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-4">
+              Information éparpillée, sentiment d'exclusion : 50% des Français non engagés localement.
             </p>
+            <Link href="/probleme">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-light text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:border-gray-400 transition-all"
+              >
+                En savoir plus
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            {/* 2 Chiffres clés */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white/80 backdrop-blur-xl border border-red-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
+            >
+              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-2">
+                85%
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600 font-light">
+                des Français cherchent des infos locales sur leur téléphone
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white/80 backdrop-blur-xl border border-orange-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
+            >
+              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">
+                50%
+              </div>
+              <p className="text-xs sm:text-sm text-gray-600 font-light">
+                des habitants se sentent déconnectés de leur ville
+              </p>
+            </motion.div>
           </div>
 
-          {/* CTA Cards Grid - Apple Glass Gray */}
-          <div className="grid md:grid-cols-2 gap-4 mb-12 max-w-4xl mx-auto">
-            <Link href="/probleme" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
-                  <Target className="w-5 h-5 text-gray-900" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-1.5 flex items-center gap-2">
-                    Le Problème
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
-                    34M de Français non engagé, fragmentés entre 15+ applications
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/solution" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
-                  <Lightbulb className="w-5 h-5 text-gray-900" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-1.5 flex items-center gap-2">
-                    Notre Solution
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
-                    Le Hub unique qui centralise toute votre vie locale
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/reims" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
-                  <MapPin className="w-5 h-5 text-gray-900" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-1.5 flex items-center gap-2">
-                    Découverte Reims
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
-                    6 lieux authentiques sélectionnés par nos ambassadeurs
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            <Link href="/equipe" className="group bg-gray-400/30 backdrop-blur-2xl border border-gray-400/40 rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:bg-gray-500/40 hover:shadow-xl transition-all duration-300">
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 bg-white/60 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 sm:group-hover:scale-110 transition-transform shadow-sm">
-                  <Users className="w-5 h-5 text-gray-900" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base sm:text-lg font-medium text-gray-900 mb-1.5 flex items-center gap-2">
-                    L'Équipe
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-700 font-light">
-                    4 experts passionnés unis par une mission commune
-                  </p>
-                </div>
-              </div>
-            </Link>
+          {/* 3 Bullets */}
+          <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            {[
+              { text: 'Information éparpillée sur 15+ sites', icon: Target },
+              { text: 'Manque de visibilité pour les acteurs locaux', icon: Users },
+              { text: 'Isolement urbain et faible engagement', icon: Heart }
+            ].map((item, index) => {
+              const Icon = item.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200/50"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-200/50 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-red-600" />
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-700 font-light">{item.text}</p>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
+      </section>
+
+      {/* Section Fonctionnalités clés */}
+      <section className="py-16 sm:py-20 md:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Fonctionnalités{' '}
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+                clés
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-4">
+              Tout ce dont vous avez besoin pour reconnecter avec votre ville en un seul endroit
+            </p>
+            <Link href="/solution">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-light text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:border-gray-400 transition-all"
+              >
+                Découvrir la solution complète
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Star,
+                title: 'Hub d\'informations',
+                description: 'Centralisation de toute l\'information locale sur une seule plateforme',
+                color: 'from-purple-500/10 to-pink-500/10',
+                borderColor: 'border-purple-200/50',
+                iconColor: 'text-purple-600'
+              },
+              {
+                icon: Users,
+                title: 'Communauté',
+                description: 'Espace d\'échange et de connexion entre les habitants',
+                color: 'from-blue-500/10 to-cyan-500/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-600'
+              },
+              {
+                icon: MapPin,
+                title: 'Carte interactive 3D',
+                description: 'Géolocalisation et visualisation des points d\'intérêt',
+                color: 'from-green-500/10 to-emerald-500/10',
+                borderColor: 'border-green-200/50',
+                iconColor: 'text-green-600'
+              },
+              {
+                icon: Brain,
+                title: 'Intelligence artificielle',
+                description: 'Recommandations personnalisées et chatbot local',
+                color: 'from-orange-500/10 to-red-500/10',
+                borderColor: 'border-orange-200/50',
+                iconColor: 'text-orange-600'
+              }
+            ].map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className={`group bg-white/80 backdrop-blur-xl border ${feature.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 sm:hover:shadow-xl transition-all duration-300`}
+                >
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${feature.color} border ${feature.borderColor} flex items-center justify-center mb-3 sm:group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${feature.iconColor}`} />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-light text-gray-900 mb-1.5 tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-gray-600 font-light leading-relaxed">
+                    {feature.description}
+                  </p>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Section Roadmap - Simple */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              Roadmap{' '}
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+                produit
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+              Notre vision pour transformer la vie locale
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                title: 'MVP 2026',
+                description: 'Lancement à Reims avec les fonctionnalités essentielles',
+                icon: Rocket,
+                color: 'from-purple-500 to-blue-500',
+                bgColor: 'from-purple-50 to-blue-50',
+                borderColor: 'border-purple-200/50'
+              },
+              {
+                title: 'V2 IA',
+                description: 'Intelligence artificielle et recommandations personnalisées',
+                icon: Brain,
+                color: 'from-blue-500 to-cyan-500',
+                bgColor: 'from-blue-50 to-cyan-50',
+                borderColor: 'border-blue-200/50'
+              },
+              {
+                title: 'V3 Smart City',
+                description: 'Intégration IoT, blockchain et services urbains avancés',
+                icon: Zap,
+                color: 'from-green-500 to-emerald-500',
+                bgColor: 'from-green-50 to-emerald-50',
+                borderColor: 'border-green-200/50'
+              }
+            ].map((step, index) => {
+              const Icon = step.icon
+              return (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className={`bg-gradient-to-br ${step.bgColor} border ${step.borderColor} rounded-lg sm:rounded-xl p-5 sm:p-6`}
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center mb-4`}>
+                    <Icon className="w-6 h-6 text-white" />
+                </div>
+                  <h3 className="text-base sm:text-lg font-light text-gray-900 mb-2 tracking-tight">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 font-light leading-relaxed">
+                    {step.description}
+                  </p>
+                </motion.div>
+              )
+            })}
+          </div>
+                </div>
       </section>
 
       {/* Section Villes en expansion */}
@@ -485,8 +657,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Fonctionnalités clés */}
-      <section className="py-16 sm:py-20 md:py-24 bg-white">
+      {/* Section Reims Ville Pilote - Simple */}
+      <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -496,76 +668,56 @@ export default function Home() {
             className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
-              Fonctionnalités{' '}
+              Reims,{' '}
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
-                clés
+                ville pilote
               </span>
             </h2>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-              Tout ce dont vous avez besoin pour reconnecter avec votre ville en un seul endroit
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-6">
+              Reims, notre laboratoire pour réinventer la vie locale en France.
             </p>
+            <div className="mb-8">
+              <Link href="/reims">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-light text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:border-gray-400 transition-all"
+                >
+                  Découvrir Reims
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                </motion.button>
+              </Link>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {[
-              {
-                icon: Star,
-                title: 'Hub d\'informations',
-                description: 'Centralisation de toute l\'information locale sur une seule plateforme',
-                color: 'from-purple-500/10 to-pink-500/10',
-                borderColor: 'border-purple-200/50',
-                iconColor: 'text-purple-600'
-              },
-              {
-                icon: Users,
-                title: 'Communauté',
-                description: 'Espace d\'échange et de connexion entre les habitants',
-                color: 'from-blue-500/10 to-cyan-500/10',
-                borderColor: 'border-blue-200/50',
-                iconColor: 'text-blue-600'
-              },
-              {
-                icon: MapPin,
-                title: 'Carte interactive 3D',
-                description: 'Géolocalisation et visualisation des points d\'intérêt',
-                color: 'from-green-500/10 to-emerald-500/10',
-                borderColor: 'border-green-200/50',
-                iconColor: 'text-green-600'
-              },
-              {
-                icon: Brain,
-                title: 'Intelligence artificielle',
-                description: 'Recommandations personnalisées et chatbot local',
-                color: 'from-orange-500/10 to-red-500/10',
-                borderColor: 'border-orange-200/50',
-                iconColor: 'text-orange-600'
-              }
-            ].map((feature, index) => {
-              const Icon = feature.icon
+              { value: '183K', label: 'Habitants', icon: Users },
+              { value: '4', label: 'Sites UNESCO', icon: Star },
+              { value: '800+', label: 'Événements/an', icon: Calendar }
+            ].map((stat, index) => {
+              const Icon = stat.icon
               return (
                 <motion.div
-                  key={feature.title}
+                  key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  whileHover={{ y: -4, scale: 1.02 }}
-                  className={`group bg-white/80 backdrop-blur-xl border ${feature.borderColor} rounded-lg sm:rounded-xl p-4 sm:p-5 sm:hover:shadow-xl transition-all duration-300`}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center p-4 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl"
                 >
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${feature.color} border ${feature.borderColor} flex items-center justify-center mb-3 sm:group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${feature.iconColor}`} />
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-200/50 flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-5 h-5 text-purple-600" />
                   </div>
-                  <h3 className="text-sm sm:text-base font-light text-gray-900 mb-1.5 tracking-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[10px] sm:text-xs text-gray-600 font-light leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <div className="text-2xl sm:text-3xl font-light text-gray-900 mb-1">
+                    {stat.value}
+                  </div>
+                  <p className="text-xs sm:text-sm text-gray-600 font-light">{stat.label}</p>
                 </motion.div>
               )
             })}
-          </div>
-        </div>
+                </div>
+              </div>
       </section>
 
       {/* Section Statistiques & Impact */}
@@ -675,6 +827,69 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section Équipe - Condensée */}
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-8 sm:mb-10"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
+              L'<span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+                équipe
+              </span>
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-4">
+              4 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
+            </p>
+            <Link href="/equipe">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-light text-gray-700 hover:text-gray-900 border border-gray-300 rounded-lg hover:border-gray-400 transition-all"
+              >
+                Découvrir l'équipe complète
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+              </motion.button>
+            </Link>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { name: 'Rody', role: 'CEO & Co-Founder', bio: 'Passionné par l\'innovation locale et le design d\'expérience', color: 'from-purple-600 to-blue-600' },
+              { name: 'Djiby', role: 'Co-Founder & CFO', bio: 'Expert en finance et stratégie d\'entreprise', color: 'from-emerald-600 to-teal-600' },
+              { name: 'Freeway.jr', role: 'CTO & Lead Developer', bio: 'Architecte technique passionné', color: 'from-blue-600 to-indigo-600' },
+              { name: 'Jores', role: 'Growth & Community', bio: 'Passionné par les communautés locales', color: 'from-orange-600 to-red-600' }
+            ].map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center p-4 bg-white/80 backdrop-blur-xl border border-gray-200/50 rounded-lg sm:rounded-xl"
+              >
+                <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${member.color} flex items-center justify-center text-white text-xl font-bold mx-auto mb-3`}>
+                  {member.name.charAt(0)}
+                </div>
+                <h3 className="text-sm sm:text-base font-light text-gray-900 mb-1">
+                  {member.name}
+                </h3>
+                <p className={`text-xs sm:text-sm font-semibold mb-2 bg-gradient-to-r ${member.color} bg-clip-text text-transparent`}>
+                  {member.role}
+                </p>
+                <p className="text-[10px] sm:text-xs text-gray-600 font-light">
+                  {member.bio}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section Blog Local */}
       <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4 sm:px-8 max-w-7xl">
@@ -747,7 +962,7 @@ export default function Home() {
                 >
                   Lire l'article
                   <ArrowRight className="w-4 h-4" />
-                </div>
+              </div>
               </motion.article>
             ))}
           </div>

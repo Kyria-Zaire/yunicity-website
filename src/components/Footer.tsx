@@ -33,7 +33,11 @@ export default function Footer() {
 
   const quickLinks = [
     { name: 'Accueil', href: '/' },
-    { name: 'À propos', href: '/equipe' },
+    { name: 'Le Problème', href: '/probleme' },
+    { name: 'Notre Solution', href: '/solution' },
+    { name: 'Reims', href: '/reims' },
+    { name: 'L\'Équipe', href: '/equipe' },
+    { name: 'Newsletter', href: '/newsletter' },
     { name: 'Investir', href: '/investir' },
     { name: 'Contact', href: '/contact' }
   ]

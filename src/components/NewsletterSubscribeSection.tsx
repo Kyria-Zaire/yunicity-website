@@ -160,10 +160,10 @@ export default function NewsletterSubscribeSection() {
 
       if (!response.ok) {
         throw new Error(data.error || 'Erreur lors de l\'inscription')
-      }
+        }
 
       setIsSuccess(true)
-      setEmail('')
+        setEmail('')
       setName('')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue')
@@ -299,7 +299,7 @@ export default function NewsletterSubscribeSection() {
                         </>
                       ) : (
                         <>
-                          <span>Rejoindre la bêta</span>
+                          <span>S'inscrire maintenant</span>
                           <ArrowRight className="w-4 h-4" />
                         </>
                       )}

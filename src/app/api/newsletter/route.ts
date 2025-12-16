@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { addNewsletterSubscriber } from '@/lib/supabase'
+import { addNewsletterSubscriber } from '@/lib/db'
 import { sendWelcomeEmail } from '@/lib/email'
 
 export async function POST(request: Request) {
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       )
     }
 
-    // Ajouter à Supabase
+    // Ajouter à PostgreSQL
     const subscriber = await addNewsletterSubscriber({
       email,
       name,
@@ -61,8 +61,26 @@ export async function POST(request: Request) {
   } catch (error: unknown) {
     console.error('Erreur inscription newsletter:', error)
 
-    // Gestion erreur email déjà existant
-    const dbError = error as { code?: string; message?: string }
+    const dbError = error as { code?: string; message?: string; details?: string }
+    
+    // Gestion erreur connexion PostgreSQL
+    if (dbError.message?.includes('connect') || 
+        dbError.message?.includes('ECONNREFUSED') ||
+        dbError.message?.includes('timeout')) {
+      console.error('❌ Erreur de connexion PostgreSQL')
+      
+      return NextResponse.json(
+        { 
+          error: 'Service temporairement indisponible. Impossible de se connecter à la base de données.',
+          details: process.env.NODE_ENV === 'development' 
+            ? 'Assurez-vous que Docker est démarré avec: docker-compose up -d' 
+            : undefined
+        },
+        { status: 503 }
+      )
+    }
+
+    // Gestion erreur email déjà existant (code PostgreSQL 23505 = violation contrainte unique)
     if (dbError.code === '23505') {
       return NextResponse.json(
         { error: 'Cet email est déjà inscrit' },
@@ -70,17 +88,11 @@ export async function POST(request: Request) {
       )
     }
 
-    // Gestion erreur RLS (si les politiques ne sont pas correctes)
-    if (dbError.message?.includes('permission denied') || dbError.message?.includes('RLS')) {
-      console.error('Erreur RLS - Vérifiez les politiques dans Supabase')
-      return NextResponse.json(
-        { error: 'Erreur de configuration. Veuillez réessayer plus tard.' },
-        { status: 500 }
-      )
-    }
-
     return NextResponse.json(
-      { error: 'Erreur lors de l\'inscription', details: process.env.NODE_ENV === 'development' ? String(error) : undefined },
+      { 
+        error: 'Erreur lors de l\'inscription', 
+        details: process.env.NODE_ENV === 'development' ? String(error) : undefined 
+      },
       { status: 500 }
     )
   }
