@@ -1,7 +1,23 @@
-import { Pool, QueryResult, Client } from 'pg'
+import { Pool, QueryResult, Client, PoolConfig } from 'pg'
+
+// Interface pour la configuration de la base de données
+interface DatabaseConfig extends PoolConfig {
+  connectionString?: string
+  ssl?: boolean | { rejectUnauthorized: boolean }
+  host?: string
+  port?: number
+  database?: string
+  user?: string
+  password?: string
+}
+
+// Interface pour les erreurs PostgreSQL avec code
+interface DatabaseError extends Error {
+  code?: string
+}
 
 // Configuration de la connexion PostgreSQL
-const getDatabaseConfig = () => {
+const getDatabaseConfig = (): DatabaseConfig => {
   // Option 1: URL complète Vercel Postgres (priorité)
   if (process.env.POSTGRES_URL) {
     return { 
@@ -28,7 +44,7 @@ const getDatabaseConfig = () => {
 
   // En développement, si le mot de passe est vide ou non défini, ne pas l'envoyer
   // (utile si pg_hba.conf utilise 'trust')
-  const config: any = {
+  const config: DatabaseConfig = {
     host,
     port,
     database,
@@ -51,28 +67,6 @@ let pool: Pool | null = null
 const getPoolConfig = () => {
   const dbConfig = getDatabaseConfig()
   
-  // Debug en développement (masquer le mot de passe)
-  if (process.env.NODE_ENV === 'development') {
-    if ('connectionString' in dbConfig) {
-      const debugUrl = dbConfig.connectionString.replace(/:[^:@]+@/, ':****@')
-      console.log('🔗 Connexion PostgreSQL (URL):', debugUrl)
-    } else {
-      // Vérifier que les variables d'environnement sont bien lues
-      const actualPassword = process.env.DB_PASSWORD || 'yunicity123'
-      console.log('🔗 Connexion PostgreSQL:', {
-        host: dbConfig.host,
-        port: dbConfig.port,
-        database: dbConfig.database,
-        user: dbConfig.user,
-        passwordLength: actualPassword.length,
-        passwordStartsWith: actualPassword.substring(0, 3) + '...',
-        passwordEndsWith: '...' + actualPassword.substring(actualPassword.length - 3),
-        passwordExact: JSON.stringify(actualPassword), // Afficher le mot de passe exact avec échappement JSON
-        envDBPassword: process.env.DB_PASSWORD ? '✅ Défini' : '❌ Non défini (utilise défaut)'
-      })
-    }
-  }
-  
   return dbConfig
 }
 
@@ -94,23 +88,8 @@ const getPool = (): Pool => {
     allowExitOnIdle: true,
   })
   
-  // Configurer les event listeners
-  pool.on('error', (err) => {
-    console.error('❌ Erreur PostgreSQL inattendue:', err)
-  })
-  
-  pool.on('connect', () => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('✅ Nouvelle connexion PostgreSQL établie')
-    }
-  })
-  
-  pool.on('remove', () => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('ℹ️ Connexion PostgreSQL fermée')
-    }
-  })
-  
+  pool.on('error', () => {})
+
   return pool
 }
 
@@ -118,17 +97,14 @@ const getPool = (): Pool => {
 const recreatePool = async (): Promise<Pool> => {
   if (pool) {
     try {
-      await pool.end() // Fermer proprement l'ancien pool
-      console.log('✅ Ancien pool PostgreSQL fermé')
-    } catch (err) {
-      console.warn('⚠️ Erreur lors de la fermeture du pool:', err)
+      await pool.end()
+    } catch {
+      // Silently handle pool closure errors
     }
   }
-  pool = null // Réinitialiser
-  // Attendre un peu pour que les connexions se ferment complètement
+  pool = null
   await new Promise(resolve => setTimeout(resolve, 200))
-  const newPool = getPool() // Recréer avec les nouvelles variables
-  console.log('✅ Nouveau pool PostgreSQL créé')
+  const newPool = getPool()
   return newPool
 }
 
@@ -163,13 +139,10 @@ export interface ContactMessage {
  */
 export async function testConnection(): Promise<boolean> {
   try {
-    // Recréer le pool pour forcer une nouvelle connexion
     const testPool = getPool()
-    const result = await testPool.query('SELECT NOW()')
-    console.log('✅ Connexion PostgreSQL réussie:', result.rows[0].now)
+    await testPool.query('SELECT NOW()')
     return true
-  } catch (error) {
-    console.error('❌ Erreur de connexion PostgreSQL:', error)
+  } catch {
     return false
   }
 }
@@ -192,19 +165,16 @@ export async function addNewsletterSubscriber(data: NewsletterSubscriber): Promi
   ]
 
   // Retry logic pour gérer les erreurs de connexion temporaires
-  let lastError: any = null
+  let lastError: DatabaseError | null = null
   const maxRetries = 3
   
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     let client: Client | null = null
     try {
-      // En cas d'erreur d'authentification, tester avec une connexion directe (sans pool)
       if (attempt > 1 && lastError?.code === '28P01') {
-        console.log('🔄 Tentative avec connexion directe (sans pool)...')
         const dbConfig = getPoolConfig()
         client = new Client(dbConfig)
         await client.connect()
-        console.log('✅ Connexion directe établie')
         const result = await client.query(query, values)
         
         if (result.rows.length === 0) {
@@ -258,8 +228,7 @@ export async function addNewsletterSubscriber(data: NewsletterSubscriber): Promi
         error.message?.includes('authentification')
       ) {
         if (attempt < maxRetries) {
-          const delay = attempt * 500 // 500ms, 1000ms, 1500ms
-          console.warn(`⚠️ Erreur de connexion (tentative ${attempt}/${maxRetries}), réessai dans ${delay}ms...`)
+          const delay = attempt * 500
           await new Promise(resolve => setTimeout(resolve, delay))
           continue
         }
@@ -323,8 +292,7 @@ export async function getNewsletterCount(): Promise<number> {
     const currentPool = getPool()
     const result = await currentPool.query(query)
     return parseInt(result.rows[0].count, 10) || 0
-  } catch (error) {
-    console.error('Erreur lors du comptage des abonnés:', error)
+  } catch {
     return 0
   }
 }
@@ -347,7 +315,6 @@ export async function getAllNewsletterSubscribers(): Promise<NewsletterSubscribe
       interests: Array.isArray(row.interests) ? row.interests : []
     }))
   } catch (error) {
-    console.error('Erreur lors de la récupération des abonnés:', error)
     throw error
   }
 }

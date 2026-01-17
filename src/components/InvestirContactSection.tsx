@@ -193,7 +193,7 @@ export default function InvestirContactSection() {
 
             <h2 className="text-3xl sm:text-4xl font-light text-white mb-6">Rendez-vous confirmé !</h2>
             <p className="text-base text-gray-300 mb-6 leading-relaxed">
-              Merci <span className="text-purple-400 font-normal">{formData.name}</span> !
+              Merci <span className="text-blue-400 font-normal">{formData.name}</span> !
               <br />
               Votre rendez-vous est prévu le{' '}
               <span className="text-white font-normal">
@@ -233,7 +233,7 @@ export default function InvestirContactSection() {
               href="/investir"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-light text-base transition-colors"
+              className="inline-block px-6 py-3 bg-blue-800 hover:bg-blue-700 rounded-full text-white font-light text-base transition-colors"
             >
               Retour
             </motion.a>
@@ -250,7 +250,7 @@ export default function InvestirContactSection() {
       className="relative py-32 bg-black overflow-hidden"
     >
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-500/5 to-blue-400/5 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -289,7 +289,7 @@ export default function InvestirContactSection() {
             className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight"
           >
             Prêt à investir dans{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+            <span className="text-blue-400 font-normal">
               l'avenir ?
             </span>
           </motion.h2>
@@ -396,9 +396,9 @@ export default function InvestirContactSection() {
                         } : {}}
                         className={`relative aspect-square rounded-md text-[10px] sm:text-xs font-extralight transition-all duration-300 ${
                           isSelected
-                            ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/30'
+                            ? 'bg-blue-800 text-white shadow-md shadow-blue-500/30'
                             : isTodayDate
-                            ? 'bg-white/10 text-white border border-purple-400/40'
+                            ? 'bg-white/10 text-white border border-blue-400/40'
                             : isDisabled
                             ? 'bg-transparent text-gray-600/50 cursor-not-allowed'
                             : 'bg-transparent text-white/80 hover:bg-white/5 hover:text-white'
@@ -407,13 +407,13 @@ export default function InvestirContactSection() {
                         {isSelected && (
                           <motion.div
                             layoutId="selectedDate"
-                            className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg"
+                            className="absolute inset-0 bg-blue-800 rounded-lg"
                             transition={{ type: "spring", stiffness: 500, damping: 30 }}
                           />
                         )}
                         {isTodayDate && !isSelected && (
                           <motion.div
-                            className="absolute inset-0 border border-purple-400/40 rounded-lg"
+                            className="absolute inset-0 border border-blue-400/40 rounded-lg"
                             animate={{
                               opacity: [0.5, 1, 0.5],
                             }}
@@ -450,7 +450,7 @@ export default function InvestirContactSection() {
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] as const }}
                       >
-                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400" />
+                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400" />
                       </motion.div>
                       <h4 className="text-sm sm:text-base font-light text-white">
                         <span className="hidden sm:inline">Créneaux disponibles le </span>
@@ -492,7 +492,7 @@ export default function InvestirContactSection() {
                             } : {}}
                             className={`relative px-3 py-1.5 rounded-lg text-xs font-extralight transition-all duration-300 ${
                               isSelected
-                                ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white shadow-md shadow-purple-500/30'
+                                ? 'bg-blue-800 text-white shadow-md shadow-blue-500/30'
                                 : isPast
                                 ? 'bg-transparent text-gray-600/50 cursor-not-allowed border border-white/5'
                                 : 'bg-transparent text-white/80 hover:bg-white/5 hover:text-white border border-white/10'
@@ -501,7 +501,7 @@ export default function InvestirContactSection() {
                             {isSelected && (
                               <motion.div
                                 layoutId="selectedTime"
-                                className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg"
+                                className="absolute inset-0 bg-blue-800 rounded-lg"
                                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                               />
                             )}
@@ -526,7 +526,7 @@ export default function InvestirContactSection() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
-                      className="px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-extralight text-xs sm:text-sm transition-all duration-500 flex items-center gap-1.5 shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30"
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-800 hover:bg-blue-700 rounded-full text-white font-extralight text-xs sm:text-sm transition-all duration-500 flex items-center gap-1.5 shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30"
                       style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                     >
                       Continuer
@@ -597,14 +597,14 @@ export default function InvestirContactSection() {
                           }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
                         >
-                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-blue-400 transition-colors duration-300" />
                         </motion.div>
                         <input
                           type="text"
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 font-extralight text-sm"
                           style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="Jean Dupont"
                         />
@@ -625,14 +625,14 @@ export default function InvestirContactSection() {
                           }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
                         >
-                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-blue-400 transition-colors duration-300" />
                         </motion.div>
                         <input
                           type="email"
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 font-extralight text-sm"
                           style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="jean@fonds-investissement.com"
                         />
@@ -655,13 +655,13 @@ export default function InvestirContactSection() {
                           }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
                         >
-                          <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                          <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-blue-400 transition-colors duration-300" />
                         </motion.div>
                         <input
                           type="text"
                           value={formData.company}
                           onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 font-extralight text-sm"
                           style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="Nom de votre société"
                         />
@@ -682,13 +682,13 @@ export default function InvestirContactSection() {
                           }}
                           transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
                         >
-                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-blue-400 transition-colors duration-300" />
                         </motion.div>
                         <input
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                          className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 font-extralight text-sm"
                           style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                           placeholder="+33 6 12 34 56 78"
                         />
@@ -710,14 +710,14 @@ export default function InvestirContactSection() {
                         }}
                         transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
                       >
-                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-purple-400 transition-colors duration-300" />
+                        <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3.5 h-3.5 text-white/40 group-focus-within:text-blue-400 transition-colors duration-300" />
                       </motion.div>
                           <input
                             type="text"
                             required
                         value={formData.investmentRange}
                         onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
-                        className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 font-extralight text-sm"
+                        className="w-full pl-9 pr-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 font-extralight text-sm"
                         style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                         placeholder="Ex: 100 000€ ou 50K-100K€"
                       />
@@ -735,7 +735,7 @@ export default function InvestirContactSection() {
                         value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       rows={3}
-                      className="w-full px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-purple-500/50 focus:bg-white/8 focus:shadow-lg focus:shadow-purple-500/10 transition-all duration-500 resize-none font-extralight text-sm"
+                      className="w-full px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-blue-800/50 focus:bg-white/8 focus:shadow-lg focus:shadow-blue-500/10 transition-all duration-500 resize-none font-extralight text-sm"
                       style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                       placeholder="Parlez-nous de votre intérêt..."
                       />
@@ -747,7 +747,7 @@ export default function InvestirContactSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
-                    className="w-full py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 rounded-full text-white font-extralight text-sm sm:text-base disabled:opacity-50 transition-all duration-500 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20 hover:shadow-xl hover:shadow-purple-500/30"
+                    className="w-full py-3 sm:py-4 bg-blue-800 hover:bg-blue-700 rounded-full text-white font-extralight text-sm sm:text-base disabled:opacity-50 transition-all duration-500 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30"
                     style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                     whileHover={{ 
                       scale: status !== 'loading' ? 1.02 : 1,
@@ -797,7 +797,7 @@ export default function InvestirContactSection() {
                     transition={{ duration: 0.4, delay: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
                     className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-white/40 font-extralight"
                   >
-                    <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-purple-400" />
+                    <CheckCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-400" />
                     <span>Réponse sous 48h • Confidentialité garantie</span>
               </motion.div>
                 </form>

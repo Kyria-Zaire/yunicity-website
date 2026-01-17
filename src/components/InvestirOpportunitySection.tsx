@@ -22,14 +22,14 @@ import {
 } from 'lucide-react'
 
 const marketData = [
-  { city: 'Paris', size: 2100000, status: 'Saturé', color: 'bg-red-500/20 border-red-500/40' },
-  { city: 'Lyon', size: 520000, status: 'Saturé', color: 'bg-red-500/20 border-red-500/40' },
-  { city: 'Marseille', size: 870000, status: 'Saturé', color: 'bg-red-500/20 border-red-500/40' },
-  { city: 'Reims', size: 180000, status: 'Inexploité', color: 'bg-green-500/20 border-green-500/40' },
-  { city: 'Strasbourg', size: 290000, status: 'Peu servi', color: 'bg-yellow-500/20 border-yellow-500/40' },
-  { city: 'Nantes', size: 320000, status: 'Peu servi', color: 'bg-yellow-500/20 border-yellow-500/40' },
-  { city: 'Toulouse', size: 500000, status: 'Peu servi', color: 'bg-yellow-500/20 border-yellow-500/40' },
-  { city: 'Bordeaux', size: 260000, status: 'Peu servi', color: 'bg-yellow-500/20 border-yellow-500/40' },
+  { city: 'Paris', size: 2100000, status: 'Saturé', color: 'bg-blue-500/20 border-blue-500/40' },
+  { city: 'Lyon', size: 520000, status: 'Saturé', color: 'bg-blue-500/20 border-blue-500/40' },
+  { city: 'Marseille', size: 870000, status: 'Saturé', color: 'bg-blue-500/20 border-blue-500/40' },
+  { city: 'Reims', size: 180000, status: 'Inexploité', color: 'bg-blue-700/20 border-blue-700/40' },
+  { city: 'Strasbourg', size: 290000, status: 'Peu servi', color: 'bg-blue-400/20 border-blue-400/40' },
+  { city: 'Nantes', size: 320000, status: 'Peu servi', color: 'bg-blue-400/20 border-blue-400/40' },
+  { city: 'Toulouse', size: 500000, status: 'Peu servi', color: 'bg-blue-400/20 border-blue-400/40' },
+  { city: 'Bordeaux', size: 260000, status: 'Peu servi', color: 'bg-blue-400/20 border-blue-400/40' },
 ]
 
 const competitors = [
@@ -65,7 +65,7 @@ const kpis = [
     value: '15M€',
     description: 'TAM français',
     icon: Target,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     label: 'Croissance annuelle',
@@ -122,7 +122,7 @@ const revenueStreams = [
     name: 'Freemium',
     percentage: 40,
     icon: DollarSign,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-800 to-blue-600',
     description: 'Modèle freemium avec fonctionnalités premium',
     details: [
       'Accès gratuit aux fonctionnalités de base',
@@ -184,7 +184,7 @@ const revenueStreams = [
 ]
 
 const getGradientColors = (colorClass: string) => {
-  if (colorClass.includes('purple')) return { start: '#a855f7', end: '#ec4899' }
+  if (colorClass.includes('blue-800')) return { start: '#1e40af', end: '#2563eb' }
   if (colorClass.includes('blue')) return { start: '#3b82f6', end: '#06b6d4' }
   if (colorClass.includes('orange')) return { start: '#f97316', end: '#ef4444' }
   return { start: '#10b981', end: '#34d399' }
@@ -198,7 +198,7 @@ export default function InvestirOpportunitySection() {
   return (
     <section ref={ref} className="relative py-32 bg-white overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-500/3 to-purple-500/3 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -228,7 +228,7 @@ export default function InvestirOpportunitySection() {
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight">
               Notre{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 vision
               </span>
             </h2>
@@ -241,7 +241,7 @@ export default function InvestirOpportunitySection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border-2 border-purple-500/30 rounded-xl p-5 sm:p-6 shadow-xl"
+            className="bg-gradient-to-br from-blue-500/10 to-blue-400/10 border-2 border-blue-800/30 rounded-xl p-5 sm:p-6 shadow-xl"
           >
             <div className="space-y-4">
               <div>
@@ -286,7 +286,7 @@ export default function InvestirOpportunitySection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight"
           >
             Le marché{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
               & l'opportunité
             </span>
           </motion.h2>
@@ -391,7 +391,7 @@ export default function InvestirOpportunitySection() {
             <div>
               <h3 className="text-2xl sm:text-3xl font-light text-gray-900 mb-4">
                 Une opportunité{' '}
-                <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+                <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                   exceptionnelle
                 </span>
               </h3>
@@ -430,10 +430,10 @@ export default function InvestirOpportunitySection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 1 }}
-              className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/30 rounded-xl p-4"
+              className="bg-gradient-to-br from-blue-500/10 to-blue-400/10 border border-blue-800/30 rounded-xl p-4"
             >
               <div className="flex items-center gap-2 mb-3">
-                <Zap className="w-4 h-4 text-purple-600" />
+                <Zap className="w-4 h-4 text-blue-800" />
                 <h4 className="text-base font-light text-gray-900">Avantage concurrentiel</h4>
               </div>
               <p className="text-gray-700 font-light text-xs leading-relaxed">
@@ -453,7 +453,7 @@ export default function InvestirOpportunitySection() {
           <div className="text-center mb-12">
             <h3 className="text-2xl sm:text-3xl font-light text-gray-900 mb-4">
               Pourquoi{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 Yunicity
               </span>
               {' '}se démarque
@@ -496,12 +496,12 @@ export default function InvestirOpportunitySection() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-2 border-purple-500/50 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl"
+            className="bg-gradient-to-br from-blue-500/20 to-blue-400/20 border-2 border-blue-800/50 rounded-2xl p-6 sm:p-8 relative overflow-hidden shadow-xl"
           >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/20 rounded-full blur-3xl -mr-12 -mt-12" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/20 rounded-full blur-3xl -mr-12 -mt-12" />
             <div className="relative">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-800 to-blue-600 flex items-center justify-center">
                   <Award className="w-5 h-5 text-white" />
                 </div>
                 <h4 className="text-xl font-light text-gray-900">Yunicity</h4>
@@ -531,7 +531,7 @@ export default function InvestirOpportunitySection() {
                     transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
                     className="flex items-start gap-2 p-3 bg-white/50 rounded-lg border border-gray-200/50"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-sm text-gray-900 font-medium mb-0.5">{advantage.title}</div>
                       <div className="text-gray-700 text-xs font-light">{advantage.description}</div>
@@ -558,7 +558,7 @@ export default function InvestirOpportunitySection() {
           >
             <h3             className="text-xl sm:text-2xl font-light text-gray-900 mb-3">
               Traction{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 attendue
               </span>
             </h3>
@@ -574,7 +574,7 @@ export default function InvestirOpportunitySection() {
                 label: 'Lancement MVP',
                 metrics: [
                   { label: 'Villes', value: '3', color: 'from-blue-500 to-cyan-500' },
-                  { label: 'Utilisateurs', value: '10K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'Utilisateurs', value: '10K', color: 'from-blue-800 to-blue-600' },
                   { label: 'ARR', value: '50K€', color: 'from-green-500 to-emerald-500' }
                 ]
               },
@@ -583,7 +583,7 @@ export default function InvestirOpportunitySection() {
                 label: 'Expansion régionale',
                 metrics: [
                   { label: 'Villes', value: '10', color: 'from-blue-500 to-cyan-500' },
-                  { label: 'Utilisateurs', value: '50K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'Utilisateurs', value: '50K', color: 'from-blue-800 to-blue-600' },
                   { label: 'ARR', value: '500K€', color: 'from-green-500 to-emerald-500' }
                 ]
               },
@@ -592,7 +592,7 @@ export default function InvestirOpportunitySection() {
                 label: 'Croissance nationale',
                 metrics: [
                   { label: 'Villes', value: '25', color: 'from-blue-500 to-cyan-500' },
-                  { label: 'Utilisateurs', value: '150K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'Utilisateurs', value: '150K', color: 'from-blue-800 to-blue-600' },
                   { label: 'ARR', value: '1.5M€', color: 'from-green-500 to-emerald-500' }
                 ]
               },
@@ -601,7 +601,7 @@ export default function InvestirOpportunitySection() {
                 label: 'Leader français',
                 metrics: [
                   { label: 'Villes', value: '50+', color: 'from-blue-500 to-cyan-500' },
-                  { label: 'Utilisateurs', value: '400K', color: 'from-purple-500 to-pink-500' },
+                  { label: 'Utilisateurs', value: '400K', color: 'from-blue-800 to-blue-600' },
                   { label: 'ARR', value: '5M€', color: 'from-green-500 to-emerald-500' }
                 ]
               }
@@ -649,7 +649,7 @@ export default function InvestirOpportunitySection() {
           >
             <h3             className="text-xl sm:text-2xl font-light text-gray-900 mb-3">
               Pourquoi Yunicity{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 peut scaler
               </span>
             </h3>
@@ -670,7 +670,7 @@ export default function InvestirOpportunitySection() {
                 title: 'Effet réseau local',
                 description: 'Chaque nouvelle ville renforce l\'écosystème. Plus d\'utilisateurs = plus de contenu = plus de valeur pour tous.',
                 icon: Network,
-                color: 'from-purple-500 to-pink-500'
+                color: 'from-blue-800 to-blue-600'
               },
               {
                 title: 'Coûts d\'acquisition faibles',
@@ -732,7 +732,7 @@ export default function InvestirOpportunitySection() {
               className="text-2xl sm:text-3xl font-light text-gray-900 mb-4"
             >
               Business Model{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 Canvas
               </span>
             </motion.h3>
@@ -754,7 +754,7 @@ export default function InvestirOpportunitySection() {
             className="mb-12 bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 sm:p-8 shadow-lg"
           >
             <div className="flex items-center gap-2 mb-6">
-              <PieChart className="w-5 h-5 text-purple-600" />
+              <PieChart className="w-5 h-5 text-blue-800" />
               <h4 className="text-lg font-light text-gray-900">Répartition des revenus</h4>
             </div>
             
@@ -970,8 +970,8 @@ export default function InvestirOpportunitySection() {
                     transition={{ duration: 0.5, delay: 2.6 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-purple-500/10 mb-3">
-                      <Icon className="w-5 h-5 text-purple-600" />
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-blue-500/10 mb-3">
+                      <Icon className="w-5 h-5 text-blue-800" />
                     </div>
                     <div className="text-2xl sm:text-3xl font-light text-gray-900 mb-2">
                       {stat.value}

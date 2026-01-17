@@ -142,7 +142,7 @@ export default function Navigation({ activeSection }: NavigationProps) {
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
             onClick={handleScrollToTop}
-            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 p-2.5 sm:p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white shadow-lg sm:shadow-2xl hover:shadow-purple-500/25 transition-all"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 p-2.5 sm:p-3 bg-blue-800 hover:bg-blue-700 rounded-full text-white shadow-lg sm:shadow-2xl hover:shadow-blue-500/25 transition-all"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             aria-label="Retour en haut"

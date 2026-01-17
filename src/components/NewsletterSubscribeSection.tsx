@@ -211,7 +211,7 @@ export default function NewsletterSubscribeSection() {
               >
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight leading-[1.1]">
                   Rejoignez les{' '}
-                  <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-normal">
+                  <span className="text-blue-800 font-normal">
                     100 premiers testeurs
                   </span>
                 </h2>
@@ -255,7 +255,7 @@ export default function NewsletterSubscribeSection() {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           required
-                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none text-sm"
+                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-2 focus:ring-blue-800/20 transition-all outline-none text-sm"
                           placeholder="Votre nom"
                         />
                       </div>
@@ -269,7 +269,7 @@ export default function NewsletterSubscribeSection() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
-                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all outline-none text-sm"
+                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-2 focus:ring-blue-800/20 transition-all outline-none text-sm"
                           placeholder="votre@email.com"
                         />
                       </div>
@@ -290,7 +290,7 @@ export default function NewsletterSubscribeSection() {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full px-4 py-3 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 hover:from-purple-500 hover:via-blue-500 hover:to-purple-500 text-white font-medium text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full px-4 py-3 bg-blue-800 hover:bg-blue-700 text-white font-medium text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -328,8 +328,8 @@ export default function NewsletterSubscribeSection() {
                   const Icon = benefit.icon
                   return (
                     <div key={index} className="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg">
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4 text-purple-600" />
+                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4 text-blue-800" />
                       </div>
                       <p className="text-xs text-gray-700 font-light">{benefit.text}</p>
                     </div>
@@ -355,7 +355,7 @@ export default function NewsletterSubscribeSection() {
               className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight leading-[1.1]"
             >
               Nos{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 partenaires
               </span>
             </motion.h2>

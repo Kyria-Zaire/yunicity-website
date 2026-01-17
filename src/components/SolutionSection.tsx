@@ -45,28 +45,28 @@ const mvpKPIs = [
     value: '10 000',
     label: 'Utilisateurs dans les 3 premiers mois',
     icon: Users,
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     id: 2,
     value: '3',
     label: 'Villes pilotes',
     icon: MapPin,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     id: 3,
     value: '500',
     label: 'Acteurs locaux référencés',
     icon: Building2,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-blue-700 to-blue-500'
   },
   {
     id: 4,
     value: '3',
     label: 'Fonctionnalités principales',
     icon: Star,
-    color: 'from-orange-500 to-red-500'
+    color: 'from-blue-600 to-blue-400'
   }
 ]
 
@@ -77,8 +77,8 @@ const mainFeatures = [
     title: 'Découverte des événements',
     description: 'Trouvez tous les événements de votre ville en un seul endroit. Concerts, marchés, festivals, conférences... Ne manquez plus rien de ce qui se passe près de chez vous.',
     icon: Calendar,
-    color: 'from-purple-500 to-pink-500',
-    bgColor: 'bg-purple-50',
+    color: 'from-blue-800 to-blue-600',
+    bgColor: 'bg-blue-50',
     mockupImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1000&auto=format&fit=crop',
     benefits: [
       'Événements géolocalisés en temps réel',
@@ -93,7 +93,7 @@ const mainFeatures = [
     title: 'Carte des quartiers',
     description: 'Explorez votre ville comme jamais. Découvrez les commerces, services et points d\'intérêt de chaque quartier avec une carte interactive et intuitive.',
     icon: MapPin,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-blue-800 to-blue-600',
     bgColor: 'bg-blue-50',
     mockupImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1000&auto=format&fit=crop',
     benefits: [
@@ -109,8 +109,8 @@ const mainFeatures = [
     title: 'Actualité locale',
     description: 'Restez informé de tout ce qui se passe dans votre ville. Actualités, initiatives, projets municipaux... Toute l\'info locale vérifiée et centralisée.',
     icon: Globe,
-    color: 'from-green-500 to-emerald-500',
-    bgColor: 'bg-green-50',
+    color: 'from-blue-700 to-blue-500',
+    bgColor: 'bg-blue-50',
     mockupImage: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=1000&auto=format&fit=crop',
     benefits: [
       'Actualités locales en temps réel',
@@ -136,7 +136,7 @@ const mvpSolutions = [
       'Notifications push personnalisées'
     ],
     icon: Star,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     id: 2,
@@ -150,7 +150,7 @@ const mvpSolutions = [
       'Création de lien social authentique'
     ],
     icon: Users,
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     id: 3,
@@ -164,7 +164,7 @@ const mvpSolutions = [
       'Navigation intuitive'
     ],
     icon: MapPin,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-blue-700 to-blue-500'
   }
 ]
 
@@ -213,7 +213,7 @@ const pilotCities = [
       { icon: ShoppingBag, label: 'Commerces locaux', count: 120 },
       { icon: Heart, label: 'Associations', count: 60 }
     ],
-    couleur: 'from-blue-500 to-cyan-500',
+    couleur: 'from-blue-800 to-blue-600',
     image: 'https://images.unsplash.com/photo-1632854270303-f5fdb97b697f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1935'
   },
   {
@@ -231,7 +231,7 @@ const pilotCities = [
       { icon: ShoppingBag, label: 'Commerces locaux', count: 95 },
       { icon: Heart, label: 'Associations', count: 55 }
     ],
-    couleur: 'from-purple-500 to-pink-500',
+    couleur: 'from-blue-800 to-blue-600',
     image: 'https://plus.unsplash.com/premium_photo-1661901917996-4bfa706f84c5?q=80&w=802&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
   },
   {
@@ -249,7 +249,7 @@ const pilotCities = [
       { icon: ShoppingBag, label: 'Commerces locaux', count: 110 },
       { icon: Heart, label: 'Associations', count: 60 }
     ],
-    couleur: 'from-green-500 to-emerald-500',
+    couleur: 'from-blue-700 to-blue-500',
     image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&q=80'
   }
 ]
@@ -300,7 +300,7 @@ const v2KPIs = [
     value: '100 000',
     label: 'Utilisateurs actifs',
     icon: Users,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-blue-800 to-blue-600',
     comparison: '10 000 (MVP)',
     growth: '+900%'
   },
@@ -309,7 +309,7 @@ const v2KPIs = [
     value: '15',
     label: 'Villes françaises',
     icon: MapPin,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-800 to-blue-600',
     comparison: '3 (MVP)',
     growth: '+400%'
   },
@@ -318,7 +318,7 @@ const v2KPIs = [
     value: '5 000',
     label: 'Acteurs locaux',
     icon: Building2,
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-blue-700 to-blue-500',
     comparison: '500 (MVP)',
     growth: '+900%'
   },
@@ -327,7 +327,7 @@ const v2KPIs = [
     value: '65%',
     label: 'Taux d\'engagement',
     icon: TrendingUp,
-    color: 'from-orange-500 to-red-500',
+    color: 'from-blue-600 to-blue-400',
     comparison: '40% (MVP)',
     growth: '+62.5%'
   }
@@ -370,7 +370,7 @@ const v3KPIs = [
     value: '1 million',
     label: 'Utilisateurs',
     icon: Users,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-blue-800 to-blue-600',
     comparison: '100 000 (V2)',
     growth: '+900%'
   },
@@ -379,7 +379,7 @@ const v3KPIs = [
     value: '50+',
     label: 'Villes françaises',
     icon: MapPin,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-800 to-blue-600',
     comparison: '15 (V2)',
     growth: '+233%'
   },
@@ -388,7 +388,7 @@ const v3KPIs = [
     value: '50 000',
     label: 'Acteurs locaux',
     icon: Building2,
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-blue-700 to-blue-500',
     comparison: '5 000 (V2)',
     growth: '+900%'
   },
@@ -397,7 +397,7 @@ const v3KPIs = [
     value: '-30%',
     label: 'Isolement urbain',
     icon: TrendingDown,
-    color: 'from-orange-500 to-red-500',
+    color: 'from-blue-600 to-blue-400',
     comparison: 'Impact mesuré',
     growth: 'Réduction'
   }
@@ -410,7 +410,7 @@ const v3Features = [
     title: 'IA prédictive',
     description: 'Prédiction d\'événements, trafic et affluence en temps réel',
     icon: Brain,
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-800 to-blue-600',
     details: ['Prédictions d\'événements', 'Optimisation du trafic', 'Gestion de l\'affluence']
   },
   {
@@ -418,7 +418,7 @@ const v3Features = [
     title: 'IoT intégré',
     description: 'Données capteurs pour qualité air, bruit et trafic',
     icon: Wifi,
-    color: 'from-blue-500 to-cyan-500',
+    color: 'from-blue-800 to-blue-600',
     details: ['Capteurs environnementaux', 'Données en temps réel', 'Monitoring continu']
   },
   {
@@ -426,7 +426,7 @@ const v3Features = [
     title: 'Blockchain',
     description: 'Transparence des données publiques et tokens locaux',
     icon: Link2,
-    color: 'from-green-500 to-emerald-500',
+    color: 'from-blue-700 to-blue-500',
     details: ['Données décentralisées', 'Tokens locaux', 'Transparence totale']
   },
   {
@@ -434,7 +434,7 @@ const v3Features = [
     title: 'AR/VR',
     description: 'Visites virtuelles et réalité augmentée pour navigation',
     icon: Eye,
-    color: 'from-orange-500 to-red-500',
+    color: 'from-blue-600 to-blue-400',
     details: ['Visites immersives', 'Navigation AR', 'Expériences 3D']
   },
   {
@@ -442,7 +442,7 @@ const v3Features = [
     title: 'Gouvernance participative',
     description: 'Votes citoyens et budgets participatifs intégrés',
     icon: Vote,
-    color: 'from-indigo-500 to-purple-500',
+    color: 'from-blue-800 to-blue-600',
     details: ['Votes en ligne', 'Budgets participatifs', 'Décisions collectives']
     },
   {
@@ -450,7 +450,7 @@ const v3Features = [
     title: 'Mobilité intelligente',
     description: 'Optimisation des transports et covoiturage connecté',
     icon: Car,
-    color: 'from-teal-500 to-cyan-500',
+    color: 'from-blue-600 to-blue-400',
     details: ['Optimisation trafic', 'Covoiturage intelligent', 'Transports adaptatifs']
   }
   ]
@@ -503,7 +503,7 @@ function SolutionHeroSection() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effects très subtils */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-200/20 to-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
       <div
@@ -531,7 +531,7 @@ function SolutionHeroSection() {
             className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight leading-[1.1]"
           >
             L'évolution de{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent font-normal">
               Yunicity
             </span>
           </motion.h1>
@@ -570,7 +570,7 @@ function SolutionHeroSection() {
             className="bg-white/80 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-gray-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-md">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-800 to-blue-600 text-white shadow-md">
                 <Users className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
               <div>
@@ -588,7 +588,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '10%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.2 }}
@@ -603,7 +603,7 @@ function SolutionHeroSection() {
                       </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-800 to-blue-600 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '100%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.4 }}
@@ -615,8 +615,8 @@ function SolutionHeroSection() {
             {/* Croissance */}
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-                <span className="text-xs sm:text-sm font-medium text-green-600">+9 900%</span>
+                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-blue-700">+9 900%</span>
               </div>
             </div>
           </motion.div>
@@ -629,7 +629,7 @@ function SolutionHeroSection() {
             className="bg-white/80 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-gray-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 text-white shadow-md">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-800 to-blue-600 text-white shadow-md">
                 <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
               <div>
@@ -647,7 +647,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                               <motion.div
-                    className="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '12%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.3 }}
@@ -662,7 +662,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-800 to-blue-600 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '100%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.5 }}
@@ -674,8 +674,8 @@ function SolutionHeroSection() {
             {/* Croissance */}
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-                <span className="text-xs sm:text-sm font-medium text-green-600">+1 567%</span>
+                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-blue-700">+1 567%</span>
               </div>
                                 </div>
                               </motion.div>
@@ -688,7 +688,7 @@ function SolutionHeroSection() {
             className="bg-white/80 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-gray-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-md">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 text-white shadow-md">
                 <Star className="w-5 h-5 sm:w-6 sm:h-6" />
                             </div>
               <div>
@@ -706,7 +706,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                               <motion.div
-                    className="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '21%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.4 }}
@@ -721,7 +721,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-800 to-blue-600 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '100%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.6 }}
@@ -733,8 +733,8 @@ function SolutionHeroSection() {
             {/* Croissance */}
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-                <span className="text-xs sm:text-sm font-medium text-green-600">+367%</span>
+                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-blue-700">+367%</span>
               </div>
             </div>
           </motion.div>
@@ -747,7 +747,7 @@ function SolutionHeroSection() {
             className="bg-white/80 backdrop-blur-xl rounded-xl sm:rounded-2xl border border-gray-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 text-white shadow-md">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 text-white shadow-md">
                 <Activity className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
@@ -765,7 +765,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '40%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.5 }}
@@ -780,7 +780,7 @@ function SolutionHeroSection() {
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-800 to-blue-600 rounded-full"
                     initial={{ width: 0 }}
                     animate={isInView ? { width: '85%' } : { width: 0 }}
                     transition={{ duration: 1, delay: 1.7 }}
@@ -792,8 +792,8 @@ function SolutionHeroSection() {
             {/* Croissance */}
             <div className="mt-4 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-2">
-                <TrendingUp className="w-4 h-4 text-green-500" />
-                <span className="text-xs sm:text-sm font-medium text-green-600">+113%</span>
+                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <span className="text-xs sm:text-sm font-medium text-blue-700">+113%</span>
               </div>
                                 </div>
                               </motion.div>
@@ -814,7 +814,7 @@ function SolutionHeroSection() {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-blue-800 to-blue-700 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
             {/* Effet de brillance au hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -834,7 +834,7 @@ function SolutionHeroSection() {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-blue-800 to-blue-700 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
             {/* Effet de brillance au hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -854,7 +854,7 @@ function SolutionHeroSection() {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-blue-800 to-blue-700 text-white rounded-xl sm:rounded-2xl font-light text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
             {/* Effet de brillance au hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -887,7 +887,7 @@ function MVPSection() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effect subtil */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 to-blue-300/10 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
       <div
@@ -913,7 +913,7 @@ function MVPSection() {
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, delay: 0.2, type: 'spring' }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6"
         >
             <Calendar className="w-4 h-4" />
             <span>Lancement : Juillet 2026</span>
@@ -947,13 +947,13 @@ function MVPSection() {
         >
           <div className="relative max-w-4xl mx-auto">
             {/* Ligne de timeline */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 transform -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 transform -translate-y-1/2" />
             
             {/* Point de lancement */}
             <div className="relative flex items-center justify-center">
               <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-500 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-xl sm:text-2xl font-light text-blue-600 mb-0.5">Juillet 2026</div>
+                  <div className="text-xl sm:text-2xl font-light text-blue-800 mb-0.5">Juillet 2026</div>
                   <div className="text-xs sm:text-sm text-gray-600">Lancement MVP</div>
                             </div>
                           </div>
@@ -1078,10 +1078,10 @@ function MVPSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 2 }}
-          className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6"
+          className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6"
         >
           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-            <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
+            <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-800" />
             <h3 className="text-lg sm:text-xl font-light text-gray-900">
               Villes pilotes
             </h3>
@@ -1266,17 +1266,17 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
   const [sliderPosition, setSliderPosition] = useState(50)
 
   const mvpFeatures = [
-    { icon: Star, label: 'Hub Info', color: 'text-purple-500' },
-    { icon: Users, label: 'Communauté', color: 'text-blue-500' },
-    { icon: MapPin, label: 'Carte 3D', color: 'text-green-500' }
+    { icon: Star, label: 'Hub Info', color: 'text-blue-800' },
+    { icon: Users, label: 'Communauté', color: 'text-blue-800' },
+    { icon: MapPin, label: 'Carte 3D', color: 'text-blue-600' }
   ]
 
   const v2NewFeatures = [
-    { icon: Brain, label: 'IA Recommandations', color: 'text-purple-600', highlight: true },
-    { icon: MessageSquare, label: 'Chatbot', color: 'text-blue-600', highlight: true },
-    { icon: BarChart3, label: 'Analytics', color: 'text-green-600', highlight: true },
-    { icon: Award, label: 'Gamification', color: 'text-orange-600', highlight: true },
-    { icon: CreditCard, label: 'Paiements', color: 'text-indigo-600', highlight: true }
+    { icon: Brain, label: 'IA Recommandations', color: 'text-blue-800', highlight: true },
+    { icon: MessageSquare, label: 'Chatbot', color: 'text-blue-800', highlight: true },
+    { icon: BarChart3, label: 'Analytics', color: 'text-blue-700', highlight: true },
+    { icon: Award, label: 'Gamification', color: 'text-blue-600', highlight: true },
+    { icon: CreditCard, label: 'Paiements', color: 'text-blue-600', highlight: true }
   ]
 
   return (
@@ -1296,12 +1296,12 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
           <div className="relative h-[500px] sm:h-[550px] md:h-[600px]">
             {/* MVP Side (Left) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl overflow-hidden"
+              className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col">
                 <div className="mb-3 sm:mb-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium mb-3">
                     <Calendar className="w-3 h-3" />
                     <span>MVP - Juillet 2026</span>
                 </div>
@@ -1327,12 +1327,12 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
 
             {/* V2 Side (Right) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden"
+              className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl overflow-hidden"
               style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col">
                 <div className="mb-3 sm:mb-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium mb-3">
                     <Zap className="w-3 h-3" />
                     <span>V2 - 2027-2028</span>
                   </div>
@@ -1357,12 +1357,12 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
                             initial={{ opacity: 0, x: -10 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                             transition={{ duration: 0.3, delay: 1.2 + idx * 0.1 }}
-                            className={`flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-purple-50 to-pink-50 border border-purple-200' : 'bg-gray-50'} rounded-lg`}
+                            className={`flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-blue-50 to-blue-50 border border-blue-200' : 'bg-gray-50'} rounded-lg`}
               >
                             <feature.icon className={`w-4 h-4 sm:w-5 sm:h-5 ${feature.color}`} />
                             <span className="text-xs sm:text-sm text-gray-700 font-light flex-1">{feature.label}</span>
                             {feature.highlight && (
-                              <span className="ml-auto px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-[9px] sm:text-[10px] font-medium whitespace-nowrap">
+                              <span className="ml-auto px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-[9px] sm:text-[10px] font-medium whitespace-nowrap">
                                 Nouveau
                               </span>
                             )}
@@ -1377,11 +1377,11 @@ function ComparisonSection({ isInView }: { isInView: boolean }) {
 
             {/* Slider Divider */}
             <div
-              className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-pink-500 z-10 cursor-ew-resize"
+              className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-blue-800 to-blue-600 z-10 cursor-ew-resize"
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-2 border-purple-500 shadow-lg flex items-center justify-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full border-2 border-blue-800 shadow-lg flex items-center justify-center">
+                <div className="w-2 h-2 bg-blue-500 rounded-full" />
               </div>
             </div>
 
@@ -1428,7 +1428,7 @@ function V2Section() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effect subtil */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 to-blue-300/10 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
         <div
@@ -1454,7 +1454,7 @@ function V2Section() {
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, delay: 0.2, type: 'spring' }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6"
           >
             <Calendar className="w-4 h-4" />
             <span>12-18 mois après MVP</span>
@@ -1488,19 +1488,19 @@ function V2Section() {
         >
           <div className="relative max-w-4xl mx-auto">
             {/* Ligne de timeline */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transform -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 transform -translate-y-1/2" />
             
             {/* Points de timeline */}
             <div className="relative flex items-center justify-between">
               <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-500 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-light text-blue-600 mb-0.5">Juillet 2026</div>
+                  <div className="text-lg sm:text-xl font-light text-blue-800 mb-0.5">Juillet 2026</div>
                   <div className="text-xs sm:text-sm text-gray-600">MVP</div>
                 </div>
               </div>
-              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-purple-500 shadow-md sm:shadow-lg">
+              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-800 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-light text-purple-600 mb-0.5">2027-2028</div>
+                  <div className="text-lg sm:text-xl font-light text-blue-800 mb-0.5">2027-2028</div>
                   <div className="text-xs sm:text-sm text-gray-600">V2</div>
                 </div>
               </div>
@@ -1566,7 +1566,7 @@ function V2Section() {
               transition={{ duration: 0.5, delay: 2.1 }}
               className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300"
           >
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 text-white mb-3">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-800 to-blue-600 text-white mb-3">
                 <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
               
@@ -1580,19 +1580,19 @@ function V2Section() {
               
               <ul className="space-y-1.5 sm:space-y-2">
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Profil optimisé avec photos et horaires</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Analytics détaillées sur votre audience</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Paiement intégré pour réservations</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Promotions ciblées vers les habitants</span>
                 </li>
               </ul>
@@ -1605,7 +1605,7 @@ function V2Section() {
               transition={{ duration: 0.5, delay: 2.2 }}
               className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-pink-500 to-orange-500 text-white mb-3">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 text-white mb-3">
                 <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
         </div>
               
@@ -1619,19 +1619,19 @@ function V2Section() {
               
               <ul className="space-y-1.5 sm:space-y-2">
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Création et promotion d'événements</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Gestion des inscriptions en ligne</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Communication directe avec les membres</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Statistiques d'engagement et participation</span>
                 </li>
               </ul>
@@ -1644,7 +1644,7 @@ function V2Section() {
               transition={{ duration: 0.5, delay: 2.3 }}
               className="bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 p-4 sm:p-5 shadow-sm hover:shadow-md transition-all duration-300"
             >
-              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-green-500 to-cyan-500 text-white mb-3">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-400 text-white mb-3">
                 <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               
@@ -1658,19 +1658,19 @@ function V2Section() {
               
               <ul className="space-y-1.5 sm:space-y-2">
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Communication directe avec les habitants</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Diffusion d'annonces et actualités municipales</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Dashboard de données locales en temps réel</span>
                 </li>
                 <li className="flex items-start gap-1.5 sm:gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                   <span className="text-[10px] sm:text-xs text-gray-600 font-light">Gouvernance participative et consultations</span>
                 </li>
               </ul>
@@ -1720,26 +1720,23 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
   const [sliderPosition, setSliderPosition] = useState(50)
 
   const v2BaseFeatures = [
-    { icon: Star, label: 'Hub Info', color: 'text-purple-500' },
-    { icon: Users, label: 'Communauté', color: 'text-blue-500' },
-    { icon: MapPin, label: 'Carte 3D', color: 'text-green-500' }
+    { icon: Star, label: 'Hub Info', color: 'text-blue-800' },
+    { icon: Users, label: 'Communauté', color: 'text-blue-800' },
+    { icon: MapPin, label: 'Carte 3D', color: 'text-blue-600' }
   ]
 
   const v2NewFeatures = [
-    { icon: Brain, label: 'IA Recommandations', color: 'text-purple-600' },
-    { icon: MessageSquare, label: 'Chatbot', color: 'text-blue-600' },
-    { icon: BarChart3, label: 'Analytics', color: 'text-green-600' },
-    { icon: Award, label: 'Gamification', color: 'text-orange-600' },
-    { icon: CreditCard, label: 'Paiements', color: 'text-indigo-600' }
+    { icon: Brain, label: 'IA Recommandations', color: 'text-blue-800' },
+    { icon: MessageSquare, label: 'Chatbot', color: 'text-blue-800' },
+    { icon: BarChart3, label: 'Analytics', color: 'text-blue-700' },
+    { icon: Award, label: 'Gamification', color: 'text-blue-600' },
+    { icon: CreditCard, label: 'Paiements', color: 'text-blue-600' }
   ]
 
   const colorMap: Record<string, string> = {
-    'from-purple-500 to-pink-500': 'text-purple-700',
-    'from-blue-500 to-cyan-500': 'text-blue-700',
-    'from-green-500 to-emerald-500': 'text-green-700',
-    'from-orange-500 to-red-500': 'text-orange-700',
-    'from-indigo-500 to-purple-500': 'text-indigo-700',
-    'from-teal-500 to-cyan-500': 'text-cyan-700'
+    'from-blue-800 to-blue-600': 'text-blue-800',
+    'from-blue-700 to-blue-500': 'text-blue-700',
+    'from-blue-600 to-blue-400': 'text-blue-600'
   }
 
   const v3NewFeatures = v3Features.map((feature) => ({
@@ -1766,12 +1763,12 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
           <div className="relative h-[450px] sm:h-[550px] md:h-[650px]">
             {/* V2 Side (Left) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden pointer-events-none"
+              className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl overflow-hidden pointer-events-none"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col pointer-events-auto">
                 <div className="mb-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium mb-3">
                     <Zap className="w-3 h-3" />
                     <span>V2 - 2027-2028</span>
                   </div>
@@ -1805,12 +1802,12 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
 
             {/* V3 Side (Right) */}
             <div 
-              className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-purple-50 to-pink-50 rounded-xl overflow-hidden pointer-events-none"
+              className="absolute inset-0 bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl overflow-hidden pointer-events-none"
               style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}
             >
               <div className="h-full p-4 sm:p-6 flex flex-col pointer-events-auto">
                 <div className="mb-4">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-cyan-100 to-purple-100 text-cyan-700 rounded-full text-xs font-medium mb-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 rounded-full text-xs font-medium mb-3">
                     <Sparkles className="w-3 h-3" />
                     <span>V3 - 2029</span>
                   </div>
@@ -1837,8 +1834,8 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
                         ))}
                       </div>
                     </div>
-                    <div className="pt-2 border-t border-cyan-200">
-                      <div className="text-xs text-cyan-600 font-medium mb-2">Nouvelles fonctionnalités Smart City</div>
+                    <div className="pt-2 border-t border-blue-200">
+                      <div className="text-xs text-blue-600 font-medium mb-2">Nouvelles fonctionnalités Smart City</div>
                       <div className="space-y-2">
                         {v3NewFeatures.map((feature, idx) => (
                           <motion.div
@@ -1846,12 +1843,12 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
                             initial={{ opacity: 0, x: -10 }}
                             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                             transition={{ duration: 0.3, delay: 1.3 + idx * 0.1 }}
-                            className={`flex items-center gap-3 p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-cyan-50 to-purple-50 border border-cyan-200' : 'bg-gray-50'} rounded-lg`}
+                            className={`flex items-center gap-3 p-2.5 bg-gradient-to-r ${feature.highlight ? 'from-blue-50 to-blue-50 border border-blue-200' : 'bg-gray-50'} rounded-lg`}
                           >
                             <feature.icon className={`w-4 h-4 ${feature.color}`} />
                             <span className="text-xs text-gray-700 font-light flex-1">{feature.label}</span>
                             {feature.highlight && (
-                              <span className="ml-auto px-2 py-0.5 bg-cyan-100 text-cyan-700 rounded-full text-[10px] font-medium">
+                              <span className="ml-auto px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-[10px] font-medium">
                                 Nouveau
                               </span>
                             )}
@@ -1866,11 +1863,11 @@ function V2V3ComparisonSection({ isInView }: { isInView: boolean }) {
 
             {/* Slider Divider */}
             <div
-              className="absolute top-0 bottom-0 w-1 sm:w-1.5 bg-gradient-to-b from-purple-500 to-cyan-500 z-10 cursor-ew-resize pointer-events-auto"
+              className="absolute top-0 bottom-0 w-1 sm:w-1.5 bg-gradient-to-b from-blue-800 to-blue-600 z-10 cursor-ew-resize pointer-events-auto"
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full border-2 border-cyan-500 shadow-lg flex items-center justify-center">
-                <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-cyan-500 rounded-full" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full border-2 border-blue-600 shadow-lg flex items-center justify-center">
+                <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-blue-600 rounded-full" />
               </div>
             </div>
 
@@ -1964,7 +1961,7 @@ function V3Section() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effect futuriste */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-500/10 to-blue-300/10 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
         <div
@@ -1990,7 +1987,7 @@ function V3Section() {
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
             transition={{ duration: 0.5, delay: 0.2, type: 'spring' }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-100 to-purple-100 text-cyan-700 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-100 to-blue-50 text-blue-800 rounded-full text-sm font-medium mb-6"
         >
             <Sparkles className="w-4 h-4" />
             <span>3 ans après MVP</span>
@@ -2024,25 +2021,25 @@ function V3Section() {
         >
           <div className="relative max-w-5xl mx-auto">
             {/* Ligne de timeline */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 transform -translate-y-1/2" />
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 transform -translate-y-1/2" />
             
             {/* Points de timeline */}
             <div className="relative flex items-center justify-between">
               <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-500 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-light text-blue-600 mb-0.5">Juillet 2026</div>
+                  <div className="text-lg sm:text-xl font-light text-blue-800 mb-0.5">Juillet 2026</div>
                   <div className="text-xs sm:text-sm text-gray-600">MVP</div>
                 </div>
               </div>
-              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-purple-500 shadow-md sm:shadow-lg">
+              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-800 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-light text-purple-600 mb-0.5">2027-2028</div>
+                  <div className="text-lg sm:text-xl font-light text-blue-800 mb-0.5">2027-2028</div>
                   <div className="text-xs sm:text-sm text-gray-600">V2</div>
                 </div>
               </div>
-              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-cyan-500 shadow-md sm:shadow-lg">
+              <div className="relative z-10 bg-white p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 border-blue-600 shadow-md sm:shadow-lg">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-light text-cyan-600 mb-0.5">2029-2030</div>
+                  <div className="text-lg sm:text-xl font-light text-blue-600 mb-0.5">2029-2030</div>
                   <div className="text-xs sm:text-sm text-gray-600">V3</div>
                 </div>
               </div>
@@ -2135,7 +2132,7 @@ function V3Section() {
           className="mb-8 sm:mb-10 md:mb-12"
         >
           <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 justify-center">
-            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-600" />
+            <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
             <h3 className="text-xl sm:text-2xl font-light text-gray-900">
               Vision 2030 - Une journée dans la Smart City
             </h3>
@@ -2148,14 +2145,14 @@ function V3Section() {
               <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200/50 rounded-full transform -translate-y-1/2" />
               
               {/* Ligne de progression */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-full transform -translate-y-1/2" />
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-800 via-blue-600 to-blue-500 rounded-full transform -translate-y-1/2" />
               
               {/* Points de timeline */}
               {[
-                { time: '07h00', label: 'Matin', icon: Sun, color: 'from-orange-500 to-amber-500', bgColor: 'from-orange-50 to-amber-50' },
-                { time: '09h00', label: 'Transport', icon: Car, color: 'from-blue-500 to-cyan-500', bgColor: 'from-blue-50 to-cyan-50' },
-                { time: '14h00', label: 'Gouvernance', icon: Vote, color: 'from-purple-500 to-indigo-500', bgColor: 'from-purple-50 to-indigo-50' },
-                { time: '20h00', label: 'Soirée', icon: Network, color: 'from-pink-500 to-rose-500', bgColor: 'from-pink-50 to-rose-50' }
+                { time: '07h00', label: 'Matin', icon: Sun, color: 'from-blue-700 to-blue-500', bgColor: 'from-blue-50 to-blue-100' },
+                { time: '09h00', label: 'Transport', icon: Car, color: 'from-blue-800 to-blue-600', bgColor: 'from-blue-50 to-blue-100' },
+                { time: '14h00', label: 'Gouvernance', icon: Vote, color: 'from-blue-800 to-blue-600', bgColor: 'from-blue-50 to-blue-50' },
+                { time: '20h00', label: 'Soirée', icon: Network, color: 'from-blue-600 to-blue-400', bgColor: 'from-blue-50 to-blue-100' }
               ].map((point, index) => (
                 <div
                   key={index}
@@ -2193,14 +2190,14 @@ function V3Section() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 2.2 }}
-              className="bg-gradient-to-br from-orange-50 via-yellow-50 to-amber-50 rounded-xl sm:rounded-2xl border border-orange-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+              className="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
             >
               {/* Effet de lumière animé */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-700 to-blue-500 text-white shadow-lg">
                     <Sun className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
                   <div>
@@ -2217,15 +2214,15 @@ function V3Section() {
                 
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Qualité de l'air en temps réel</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Optimisation automatique du trajet</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-orange-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Suggestions d'événements personnalisés</span>
                   </li>
                 </ul>
@@ -2237,13 +2234,13 @@ function V3Section() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 2.3 }}
-              className="bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+              className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-300/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-800 to-blue-600 text-white shadow-lg">
                     <Car className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
                   <div>
@@ -2260,15 +2257,15 @@ function V3Section() {
                 
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Covoiturage intelligent avec matching IA</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Navigation AR en temps réel</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Optimisation du trafic en temps réel</span>
                   </li>
                 </ul>
@@ -2280,13 +2277,13 @@ function V3Section() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 2.4 }}
-              className="bg-gradient-to-br from-purple-50 via-indigo-50 to-violet-50 rounded-xl sm:rounded-2xl border border-purple-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+              className="bg-gradient-to-br from-blue-50 to-blue-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-300/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-500 text-white shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-800 to-blue-600 text-white shadow-lg">
                     <Vote className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
                   <div>
@@ -2303,15 +2300,15 @@ function V3Section() {
                 
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Votes en ligne sécurisés par blockchain</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Budgets participatifs transparents</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-purple-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-800 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Consultations publiques digitales</span>
                   </li>
                 </ul>
@@ -2323,13 +2320,13 @@ function V3Section() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 2.5 }}
-              className="bg-gradient-to-br from-pink-50 via-rose-50 to-fuchsia-50 rounded-xl sm:rounded-2xl border border-pink-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
+              className="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl sm:rounded-2xl border border-blue-200/50 p-4 sm:p-6 shadow-sm hover:shadow-lg transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
               
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 text-white shadow-lg">
+                  <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-blue-600 to-blue-400 text-white shadow-lg">
                     <Network className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
                   <div>
@@ -2346,15 +2343,15 @@ function V3Section() {
                 
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Réseau social local intelligent</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Recommandations d'événements par IA</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-pink-500 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                     <span className="text-[10px] sm:text-xs text-gray-600 font-light">Écosystème de 50 000+ acteurs locaux</span>
                   </li>
                 </ul>
@@ -2392,7 +2389,7 @@ function MainFeaturesSection() {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight leading-[1.1]"
           >
             Découvrez{' '}
-            <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent font-normal">
               Yunicity
             </span>
           </motion.h2>
@@ -2427,10 +2424,10 @@ function MainFeaturesSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.2 }}
-                    className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 border border-purple-200"
+                    className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-200"
                   >
-                    <Sparkles className="w-4 h-4 text-purple-600" />
-                    <span className="text-xs sm:text-sm font-medium text-purple-700">
+                    <Sparkles className="w-4 h-4 text-blue-800" />
+                    <span className="text-xs sm:text-sm font-medium text-blue-800">
                       {feature.unique}
                     </span>
                   </motion.div>

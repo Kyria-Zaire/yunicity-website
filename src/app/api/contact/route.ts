@@ -50,9 +50,7 @@ export async function POST(request: Request) {
       { status: 201 }
     )
 
-  } catch (error) {
-    console.error('Erreur envoi contact:', error)
-    
+  } catch {
     return NextResponse.json(
       { error: 'Erreur lors de l\'envoi du message' },
       { status: 500 }

@@ -23,7 +23,7 @@ const techStack = [
       { name: 'Next.js', level: 'Confirmé', color: 'from-gray-700 to-black' },
       { name: 'TypeScript', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
       { name: 'Tailwind CSS', level: 'Confirmé', color: 'from-cyan-500 to-blue-500' },
-      { name: 'Framer Motion', level: 'Avancé', color: 'from-purple-500 to-pink-500' }
+      { name: 'Framer Motion', level: 'Avancé', color: 'from-blue-800 to-blue-600' }
     ],
     icon: Smartphone,
     description: 'Interfaces utilisateur modernes et performantes'
@@ -31,10 +31,10 @@ const techStack = [
   {
     category: 'Backend',
     technologies: [
-      { name: 'Node.js', level: 'Confirmé', color: 'from-green-500 to-emerald-500' },
+      { name: 'Node.js', level: 'Confirmé', color: 'from-blue-700 to-blue-500' },
       { name: 'PostgreSQL', level: 'Avancé', color: 'from-blue-600 to-indigo-600' },
-      { name: 'REST API', level: 'Confirmé', color: 'from-orange-500 to-red-500' },
-      { name: 'GraphQL', level: 'Intermédiaire', color: 'from-pink-500 to-purple-500' },
+      { name: 'REST API', level: 'Confirmé', color: 'from-blue-600 to-blue-400' },
+      { name: 'GraphQL', level: 'Intermédiaire', color: 'from-blue-800 to-blue-600' },
       { name: 'WebSocket', level: 'Avancé', color: 'from-cyan-500 to-blue-500' }
     ],
     icon: Database,
@@ -43,9 +43,9 @@ const techStack = [
   {
     category: 'Cloud & DevOps',
     technologies: [
-      { name: 'AWS', level: 'Avancé', color: 'from-orange-500 to-yellow-500' },
+      { name: 'AWS', level: 'Avancé', color: 'from-blue-600 to-blue-400' },
       { name: 'Docker', level: 'Avancé', color: 'from-blue-500 to-cyan-500' },
-      { name: 'CI/CD', level: 'Confirmé', color: 'from-green-500 to-emerald-500' },
+      { name: 'CI/CD', level: 'Confirmé', color: 'from-blue-700 to-blue-500' },
       { name: 'Kubernetes', level: 'Intermédiaire', color: 'from-blue-600 to-indigo-600' }
     ],
     icon: Cloud,
@@ -54,10 +54,10 @@ const techStack = [
   {
     category: 'Design & UX',
     technologies: [
-      { name: 'Figma', level: 'Confirmé', color: 'from-purple-500 to-pink-500' },
+      { name: 'Figma', level: 'Confirmé', color: 'from-blue-800 to-blue-600' },
       { name: 'Design System', level: 'Confirmé', color: 'from-blue-500 to-cyan-500' },
-      { name: 'Prototypage', level: 'Avancé', color: 'from-orange-500 to-red-500' },
-      { name: 'User Research', level: 'Avancé', color: 'from-green-500 to-emerald-500' }
+      { name: 'Prototypage', level: 'Avancé', color: 'from-blue-600 to-blue-400' },
+      { name: 'User Research', level: 'Avancé', color: 'from-blue-700 to-blue-500' }
     ],
     icon: Palette,
     description: 'Expériences utilisateur exceptionnelles'
@@ -70,7 +70,7 @@ const expertiseAreas = [
     description: 'Création d\'expériences utilisateur intuitives et engageantes',
     skills: ['Design Thinking', 'User Research', 'Prototypage', 'Design System'],
     icon: Palette,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     title: 'Development Full-Stack',
@@ -84,14 +84,14 @@ const expertiseAreas = [
     description: 'Gestion financière rigoureuse et stratégie de croissance',
     skills: ['Comptabilité', 'Finance', 'Stratégie', 'Conformité'],
     icon: BarChart3,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-blue-700 to-blue-500'
   },
   {
     title: 'Growth & Community',
     description: 'Développement de communauté et stratégies de croissance',
     skills: ['Growth Hacking', 'Community Management', 'Social Media', 'Engagement'],
     icon: Users,
-    color: 'from-orange-500 to-red-500'
+    color: 'from-blue-600 to-blue-400'
   }
 ]
 
@@ -100,19 +100,19 @@ const coreCompetencies = [
     title: 'Scalabilité',
     description: 'Architecture conçue pour croître avec votre communauté',
     icon: Rocket,
-    color: 'from-purple-500 to-blue-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     title: 'Performance',
     description: 'Applications rapides et optimisées pour une expérience fluide',
     icon: Zap,
-    color: 'from-yellow-500 to-orange-500'
+    color: 'from-blue-500 to-blue-300'
   },
   {
     title: 'Sécurité',
     description: 'Protection des données et respect de la vie privée',
     icon: Shield,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-blue-700 to-blue-500'
   },
   {
     title: 'Innovation',
@@ -129,11 +129,11 @@ export default function EquipeTeamSection() {
   const getLevelColor = (level: string) => {
     switch (level) {
       case 'Confirmé':
-        return 'bg-green-100 text-green-700 border-green-300/50'
+        return 'bg-blue-100 text-blue-700 border-blue-300/50'
       case 'Avancé':
         return 'bg-blue-100 text-blue-700 border-blue-300/50'
       case 'Intermédiaire':
-        return 'bg-yellow-100 text-yellow-700 border-yellow-300/50'
+        return 'bg-blue-100 text-blue-700 border-blue-300/50'
       default:
         return 'bg-gray-100 text-gray-700 border-gray-300/50'
     }
@@ -142,7 +142,7 @@ export default function EquipeTeamSection() {
   return (
     <section ref={ref} data-section="equipe-team" className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-purple-200/20 to-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -171,7 +171,7 @@ export default function EquipeTeamSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight"
           >
             Expertise &{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+            <span className="text-blue-800 font-normal">
               Compétences
             </span>
           </motion.h2>

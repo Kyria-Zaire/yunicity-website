@@ -14,9 +14,9 @@ const problemes = [
     stat: '85%',
     statLabel: 'des Français cherchent des infos locales sur leur téléphone',
     icon: Smartphone,
-    color: 'from-red-500 to-orange-500',
-    bgColor: 'bg-red-500/10',
-    borderColor: 'border-red-500/20'
+    color: 'from-blue-700 to-blue-500',
+    bgColor: 'bg-blue-500/10',
+    borderColor: 'border-blue-500/20'
   },
   {
     id: 2,
@@ -27,9 +27,9 @@ const problemes = [
     stat: '50%',
     statLabel: 'des Français se sentent déconnectés de leur ville',
     icon: Users,
-    color: 'from-orange-500 to-yellow-500',
-    bgColor: 'bg-orange-500/10',
-    borderColor: 'border-orange-500/20'
+    color: 'from-blue-600 to-blue-400',
+    bgColor: 'bg-blue-400/10',
+    borderColor: 'border-blue-400/20'
   },
   {
     id: 3,
@@ -40,9 +40,9 @@ const problemes = [
     stat: '70%',
     statLabel: 'des acteurs locaux manquent de visibilité numérique',
     icon: MessageSquare,
-    color: 'from-yellow-500 to-amber-500',
-    bgColor: 'bg-yellow-500/10',
-    borderColor: 'border-yellow-500/20'
+    color: 'from-blue-500 to-blue-300',
+    bgColor: 'bg-blue-300/10',
+    borderColor: 'border-blue-300/20'
   },
   {
     id: 4,
@@ -53,9 +53,9 @@ const problemes = [
     stat: '68%',
     statLabel: 'veulent participer davantage mais ne savent pas comment',
     icon: Calendar,
-    color: 'from-amber-500 to-red-500',
-    bgColor: 'bg-amber-500/10',
-    borderColor: 'border-amber-500/20'
+    color: 'from-blue-400 to-blue-600',
+    bgColor: 'bg-blue-400/10',
+    borderColor: 'border-blue-400/20'
   }
 ]
 
@@ -128,9 +128,9 @@ const yunicitySolutions = [
         title: "Événements locaux ce week-end",
         description: "15 événements trouvés dans votre ville",
         icon: Calendar,
-        color: "text-green-600",
-        bgColor: "bg-green-50",
-        borderColor: "border-green-200"
+        color: "text-blue-700",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       },
       {
         title: "Marché de Noël - Centre-ville",
@@ -144,9 +144,9 @@ const yunicitySolutions = [
         title: "Concert de jazz - Médiathèque",
         description: "Dimanche 16h • Entrée gratuite",
         icon: Music,
-        color: "text-purple-600",
-        bgColor: "bg-purple-50",
-        borderColor: "border-purple-200"
+        color: "text-blue-800",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       }
     ],
     suggestions: [
@@ -162,9 +162,9 @@ const yunicitySolutions = [
         title: "Groupes de quartier actifs",
         description: "12 groupes dans votre secteur",
         icon: Users,
-        color: "text-green-600",
-        bgColor: "bg-green-50",
-        borderColor: "border-green-200"
+        color: "text-blue-700",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       },
       {
         title: "Associations locales",
@@ -178,9 +178,9 @@ const yunicitySolutions = [
         title: "Initiatives citoyennes",
         description: "5 projets en cours dans votre quartier",
         icon: Target,
-        color: "text-purple-600",
-        bgColor: "bg-purple-50",
-        borderColor: "border-purple-200"
+        color: "text-blue-800",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       }
     ],
     suggestions: [
@@ -196,9 +196,9 @@ const yunicitySolutions = [
         title: "Vitrine digitale pour commerçants",
         description: "Augmentez votre visibilité locale",
         icon: Building2,
-        color: "text-green-600",
-        bgColor: "bg-green-50",
-        borderColor: "border-green-200"
+        color: "text-blue-700",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       },
       {
         title: "Dashboard analytics local",
@@ -212,9 +212,9 @@ const yunicitySolutions = [
         title: "Réservations et paiements intégrés",
         description: "Gérez vos clients facilement",
         icon: Smartphone,
-        color: "text-purple-600",
-        bgColor: "bg-purple-50",
-        borderColor: "border-purple-200"
+        color: "text-blue-800",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       }
     ],
     suggestions: [
@@ -230,9 +230,9 @@ const yunicitySolutions = [
         title: "Événements participatifs",
         description: "25 événements où vous pouvez participer",
         icon: Calendar,
-        color: "text-green-600",
-        bgColor: "bg-green-50",
-        borderColor: "border-green-200"
+        color: "text-blue-700",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       },
       {
         title: "Consultations citoyennes",
@@ -246,9 +246,9 @@ const yunicitySolutions = [
         title: "Challenges locaux",
         description: "Relevez des défis avec vos voisins",
         icon: Target,
-        color: "text-purple-600",
-        bgColor: "bg-purple-50",
-        borderColor: "border-purple-200"
+        color: "text-blue-800",
+        bgColor: "bg-blue-50",
+        borderColor: "border-blue-200"
       }
     ],
     suggestions: [
@@ -400,22 +400,22 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
         {/* Barre de navigation du navigateur */}
         <div className="bg-gray-100 border-b border-gray-200 px-3 py-2 flex items-center gap-2">
           <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
+            <div className="w-3 h-3 rounded-full bg-blue-400" />
+            <div className="w-3 h-3 rounded-full bg-blue-300" />
+            <div className="w-3 h-3 rounded-full bg-blue-500" />
           </div>
           <div className="flex-1 mx-3">
             <div className={`rounded-md px-3 py-1.5 flex items-center gap-2 ${
               (activeTabIndex !== null && tabs[activeTabIndex] === "Solution Yunicity") || (showYunicityTab && activeTabIndex === null)
-                ? 'bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200' 
+                ? 'bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200' 
                 : 'bg-white'
             }`}>
               {(activeTabIndex !== null && tabs[activeTabIndex] === "Solution Yunicity") || (showYunicityTab && activeTabIndex === null) ? (
                 <>
-                  <div className="w-4 h-4 rounded bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                  <div className="w-4 h-4 rounded bg-gradient-to-br from-blue-800 to-blue-600 flex items-center justify-center">
                     <CheckCircle2 className="w-2.5 h-2.5 text-white" />
                   </div>
-                  <span className="text-xs font-medium text-purple-700">
+                  <span className="text-xs font-medium text-blue-800">
                     {scenario.yunicityUrl}
                   </span>
                 </>
@@ -455,15 +455,15 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                 className={`flex items-center gap-1.5 rounded-t-md px-2.5 py-1 border border-b-0 text-xs whitespace-nowrap cursor-pointer transition-colors ${
                   isYunicityTab
                     ? isActive
-                      ? "bg-gradient-to-r from-purple-100 to-blue-100 border-purple-400 text-purple-800 font-medium shadow-sm"
-                      : "bg-gradient-to-r from-purple-50 to-blue-50 border-purple-300 text-purple-700 font-medium hover:from-purple-100 hover:to-blue-100"
+                      ? "bg-gradient-to-r from-blue-100 to-blue-200 border-blue-800 text-blue-900 font-medium shadow-sm"
+                      : "bg-gradient-to-r from-blue-50 to-blue-100 border-blue-600 text-blue-800 font-medium hover:from-blue-100 hover:to-blue-200"
                     : isActive
                     ? "bg-gray-100 border-gray-300 text-gray-900 font-medium shadow-sm"
                     : "bg-white border-gray-200 text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 {isYunicityTab && (
-                  <div className="w-3 h-3 rounded bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                  <div className="w-3 h-3 rounded bg-gradient-to-br from-blue-800 to-blue-600 flex items-center justify-center">
                     <CheckCircle2 className="w-2 h-2 text-white" />
                   </div>
                 )}
@@ -510,9 +510,9 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  className="w-8 h-8 border-2 border-purple-300 border-t-purple-600 rounded-full mb-4"
+                  className="w-8 h-8 border-2 border-blue-600 border-t-blue-800 rounded-full mb-4"
                 />
-                <p className="text-xs sm:text-sm text-purple-600 font-light">Recherche sur Yunicity...</p>
+                <p className="text-xs sm:text-sm text-blue-800 font-light">Recherche sur Yunicity...</p>
               </div>
             ) : (
               <div className="space-y-4">
@@ -574,9 +574,9 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                           duration: 0.25,
                           ease: "easeOut"
                         }}
-                        className="flex items-center gap-2 p-2 bg-white rounded border border-gray-200 hover:border-purple-300 hover:bg-purple-50/50 transition-colors cursor-pointer"
+                        className="flex items-center gap-2 p-2 bg-white rounded border border-gray-200 hover:border-blue-600 hover:bg-blue-50/50 transition-colors cursor-pointer"
                       >
-                        <ArrowRight className="w-3.5 h-3.5 text-purple-600" />
+                        <ArrowRight className="w-3.5 h-3.5 text-blue-800" />
                         <p className="text-xs sm:text-sm text-gray-700 font-light">
                           {suggestion}
                         </p>
@@ -605,15 +605,15 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                         duration: 0.3,
                         ease: "easeOut"
                       }}
-                      className="p-3 bg-red-50 border border-red-200 rounded-lg"
+                      className="p-3 bg-blue-50 border border-blue-200 rounded-lg"
                     >
                       <div className="flex items-start gap-2">
-                        <X className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                        <X className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-xs sm:text-sm font-medium text-red-700 mb-1">
+                          <p className="text-xs sm:text-sm font-medium text-blue-800 mb-1">
                             {tabStep.result}
                           </p>
-                          <p className="text-[10px] sm:text-xs text-red-600 font-light">
+                          <p className="text-[10px] sm:text-xs text-blue-700 font-light">
                             Aucun résultat pertinent trouvé. Essayez une autre recherche.
                           </p>
                         </div>
@@ -671,15 +671,15 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                       duration: 0.3,
                       ease: "easeOut"
                     }}
-                    className="p-3 bg-red-50 border border-red-200 rounded-lg"
+                    className="p-3 bg-blue-50 border border-blue-200 rounded-lg"
                   >
                     <div className="flex items-start gap-2">
-                      <X className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                      <X className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-xs sm:text-sm font-medium text-red-700 mb-1">
+                        <p className="text-xs sm:text-sm font-medium text-blue-800 mb-1">
                           {scenario.steps[step]?.result}
                         </p>
-                        <p className="text-[10px] sm:text-xs text-red-600 font-light">
+                        <p className="text-[10px] sm:text-xs text-blue-700 font-light">
                           Aucun résultat pertinent trouvé. Essayez une autre recherche.
                         </p>
                       </div>
@@ -717,8 +717,8 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center h-full text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-4">
-                  <X className="w-8 h-8 text-red-500" />
+                <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <X className="w-8 h-8 text-blue-600" />
                 </div>
                 <h4 className="text-base sm:text-lg font-light text-gray-900 mb-2">
                   Frustration maximale atteinte
@@ -763,7 +763,7 @@ function InteractiveScenario({ index, isInView }: { index: number, isInView: boo
                   key={i}
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className={`w-2 h-2 rounded-full ${isLastPoint ? 'bg-green-500' : 'bg-red-500'}`}
+                  className={`w-2 h-2 rounded-full ${isLastPoint ? 'bg-blue-500' : 'bg-blue-500'}`}
                 />
               )
             })}
@@ -921,7 +921,7 @@ function ProblemeIntroSection() {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight leading-[1.1]"
           >
             Les défis{' '}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-normal">
               urbains
             </span>
             {' '}d'aujourd'hui
@@ -987,7 +987,7 @@ function ProblemeHeroSection() {
       stat: '85%',
       label: 'cherchent des infos locales sur leur téléphone',
       icon: Smartphone,
-      color: 'from-red-500 to-orange-500',
+      color: 'from-blue-700 to-blue-500',
       problemId: 1
     },
     {
@@ -995,7 +995,7 @@ function ProblemeHeroSection() {
       stat: '50%',
       label: 'se sentent déconnectés de leur ville',
       icon: Users,
-      color: 'from-orange-500 to-yellow-500',
+      color: 'from-blue-600 to-blue-400',
       problemId: 2
     },
     {
@@ -1003,7 +1003,7 @@ function ProblemeHeroSection() {
       stat: '70%',
       label: 'des acteurs locaux manquent de visibilité',
       icon: MessageSquare,
-      color: 'from-yellow-500 to-amber-500',
+      color: 'from-blue-500 to-blue-300',
       problemId: 3
     },
     {
@@ -1011,7 +1011,7 @@ function ProblemeHeroSection() {
       stat: '68%',
       label: 'veulent participer mais ne savent pas comment',
       icon: Calendar,
-      color: 'from-amber-500 to-red-500',
+      color: 'from-blue-400 to-blue-600',
       problemId: 4
     }
   ]
@@ -1023,7 +1023,7 @@ function ProblemeHeroSection() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effects très subtils */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-red-200/20 to-orange-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
       <div
@@ -1051,7 +1051,7 @@ function ProblemeHeroSection() {
             className="text-3xl sm:text-4xl lg:text-5xl font-light text-gray-900 mb-6 tracking-tight leading-[1.1]"
           >
             Les défis{' '}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-normal">
               urbains
             </span>
             {' '}d'aujourd'hui
@@ -1114,8 +1114,8 @@ function ProblemeHeroSection() {
               {/* Indicateur */}
               <div className="pt-3 border-t border-gray-200">
                 <div className="flex items-center gap-1.5">
-                  <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-500" />
-                  <span className="text-[10px] sm:text-xs font-medium text-red-600">Problème majeur</span>
+                  <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-600" />
+                  <span className="text-[10px] sm:text-xs font-medium text-blue-700">Problème majeur</span>
                 </div>
               </div>
             </motion.div>
@@ -1137,7 +1137,7 @@ function ProblemeHeroSection() {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-red-600 to-orange-600 text-white rounded-lg sm:rounded-xl font-light text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-lg sm:rounded-xl font-light text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
             {/* Effet de brillance au hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -1156,7 +1156,7 @@ function ProblemeHeroSection() {
             }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg sm:rounded-xl font-light text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+            className="group relative px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-800 to-blue-600 text-white rounded-lg sm:rounded-xl font-light text-xs sm:text-sm shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
           >
             {/* Effet de brillance au hover */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
@@ -1185,12 +1185,12 @@ function ChiffresClesSection() {
   const avant = {
     title: "Avant Yunicity",
     problems: [
-      { icon: Search, text: "Recherche dispersée sur 10+ sites", color: "text-red-500" },
-      { icon: X, text: "Informations obsolètes ou manquantes", color: "text-red-500" },
-      { icon: MessageSquare, text: "Pas de communication locale centralisée", color: "text-red-500" },
-      { icon: Users, text: "Communauté fragmentée", color: "text-red-500" },
-      { icon: MapPin, text: "Points d'intérêt difficiles à trouver", color: "text-red-500" },
-      { icon: Building2, text: "Acteurs locaux invisibles", color: "text-red-500" }
+      { icon: Search, text: "Recherche dispersée sur 10+ sites", color: "text-blue-600" },
+      { icon: X, text: "Informations obsolètes ou manquantes", color: "text-blue-600" },
+      { icon: MessageSquare, text: "Pas de communication locale centralisée", color: "text-blue-600" },
+      { icon: Users, text: "Communauté fragmentée", color: "text-blue-600" },
+      { icon: MapPin, text: "Points d'intérêt difficiles à trouver", color: "text-blue-600" },
+      { icon: Building2, text: "Acteurs locaux invisibles", color: "text-blue-600" }
     ],
     stats: [
       { label: "Sites à consulter", value: "10+" },
@@ -1264,8 +1264,8 @@ function ChiffresClesSection() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-red-200/20 to-orange-200/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-200/20 to-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -1294,7 +1294,7 @@ function ChiffresClesSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight"
           >
             Avant{' '}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-normal">
               vs
             </span>
             {' '}Après
@@ -1325,8 +1325,8 @@ function ChiffresClesSection() {
           <div className="relative h-[500px] sm:h-[600px] md:h-[700px] bg-gradient-to-br from-red-50 to-orange-50">
             <div className="absolute inset-0 p-6 sm:p-8 md:p-10">
               <div className="mb-4 sm:mb-6">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-light text-red-700 mb-2">Avant Yunicity</h3>
-                <p className="text-xs sm:text-sm text-red-600/70 font-light">Chaos et désorganisation</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-light text-blue-800 mb-2">Avant Yunicity</h3>
+                <p className="text-xs sm:text-sm text-blue-700/70 font-light">Chaos et désorganisation</p>
               </div>
 
               {/* Liste des problèmes */}
@@ -1339,7 +1339,7 @@ function ChiffresClesSection() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                       transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
-                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-red-200/50"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-blue-200/50"
                     >
                       <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${problem.color} flex-shrink-0`} />
                       <p className="text-xs sm:text-sm text-gray-700 font-light">{problem.text}</p>
@@ -1356,9 +1356,9 @@ function ChiffresClesSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5, delay: 1.4 + idx * 0.1 }}
-                    className="p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-red-200/50 text-center"
+                    className="p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-blue-200/50 text-center"
                   >
-                    <p className="text-lg sm:text-xl font-medium text-red-600 mb-1">{stat.value}</p>
+                    <p className="text-lg sm:text-xl font-medium text-blue-700 mb-1">{stat.value}</p>
                     <p className="text-[10px] sm:text-xs text-gray-600 font-light">{stat.label}</p>
                   </motion.div>
                 ))}
@@ -1368,13 +1368,13 @@ function ChiffresClesSection() {
 
           {/* Côté Après (Droite) */}
           <div 
-            className="absolute inset-0 h-full bg-gradient-to-br from-purple-50 to-blue-50"
+            className="absolute inset-0 h-full bg-gradient-to-br from-blue-50 to-blue-100"
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           >
             <div className="absolute inset-0 p-6 sm:p-8 md:p-10">
               <div className="mb-4 sm:mb-6">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-light text-purple-700 mb-2">Avec Yunicity</h3>
-                <p className="text-xs sm:text-sm text-purple-600/70 font-light">Ordre et clarté</p>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-light text-blue-800 mb-2">Avec Yunicity</h3>
+                <p className="text-xs sm:text-sm text-blue-800/70 font-light">Ordre et clarté</p>
               </div>
 
               {/* Liste des solutions */}
@@ -1387,7 +1387,7 @@ function ChiffresClesSection() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
                       transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
-                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-green-200/50"
+                      className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-blue-200/50"
                     >
                       <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${solution.color} flex-shrink-0`} />
                       <p className="text-xs sm:text-sm text-gray-700 font-light">{solution.text}</p>
@@ -1404,9 +1404,9 @@ function ChiffresClesSection() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5, delay: 1.4 + idx * 0.1 }}
-                    className="p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-green-200/50 text-center"
+                    className="p-2 sm:p-3 bg-white/60 backdrop-blur-sm rounded-lg border border-blue-200/50 text-center"
                   >
-                    <p className="text-lg sm:text-xl font-medium text-green-600 mb-1">{stat.value}</p>
+                    <p className="text-lg sm:text-xl font-medium text-blue-700 mb-1">{stat.value}</p>
                     <p className="text-[10px] sm:text-xs text-gray-600 font-light">{stat.label}</p>
                   </motion.div>
                 ))}
@@ -1416,12 +1416,12 @@ function ChiffresClesSection() {
 
           {/* Slider Handle */}
           <div
-            className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 to-blue-500 cursor-ew-resize z-10"
+            className="absolute top-0 bottom-0 w-1 bg-gradient-to-b from-blue-800 to-blue-600 cursor-ew-resize z-10"
             style={{ left: `${sliderPosition}%`, transform: 'translateX(-50%)' }}
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg border-2 border-purple-500 flex items-center justify-center">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg border-2 border-blue-800 flex items-center justify-center">
               <div className="flex gap-1">
-                <div className="w-1 h-4 bg-purple-500 rounded-full" />
+                <div className="w-1 h-4 bg-blue-800 rounded-full" />
                 <div className="w-1 h-4 bg-blue-500 rounded-full" />
               </div>
             </div>
@@ -1463,19 +1463,19 @@ function StorytellingTimelineSection() {
           icon: Search,
           text: "Vous cherchez un événement ce week-end",
           frustration: "10+ sites à consulter",
-          color: "text-red-500"
+          color: "text-blue-600"
         },
         {
           icon: Calendar,
           text: "Vérifier les horaires du marché local",
           frustration: "Site de la mairie non mis à jour",
-          color: "text-red-500"
+          color: "text-blue-600"
         },
         {
       icon: MapPin,
           text: "Trouver un café près de chez vous",
           frustration: "Google Maps peu fiable localement",
-          color: "text-red-500"
+          color: "text-blue-600"
         }
       ],
       impact: "30 minutes perdues, frustration croissante"
@@ -1486,25 +1486,25 @@ function StorytellingTimelineSection() {
       icon: Clock,
       color: "from-red-400 to-orange-400",
       bgColor: "from-red-50 to-orange-50",
-      borderColor: "border-red-200/50",
+      borderColor: "border-blue-200/50",
       problems: [
         {
           icon: Building2,
           text: "Commerçant : publier une promotion",
           frustration: "Facebook, Instagram, Google... où poster ?",
-          color: "text-red-500"
+          color: "text-blue-600"
         },
         {
       icon: Users,
           text: "Rejoindre une association locale",
           frustration: "Pas d'information centralisée",
-          color: "text-red-500"
+          color: "text-blue-600"
     },
     {
       icon: MessageSquare,
           text: "Participer à une consultation citoyenne",
           frustration: "Comment être informé ?",
-          color: "text-red-500"
+          color: "text-blue-600"
         }
       ],
       impact: "Opportunités manquées, visibilité limitée"
@@ -1513,27 +1513,27 @@ function StorytellingTimelineSection() {
       time: "20h00",
       period: "Le soir",
       icon: Moon,
-      color: "from-purple-400 to-pink-400",
-      bgColor: "from-purple-50 to-pink-50",
-      borderColor: "border-purple-200/50",
+      color: "from-blue-800 to-blue-600",
+      bgColor: "from-blue-50 to-blue-100",
+      borderColor: "border-blue-200/50",
       problems: [
         {
       icon: Heart,
           text: "Se connecter à son quartier",
           frustration: "Pas de communauté locale active",
-          color: "text-red-500"
+          color: "text-blue-600"
         },
         {
           icon: Music,
           text: "Découvrir un concert ce soir",
           frustration: "Trop tard, l'événement est passé",
-          color: "text-red-500"
+          color: "text-blue-600"
         },
         {
           icon: Home,
           text: "Trouver des voisins avec les mêmes centres d'intérêt",
           frustration: "Réseaux sociaux trop génériques",
-          color: "text-red-500"
+          color: "text-blue-600"
         }
       ],
       impact: "Isolement urbain, sentiment de déconnexion"
@@ -1547,8 +1547,8 @@ function StorytellingTimelineSection() {
     >
       {/* Glow effects */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/20 to-yellow-200/20 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-red-200/20 to-orange-200/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-1/2 w-[600px] h-[600px] bg-gradient-to-br from-purple-200/20 to-pink-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/2 w-[600px] h-[600px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -1577,7 +1577,7 @@ function StorytellingTimelineSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight"
           >
             Une journée{' '}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-normal">
               typique
             </span>
           </motion.h2>
@@ -1594,7 +1594,7 @@ function StorytellingTimelineSection() {
         {/* Timeline verticale */}
         <div className="relative max-w-4xl mx-auto">
           {/* Ligne verticale de la timeline */}
-          <div className="absolute left-8 sm:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-200 via-red-200 to-purple-200" />
+          <div className="absolute left-8 sm:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-200 via-red-200 to-blue-200" />
 
           {/* Étapes de la timeline */}
           <div className="space-y-12 sm:space-y-16 md:space-y-20">
@@ -1640,7 +1640,7 @@ function StorytellingTimelineSection() {
                               <p className="text-xs sm:text-sm font-medium text-gray-800 mb-1">
                                 {problem.text}
                               </p>
-                              <p className="text-[10px] sm:text-xs text-red-600 font-light">
+                              <p className="text-[10px] sm:text-xs text-blue-700 font-light">
                                 {problem.frustration}
                               </p>
                             </div>
@@ -1650,8 +1650,8 @@ function StorytellingTimelineSection() {
                     </div>
 
                     {/* Impact */}
-                    <div className="p-3 sm:p-4 bg-red-50/50 border border-red-200/50 rounded-lg">
-                      <p className="text-xs sm:text-sm text-red-700 font-light">
+                    <div className="p-3 sm:p-4 bg-blue-50/50 border border-blue-200/50 rounded-lg">
+                      <p className="text-xs sm:text-sm text-blue-800 font-light">
                         <span className="font-medium">Impact :</span> {step.impact}
                 </p>
                     </div>
@@ -1688,7 +1688,7 @@ function CTASolutionSection() {
 
   // Statistiques de succès
   const stats = [
-    { value: "100K+", label: "Habitants connectés", icon: Users, color: "from-purple-500 to-blue-500" },
+    { value: "100K+", label: "Habitants connectés", icon: Users, color: "from-blue-800 to-blue-600" },
     { value: "50+", label: "Villes partenaires", icon: MapPin, color: "from-blue-500 to-cyan-500" },
     { value: "92%", label: "Satisfaction", icon: Star, color: "from-orange-500 to-pink-500" },
     { value: "2min", label: "Temps moyen de recherche", icon: Zap, color: "from-green-500 to-emerald-500" }
@@ -1709,8 +1709,8 @@ function CTASolutionSection() {
       description: "Explorez toutes les fonctionnalités de Yunicity",
       icon: Sparkles,
       href: "/solution",
-      gradient: "from-purple-500 to-blue-500",
-      hoverGradient: "from-purple-600 to-blue-600"
+      gradient: "from-blue-800 to-blue-600",
+      hoverGradient: "from-blue-800 to-blue-600"
     },
     {
       title: "Rejoindre la bêta",
@@ -1736,7 +1736,7 @@ function CTASolutionSection() {
       className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden"
     >
       {/* Glow effects */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-purple-200/20 to-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-blue-200/20 to-blue-100/20 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-orange-200/20 to-pink-200/20 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
@@ -1766,7 +1766,7 @@ function CTASolutionSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 tracking-tight"
           >
             Prêt à{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
               transformer
             </span>
             {' '}votre ville ?
@@ -1796,7 +1796,7 @@ function CTASolutionSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                className="group relative bg-gradient-to-br from-gray-50 to-white rounded-lg sm:rounded-xl border border-gray-200/50 p-3 sm:p-4 hover:border-purple-200/50 hover:shadow-md transition-all duration-300"
+                className="group relative bg-gradient-to-br from-gray-50 to-white rounded-lg sm:rounded-xl border border-gray-200/50 p-3 sm:p-4 hover:border-blue-200/50 hover:shadow-md transition-all duration-300"
               >
                 <div className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br ${stat.color} flex items-center justify-center mb-2 group-hover:scale-110 transition-transform`}>
                   <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
@@ -1827,10 +1827,10 @@ function CTASolutionSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                  className="group p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 hover:border-purple-200/50 hover:shadow-md transition-all duration-300"
+                  className="group p-3 sm:p-4 bg-white/80 backdrop-blur-sm rounded-lg sm:rounded-xl border border-gray-200/50 hover:border-blue-200/50 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-purple-100 to-blue-100 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600" />
+                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-800" />
                   </div>
                   <h4 className="text-xs sm:text-sm font-medium text-gray-900 mb-0.5">{feature.title}</h4>
                   <p className="text-[10px] sm:text-xs text-gray-600 font-light">{feature.description}</p>

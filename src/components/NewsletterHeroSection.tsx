@@ -62,7 +62,7 @@ export default function NewsletterHeroSection() {
   if (!isMounted) {
     return (
       <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-blue-500/5 to-blue-400/5 rounded-full blur-3xl" />
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -83,7 +83,7 @@ export default function NewsletterHeroSection() {
   return (
     <section data-section="newsletter-hero" className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-blue-500/5 to-blue-400/5 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -112,7 +112,7 @@ export default function NewsletterHeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-extralight">
+              <span className="text-blue-800 font-extralight">
                 Recevez l'avenir dans votre boîte mail
               </span>
             </motion.h1>
@@ -147,7 +147,7 @@ export default function NewsletterHeroSection() {
                   <div className="bg-white/80 backdrop-blur-3xl rounded-3xl shadow-2xl border border-white/20 p-5 min-w-[360px] max-w-md">
                     <div className="flex items-start gap-4">
                   <motion.div
-                        className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-xl"
+                        className="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center flex-shrink-0 shadow-xl"
                         animate={{ scale: [1, 1.08, 1] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                       >
@@ -222,14 +222,14 @@ export default function NewsletterHeroSection() {
                         className="mb-3"
                       >
                         <motion.div
-                          className="bg-gradient-to-r from-purple-500/15 to-blue-500/15 border border-purple-400/20 rounded-xl p-4 cursor-pointer hover:from-purple-500/25 hover:to-blue-500/25 transition-all duration-500 ease-out relative overflow-hidden group backdrop-blur-sm"
+                          className="bg-blue-500/15 border border-blue-400/20 rounded-xl p-4 cursor-pointer hover:bg-blue-500/25 transition-all duration-500 ease-out relative overflow-hidden group backdrop-blur-sm"
                           whileHover={{ scale: 1.005, y: -1 }}
                           whileTap={{ scale: 0.998 }}
                           onClick={() => setEmailOpened(true)}
                         >
                           {/* Indicateur de non lu */}
                           <motion.div
-                            className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-400 to-blue-400 rounded-l-2xl"
+                            className="absolute left-0 top-0 bottom-0 w-1 bg-blue-800 rounded-l-2xl"
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 1 }}
                             transition={{ delay: 0.2, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -238,7 +238,7 @@ export default function NewsletterHeroSection() {
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex items-center gap-2.5">
                               <motion.div
-                                className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg"
+                                className="w-8 h-8 rounded-full bg-blue-800 flex items-center justify-center flex-shrink-0 shadow-lg"
                                 initial={{ scale: 0, rotate: -180 }}
                                 animate={{ scale: 1, rotate: 0 }}
                                 transition={{ delay: 0.3, type: 'spring', stiffness: 200, damping: 20 }}
@@ -251,7 +251,7 @@ export default function NewsletterHeroSection() {
                               </div>
                             </div>
                             <motion.div
-                              className="w-2.5 h-2.5 rounded-full bg-purple-400 flex-shrink-0 mt-1 shadow-sm"
+                              className="w-2.5 h-2.5 rounded-full bg-blue-800 flex-shrink-0 mt-1 shadow-sm"
                               animate={{ scale: [1, 1.15, 1], opacity: [1, 0.85, 1] }}
                               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                             />
@@ -319,7 +319,7 @@ export default function NewsletterHeroSection() {
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-4">
             <motion.div
-                                className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center shadow-2xl"
+                                className="w-12 h-12 rounded-full bg-blue-800 flex items-center justify-center shadow-2xl"
                                 initial={{ scale: 0, rotate: -180 }}
                                 animate={{ scale: 1, rotate: 0 }}
                                 transition={{ delay: 0.2, type: 'spring', stiffness: 200, damping: 20 }}
@@ -371,7 +371,7 @@ export default function NewsletterHeroSection() {
                               transition={{ delay: 0.5 + index * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                             >
                               {line.startsWith('•') && (
-                                <CheckCircle2 className="w-3.5 h-3.5 text-purple-300 mt-0.5 flex-shrink-0" />
+                                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 mt-0.5 flex-shrink-0" />
                               )}
                               <span className="tracking-wide">{line.replace('•', '')}</span>
                             </motion.p>
@@ -398,12 +398,12 @@ export default function NewsletterHeroSection() {
                     subscribeSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
                   }
                 }}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-light rounded-full overflow-hidden text-base tracking-wide shadow-xl cursor-pointer"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-blue-800 hover:bg-blue-700 text-white font-light rounded-full overflow-hidden text-base tracking-wide shadow-xl cursor-pointer"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             >
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <span className="absolute inset-0 bg-blue-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <Mail className="w-4 h-4 relative z-10" />
                 <span className="relative z-10">Rejoindre la newsletter</span>
                 <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1.5 transition-transform duration-300 ease-out" />

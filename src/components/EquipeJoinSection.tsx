@@ -18,25 +18,25 @@ const communityStats = [
     label: 'Membres actifs',
     value: '540+',
     icon: Users,
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     label: 'Interactions mensuelles',
     value: '2.5K+',
     icon: MessageSquare,
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     label: 'Contenus partagés',
     value: '890+',
     icon: Heart,
-    color: 'from-orange-500 to-red-500'
+    color: 'from-blue-800 to-blue-600'
   },
   {
     label: 'Croissance mensuelle',
     value: '+35%',
     icon: TrendingUp,
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-blue-800 to-blue-600'
   }
 ]
 
@@ -45,28 +45,28 @@ const socialLinks = [
     name: 'Instagram',
     icon: Instagram,
     url: 'https://www.instagram.com/yunicity.app?igsh=MWlsNGl6a2g0ajFueQ==',
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-blue-800 to-blue-600',
     description: 'Découvrez notre quotidien'
   },
   {
     name: 'LinkedIn',
     icon: Linkedin,
     url: 'https://www.linkedin.com/in/yunicity-app-381bb7230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
-    color: 'from-blue-500 to-indigo-500',
+    color: 'from-blue-800 to-blue-600',
     description: 'Rejoignez notre réseau professionnel'
   },
   {
     name: 'Facebook',
     icon: Facebook,
     url: 'https://www.facebook.com/share/1Eu3J5rE9P/',
-    color: 'from-blue-600 to-blue-700',
+    color: 'from-blue-800 to-blue-600',
     description: 'Partagez vos moments'
   },
   {
     name: 'Newsletter',
     icon: Mail,
     url: '/newsletter',
-    color: 'from-orange-500 to-yellow-500',
+    color: 'from-blue-800 to-blue-600',
     description: 'Recevez nos actualités'
   }
 ]
@@ -78,7 +78,7 @@ export default function EquipeJoinSection() {
   return (
     <section ref={ref} className="relative py-20 sm:py-24 md:py-32 bg-black overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-purple-500/5 to-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-blue-500/5 to-blue-400/5 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -107,7 +107,7 @@ export default function EquipeJoinSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-white mb-4 sm:mb-6 tracking-tight leading-tight"
           >
             Rejoignez notre{' '}
-            <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+            <span className="text-blue-400 font-normal">
               communauté
             </span>
           </motion.h2>
@@ -147,7 +147,7 @@ export default function EquipeJoinSection() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.9, y: 20 }}
                 transition={{ duration: 0.6, delay: 1 + index * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
-                className="group text-center p-4 sm:p-5 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-2xl border border-white/5 rounded-xl sm:rounded-2xl hover:border-white/10 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-700"
+                className="group text-center p-4 sm:p-5 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-2xl border border-white/5 rounded-xl sm:rounded-2xl hover:border-white/10 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-700"
                 style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                 whileHover={{ y: -4, scale: 1.01 }}
               >
@@ -200,7 +200,7 @@ export default function EquipeJoinSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: 1.8 + index * 0.08, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="group relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-2xl border border-white/5 rounded-xl sm:rounded-2xl hover:border-white/10 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-700"
+                  className="group relative flex items-center gap-3 sm:gap-4 p-4 sm:p-5 bg-gradient-to-br from-gray-900/60 to-black/60 backdrop-blur-2xl border border-white/5 rounded-xl sm:rounded-2xl hover:border-white/10 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-700"
                   style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                   whileHover={{ y: -4, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
@@ -260,7 +260,7 @@ export default function EquipeJoinSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.6, delay: 2.8, ease: [0.16, 1, 0.3, 1] as const }}
-            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full font-extralight text-sm sm:text-base hover:shadow-xl hover:shadow-purple-500/25 transition-all duration-500"
+            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-blue-800 hover:bg-blue-700 text-white rounded-full font-extralight text-sm sm:text-base hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-500"
             style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}

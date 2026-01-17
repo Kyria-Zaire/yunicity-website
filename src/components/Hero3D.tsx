@@ -211,7 +211,7 @@ export default function Hero3D() {
                 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white mb-3 sm:mb-4 tracking-tight leading-[1.1]"
               >
                 Le réseau social{' '}
-                <span className="block font-normal bg-gradient-to-r from-purple-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
+                <span className="block font-normal text-blue-300">
                   qui reconnecte ta ville
                     </span>
               </motion.h1>
@@ -247,7 +247,7 @@ export default function Hero3D() {
                 {/* CTA Principal - Rejoindre la bêta */}
                 <Link
                   href="/newsletter"
-                  className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 hover:from-purple-500 hover:via-blue-500 hover:to-purple-500 text-white font-medium text-sm sm:text-base md:text-lg transition-all duration-300 rounded-full w-full sm:w-auto shadow-lg sm:hover:shadow-xl sm:hover:scale-105"
+                  className="group inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 bg-blue-800 hover:bg-blue-700 text-white font-medium text-sm sm:text-base md:text-lg transition-all duration-300 rounded-full w-full sm:w-auto shadow-lg sm:hover:shadow-xl sm:hover:scale-105"
                 >
                   <span>Rejoindre la bêta</span>
                   <span className="text-white/80 text-xs sm:text-sm">– Reims 2026</span>
@@ -280,7 +280,7 @@ export default function Hero3D() {
                   <span className="text-white/80 text-xs sm:text-sm font-light">Reims • Juillet 2026</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full" />
+                  <div className="w-2 h-2 bg-blue-300 rounded-full" />
                   <span className="text-white/80 text-xs sm:text-sm font-light">100% gratuit</span>
                 </div>
               </motion.div>

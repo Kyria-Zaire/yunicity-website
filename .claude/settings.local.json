@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: implement KPIs stats section in ProblemeSection\n\nFeatures:\n- ✅ Implémenté la section BLANCHE avec KPIs structurés\n- ✅ Stat principale: 50% (34M Français désengagés)\n- ✅ Trois piliers avec chiffres clés:\n  - 12% isolement relationnel\n  - 20% sentiment de solitude\n  - 25% jeunes 25-39 ans affectés\n- ✅ Design minimaliste noir/blanc avec cartes\n- ✅ Animations framer-motion au scroll\n- ✅ Sources citées pour chaque statistic\n- ✅ Responsive design (mobile-first)\n\nStructure:\n- Section BLANCHE (fond blanc avec grille subtile)\n- Stat impact (card noir avec gradient)\n- 3 piliers en grid (cartes blanches)\n- Hover effects smooth\n\nBuild:\n- ✅ Production build réussi sans erreurs\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: implement KPIs stats section in ProblemeSection\n\nFeatures:\n- ✅ Implémenté la section BLANCHE avec KPIs structurés\n- ✅ Stat principale: 50% (34M Français désengagés)\n- ✅ Trois piliers avec chiffres clés:\n  - 12% isolement relationnel\n  - 20% sentiment de solitude\n  - 25% jeunes 25-39 ans affectés\n- ✅ Design minimaliste noir/blanc avec cartes\n- ✅ Animations framer-motion au scroll\n- ✅ Sources citées pour chaque statistic\n- ✅ Responsive design (mobile-first)\n\nStructure:\n- Section BLANCHE (fond blanc avec grille subtile)\n- Stat impact (card noir avec gradient)\n- 3 piliers en grid (cartes blanches)\n- Hover effects smooth\n\nBuild:\n- ✅ Production build réussi sans erreurs\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(npm run build:*)",
+      "Bash(git checkout:*)",
+      "Bash(psql:*)",
+      "Bash(docker-compose up:*)",
+      "Bash(docker exec:*)",
+      "Bash(docker logs:*)",
+      "Bash(curl:*)",
+      "Bash(docker-compose down:*)",
+      "Bash(docker volume rm:*)",
+      "Bash(net stop:*)",
+      "Bash(net stop postgresql)",
+      "Bash(sc query:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"Get-Service | Where-Object {$_DisplayName -like ''*postgres*''} | Select-Object Name, DisplayName, Status\")",
+      "Bash(tasklist:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "ask": []

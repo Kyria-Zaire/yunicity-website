@@ -43,12 +43,12 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 overflow-hidden">
+    <footer className="relative bg-blue-800 overflow-hidden">
 
       {/* Background effect - kept subtle */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-900/30 rounded-full blur-3xl" />
       </div>
 
       <div className="relative container mx-auto px-4 sm:px-8 max-w-7xl py-12 sm:py-16">
@@ -107,7 +107,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <Globe className="w-4 h-4 text-purple-400" />
+              <Globe className="w-4 h-4 text-blue-400" />
               <h3 className="text-white font-medium text-sm">Navigation</h3>
             </div>
             <ul className="space-y-2">

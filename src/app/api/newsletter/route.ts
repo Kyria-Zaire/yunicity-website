@@ -39,10 +39,8 @@ export async function POST(request: Request) {
       emailSent = emailResult.success
       if (!emailResult.success) {
         emailError = emailResult.error
-        console.error('Erreur envoi email:', emailResult.error)
       }
     } catch (emailErr) {
-      console.error('Exception lors de l\'envoi email:', emailErr)
       emailError = emailErr
       // On continue quand même, l'inscription est réussie
     }
@@ -59,16 +57,11 @@ export async function POST(request: Request) {
     )
 
   } catch (error: unknown) {
-    console.error('Erreur inscription newsletter:', error)
-
     const dbError = error as { code?: string; message?: string; details?: string }
-    
-    // Gestion erreur connexion PostgreSQL
-    if (dbError.message?.includes('connect') || 
+
+    if (dbError.message?.includes('connect') ||
         dbError.message?.includes('ECONNREFUSED') ||
         dbError.message?.includes('timeout')) {
-      console.error('❌ Erreur de connexion PostgreSQL')
-      
       return NextResponse.json(
         { 
           error: 'Service temporairement indisponible. Impossible de se connecter à la base de données.',

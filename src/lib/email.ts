@@ -9,8 +9,7 @@ function getResendClient(): Resend | null {
   }
   try {
     return new Resend(apiKey)
-  } catch (error) {
-    console.warn('⚠️ Erreur lors de l\'initialisation de Resend:', error)
+  } catch {
     return null
   }
 }
@@ -21,9 +20,7 @@ const resend = getResendClient()
  * Envoie un email de bienvenue aux nouveaux inscrits newsletter
  */
 export async function sendWelcomeEmail(to: string, name: string) {
-  // Si Resend n'est pas configuré, retourner un succès simulé (l'email est optionnel)
   if (!resend || !process.env.RESEND_API_KEY) {
-    console.warn('⚠️ Resend non configuré - email de bienvenue non envoyé')
     return { success: false, error: 'Resend API key non configurée' }
   }
 
@@ -153,32 +150,11 @@ export async function sendWelcomeEmail(to: string, name: string) {
     })
 
     if (error) {
-      console.error('❌ Erreur Resend API:', error)
-      
-      // Vérifier si c'est une erreur de domaine non vérifié
-      if (error.message?.includes('You can only send testing emails to your own email address')) {
-        console.error('⚠️ LIMITATION RESEND: En mode test, vous ne pouvez envoyer qu\'à votre email (yu.entreprise@gmail.com)')
-        console.error('💡 Solution 1: Tester avec yu.entreprise@gmail.com')
-        console.error('💡 Solution 2: Vérifier un domaine dans Resend pour envoyer à tous les emails')
-      }
-      
       throw error
     }
-    
-    console.log('✅ Email envoyé avec succès à:', to)
+
     return { success: true, data }
   } catch (error) {
-    console.error('❌ Erreur envoi email bienvenue:', error)
-    
-    // Vérifier si c'est un problème de clé API
-    const errorMessage = error instanceof Error ? error.message : String(error)
-    if (errorMessage.includes('API key') || errorMessage.includes('Unauthorized')) {
-      console.error('⚠️ PROBLÈME: RESEND_API_KEY manquante ou invalide')
-    }
-    if (errorMessage.includes('domain') || errorMessage.includes('sender')) {
-      console.error('⚠️ PROBLÈME: Domaine email non vérifié dans Resend')
-    }
-    
     return { success: false, error }
   }
 }
@@ -196,9 +172,7 @@ export async function sendContactNotification(contactData: {
   type: string
   investmentRange?: string
 }) {
-  // Si Resend n'est pas configuré, retourner un succès simulé
   if (!resend || !process.env.RESEND_API_KEY) {
-    console.warn('⚠️ Resend non configuré - notification contact non envoyée')
     return { success: false, error: 'Resend API key non configurée' }
   }
 
@@ -306,21 +280,11 @@ export async function sendContactNotification(contactData: {
     })
 
     if (error) {
-      console.error('Erreur Resend API (notification):', error)
       throw error
     }
-    
-    console.log('✅ Email de notification envoyé à l\'équipe')
+
     return { success: true, data }
   } catch (error) {
-    console.error('❌ Erreur envoi notification:', error)
-    
-    // Vérifier si c'est un problème de clé API
-    const errorMessage = error instanceof Error ? error.message : String(error)
-    if (errorMessage.includes('API key') || errorMessage.includes('Unauthorized')) {
-      console.error('⚠️ PROBLÈME: RESEND_API_KEY manquante ou invalide')
-    }
-    
     return { success: false, error }
   }
 }

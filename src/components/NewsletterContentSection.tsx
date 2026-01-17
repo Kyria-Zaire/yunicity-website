@@ -130,8 +130,8 @@ const newsletterItems = [
 ]
 
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-  'Actualités': { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/20' },
-  'Découvertes': { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
+  'Actualités': { bg: 'bg-blue-500/10', text: 'text-blue-300', border: 'border-blue-500/20' },
+  'Découvertes': { bg: 'bg-blue-500/10', text: 'text-blue-300', border: 'border-blue-500/20' },
   'Communauté': { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20' },
   'Événements': { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/20' }
 }
@@ -168,10 +168,10 @@ export default function NewsletterContentSection() {
   }
 
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-br from-indigo-900 via-violet-800 to-indigo-900 overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-blue-800 overflow-hidden">
       {/* Glow effects subtils */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-900/10 rounded-full blur-3xl" />
 
       {/* Particules flottantes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -220,11 +220,11 @@ export default function NewsletterContentSection() {
           >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extralight text-white mb-4 tracking-tight leading-[1.1]">
             Actualités &{' '}
-            <span className="bg-gradient-to-r from-violet-300 via-indigo-300 to-violet-300 bg-clip-text text-transparent font-extralight">
+            <span className="text-blue-300 font-extralight">
               Découvertes
             </span>
           </h2>
-          <p className="text-base md:text-lg text-violet-200/80 leading-relaxed max-w-2xl mx-auto font-extralight">
+          <p className="text-base md:text-lg text-blue-200/80 leading-relaxed max-w-2xl mx-auto font-extralight">
             Restez informé des dernières actualités et découvrez les secrets de votre ville
           </p>
         </motion.div>
@@ -252,7 +252,7 @@ export default function NewsletterContentSection() {
                 className={`relative px-6 py-2.5 rounded-full font-extralight text-sm transition-all duration-500 tracking-wide ${
                   isActive
                     ? 'text-white'
-                    : 'text-violet-200/70 hover:text-white'
+                    : 'text-blue-200/70 hover:text-white'
                 }`}
               >
                 {isActive && (
@@ -315,15 +315,15 @@ export default function NewsletterContentSection() {
 
                   {/* Content */}
                   <div className="p-6 md:p-8">
-                    <h3 className="text-xl md:text-2xl font-light text-white mb-3 leading-tight tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-violet-300 group-hover:to-indigo-300 transition-all duration-700">
+                    <h3 className="text-xl md:text-2xl font-light text-white mb-3 leading-tight tracking-tight group-hover:text-blue-300 transition-all duration-700">
                         {item.title}
                       </h3>
-                    <p className="text-violet-200/70 mb-6 leading-relaxed line-clamp-2 text-sm md:text-base font-extralight group-hover:text-violet-100 transition-colors duration-500">
+                    <p className="text-blue-200/70 mb-6 leading-relaxed line-clamp-2 text-sm md:text-base font-extralight group-hover:text-blue-100 transition-colors duration-500">
                         {item.excerpt}
                       </p>
 
                       {/* Meta Info */}
-                    <div className="flex items-center justify-between mb-6 text-xs text-violet-300/60 font-extralight">
+                    <div className="flex items-center justify-between mb-6 text-xs text-blue-300/60 font-extralight">
                         <div className="flex items-center gap-4">
                           <span className="flex items-center gap-1.5">
                           <Calendar className="w-4 h-4" />
@@ -346,7 +346,7 @@ export default function NewsletterContentSection() {
                   </div>
 
                   {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/0 via-indigo-500/0 to-violet-500/0 group-hover:from-violet-500/5 group-hover:via-indigo-500/5 group-hover:to-violet-500/5 transition-all duration-700 pointer-events-none rounded-2xl" />
+                  <div className="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/5 transition-all duration-700 pointer-events-none rounded-2xl" />
                 </motion.article>
               )
             })}

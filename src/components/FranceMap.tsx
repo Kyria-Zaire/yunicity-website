@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import type { Map as LeafletMap, Marker as LeafletMarker, DivIcon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
 interface City {
@@ -22,8 +23,8 @@ const cities: City[] = [
 
 export default function FranceMap() {
   const mapRef = useRef<HTMLDivElement>(null)
-  const mapInstanceRef = useRef<any>(null)
-  const markersRef = useRef<any[]>([])
+  const mapInstanceRef = useRef<LeafletMap | null>(null)
+  const markersRef = useRef<LeafletMarker[]>([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [isClient, setIsClient] = useState(false)
 
@@ -77,12 +78,10 @@ export default function FranceMap() {
 
       // Créer les marqueurs pour chaque ville
       cities.forEach((city) => {
-        let icon: any
+        let icon: DivIcon
 
         if (city.status === 'active' && city.color) {
-          // Épingles personnalisées pour les villes actives
           icon = createPinIcon(city.color)
-          console.log(`✅ Épingle créée pour ${city.name} (${city.color}) à (${city.lat}, ${city.lng})`)
         } else {
           // Cercles simples pour les villes à venir
           icon = L.default.divIcon({
@@ -115,13 +114,10 @@ export default function FranceMap() {
         }
 
         markersRef.current.push(marker)
-        console.log(`📍 Marqueur créé pour ${city.name} à (${city.lat}, ${city.lng})`)
       })
 
       setIsLoaded(true)
-    }).catch((error) => {
-      console.error('Erreur lors du chargement de Leaflet:', error)
-    })
+    }).catch(() => {})
 
     // Nettoyage au démontage
     return () => {

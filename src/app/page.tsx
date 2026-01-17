@@ -5,8 +5,8 @@ import NewsletterSubscribeSection from '@/components/NewsletterSubscribeSection'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
 import Link from 'next/link'
-import { ArrowRight, Users, Lightbulb, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown, Heart, Rocket, Zap } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, Users, MapPin, Target, Star, Brain, Calendar, Activity, ChevronDown, Heart, Rocket, Zap } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { useState } from 'react'
 import FranceMap from '@/components/FranceMap'
 import ReimsExperienceSection from '@/components/ReimsExperienceSection'
@@ -213,7 +213,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Le{' '}
-              <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-light">
+              <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent font-light">
                 problème
               </span>
             </h2>
@@ -239,9 +239,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/80 backdrop-blur-xl border border-red-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
+              className="bg-white/80 backdrop-blur-xl border border-blue-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
             >
-              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-2">
+              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent mb-2">
                 85%
               </div>
               <p className="text-xs sm:text-sm text-gray-600 font-light">
@@ -254,9 +254,9 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white/80 backdrop-blur-xl border border-orange-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
+              className="bg-white/80 backdrop-blur-xl border border-blue-200/50 rounded-lg sm:rounded-xl p-4 sm:p-5"
             >
-              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">
+              <div className="text-3xl sm:text-4xl font-light bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent mb-2">
                 50%
               </div>
               <p className="text-xs sm:text-sm text-gray-600 font-light">
@@ -282,8 +282,8 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                   className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200/50"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-200/50 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-4 h-4 text-red-600" />
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-500/10 border border-blue-200/50 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-4 h-4 text-blue-600" />
                   </div>
                   <p className="text-xs sm:text-sm text-gray-700 font-light">{item.text}</p>
                 </motion.div>
@@ -305,7 +305,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Fonctionnalités{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 clés
               </span>
             </h2>
@@ -330,33 +330,33 @@ export default function Home() {
                 icon: Star,
                 title: 'Hub d\'informations',
                 description: 'Centralisation de toute l\'information locale sur une seule plateforme',
-                color: 'from-purple-500/10 to-pink-500/10',
-                borderColor: 'border-purple-200/50',
-                iconColor: 'text-purple-600'
+                color: 'from-blue-500/10 to-blue-500/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-800'
               },
               {
                 icon: Users,
                 title: 'Communauté',
                 description: 'Espace d\'échange et de connexion entre les habitants',
-                color: 'from-blue-500/10 to-cyan-500/10',
+                color: 'from-blue-500/10 to-blue-500/10',
                 borderColor: 'border-blue-200/50',
-                iconColor: 'text-blue-600'
+                iconColor: 'text-blue-800'
               },
               {
                 icon: MapPin,
                 title: 'Carte interactive 3D',
                 description: 'Géolocalisation et visualisation des points d\'intérêt',
-                color: 'from-green-500/10 to-emerald-500/10',
-                borderColor: 'border-green-200/50',
-                iconColor: 'text-green-600'
+                color: 'from-blue-500/10 to-blue-400/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-600'
               },
               {
                 icon: Brain,
                 title: 'Intelligence artificielle',
                 description: 'Recommandations personnalisées et chatbot local',
-                color: 'from-orange-500/10 to-red-500/10',
-                borderColor: 'border-orange-200/50',
-                iconColor: 'text-orange-600'
+                color: 'from-blue-500/10 to-blue-400/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-600'
               }
             ].map((feature, index) => {
               const Icon = feature.icon
@@ -398,7 +398,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Roadmap{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 produit
               </span>
             </h2>
@@ -413,25 +413,25 @@ export default function Home() {
                 title: 'MVP 2026',
                 description: 'Lancement à Reims avec les fonctionnalités essentielles',
                 icon: Rocket,
-                color: 'from-purple-500 to-blue-500',
-                bgColor: 'from-purple-50 to-blue-50',
-                borderColor: 'border-purple-200/50'
+                color: 'from-blue-800 to-blue-600',
+                bgColor: 'from-blue-50 to-blue-50',
+                borderColor: 'border-blue-200/50'
               },
               {
                 title: 'V2 IA',
                 description: 'Intelligence artificielle et recommandations personnalisées',
                 icon: Brain,
-                color: 'from-blue-500 to-cyan-500',
-                bgColor: 'from-blue-50 to-cyan-50',
+                color: 'from-blue-700 to-blue-500',
+                bgColor: 'from-blue-50 to-blue-50',
                 borderColor: 'border-blue-200/50'
               },
               {
                 title: 'V3 Smart City',
                 description: 'Intégration IoT, blockchain et services urbains avancés',
                 icon: Zap,
-                color: 'from-green-500 to-emerald-500',
-                bgColor: 'from-green-50 to-emerald-50',
-                borderColor: 'border-green-200/50'
+                color: 'from-blue-700 to-blue-500',
+                bgColor: 'from-blue-50 to-blue-50',
+                borderColor: 'border-blue-200/50'
               }
             ].map((step, index) => {
               const Icon = step.icon
@@ -472,7 +472,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Villes en{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 expansion
               </span>
             </h2>
@@ -536,9 +536,9 @@ export default function Home() {
                 evenements: 28,
                 quartiers: 6,
                 image: 'https://api.cloudly.space/resize/crop/1200/627/60/aHR0cHM6Ly9jZHQ1MS5tZWRpYS50b3VyaW5zb2Z0LmV1L3VwbG9hZC9ob3RlbC1kZS12aWxsZS1jaGFsb25zLWVuLWNoYW1wYWduZS1mYWNhZGUuSlBH/image.jpg',
-                color: 'from-green-500 to-emerald-500',
-                bgColor: 'bg-green-50',
-                borderColor: 'border-green-200',
+                color: 'from-blue-700 to-blue-500',
+                bgColor: 'bg-blue-50',
+                borderColor: 'border-blue-200',
                 description: 'Préfecture dynamique et accueillante'
               }
             ].map((city, index) => (
@@ -561,7 +561,7 @@ export default function Home() {
                   
                   {/* Badge actif */}
                   <div className="absolute top-3 right-3">
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-green-500/90 backdrop-blur-sm rounded-full">
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-500/90 backdrop-blur-sm rounded-full">
                       <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                       <span className="text-[10px] sm:text-xs font-medium text-white">Actif</span>
                     </div>
@@ -588,7 +588,7 @@ export default function Home() {
                         style={{
                           color: city.name === 'Reims' ? '#2563eb' :
                                  city.name === 'Troyes' ? '#9333ea' :
-                                 '#16a34a'
+                                 '#1e40af'
                         }}
                       >
                         {city.population}
@@ -602,7 +602,7 @@ export default function Home() {
                         style={{
                           color: city.name === 'Reims' ? '#2563eb' :
                                  city.name === 'Troyes' ? '#9333ea' :
-                                 '#16a34a'
+                                 '#1e40af'
                         }}
                       >
                         {city.quartiers}
@@ -646,7 +646,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Statistiques &{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 Impact
               </span>
             </h2>
@@ -663,10 +663,10 @@ export default function Home() {
                 label: 'Utilisateurs',
                 description: 'Dans les 3 premiers mois',
                 progress: 100,
-                color: 'from-blue-500 to-cyan-500',
-                bgColor: 'from-blue-500/10 to-cyan-500/10',
+                color: 'from-blue-800 to-blue-600',
+                bgColor: 'from-blue-500/10 to-blue-500/10',
                 borderColor: 'border-blue-200/50',
-                iconColor: 'text-blue-600'
+                iconColor: 'text-blue-800'
               },
               {
                 icon: MapPin,
@@ -674,10 +674,10 @@ export default function Home() {
                 label: 'Villes pilotes',
                 description: 'Reims, Troyes, Châlons',
                 progress: 100,
-                color: 'from-purple-500 to-pink-500',
-                bgColor: 'from-purple-500/10 to-pink-500/10',
-                borderColor: 'border-purple-200/50',
-                iconColor: 'text-purple-600'
+                color: 'from-blue-800 to-blue-600',
+                bgColor: 'from-blue-500/10 to-blue-500/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-800'
               },
               {
                 icon: Calendar,
@@ -685,10 +685,10 @@ export default function Home() {
                 label: 'Événements',
                 description: 'Créés chaque mois',
                 progress: 85,
-                color: 'from-green-500 to-emerald-500',
-                bgColor: 'from-green-500/10 to-emerald-500/10',
-                borderColor: 'border-green-200/50',
-                iconColor: 'text-green-600'
+                color: 'from-blue-700 to-blue-500',
+                bgColor: 'from-blue-500/10 to-blue-400/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-600'
               },
               {
                 icon: Activity,
@@ -696,10 +696,10 @@ export default function Home() {
                 label: 'Engagement',
                 description: 'Taux de participation actif',
                 progress: 65,
-                color: 'from-orange-500 to-red-500',
-                bgColor: 'from-orange-500/10 to-red-500/10',
-                borderColor: 'border-orange-200/50',
-                iconColor: 'text-orange-600'
+                color: 'from-blue-600 to-blue-400',
+                bgColor: 'from-blue-500/10 to-blue-400/10',
+                borderColor: 'border-blue-200/50',
+                iconColor: 'text-blue-600'
               }
             ].map((stat, index) => {
               const Icon = stat.icon
@@ -752,12 +752,12 @@ export default function Home() {
             className="text-center mb-8 sm:mb-10"
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
-              L'<span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              L'<span className="text-blue-800 font-light">
                 équipe
               </span>
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto mb-4">
-              4 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
+              3 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
             </p>
             <Link href="/equipe">
               <motion.button
@@ -771,12 +771,11 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { name: 'Rody', role: 'CEO & Co-Founder', bio: 'Passionné par l\'innovation locale et le design d\'expérience', color: 'from-purple-600 to-blue-600' },
-              { name: 'Djiby', role: 'Co-Founder & CFO', bio: 'Expert en finance et stratégie d\'entreprise', color: 'from-emerald-600 to-teal-600' },
-              { name: 'Freeway.jr', role: 'CTO & Lead Developer', bio: 'Architecte technique passionné', color: 'from-blue-600 to-indigo-600' },
-              { name: 'Jores', role: 'Growth & Community', bio: 'Passionné par les communautés locales', color: 'from-orange-600 to-red-600' }
+              { name: 'Rody', role: 'CEO & Co-Founder', bio: 'Passionné par l\'innovation locale et le design d\'expérience', color: 'from-blue-800 to-blue-600' },
+              { name: 'Djiby', role: 'Co-Founder & CFO', bio: 'Expert en finance et stratégie d\'entreprise', color: 'from-blue-700 to-blue-500' },
+              { name: 'Freeway.jr', role: 'CTO & Lead Developer', bio: 'Architecte technique passionné', color: 'from-blue-800 to-blue-600' }
             ].map((member, index) => (
               <motion.div
                 key={member.name}
@@ -816,7 +815,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Découvrez{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 Reims
               </span>
             </h2>
@@ -859,12 +858,12 @@ export default function Home() {
                 className="group bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 border border-gray-200/50 sm:hover:border-gray-300 shadow-lg sm:hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2.5 py-1 bg-purple-500/10 text-purple-600 rounded-full text-xs font-medium">
+                  <span className="px-2.5 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                     {article.category}
                   </span>
                   <span className="text-xs text-gray-500 font-light">{article.date}</span>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-800 transition-colors">
                   {article.title}
                 </h3>
                 <p className="text-sm text-gray-600 font-light leading-relaxed mb-4">
@@ -895,7 +894,7 @@ export default function Home() {
           >
             <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight">
               Questions{' '}
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent font-light">
+              <span className="text-blue-800 font-light">
                 fréquentes
               </span>
             </h2>

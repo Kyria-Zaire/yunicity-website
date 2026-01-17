@@ -12,7 +12,7 @@ const teamMembers = [
     skills: ["Vision Stratégique", "Leadership", "Product Design", "UX"],
     linkedin: "https://www.linkedin.com/in/rody-kimuanga-2832191a6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     email: "rodyyunicity@gmail.com",
-    color: "from-purple-600 to-blue-600",
+    color: "from-blue-800 to-blue-600",
     initial: "R",
     photo: null // Peut être remplacé par une URL d'image
   },
@@ -24,7 +24,7 @@ const teamMembers = [
     skills: ["Finance", "Comptabilité", "Stratégie", "Conformité"],
     linkedin: "https://www.linkedin.com/in/djiby-ndione-103553196?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     email: "djiby.yunicity@gmail.com",
-    color: "from-emerald-600 to-teal-600",
+    color: "from-blue-700 to-blue-500",
     initial: "D",
     photo: null
   },
@@ -36,22 +36,10 @@ const teamMembers = [
     skills: ["React/Next.js", "Node.js", "Architecture", "DevOps"],
     linkedin: "#",
     email: "kyriamambu1@gmail.com",
-    color: "from-blue-600 to-indigo-600",
+    color: "from-blue-800 to-blue-600",
     initial: "F",
     photo: null
   },
-  {
-    name: "Jores",
-    role: "Growth & Community Manager",
-    bio: "Passionné par les communautés locales. Transforme chaque utilisateur en ambassadeur engagé de sa ville.",
-    description: "Cultive et engage notre communauté grandissante. Transforme chaque utilisateur en ambassadeur passionné.",
-    skills: ["Community", "Growth Hacking", "Social Media", "Engagement"],
-    linkedin: "#",
-    email: "jores@yunicity.com",
-    color: "from-orange-600 to-red-600",
-    initial: "J",
-    photo: null
-  }
 ]
 
 const teamValues = [
@@ -59,19 +47,19 @@ const teamValues = [
     title: "Ambition",
     description: "Nous visons à transformer la vie locale à grande échelle",
     icon: "🚀",
-    color: "from-purple-500 to-blue-500"
+    color: "from-blue-800 to-blue-600"
   },
   {
     title: "Local",
     description: "L'ancrage territorial est au cœur de notre ADN",
     icon: "🏘️",
-    color: "from-green-500 to-emerald-500"
+    color: "from-blue-700 to-blue-500"
   },
   {
     title: "Innovation",
     description: "Nous repoussons les limites technologiques pour reconnecter",
     icon: "💡",
-    color: "from-orange-500 to-red-500"
+    color: "from-blue-600 to-blue-400"
   }
 ]
 
@@ -86,7 +74,7 @@ export default function EquipeHeroSection() {
       className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden"
     >
       {/* Glow effects très subtils - Réduit sur mobile */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[1000px] h-[600px] sm:h-[1000px] bg-gradient-to-br from-purple-200/10 sm:from-purple-200/20 to-blue-200/10 sm:to-blue-200/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[1000px] h-[600px] sm:h-[1000px] bg-gradient-to-br from-blue-200/10 sm:from-blue-200/20 to-blue-100/10 sm:to-blue-100/20 rounded-full blur-3xl" />
 
       {/* Grille ultra-subtile */}
       <div
@@ -115,7 +103,7 @@ export default function EquipeHeroSection() {
             className="text-2xl sm:text-3xl lg:text-4xl font-light text-gray-900 mb-4 sm:mb-6 tracking-tight leading-[1.1]"
           >
             Rencontrez{' '}
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+            <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
               l'équipe
             </span>
           </motion.h1>
@@ -126,7 +114,7 @@ export default function EquipeHeroSection() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
             className="text-base sm:text-lg text-gray-600 leading-relaxed font-light max-w-3xl mx-auto px-4 mb-4"
           >
-            4 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
+            3 passionnés complémentaires unis par une mission : reconnecter les habitants à leur territoire
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -139,7 +127,7 @@ export default function EquipeHeroSection() {
         </motion.div>
 
         {/* Team Cards Grid - Spotlight Design */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -267,11 +255,11 @@ export default function EquipeHeroSection() {
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
                       onClick={(e) => e.stopPropagation()}
-                      className="relative z-20 w-8 h-8 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-all duration-500 border border-gray-200/50 hover:border-purple-300/50 cursor-pointer"
+                      className="relative z-20 w-8 h-8 bg-gray-100 hover:bg-blue-100 rounded-lg flex items-center justify-center transition-all duration-500 border border-gray-200/50 hover:border-blue-300/50 cursor-pointer"
                       style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
                       aria-label={`Email de ${member.name}`}
                     >
-                      <Mail className="w-4 h-4 text-gray-600 hover:text-purple-600 transition-colors duration-300 pointer-events-none" />
+                      <Mail className="w-4 h-4 text-gray-600 hover:text-blue-800 transition-colors duration-300 pointer-events-none" />
                     </motion.a>
                   )}
                 </div>
@@ -300,7 +288,7 @@ export default function EquipeHeroSection() {
           >
             <h2 className="text-lg sm:text-xl lg:text-2xl font-light text-gray-900 mb-2 sm:mb-3 tracking-tight">
               Nos{' '}
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-normal">
+              <span className="bg-gradient-to-r from-blue-800 to-blue-600 bg-clip-text text-transparent font-normal">
                 valeurs
               </span>
             </h2>

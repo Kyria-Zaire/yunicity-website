@@ -37,8 +37,8 @@ export default function InvestirHeroSection() {
 
   const getRoiColor = () => {
     if (roi < 50) return 'from-gray-500 to-gray-600'
-    if (roi < 100) return 'from-blue-500 to-cyan-500'
-    if (roi < 200) return 'from-purple-500 to-pink-500'
+    if (roi < 100) return 'from-blue-800 to-blue-600'
+    if (roi < 200) return 'from-blue-800 to-blue-600'
     return 'from-green-500 to-emerald-500'
   }
 
@@ -52,8 +52,8 @@ export default function InvestirHeroSection() {
 
 
   const heroStats = [
-    { icon: TrendingUp, label: 'ARR Objectif 2030', value: '5M€', color: 'from-blue-500 to-cyan-500' },
-    { icon: Users, label: 'Utilisateurs cibles', value: '400K', color: 'from-purple-500 to-pink-500' },
+    { icon: TrendingUp, label: 'ARR Objectif 2030', value: '5M€', color: 'from-blue-800 to-blue-600' },
+    { icon: Users, label: 'Utilisateurs cibles', value: '400K', color: 'from-blue-800 to-blue-600' },
     { icon: Award, label: 'Marge brute', value: '85%', color: 'from-green-500 to-emerald-500' },
     { icon: Building2, label: 'Villes connectées', value: '50+', color: 'from-orange-500 to-red-500' }
   ]
@@ -77,7 +77,7 @@ export default function InvestirHeroSection() {
             />
             {/* Overlay avec gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-transparent to-blue-900/20" />
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-blue-800/20" />
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export default function InvestirHeroSection() {
             <div className="mb-12">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]">
                 Investissez dans{' '}
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+                <span className="text-blue-400 font-normal">
                   l'avenir local
                 </span>
               </h1>
@@ -125,7 +125,7 @@ export default function InvestirHeroSection() {
       {/* Calculateur de ROI */}
     <section ref={ref} className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
         {/* Glow effects */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-gradient-to-br from-blue-500/5 to-blue-400/5 rounded-full blur-3xl" />
 
       {/* Grille subtile */}
       <div
@@ -155,7 +155,7 @@ export default function InvestirHeroSection() {
                 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-6 tracking-tight leading-[1.1]"
           >
                 Visualisez votre{' '}
-                <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent font-normal">
+                <span className="text-blue-400 font-normal">
                   retour sur investissement
             </span>
               </motion.h2>
@@ -183,7 +183,7 @@ export default function InvestirHeroSection() {
               <div className="mb-6">
                 <div className="flex items-center justify-between mb-3">
                   <label className="text-white font-light text-base flex items-center gap-2">
-                    <DollarSign className="w-4 h-4 text-purple-400" />
+                    <DollarSign className="w-4 h-4 text-blue-400" />
                     Montant investi
                   </label>
                   <span className="text-xl font-light text-white">
@@ -199,7 +199,7 @@ export default function InvestirHeroSection() {
                   onChange={(e) => setInvestmentAmount(Number(e.target.value))}
                   className="w-full h-2 bg-gray-800 rounded-lg appearance-none cursor-pointer slider"
                   style={{
-                    background: `linear-gradient(to right, rgb(168, 85, 247) 0%, rgb(168, 85, 247) ${((investmentAmount - 10000) / (1000000 - 10000)) * 100}%, rgb(31, 41, 55) ${((investmentAmount - 10000) / (1000000 - 10000)) * 100}%, rgb(31, 41, 55) 100%)`
+                    background: `linear-gradient(to right, rgb(30, 64, 175) 0%, rgb(30, 64, 175) ${((investmentAmount - 10000) / (1000000 - 10000)) * 100}%, rgb(31, 41, 55) ${((investmentAmount - 10000) / (1000000 - 10000)) * 100}%, rgb(31, 41, 55) 100%)`
                   }}
                 />
                 <div className="flex justify-between text-xs text-gray-500 mt-2">
@@ -254,7 +254,7 @@ export default function InvestirHeroSection() {
                       key={projectedValue}
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
-                      className="text-2xl font-light bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent"
+                      className="text-2xl font-light text-blue-400"
                     >
                       {formatCurrency(projectedValue)}
                     </motion.span>
@@ -326,7 +326,7 @@ export default function InvestirHeroSection() {
                             animate={{ width: `${progress}%` }}
                             transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
                             className={`h-full bg-gradient-to-r ${
-                              isLast ? 'from-purple-500 to-blue-500' : 'from-gray-600 to-gray-500'
+                              isLast ? 'from-blue-800 to-blue-600' : 'from-gray-600 to-gray-500'
                             } rounded-full`}
                           />
                       </div>
