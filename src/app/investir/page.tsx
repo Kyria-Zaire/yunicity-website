@@ -8,6 +8,21 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Investir | Yunicity',
   description: 'Decouvrez l\'opportunite d\'investissement Yunicity. Participez au developpement de la plateforme Smart City qui reconnecte les habitants a leur territoire.',
+  metadataBase: new URL('https://yunicity-website.vercel.app'),
+  alternates: { canonical: '/investir' },
+  openGraph: {
+    title: 'Investir | Yunicity',
+    description: 'Decouvrez l\'opportunite d\'investissement Yunicity. Participez au developpement de la plateforme Smart City qui reconnecte les habitants a leur territoire.',
+    url: 'https://yunicity-website.vercel.app/investir',
+    siteName: 'Yunicity',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Investir | Yunicity',
+    description: 'Decouvrez l\'opportunite d\'investissement Yunicity. Participez au developpement de la plateforme Smart City qui reconnecte les habitants a leur territoire.',
+  },
 }
 
 export default function InvestirPage() {

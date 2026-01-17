@@ -8,6 +8,21 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Newsletter | Yunicity',
   description: 'Inscrivez-vous a la newsletter Yunicity pour suivre le lancement de la plateforme et recevoir les dernieres actualites sur le projet.',
+  metadataBase: new URL('https://yunicity-website.vercel.app'),
+  alternates: { canonical: '/newsletter' },
+  openGraph: {
+    title: 'Newsletter | Yunicity',
+    description: 'Inscrivez-vous a la newsletter Yunicity pour suivre le lancement de la plateforme et recevoir les dernieres actualites sur le projet.',
+    url: 'https://yunicity-website.vercel.app/newsletter',
+    siteName: 'Yunicity',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Newsletter | Yunicity',
+    description: 'Inscrivez-vous a la newsletter Yunicity pour suivre le lancement de la plateforme et recevoir les dernieres actualites sur le projet.',
+  },
 }
 
 export default function NewsletterPage() {
