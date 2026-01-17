@@ -134,6 +134,38 @@ const partnerLogos = [
     ),
     title: 'Partenaire 8',
     href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/R.png"
+          alt="Partenaire R"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Partenaire R',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/Tacos.png"
+          alt="Tacos"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Tacos',
+    href: '#'
   }
 ]
 
