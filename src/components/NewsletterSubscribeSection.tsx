@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import LogoLoop from './LogoLoop'
 import Image from 'next/image'
-import { Building2, Store, Heart, MapPin, Coffee, Music, ShoppingBag, Users, Calendar, Sparkles, Zap, Network, ArrowRight, CheckCircle2, Mail } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 // Logos des partenaires et acteurs locaux
 const partnerLogos = [
@@ -305,170 +305,88 @@ export default function NewsletterSubscribeSection() {
   }
 
   return (
-    <section data-section="newsletter-subscribe" className="relative py-20 sm:py-24 md:py-32 bg-white overflow-hidden">
-      {/* Glow effects subtils */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/3 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-blue-500/3 rounded-full blur-3xl" />
-
-      {/* Grille subtile */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
-          `,
-          backgroundSize: '120px 120px'
-        }}
-      />
-
-      <div className="relative container mx-auto px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Formulaire Newsletter - Mise en avant */}
+    <section data-section="newsletter-subscribe" className="relative py-24 sm:py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-2xl mx-auto">
+          {/* Section Formulaire Newsletter - Style Apple/Tesla */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-12 sm:mb-16"
+            transition={{ duration: 0.6 }}
+            className="mb-20"
           >
-            <div className="max-w-3xl mx-auto">
-              {/* Header avec incitation forte */}
+            {/* Header minimaliste */}
+            <div className="text-center mb-10">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-blue-800 mb-4 tracking-tight">
+                Rejoignez les 100 premiers testeurs
+              </h2>
+              <p className="text-lg text-gray-500">
+                Accès exclusif à la bêta. Juillet 2026.
+              </p>
+            </div>
+
+            {/* Formulaire épuré */}
+            {isSuccess ? (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center mb-6 sm:mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-12"
               >
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-light text-gray-900 mb-3 tracking-tight leading-[1.1]">
-                  Rejoignez les{' '}
-                  <span className="text-blue-800 font-normal">
-                    100 premiers testeurs
-                  </span>
-                </h2>
-                <p className="text-sm sm:text-base text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
-                  Soyez parmi les premiers à découvrir Yunicity et à façonner l'avenir de votre ville. Accès exclusif à la bêta en juillet 2026.
+                <CheckCircle2 className="w-12 h-12 mx-auto mb-4 text-blue-800" />
+                <h3 className="text-xl font-medium text-gray-900 mb-2">Inscription réussie</h3>
+                <p className="text-gray-500">
+                  Vous recevrez un email de confirmation sous peu.
                 </p>
               </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-0 transition-colors outline-none text-base text-gray-900 placeholder:text-gray-400"
+                    placeholder="Votre nom"
+                  />
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-0 transition-colors outline-none text-base text-gray-900 placeholder:text-gray-400"
+                    placeholder="votre@email.com"
+                  />
+                </div>
 
-              {/* Formulaire mis en avant */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="bg-white/80 backdrop-blur-xl border-2 border-gray-200/50 rounded-xl p-4 sm:p-6 shadow-xl"
-              >
-                {isSuccess ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-8"
-                  >
-                    <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                      <CheckCircle2 className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Inscription réussie !</h3>
-                    <p className="text-gray-600 font-light">
-                      Vous recevrez un email de confirmation sous peu. Merci de votre intérêt pour Yunicity !
-                    </p>
-                  </motion.div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label htmlFor="name" className="block text-xs font-medium text-gray-700 mb-1.5">
-                          Prénom / Nom
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-2 focus:ring-blue-800/20 transition-all outline-none text-sm"
-                          placeholder="Votre nom"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="email" className="block text-xs font-medium text-gray-700 mb-1.5">
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                          className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-blue-800 focus:ring-2 focus:ring-blue-800/20 transition-all outline-none text-sm"
-                          placeholder="votre@email.com"
-                        />
-                      </div>
-                    </div>
-
-                    {error && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="p-3 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700"
-                      >
-                        {error}
-                      </motion.div>
-                    )}
-
-                    <motion.button
-                      type="submit"
-                      disabled={isSubmitting}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full px-4 py-3 bg-blue-800 hover:bg-blue-700 text-white font-medium text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          <span>Inscription en cours...</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>S'inscrire maintenant</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </motion.button>
-
-                    <p className="text-xs text-gray-500 text-center font-light">
-                      En vous inscrivant, vous acceptez de recevoir des emails de Yunicity. Vous pouvez vous désinscrire à tout moment.
-                    </p>
-                  </form>
+                {error && (
+                  <p className="text-sm text-red-600">{error}</p>
                 )}
-              </motion.div>
 
-              {/* Avantages */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="grid sm:grid-cols-3 gap-4 mt-8"
-              >
-                {[
-                  { icon: Mail, text: 'Accès prioritaire à la bêta' },
-                  { icon: Sparkles, text: 'Influencez le développement' },
-                  { icon: Users, text: 'Rejoignez une communauté exclusive' }
-                ].map((benefit, index) => {
-                  const Icon = benefit.icon
-                  return (
-                    <div key={index} className="flex items-center gap-2 p-2.5 bg-gray-50 rounded-lg">
-                      <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4 text-blue-800" />
-                      </div>
-                      <p className="text-xs text-gray-700 font-light">{benefit.text}</p>
-                    </div>
-                  )
-                })}
-              </motion.div>
-            </div>
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full px-6 py-3 bg-blue-800 hover:bg-blue-900 text-white font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <span>Inscription en cours...</span>
+                  ) : (
+                    <>
+                      <span>S'inscrire</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
+                </motion.button>
+
+                <p className="text-xs text-gray-400 text-center">
+                  Désabonnement possible à tout moment.
+                </p>
+              </form>
+            )}
           </motion.div>
 
           {/* Section Partenaires */}
