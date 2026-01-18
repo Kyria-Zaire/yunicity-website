@@ -140,7 +140,7 @@ const partnerLogos = [
       <div className="flex items-center justify-center h-[110px] w-auto">
         <Image
           src="/images/R.png"
-          alt="Partenaire R"
+          alt="Les Garçons Barbier"
           width={240}
           height={110}
           className="h-full w-auto object-contain"
@@ -148,7 +148,7 @@ const partnerLogos = [
         />
       </div>
     ),
-    title: 'Partenaire R',
+    title: 'Les Garçons Barbier',
     href: '#'
   },
   {
@@ -156,7 +156,7 @@ const partnerLogos = [
       <div className="flex items-center justify-center h-[110px] w-auto">
         <Image
           src="/images/Tacos.png"
-          alt="Tacos"
+          alt="Tacos Gourmands"
           width={240}
           height={110}
           className="h-full w-auto object-contain"
@@ -164,7 +164,107 @@ const partnerLogos = [
         />
       </div>
     ),
-    title: 'Tacos',
+    title: 'Tacos Gourmands',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <div className="bg-gray-800 rounded-xl p-4 flex items-center justify-center">
+          <Image
+            src="/images/Logo-AS-Barber.png"
+            alt="As Barber"
+            width={200}
+            height={90}
+            className="h-auto w-auto object-contain"
+            style={{ maxHeight: '80px' }}
+          />
+        </div>
+      </div>
+    ),
+    title: 'As Barber',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/le-gaulois-debit-de-boissons.png"
+          alt="Le Gaulois"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Le Gaulois',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/Belga-queen.png"
+          alt="Belga Queen"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Belga Queen',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/Marcel-Jane.png"
+          alt="Marcel & Jane"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Marcel & Jane',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <div className="bg-gray-800 rounded-xl p-4 flex items-center justify-center">
+          <Image
+            src="/images/Daiboken.png"
+            alt="Dai Bōken"
+            width={200}
+            height={90}
+            className="h-auto w-auto object-contain"
+            style={{ maxHeight: '80px' }}
+          />
+        </div>
+      </div>
+    ),
+    title: 'Dai Bōken',
+    href: '#'
+  },
+  {
+    node: (
+      <div className="flex items-center justify-center h-[110px] w-auto">
+        <Image
+          src="/images/EatNight2.png"
+          alt="Eat Night"
+          width={240}
+          height={110}
+          className="h-full w-auto object-contain"
+          style={{ maxHeight: '110px' }}
+        />
+      </div>
+    ),
+    title: 'Eat Night',
     href: '#'
   }
 ]
