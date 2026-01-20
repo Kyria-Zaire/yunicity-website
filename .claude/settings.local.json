@@ -17,7 +17,14 @@
       "Bash(findstr:*)",
       "Bash(powershell -Command \"Get-Service | Where-Object {$_DisplayName -like ''*postgres*''} | Select-Object Name, DisplayName, Status\")",
       "Bash(tasklist:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat\\(partners\\): add 6 new partners to logo carousel\n\n- Add Eat Night, As Barber, Tacos Gourmands, Dai Bōken, Marcel & Jane, Belga Queen, Le Gaulois logos\n- Update partner names for Les Garçons Barbier and Tacos Gourmands\n- Add dark background for white logos \\(As Barber, Dai Bōken\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(gh run list:*)",
+      "Bash(git fetch:*)",
+      "Bash(git merge:*)"
     ],
     "deny": [],
     "ask": []

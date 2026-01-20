@@ -81,10 +81,18 @@ export async function POST(request: Request) {
       )
     }
 
+    // Temporairement afficher les détails pour déboguer
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    const hasDbUrl = !!process.env.DATABASE_URL || !!process.env.POSTGRES_URL
+
     return NextResponse.json(
-      { 
-        error: 'Erreur lors de l\'inscription', 
-        details: process.env.NODE_ENV === 'development' ? String(error) : undefined 
+      {
+        error: 'Erreur lors de l\'inscription',
+        details: errorMessage,
+        debug: {
+          hasDbUrl,
+          nodeEnv: process.env.NODE_ENV
+        }
       },
       { status: 500 }
     )
