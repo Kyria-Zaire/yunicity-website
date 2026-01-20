@@ -18,23 +18,19 @@ interface DatabaseError extends Error {
 
 // Configuration de la connexion PostgreSQL
 const getDatabaseConfig = (): DatabaseConfig => {
-  // Option 1: URL complète Vercel Postgres (priorité)
-  if (process.env.POSTGRES_URL) {
-    return { 
-      connectionString: process.env.POSTGRES_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  // Option 1: URL complète (Neon, Vercel Postgres, etc.)
+  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL
+
+  if (connectionString) {
+    // Nettoyer l'URL pour enlever channel_binding qui peut causer des problèmes
+    const cleanedUrl = connectionString.replace(/&?channel_binding=require/g, '')
+    return {
+      connectionString: cleanedUrl,
+      ssl: { rejectUnauthorized: false }
     }
   }
 
-  // Option 2: URL complète standard (Docker, autres hébergeurs)
-  if (process.env.DATABASE_URL) {
-    return { 
-      connectionString: process.env.DATABASE_URL,
-      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
-    }
-  }
-
-  // Option 3: Variables séparées (pour plus de flexibilité)
+  // Option 2: Variables séparées (pour plus de flexibilité)
   // Dans Docker, utiliser le nom du service 'postgres', sinon 'localhost' pour développement local
   const host = process.env.DB_HOST || process.env.POSTGRES_HOST || (process.env.NODE_ENV === 'production' ? 'postgres' : 'localhost')
   const port = parseInt(process.env.DB_PORT || process.env.POSTGRES_PORT || '5432', 10)
