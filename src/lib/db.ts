@@ -19,7 +19,7 @@ interface DatabaseError extends Error {
 // Configuration de la connexion PostgreSQL
 const getDatabaseConfig = (): DatabaseConfig => {
   // Option 1: URL complète (Neon, Vercel Postgres, etc.)
-  const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL
+  const connectionString = process.env.DATABASE_URL_RESTORE_NEWSLETTER || process.env.POSTGRES_URL
 
   if (connectionString) {
     // Nettoyer l'URL pour enlever channel_binding qui peut causer des problèmes
